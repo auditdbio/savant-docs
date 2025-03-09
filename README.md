@@ -1,3 +1,58 @@
+# Savant Chat - Smart Contract Security
+
+Documentation and static website for Savant Chat. The site is built using [Docusaurus](https://docusaurus.io/).
+
+## Development
+
+### Local Setup
+
+```bash
+npm install
+npm start
+```
+
+The site will be available at: http://localhost:3000
+
+### Build
+
+```bash
+npm run build
+```
+
+The built site will be located in the `build/` directory.
+
+## Docker
+
+### Building Docker Image
+
+```bash
+docker build -t savant-docs .
+```
+
+### Running Docker Container
+
+```bash
+docker run -p 3000:3000 savant-docs
+```
+
+The site will be available at: http://localhost:3000
+
+## Docker Compose
+
+For easier development and testing, you can use Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+The site will be available at: http://localhost:3000
+
+### Stopping
+
+```bash
+docker-compose down
+```
+
 # Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.

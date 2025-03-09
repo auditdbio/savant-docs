@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  savant-site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: savant-docs
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    # volumes:
+    #   - ./build:/app 

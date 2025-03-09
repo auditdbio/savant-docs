@@ -1,0 +1,88 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Savant Color Scheme */
+:root {
+  /* Savant Primary (Orange) */
+  --ifm-color-primary: #FF6B00;
+  --ifm-color-primary-dark: #E65D00;
+  --ifm-color-primary-darker: #D05500;
+  --ifm-color-primary-darkest: #B84C00;
+  --ifm-color-primary-light: #FF7B1A;
+  --ifm-color-primary-lighter: #FF8C33;
+  --ifm-color-primary-lightest: #FF9D4D;
+  
+  /* Savant Secondary (Purple) */
+  --ifm-color-secondary: rgb(82, 23, 109);
+  --ifm-color-secondary-dark: rgb(71, 20, 95);
+  --ifm-color-secondary-darker: rgb(60, 17, 80);
+  --ifm-color-secondary-darkest: rgb(49, 14, 65);
+  --ifm-color-secondary-light: rgb(93, 26, 123);
+  --ifm-color-secondary-lighter: rgb(104, 29, 137);
+  --ifm-color-secondary-lightest: rgb(115, 32, 152);
+  
+  /* Gray Scale */
+  --savant-gray-50: #f9fafb;
+  --savant-gray-100: #f3f4f6;
+  --savant-gray-600: #4b5563;
+  --savant-gray-700: #374151;
+  --savant-gray-900: #111827;
+  
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #FF7B1A;
+  --ifm-color-primary-dark: #FF6B00;
+  --ifm-color-primary-darker: #E65D00;
+  --ifm-color-primary-darkest: #D05500;
+  --ifm-color-primary-light: #FF8C33;
+  --ifm-color-primary-lighter: #FF9D4D;
+  --ifm-color-primary-lightest: #FFAD66;
+  
+  --ifm-color-secondary: rgb(104, 29, 137);
+  --ifm-color-secondary-dark: rgb(93, 26, 123);
+  --ifm-color-secondary-darker: rgb(82, 23, 109);
+  --ifm-color-secondary-darkest: rgb(71, 20, 95);
+  --ifm-color-secondary-light: rgb(115, 32, 152);
+  --ifm-color-secondary-lighter: rgb(126, 35, 167);
+  --ifm-color-secondary-lightest: rgb(137, 38, 182);
+  
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles */
+.navbar {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  background-color: var(--savant-gray-50);
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Sign In Button */
+.sign-in-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: var(--ifm-color-primary);
+  color: white !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  text-decoration: none !important;
+}
+
+.sign-in-button:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: white !important;
+  text-decoration: none !important;
+}
