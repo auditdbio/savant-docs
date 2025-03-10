@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
+import PerformanceGraph from '@site/static/img/performance_graph.svg';
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
@@ -222,21 +223,21 @@ export default function Home() {
               <p className="text-xl text-secondary mt-4 font-semibold">Proven Excellence in Smart Contract Security</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-              <div className="space-y-6">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Based on <a href="https://ctfbench.com" className="text-primary hover:text-primary/80 underline" target="_blank" rel="noopener noreferrer">CTFBench</a> benchmarks, Savant.Chat leads the industry with a <span className="font-semibold text-primary">95.2% Vulnerability Detection Rate</span> while maintaining one of the lowest false positive rates at just <span className="font-semibold text-primary">0.027</span> overreporting index.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  This means more accurate vulnerability detection and fewer false alarms, saving your team valuable time and resources.
-                </p>
-              </div>
+            <div className="grid md:grid-cols-1 gap-12 items-center max-w-5xl mx-auto">
               <div className="relative">
-                <img 
-                  src="/img/performance_graph.png" 
-                  alt="Savant.Chat Performance Graph" 
-                  className="rounded-lg shadow-lg"
-                />
+                <div className="rounded-lg shadow-lg bg-white p-4">
+                  <PerformanceGraph />
+                </div>
+                <div className="text-center mt-4">
+                  <a 
+                    href="https://ctfbench.com" 
+                    className="text-primary hover:text-primary/80 underline" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    View on CTFBench
+                  </a>
+                </div>
               </div>
             </div>
           </div>
