@@ -2,7 +2,6 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import './styles.css';
 
 export default function FooterWrapper() {
   const {footer} = useThemeConfig();

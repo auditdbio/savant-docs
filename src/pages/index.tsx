@@ -3,11 +3,9 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
-import './index.module.css';
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
-  const getStartedLink = "/login"; // В Docusaurus можно будет добавить проверку авторизации
   
   const jsonLd = {
     "@context": "https://schema.org",
@@ -36,11 +34,11 @@ export default function Home() {
       title={`${siteConfig.title} - Smart Contract Security Powered by Advanced AI`}
       description="Comprehensive analysis, real-time monitoring, and automated vulnerability detection for your blockchain projects">
       <Head>
-        {/* JSON-LD для поисковых систем */}
+        {/* JSON-LD for search engines */}
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
-        {/* Дополнительные мета-теги для SEO */}
+        {/* Additional meta tags for SEO */}
         <meta name="description" content="Savant Chat provides AI-powered smart contract security analysis, helping blockchain developers and auditors identify vulnerabilities faster." />
         <meta property="og:title" content="Savant Chat - Smart Contract Security Powered by Advanced AI" />
         <meta property="og:description" content="Comprehensive analysis, real-time monitoring, and automated vulnerability detection for your blockchain projects." />
@@ -52,7 +50,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className="bg-secondary text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="text-center space-y-6">
+            <div className="text-center space-y-8">
               <h1 className="text-5xl md:text-6xl font-bold leading-tight">
                 <span className="text-white/90">Smart Contract Security</span>
                 <br />
@@ -61,16 +59,16 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
                 Comprehensive analysis, real-time monitoring, and automated vulnerability detection for your blockchain projects
               </p>
-              <div className="flex justify-center space-x-4 pt-2">
-                <Link 
-                  to={getStartedLink} 
-                  className="hero-button hero-button-primary"
+              <div className="flex justify-center space-x-4">
+                <a 
+                  href="/dashboard/login"
+                  className="inline-flex items-center bg-white text-secondary px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"
                 >
                   Get Started
-                </Link>
+                </a>
                 <Link 
                   to="/pricing" 
-                  className="hero-button hero-button-secondary"
+                  className="inline-flex items-center bg-secondary text-white border-2 border-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-secondary-hover transition-colors shadow-lg"
                 >
                   View Pricing
                 </Link>
@@ -80,7 +78,7 @@ export default function Home() {
         </div>
 
         {/* What is Savant.Chat Section */}
-        <section className="bg-white py-20">
+        <section className="bg-gray-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900">What is Savant.Chat?</h2>
@@ -137,7 +135,7 @@ export default function Home() {
         </section>
 
         {/* For Teams Section */}
-        <section className="bg-gray-50 py-20">
+        <section className="bg-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900">Built for Your Team</h2>
@@ -211,6 +209,34 @@ export default function Home() {
                     <span className="text-gray-700">Catch the bugs in the earlier stage of development</span>
                   </li>
                 </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Performance Metrics Section */}
+        <section className="bg-gray-50 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900">Industry-Leading Performance</h2>
+              <p className="text-xl text-secondary mt-4 font-semibold">Proven Excellence in Smart Contract Security</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="space-y-6">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Based on <a href="https://ctfbench.com" className="text-primary hover:text-primary/80 underline" target="_blank" rel="noopener noreferrer">CTFBench</a> benchmarks, Savant.Chat leads the industry with a <span className="font-semibold text-primary">95.2% Vulnerability Detection Rate</span> while maintaining one of the lowest false positive rates at just <span className="font-semibold text-primary">0.027</span> overreporting index.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  This means more accurate vulnerability detection and fewer false alarms, saving your team valuable time and resources.
+                </p>
+              </div>
+              <div className="relative">
+                <img 
+                  src="/img/performance_graph.png" 
+                  alt="Savant.Chat Performance Graph" 
+                  className="rounded-lg shadow-lg"
+                />
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 module.exports = {
   corePlugins: {
-    preflight: false,
-    container: false,
+    preflight: true,
+    container: true,
   },
   content: ["./src/**/*.{jsx,js,tsx,html}"],
   darkMode: false, // or 'media' or 'class'

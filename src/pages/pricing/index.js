@@ -2,8 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Head from '@docusaurus/Head';
-import '../../pages/index.module.css';
-import styles from './styles.module.css';
 
 export default function Pricing() {
   const {siteConfig} = useDocusaurusContext();
@@ -46,203 +44,202 @@ export default function Pricing() {
       title={`Pricing - ${siteConfig.title}`}
       description="Pricing plans for Savant.Chat smart contract audit services">
       <Head>
-        {/* JSON-LD для поисковых систем */}
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
-        {/* Дополнительные мета-теги для SEO */}
         <meta name="description" content="See Savant.Chat pricing plans for smart contract security audits. Pay only for what you use, with flexible options for every need." />
         <meta property="og:title" content="Pricing - Savant Chat" />
         <meta property="og:description" content="Pricing plans for Savant.Chat smart contract audit services. Simple and transparent pricing." />
         <meta property="og:image" content="https://savant.chat/img/logo_short.svg" />
         <link rel="canonical" href="https://savant.chat/pricing" />
       </Head>
-      <div className="container">
-        <div className={`${styles.pricingContainer} space-y-12`}>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="space-y-12">
           {/* Hero Section */}
           <div className="text-center">
-            <h1 className={`${styles.heroTitle} text-secondary mb-4`}>Simple, Transparent Pricing</h1>
-            <p className={styles.heroSubtitle}>
+            <h1 className="text-4xl font-bold text-secondary mb-4">Simple, Transparent Pricing</h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Pay only for what you use, with flexible options for every need
             </p>
           </div>
 
           {/* Per-Line Pricing */}
-          <div className={styles.pricingSection}>
+          <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="text-center mb-8">
-              <h2 className={`${styles.sectionTitle} text-secondary mb-4`}>Pay-As-You-Go Pricing</h2>
-              <div className={styles.priceBadge}>
-                <span className={styles.priceLarge}>$1</span>
-                <div className={styles.priceUnit}>
-                  <span>per</span>
+              <h2 className="text-2xl font-bold text-secondary mb-4">Pay-As-You-Go Pricing</h2>
+              <div className="flex items-center justify-center space-x-2">
+                <span className="text-5xl font-bold text-primary">$1</span>
+                <div className="text-left">
+                  <span className="text-gray-600">per</span>
                   <br />
-                  <span>line of code</span>
+                  <span className="text-gray-600">line of code</span>
                 </div>
               </div>
-              <p className={styles.pricingDescription}>
+              <p className="mt-4 text-gray-600 max-w-xl mx-auto">
                 Approximately $1/line, with final pricing based on actual token count after upload.
               </p>
             </div>
             
-            <div className={styles.featureGrid}>
-              <div className={styles.featureCard}>
-                <div className={styles.featureIconContainer}>
-                  <div className={styles.featureIcon}>
-                    <svg className={styles.featureSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              <div className="bg-gray-50 rounded-lg p-6 flex items-start">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
                 </div>
-                <div className={styles.featureContent}>
-                  <h3 className={styles.featureTitle}>Accelerate Your Audit Process</h3>
-                  <p className={styles.featureDescription}>AI-powered analysis helps both auditors and development teams spot vulnerabilities faster and streamline their workflow</p>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-secondary mb-2">Accelerate Your Audit Process</h3>
+                  <p className="text-gray-600">AI-powered analysis helps both auditors and development teams spot vulnerabilities faster and streamline their workflow</p>
                 </div>
               </div>
 
-              <div className={styles.featureCard}>
-                <div className={styles.featureIconContainer}>
-                  <div className={styles.featureIcon}>
-                    <svg className={styles.featureSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gray-50 rounded-lg p-6 flex items-start">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
                 </div>
-                <div className={styles.featureContent}>
-                  <h3 className={styles.featureTitle}>Instant Results</h3>
-                  <p className={styles.featureDescription}>Get comprehensive analysis in minutes, not weeks, enabling rapid iteration and deployment</p>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-secondary mb-2">Instant Results</h3>
+                  <p className="text-gray-600">Get comprehensive analysis in minutes, not weeks, enabling rapid iteration and deployment</p>
                 </div>
               </div>
 
-              <div className={styles.featureCard}>
-                <div className={styles.featureIconContainer}>
-                  <div className={styles.featureIcon}>
-                    <svg className={styles.featureSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gray-50 rounded-lg p-6 flex items-start">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
-                <div className={styles.featureContent}>
-                  <h3 className={styles.featureTitle}>Transparent Pricing</h3>
-                  <p className={styles.featureDescription}>See the exact price when you upload your contracts</p>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-secondary mb-2">Transparent Pricing</h3>
+                  <p className="text-gray-600">See the exact price when you upload your contracts</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Account Tiers */}
-          <div className={styles.pricingSection}>
-            <h2 className={`${styles.sectionTitle} text-secondary mb-8 text-center`}>Account Tiers</h2>
-            <div className={styles.tiersGrid}>
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-bold text-secondary mb-8 text-center">Account Tiers</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Basic Tier */}
-              <div className={`${styles.tierCard} ${styles.basicTier}`}>
-                <div className={styles.tierHeader}>
-                  <span className={styles.tierBadgeBasic}>Basic</span>
-                  <div className={styles.tierPricing}>
-                    <p className={styles.tierLabel}>Monthly Limit</p>
-                    <p className={styles.tierPrice}>$500</p>
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-primary transition-colors">
+                <div className="text-center">
+                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-primary/10 text-primary">Basic</span>
+                  <div className="mt-4">
+                    <p className="text-gray-500">Monthly Limit</p>
+                    <p className="text-4xl font-bold text-secondary">$500</p>
                   </div>
                 </div>
-                <ul className={styles.tierFeatures}>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <ul className="mt-6 space-y-4">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Standard audit queue
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     150 lines welcome pack included for free
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     No KYC required
                   </li>
                 </ul>
-                <button className={styles.comingSoonButton} disabled>
+                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
                   Coming Soon
                 </button>
               </div>
 
               {/* Pro Tier */}
-              <div className={`${styles.tierCard} ${styles.proTier}`}>
-                <div className={styles.tierHeader}>
-                  <span className={styles.tierBadgePro}>Pro</span>
-                  <div className={styles.tierPricing}>
-                    <p className={styles.tierLabel}>Monthly Limit</p>
-                    <p className={styles.tierPrice}>$5,000</p>
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-secondary transition-colors">
+                <div className="text-center">
+                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-secondary/10 text-secondary">Pro</span>
+                  <div className="mt-4">
+                    <p className="text-gray-500">Monthly Limit</p>
+                    <p className="text-4xl font-bold text-secondary">$5,000</p>
                   </div>
                 </div>
-                <ul className={styles.tierFeatures}>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <ul className="mt-6 space-y-4">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Priority audit processing
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Unlimited lines per request
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Priority support
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     KYC required
                   </li>
                 </ul>
-                <button className={styles.comingSoonButton} disabled>
+                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
                   Coming Soon
                 </button>
               </div>
 
               {/* Enterprise Tier */}
-              <div className={`${styles.tierCard} ${styles.enterpriseTier}`}>
-                <div className={styles.tierHeader}>
-                  <span className={styles.tierBadgeEnterprise}>Enterprise</span>
-                  <div className={styles.tierPricing}>
-                    <p className={styles.tierLabel}>Monthly Limit</p>
-                    <p className={styles.tierPrice}>Custom</p>
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-gray-900 transition-colors">
+                <div className="text-center">
+                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-gray-100 text-gray-800">Enterprise</span>
+                  <div className="mt-4">
+                    <p className="text-gray-500">Monthly Limit</p>
+                    <p className="text-4xl font-bold text-secondary">Custom</p>
                   </div>
                 </div>
-                <ul className={styles.tierFeatures}>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <ul className="mt-6 space-y-4">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Expedited audit pipeline
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Custom volume discounts
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Dedicated support
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Custom integration options
                   </li>
                 </ul>
-                <button className={styles.comingSoonButton} disabled>
+                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
                   Coming Soon
                 </button>
               </div>
@@ -250,89 +247,89 @@ export default function Pricing() {
           </div>
 
           {/* Subscription Options */}
-          <div className={styles.pricingSection}>
-            <h2 className={`${styles.sectionTitle} text-secondary mb-8 text-center`}>Subscription Plans</h2>
-            <div className={styles.tiersGrid}>
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-bold text-secondary mb-8 text-center">Subscription Plans</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Basic Subscription */}
-              <div className={`${styles.subscriptionCard} ${styles.basicTier}`}>
-                <div className={styles.subscriptionHeader}>
-                  <span className={styles.tierBadgeBasic}>Basic Tier</span>
-                  <div className={styles.subscriptionPricing}>
-                    <span className={styles.tierPrice}>$350</span>
-                    <p className={styles.subscriptionValue}>Get $500 worth of requests</p>
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-primary transition-colors flex flex-col h-full">
+                <div className="text-center mb-4">
+                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-primary/10 text-primary">Basic Tier</span>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-secondary">$350</span>
                   </div>
+                  <p className="text-gray-500 mt-2">Get $500 worth of requests</p>
                 </div>
-                <ul className={styles.tierFeatures}>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <ul className="mt-6 space-y-4 flex-grow">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     30% savings on requests
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Monthly subscription
                   </li>
                 </ul>
-                <button className={styles.comingSoonButton} disabled>
+                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
                   Coming Soon
                 </button>
               </div>
 
               {/* Pro Subscription */}
-              <div className={`${styles.subscriptionCard} ${styles.proTier}`}>
-                <div className={styles.subscriptionHeader}>
-                  <span className={styles.tierBadgePro}>Pro Tier</span>
-                  <div className={styles.subscriptionPricing}>
-                    <span className={styles.tierPrice}>$3,500</span>
-                    <p className={styles.subscriptionValue}>Get $5,000 worth of requests</p>
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-secondary transition-colors flex flex-col h-full">
+                <div className="text-center mb-4">
+                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-secondary/10 text-secondary">Pro Tier</span>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-secondary">$3,500</span>
                   </div>
+                  <p className="text-gray-500 mt-2">Get $5,000 worth of requests</p>
                 </div>
-                <ul className={styles.tierFeatures}>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <ul className="mt-6 space-y-4 flex-grow">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     30% savings on requests
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Monthly subscription
                   </li>
                 </ul>
-                <button className={styles.comingSoonButton} disabled>
+                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
                   Coming Soon
                 </button>
               </div>
 
               {/* Enterprise Subscription */}
-              <div className={`${styles.subscriptionCard} ${styles.enterpriseTier}`}>
-                <div className={styles.subscriptionHeader}>
-                  <span className={styles.tierBadgeEnterprise}>Enterprise</span>
-                  <div className={styles.subscriptionPricing}>
-                    <span className={styles.tierPrice}>Custom</span>
-                    <p className={styles.subscriptionValue}>Contact us for custom pricing</p>
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-gray-900 transition-colors flex flex-col h-full">
+                <div className="text-center mb-4">
+                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-gray-100 text-gray-800">Enterprise</span>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-secondary">Custom</span>
                   </div>
+                  <p className="text-gray-500 mt-2">Contact us for custom pricing</p>
                 </div>
-                <ul className={styles.tierFeatures}>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <ul className="mt-6 space-y-4 flex-grow">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Custom volume discounts
                   </li>
-                  <li className={styles.tierFeature}>
-                    <svg className={styles.checkIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Annual billing available
                   </li>
                 </ul>
-                <button className={styles.comingSoonButton} disabled>
+                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
                   Contact Us
                 </button>
               </div>
@@ -340,24 +337,24 @@ export default function Pricing() {
           </div>
 
           {/* FAQ Section */}
-          <div className={styles.pricingSection}>
-            <h2 className={`${styles.sectionTitle} mb-8 text-center`}>Frequently Asked Questions</h2>
-            <div className={styles.faqGrid}>
-              <div className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>How is the price calculated?</h3>
-                <p className={styles.faqAnswer}>While we show approximate pricing based on lines of code, the final price is calculated based on the actual token count in your smart contracts. You'll see the exact price when you upload your files.</p>
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">How is the price calculated?</h3>
+                <p className="text-gray-600">While we show approximate pricing based on lines of code, the final price is calculated based on the actual token count in your smart contracts. You'll see the exact price when you upload your files.</p>
               </div>
-              <div className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>What payment methods do you accept?</h3>
-                <p className={styles.faqAnswer}>Currently, we're working on implementing various payment methods. Please contact us for available options.</p>
+              <div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">What payment methods do you accept?</h3>
+                <p className="text-gray-600">Currently, we're working on implementing various payment methods. Please contact us for available options.</p>
               </div>
-              <div className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>Can I upgrade my tier later?</h3>
-                <p className={styles.faqAnswer}>Yes, you can upgrade your tier at any time. Contact our support team for assistance with the upgrade process.</p>
+              <div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Can I upgrade my tier later?</h3>
+                <p className="text-gray-600">Yes, you can upgrade your tier at any time. Contact our support team for assistance with the upgrade process.</p>
               </div>
-              <div className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>What's included in the audit?</h3>
-                <p className={styles.faqAnswer}>Our AI performs comprehensive security analysis of your Solidity smart contracts, focusing on identifying potential vulnerabilities and security issues.</p>
+              <div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">What's included in the audit?</h3>
+                <p className="text-gray-600">Our AI performs comprehensive security analysis of your Solidity smart contracts, focusing on identifying potential vulnerabilities and security issues.</p>
               </div>
             </div>
           </div>

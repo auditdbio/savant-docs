@@ -1,8 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import '../../pages/index.module.css';
-import styles from '../terms-of-service/styles.module.css';
 
 export default function Imprint() {
   const {siteConfig} = useDocusaurusContext();
@@ -11,47 +9,53 @@ export default function Imprint() {
     <Layout
       title={`Imprint - ${siteConfig.title}`}
       description="Imprint and Legal Information for Savant.Chat">
-      <div className="container">
-        <div className="row">
-          <div className="col col--12">
-            <div className={styles.policyContainer}>
-              <h1 className={styles.policyTitle}>Imprint</h1>
-              
-              <h2>Service Operator</h2>
-              <p>
-                This AI-based code auditing service "Savant Chat" is operated by NOVEL CODES DMCC, 
-                a company registered in Dubai, United Arab Emirates.
-              </p>
-              
-              <h2>Company Information</h2>
-              <p>
-                <strong>Company Name:</strong> Novel Codes DMCC<br />
-                <strong>Registered Office:</strong> Unit No. 1409, Preatoni Tower (Plot No. JLT-PH1-L2A), 
-                Jumeirah Lakes Towers (JLT), Dubai, UAE.<br />
-                <strong>Trade License / Registration Number:</strong> DMCC193534 (Registered with Dubai Multi Commodities Centre)<br />
-                <strong>Legal Form:</strong> DMCC Free Zone Company (Dubai Multi Commodities Centre)
-              </p>
-              
-              <h2>Representation</h2>
-              <p>
-                <strong>Represented By:</strong> Igor Gulamov, General Manager
-              </p>
-              
-              <h2>Contact Information</h2>
-              <p>
-                <strong>Email:</strong> <a href="mailto:hello@savant.chat">hello@savant.chat</a> (for general inquiries)<br />
-                <strong>Website:</strong> <a href="https://savant.chat" target="_blank" rel="noopener noreferrer">https://savant.chat</a>
-              </p>
-              
-              <h2>Liability for Content</h2>
-              <p>
-                The contents of our website have been created with utmost care. However, we cannot guarantee the accuracy, 
-                completeness, or timeliness of the content. As a service provider, we are responsible for our own content 
-                on these pages according to general laws. We are not obliged to monitor transmitted or stored third-party 
-                information or to investigate circumstances that indicate illegal activity.
-              </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="prose max-w-none">
+          <h1 className="text-3xl font-bold mb-8">Imprint</h1>
+          
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">Service Operator</h2>
+            <p className="mb-4">
+              This AI-based code auditing service "Savant Chat" is operated by <strong>NOVEL CODES DMCC</strong>, 
+              a company registered in Dubai, United Arab Emirates.
+            </p>
+            
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <dl className="grid grid-cols-1 gap-4">
+                <div>
+                  <dt className="font-semibold">Company Name</dt>
+                  <dd>Novel Codes DMCC</dd>
+                </div>
+                
+                <div>
+                  <dt className="font-semibold">Registered Office</dt>
+                  <dd>Unit No. 1409, Preatoni Tower (Plot No. JLT-PH1-L2A), Jumeirah Lakes Towers (JLT), Dubai, UAE.</dd>
+                </div>
+                
+                <div>
+                  <dt className="font-semibold">Trade License / Registration Number</dt>
+                  <dd>DMCC193534 (Registered with Dubai Multi Commodities Centre)</dd>
+                </div>
+                
+                <div>
+                  <dt className="font-semibold">Legal Form</dt>
+                  <dd>DMCC Free Zone Company (Dubai Multi Commodities Centre)</dd>
+                </div>
+                
+                <div>
+                  <dt className="font-semibold">Represented By</dt>
+                  <dd><strong>Igor Gulamov</strong>, General Manager</dd>
+                </div>
+              </dl>
             </div>
-          </div>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
+            <p className="mb-4">
+              <strong>Email:</strong> <a href="mailto:hello@savant.chat" className="text-secondary hover:text-secondary-hover">hello@savant.chat</a> (for general inquiries)
+            </p>
+          </section>
         </div>
       </div>
     </Layout>
