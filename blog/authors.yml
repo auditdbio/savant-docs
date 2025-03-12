@@ -1,23 +1,11 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
-  page: true
-  socials:
-    x: yangshunz
-    github: yangshun
-
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+snjax:
+  name: Igor Gulamov
+  title: ZK Researcher and AI Security Ethusiast
+  url: https://github.com/snjax
+  image_url: https://avatars.githubusercontent.com/u/1750575?s=400&u=0ca6b8ce8ff95d3f3d172216c95371e589e6d23e
   page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+    permalink: '/all-igor-gulamov-articles'
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    x: igorgulamov
+    github: snjax
+

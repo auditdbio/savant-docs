@@ -55,7 +55,22 @@ const config: Config = {
       'classic',
       {
         docs: false, 
-        blog: false, 
+        blog: {
+          path: 'blog',
+          blogTitle: 'Savant Blog',
+          blogDescription: 'Smart Contract Security Insights',
+          blogSidebarCount: 5,
+          blogSidebarTitle: 'Recent Posts',
+          routeBasePath: 'blog',
+          postsPerPage: 10,
+          showReadingTime: true,
+          feedOptions: {
+            type: 'all',
+            title: 'Savant Chat Blog',
+            description: 'Smart Contract Security Insights and Updates',
+            copyright: `Copyright © ${new Date().getFullYear()} Novel Codes DMCC`,
+          },
+        }, 
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -92,6 +107,7 @@ const config: Config = {
       },
       items: [
         {to: '/pricing', label: 'Pricing', position: 'left'},
+        {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'custom-SignInButton',
           position: 'right',
