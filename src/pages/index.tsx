@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import PerformanceGraph from '@site/static/img/performance_graph.svg';
+import TweetCarousel from '../components/TweetCarousel';
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
@@ -238,6 +239,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Tweet Carousel */}
+        <TweetCarousel />
 
         {/* Why Choose Savant Chat Section */}
         <section className="bg-white py-20">

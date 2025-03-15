@@ -59,3 +59,69 @@
   
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* В конец файла добавляем стили для карусели с твитами */
+
+/* Стили для Twitter карусели */
+.tweet-carousel .slick-prev,
+.tweet-carousel .slick-next {
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+}
+
+.tweet-carousel .slick-prev {
+  left: -40px;
+}
+
+.tweet-carousel .slick-next {
+  right: -40px;
+}
+
+.tweet-carousel .slick-prev:before,
+.tweet-carousel .slick-next:before {
+  font-size: 30px;
+  color: var(--ifm-color-primary);
+  opacity: 0.75;
+}
+
+.tweet-carousel .slick-dots li button:before {
+  color: var(--ifm-color-primary);
+}
+
+.tweet-carousel .slick-dots li.slick-active button:before {
+  color: var(--ifm-color-primary-darker);
+}
+
+/* Добавляем отступы для слайдов */
+.tweet-slide {
+  padding: 20px;
+}
+
+/* Стиль для контейнера твита */
+.tweet-slide > div {
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+}
+
+.tweet-slide > div:hover {
+  transform: translateY(-5px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .tweet-carousel .slick-prev {
+    left: -30px;
+  }
+  
+  .tweet-carousel .slick-next {
+    right: -30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tweet-carousel .slick-prev,
+  .tweet-carousel .slick-next {
+    display: none !important;
+  }
+}
