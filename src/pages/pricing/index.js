@@ -41,15 +41,15 @@ export default function Pricing() {
   
   return (
     <Layout
-      title={`Pricing - ${siteConfig.title}`}
-      description="Pricing plans for Savant.Chat smart contract audit services">
+      title="Pricing"
+      description="Pricing plans for Savant Chat smart contract audit services">
       <Head>
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
-        <meta name="description" content="See Savant.Chat pricing plans for smart contract security audits. Pay only for what you use, with flexible options for every need." />
+        <meta name="description" content="See Savant Chat pricing plans for smart contract security audits. Pay only for what you use, with flexible options for every need." />
         <meta property="og:title" content="Pricing - Savant Chat" />
-        <meta property="og:description" content="Pricing plans for Savant.Chat smart contract audit services. Simple and transparent pricing." />
+        <meta property="og:description" content="Pricing plans for Savant Chat smart contract audit services. Simple and transparent pricing." />
         <meta property="og:image" content="https://savant.chat/img/logo_short.svg" />
         <link rel="canonical" href="https://savant.chat/pricing" />
       </Head>

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Starting Savant.Chat website..."
+echo "Starting Savant Chat website..."
 docker-compose up -d
 
 echo ""

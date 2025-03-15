@@ -32,7 +32,7 @@ export default function Home() {
   
   return (
     <Layout
-      title={`${siteConfig.title} - Smart Contract Security Powered by Advanced AI`}
+      title="AI Smart Contract Auditor Agent"
       description="Comprehensive analysis, real-time monitoring, and automated vulnerability detection for your blockchain projects">
       <Head>
         {/* JSON-LD for search engines */}
@@ -41,10 +41,6 @@ export default function Home() {
         </script>
         {/* Additional meta tags for SEO */}
         <meta name="description" content="Savant Chat provides AI-powered smart contract security analysis, helping blockchain developers and auditors identify vulnerabilities faster." />
-        <meta property="og:title" content="Savant Chat - Smart Contract Security Powered by Advanced AI" />
-        <meta property="og:description" content="Comprehensive analysis, real-time monitoring, and automated vulnerability detection for your blockchain projects." />
-        <meta property="og:image" content="https://savant.chat/img/logo_short.svg" />
-        <link rel="canonical" href="https://savant.chat/" />
       </Head>
       
       <div>
@@ -78,11 +74,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* What is Savant.Chat Section */}
+        {/* What is Savant Chat Section */}
         <section className="bg-gray-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900">What is Savant.Chat?</h2>
+              <h2 className="text-4xl font-bold text-gray-900">What is Savant Chat?</h2>
               <p className="mt-4 text-xl text-secondary font-semibold">Next-Gen Audit Collaboration Tool</p>
             </div>
             
@@ -108,7 +104,7 @@ export default function Home() {
                         <h3 className="text-xl font-semibold text-gray-900">Smart & Efficient</h3>
                       </div>
                       <p className="text-gray-700 leading-relaxed">
-                        Savant.Chat is a next-gen audit collaboration tool designed for blockchain auditors, developers, and security teams. Whether you're auditing smart contracts or securing your decentralized product, we streamline the process—fast, transparent, and efficient.
+                        Savant Chat is a next-gen audit collaboration tool designed for blockchain auditors, developers, and security teams. Whether you're auditing smart contracts or securing your decentralized product, we streamline the process—fast, transparent, and efficient.
                       </p>
                     </div>
                     
@@ -243,11 +239,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why Choose Savant.Chat Section */}
+        {/* Why Choose Savant Chat Section */}
         <section className="bg-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900">Why Choose Savant.Chat?</h2>
+              <h2 className="text-4xl font-bold text-gray-900">Why Choose Savant Chat?</h2>
               <p className="text-xl text-secondary mt-4 font-semibold">Next-Level Security for Web3 Innovators</p>
             </div>
 

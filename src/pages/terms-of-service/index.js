@@ -8,8 +8,8 @@ export default function TermsOfService() {
   
   return (
     <Layout
-      title={`Terms of Service - ${siteConfig.title}`}
-      description="Terms of Service for Savant.Chat">
+      title="Terms of Service"
+      description="Terms of Service for Savant Chat">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="prose max-w-none">
           <h1 className="text-3xl font-bold mb-8">Terms of Service</h1>

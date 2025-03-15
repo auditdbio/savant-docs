@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Stopping Savant.Chat website..."
+echo "Stopping Savant Chat website..."
 docker-compose down
 
 echo ""

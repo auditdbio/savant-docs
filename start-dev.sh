@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Starting Savant.Chat website in development mode..."
+echo "Starting Savant Chat website in development mode..."
 docker-compose -f docker-compose.dev.yml up -d
 
 echo ""

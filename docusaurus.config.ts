@@ -17,7 +17,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'savant', // Usually your GitHub org/user name.
+  organizationName: 'auditdbio', // Usually your GitHub org/user name.
   projectName: 'savant-docs', // Usually your repo name.
 
   onBrokenLinks: 'warn',
@@ -57,7 +57,7 @@ const config: Config = {
         docs: false, 
         blog: {
           path: 'blog',
-          blogTitle: 'Savant Blog',
+          blogTitle: 'Blog',
           blogDescription: 'Smart Contract Security Insights',
           blogSidebarCount: 5,
           blogSidebarTitle: 'Recent Posts',
@@ -76,7 +76,7 @@ const config: Config = {
         },
         // SEO settings
         sitemap: {
-          changefreq: 'weekly',
+          changefreq: 'daily',
           priority: 0.5,
         },
       } satisfies Preset.Options,
@@ -88,14 +88,14 @@ const config: Config = {
     metadata: [
       {name: 'keywords', content: 'smart contract, security, audit, blockchain, AI, ethereum, solidity, web3, defi'},
       {name: 'twitter:card', content: 'summary_large_image'},
-      {name: 'twitter:title', content: 'Savant Chat - Smart Contract Security Powered by Advanced AI'},
-      {name: 'twitter:description', content: 'Comprehensive analysis, real-time monitoring, and automated vulnerability detection for your blockchain projects'},
-      {name: 'og:type', content: 'website'},
-      {name: 'og:title', content: 'Savant Chat - Smart Contract Security'},
-      {name: 'og:description', content: 'AI-powered smart contract security analysis and auditing'},
-      {name: 'og:image', content: 'https://savant.chat/img/logo_short.svg'},
-      {name: 'og:url', content: 'https://savant.chat'},
-      {name: 'og:site_name', content: 'Savant Chat'},
+      {name: 'twitter:title', content: 'Savant Chat - AI Smart Contract Auditor Agent'},
+      {name: 'twitter:description', content: 'Smart Contract Security Powered by Advanced AI'},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:title', content: 'Savant Chat - AI Smart Contract Auditor Agent'},
+      {property: 'og:description', content: 'Smart Contract Security Powered by Advanced AI'},
+      {property: 'og:image', content: 'https://savant.chat/img/logo_short.svg'},
+      {property: 'og:url', content: 'https://savant.chat'},
+      {property: 'og:site_name', content: 'Savant Chat'},
     ],
     // Replace with your project's social card
     image: 'img/logo_short.svg',
