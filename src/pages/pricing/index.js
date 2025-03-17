@@ -51,7 +51,6 @@ export default function Pricing() {
         <meta property="og:title" content="Pricing - Savant Chat" />
         <meta property="og:description" content="Pricing plans for Savant Chat smart contract audit services. Simple and transparent pricing." />
         <meta property="og:image" content="https://savant.chat/img/logo_short.svg" />
-        <link rel="canonical" href="https://savant.chat/pricing" />
       </Head>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

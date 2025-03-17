@@ -146,13 +146,6 @@ const config: Config = {
     {
       tagName: 'link',
       attributes: {
-        rel: 'canonical',
-        href: 'https://savant.chat',
-      },
-    },
-    {
-      tagName: 'link',
-      attributes: {
         rel: 'manifest',
         href: '/manifest.json',
       },
