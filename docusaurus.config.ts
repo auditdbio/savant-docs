@@ -4,16 +4,34 @@ import type * as Preset from '@docusaurus/preset-classic';
 import tailwindPlugin from "./plugins/tailwind-config.cjs";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-const config: Config = {
-  title: 'Savant Chat',
-  tagline: 'Smart Contract Security Powered by Advanced AI',
-  favicon: 'img/savant-favicon.svg',
+// Extending Config type to support serverMiddleware
+type EnhancedConfig = Config & {
+  serverMiddleware?: () => Promise<any[]>;
+};
+
+const config: EnhancedConfig = {
+  title: "Savant Chat",
+  tagline: "Smart Contract Security Powered by Advanced AI",
+  favicon: "img/savant-favicon.svg",
 
   // Set the production url of your site here
   url: 'https://savant.chat',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
+
+  // Custom fields for configuration
+  customFields: {
+    proxyUrl: process.env.PROXY_URL || "",
+    // Enable local cache usage
+    useLocalTweetCache: true,
+    // Always enable strict mode for tweets (only preloaded ones)
+    strictTweetLoading: true,
+    // Proxy settings for StaticTweet
+    useProxy: process.env.USE_PROXY === "true",
+    envProxyUrl: process.env.PROXY_URL || "",
+    reactTweetApi: "https://react-tweet.vercel.app/api/tweet",
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -47,14 +65,20 @@ const config: Config = {
       },
     ],
     */
-    tailwindPlugin
+    tailwindPlugin,
+    [
+      "./src/plugins/docusaurus-plugin-tweets/index.mjs",
+      {
+        // Add any plugin options if needed
+      },
+    ],
   ],
 
   presets: [
     [
       'classic',
       {
-        docs: false, 
+        docs: false,
         blog: {
           path: 'blog',
           blogTitle: 'Blog',
@@ -86,16 +110,35 @@ const config: Config = {
   themeConfig: {
     // Open Graph and Twitter metadata
     metadata: [
-      {name: 'keywords', content: 'smart contract, security, audit, blockchain, AI, ethereum, solidity, web3, defi'},
-      {name: 'twitter:card', content: 'summary_large_image'},
-      {name: 'twitter:title', content: 'Savant Chat - AI Smart Contract Auditor Agent'},
-      {name: 'twitter:description', content: 'Smart Contract Security Powered by Advanced AI'},
-      {property: 'og:type', content: 'website'},
-      {property: 'og:title', content: 'Savant Chat - AI Smart Contract Auditor Agent'},
-      {property: 'og:description', content: 'Smart Contract Security Powered by Advanced AI'},
-      {property: 'og:image', content: 'https://savant.chat/img/logo_short.svg'},
-      {property: 'og:url', content: 'https://savant.chat'},
-      {property: 'og:site_name', content: 'Savant Chat'},
+      {
+        name: "keywords",
+        content:
+          "smart contract, security, audit, blockchain, AI, ethereum, solidity, web3, defi",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Savant Chat - AI Smart Contract Auditor Agent",
+      },
+      {
+        name: "twitter:description",
+        content: "Smart Contract Security Powered by Advanced AI",
+      },
+      { property: "og:type", content: "website" },
+      {
+        property: "og:title",
+        content: "Savant Chat - AI Smart Contract Auditor Agent",
+      },
+      {
+        property: "og:description",
+        content: "Smart Contract Security Powered by Advanced AI",
+      },
+      {
+        property: "og:image",
+        content: "https://savant.chat/img/logo_short.svg",
+      },
+      { property: "og:url", content: "https://savant.chat" },
+      { property: "og:site_name", content: "Savant Chat" },
     ],
     // Replace with your project's social card
     image: 'img/logo_short.svg',
