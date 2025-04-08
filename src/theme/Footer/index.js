@@ -80,6 +80,10 @@ export default function FooterWrapper() {
           <p className="text-center text-gray-400 text-sm">
             © {new Date().getFullYear()} Novel Codes DMCC. All rights reserved.
           </p>
+          <div className="flex justify-center items-center mt-4">
+            <img src={useBaseUrl('/img/visa_mastercard_unionpay.jpg')} alt="Visa, Mastercard, UnionPay" className="h-4 mr-2" />
+            <img src={useBaseUrl('/img/amex.png')} alt="American Express" className="h-4" />
+          </div>
         </div>
       </div>
     </footer>

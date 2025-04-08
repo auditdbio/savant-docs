@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
         <div className="prose max-w-none">
           <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
           
-          <p className="text-gray-600 mb-8">Last Updated: February 16, 2025</p>
+          <p className="text-gray-600 mb-8">Last Updated: April 8, 2025</p>
           
           <p className="mb-8">Your privacy is important to us. This Privacy Policy describes what information <strong>Savant Chat</strong> collects, how it is used, and what rights you have regarding your data when using our AI-based code auditing service.</p>
           
@@ -35,11 +35,13 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Personal Information and Account Data</h2>
             <p className="mb-4">To use Savant Chat, you may need to create an account or provide basic information (such as an email address for login). Any <strong>personal information</strong> you provide during registration or account use is used only for <strong>account management, authentication, and customer support</strong> purposes.</p>
+            <p className="mb-4">All credit/debit cards' details and personally identifiable information will NOT be stored, sold, shared, rented or leased to any third parties. https://savant.chat/ will not pass any debit/credit card details to third parties.</p>
           </section>
           
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Data Security</h2>
             <p className="mb-4">We implement <strong>reasonable security measures</strong> (administrative, technical, and physical) designed to protect your information from unauthorized access or disclosure.</p>
+            <p className="mb-4">https://savant.chat/ takes appropriate steps to ensure data privacy and security including through various hardware and software methodologies. However, https://savant.chat/ (website) cannot guarantee the security of any information that is disclosed online.</p>
           </section>
           
           <section className="mb-8">
@@ -53,6 +55,11 @@ export default function PrivacyPolicy() {
           </section>
           
           <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">Third-Party Websites</h2>
+            <p className="mb-4">https://savant.chat/ is not responsible for the privacy policies of websites to which it links. If you provide any information to such third parties different rules regarding the collection and use of your personal information may apply. You should contact these entities directly if you have any questions about their use of the information that they collect.</p>
+          </section>
+          
+          <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Compliance and Children's Privacy</h2>
             <p className="mb-4">Savant Chat is intended for use by professionals and individuals over the age of 18. We do not knowingly collect personal information from children under 13 (or under the age of consent applicable in your jurisdiction).</p>
           </section>
@@ -60,6 +67,7 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Changes to This Privacy Policy</h2>
             <p className="mb-4">We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.</p>
+            <p className="mb-4">The Website Policies and Terms & Conditions may be changed or updated occasionally to meet the requirements and standards. Therefore, the Customers' are encouraged to frequently visit these sections to be updated about the changes on the website. Modifications will be effective on the day they are posted.</p>
           </section>
           
           <section className="mb-8">

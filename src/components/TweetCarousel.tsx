@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -74,6 +74,9 @@ export default function TweetCarousel({ tweetIds }: TweetCarouselProps) {
   const { siteConfig } = useDocusaurusContext();
   const globalData = useGlobalData() as GlobalData;
   const { isMobile, isLessThan800 } = useIsMobile();
+  const [maxHeight, setMaxHeight] = useState<number>(0);
+  const tweetRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sliderRef = useRef<Slider | null>(null);
 
   // Always use strict mode - only show tweets from cache
   const strictMode = true;
@@ -86,6 +89,45 @@ export default function TweetCarousel({ tweetIds }: TweetCarouselProps) {
     const isValid = tweet && isValidTweetData(tweet);
     return isValid;
   });
+
+  // Calculate max height of all tweets
+  useEffect(() => {
+    if (typeof window !== "undefined" && tweetRefs.current.length > 0) {
+      const calculateMaxHeight = () => {
+        const heights = tweetRefs.current
+          .filter(Boolean)
+          .map((ref) => ref?.clientHeight || 0);
+        
+        const newMaxHeight = Math.max(...heights);
+        if (newMaxHeight > 0 && newMaxHeight !== maxHeight) {
+          setMaxHeight(newMaxHeight);
+          
+          // Apply vertical centering to each tweet
+          tweetRefs.current.forEach((ref) => {
+            if (ref) {
+              const height = ref.clientHeight;
+              const topMargin = Math.floor((newMaxHeight - height) / 2);
+              ref.style.marginTop = `${topMargin}px`;
+            }
+          });
+        }
+      };
+      
+      // Initial calculation
+      calculateMaxHeight();
+      
+      // Recalculate on window resize
+      window.addEventListener("resize", calculateMaxHeight);
+      
+      // Cleanup
+      return () => window.removeEventListener("resize", calculateMaxHeight);
+    }
+  }, [filteredTweetIds, maxHeight]);
+
+  // Initialize refs for each tweet
+  useEffect(() => {
+    tweetRefs.current = tweetRefs.current.slice(0, filteredTweetIds.length);
+  }, [filteredTweetIds]);
 
   if (filteredTweetIds.length === 0) {
     return null;
@@ -101,7 +143,7 @@ export default function TweetCarousel({ tweetIds }: TweetCarouselProps) {
     autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,
-    adaptiveHeight: true,
+    adaptiveHeight: false, // Disable adaptive height to use our custom height
     fade: !isMobile, // Disable fade effect on mobile for better performance
     cssEase: "ease-out",
     arrows: isLessThan800 ? false : true, // Hide arrows on screens smaller than 800px
@@ -125,10 +167,19 @@ export default function TweetCarousel({ tweetIds }: TweetCarouselProps) {
           </p>
         </div>
 
-        <div className="mx-auto max-w-full md:max-w-4xl tweet-carousel-container">
-          <Slider {...sliderSettings} className="tweet-carousel">
-            {filteredTweetIds.map((tweetId) => (
-              <div key={tweetId} className="px-2 md:px-4 tweet-slide-wrapper">
+        <div 
+          className="mx-auto max-w-full md:max-w-4xl tweet-carousel-container"
+          style={{ 
+            minHeight: maxHeight > 0 ? `${maxHeight}px` : 'auto' 
+          }}
+        >
+          <Slider {...sliderSettings} className="tweet-carousel" ref={sliderRef}>
+            {filteredTweetIds.map((tweetId, index) => (
+              <div 
+                key={tweetId} 
+                className="px-2 md:px-4 tweet-slide-wrapper"
+                ref={el => { tweetRefs.current[index] = el; }}
+              >
                 <div className="tweet-slide-content">
                   <StaticTweet tweetId={tweetId} />
                 </div>

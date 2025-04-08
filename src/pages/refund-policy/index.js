@@ -39,6 +39,12 @@ export default function RefundPolicy() {
           </section>
           
           <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">Cancellation of Ordered Services</h2>
+            <p className="mb-4">Customer can cancel their order/requested services within 24 hours; refunds will be made back to the payment solution used initially by the customer. Please allow for up to 45 days for the refund transfer to be completed.</p>
+            <p className="mb-4">This cancellation policy applies only to services that have not been provided or started at the time of cancellation. If service delivery has already begun, cancellation may not be possible or may result in partial refund.</p>
+          </section>
+          
+          <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Timeline for Refund Processing</h2>
             <p className="mb-4">If a refund is approved, we will process it as quickly as possible. Please allow some time for the refund to be reflected in your original payment method. Typically, once approved, we will issue the refund within a few business days, but your bank or credit card provider might take an additional 5-10 business days to post the credit to your account.</p>
           </section>
@@ -46,6 +52,7 @@ export default function RefundPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Method of Refund</h2>
             <p className="mb-4">Refunds will be made using the same payment method which was used for the original deposit whenever possible. For instance, if you paid via credit card, the refund will be credited back to that card; if you paid via bank transfer, we will return the funds to the same bank account.</p>
+            <p className="mb-4">Refunds will be done only through the Original Mode of Payment and will be processed within 10 to 45 days depends on the issuing bank of the credit card.</p>
           </section>
           
           <section className="mb-8">

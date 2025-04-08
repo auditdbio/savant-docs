@@ -15,6 +15,11 @@ export default function TermsOfService() {
           <h1 className="text-3xl font-bold mb-8">Terms of Service</h1>
           
           <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
+            <p className="mb-4"><strong>Novel Codes DMCC</strong> maintains the https://savant.chat/ Website ("Site"). United Arab of Emirates is our country of domicile. By using our services, you agree to these Terms of Service.</p>
+          </section>
+          
+          <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Experimental Beta Service (Provided "AS IS")</h2>
             <p className="mb-4"><strong>Savant Chat</strong> is an <strong>experimental</strong> AI-based code auditing service provided on an "as is" and "as available" basis, <strong>without any warranties</strong> or guarantees of performance. We make <strong>no promise</strong> that the service will be uninterrupted or error-free. Given its beta and AI-driven nature, the service may <strong>fail</strong>, experience <strong>downtime</strong>, or be subject to <strong>DoS attacks</strong> or other disruptions. <strong>You assume full responsibility</strong> for using the service under these conditions.</p>
           </section>
@@ -51,7 +56,17 @@ export default function TermsOfService() {
           
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Restricted Countries and Export Compliance</h2>
-            <p className="mb-4">Savant Chat is <strong>not intended for use by individuals or entities in countries that are subject to trade sanctions, embargoes, or other restrictive measures</strong> under United Arab Emirates law, United States law, or other applicable international regulations.</p>
+            <p className="mb-4">Savant Chat is <strong>not intended for use by individuals or entities in countries that are subject to trade sanctions, embargoes, or other restrictive measures</strong> under United Arab Emirates law, United States law, or other applicable international regulations. We will not trade with or provide any services to OFAC and sanctioned countries.</p>
+          </section>
+          
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">User Accounts and Responsibilities</h2>
+            <p className="mb-4">User is responsible for maintaining the confidentiality of his account. Customer using the website who are Minor /under the age of 18 shall not register as a User of the website and shall not transact on or use the website.</p>
+          </section>
+          
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">Payment Terms</h2>
+            <p className="mb-4">Visa or MasterCard debit and credit cards in AED will be accepted for payment. The displayed price and currency at the checkout page, will be the same price and currency printed on the Transaction Receipt and the amount charged to the card will be shown in your card currency. Cardholder must retain a copy of transaction records and https://savant.chat/pricing policies and rules. Once the payment is made, the confirmation notice will be sent to the client via email within 24 hours of receipt.</p>
           </section>
           
           <section className="mb-8">
@@ -61,7 +76,7 @@ export default function TermsOfService() {
           
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Governing Law and Jurisdiction</h2>
-            <p className="mb-4">These Terms of Service and any dispute or claim arising from your use of Savant Chat are governed by the <strong>laws of the United Arab Emirates</strong>.</p>
+            <p className="mb-4">These Terms of Service and any dispute or claim arising from your use of Savant Chat are governed by the <strong>laws of the United Arab Emirates</strong>. Any purchase, dispute or claim arising out of or in connection with this website shall be governed and construed in accordance with the laws of UAE.</p>
           </section>
           
           <section className="mb-8">
