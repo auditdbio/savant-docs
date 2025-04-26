@@ -70,7 +70,6 @@ export default function Pricing() {
               <div className="flex items-center justify-center space-x-2">
                 <div className="flex items-center">
                   <span className="text-5xl font-bold text-gray-400 line-through">$1</span>
-                  <span className="text-5xl font-bold text-primary ml-2">$0.25*</span>
                 </div>
                 <div className="text-left">
                   <span className="text-gray-600">per</span>
@@ -80,8 +79,6 @@ export default function Pricing() {
               </div>
               <p className="mt-4 text-gray-600 max-w-xl mx-auto">
                 Approximately $1/line, with final pricing based on actual token count after upload.
-                <br />
-                <span className="text-sm italic">*Special discount applies for delayed audits</span>
               </p>
             </div>
             
