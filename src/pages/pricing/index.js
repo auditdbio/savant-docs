@@ -66,19 +66,21 @@ export default function Pricing() {
           {/* Per-Line Pricing */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-secondary mb-4">Pay-As-You-Go Pricing</h2>
-              <div className="flex items-center justify-center space-x-2">
-                <div className="flex items-center">
-                  <span className="text-5xl font-bold text-gray-400 line-through">$1</span>
+              <h2 className="text-2xl font-bold text-secondary mb-6">Pay-As-You-Go Pricing</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+                <div className="text-center">
+                  <h3 className="text-5xl font-bold text-secondary mb-2">$0.07</h3>
+                  <p className="text-lg font-medium text-secondary mb-1">Lite</p>
+                  <p className="text-gray-600">Runs on more efficient models with lower price.</p>
                 </div>
-                <div className="text-left">
-                  <span className="text-gray-600">per</span>
-                  <br />
-                  <span className="text-gray-600">line of code</span>
+                <div className="text-center">
+                  <h3 className="text-5xl font-bold text-secondary mb-2">$0.12</h3>
+                  <p className="text-lg font-medium text-secondary mb-1">Advanced</p>
+                  <p className="text-gray-600">Comprehensive analysis using advanced models.</p>
                 </div>
               </div>
-              <p className="mt-4 text-gray-600 max-w-xl mx-auto">
-                Approximately $1/line, with final pricing based on actual token count after upload.
+              <p className="mt-6 text-gray-600 max-w-xl mx-auto">
+                Final pricing based on actual token count after upload.
               </p>
             </div>
             
@@ -151,18 +153,15 @@ export default function Pricing() {
                     <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    150 lines welcome pack included for free
+                    No KYC required
                   </li>
                   <li className="flex items-center text-gray-600">
                     <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    No KYC required
+                    Includes $75 welcome bonus
                   </li>
                 </ul>
-                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
-                  Coming Soon
-                </button>
               </div>
 
               {/* Pro Tier */}
@@ -200,9 +199,6 @@ export default function Pricing() {
                     KYC required
                   </li>
                 </ul>
-                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
-                  Coming Soon
-                </button>
               </div>
 
               {/* Enterprise Tier */}
@@ -240,9 +236,6 @@ export default function Pricing() {
                     Custom integration options
                   </li>
                 </ul>
-                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
-                  Coming Soon
-                </button>
               </div>
             </div>
           </div>
