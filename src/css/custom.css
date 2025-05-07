@@ -286,6 +286,10 @@
   opacity: 1;
 }
 
+.tweet-carousel .slick-current {
+  opacity: 1 !important;
+}
+
 .tweet-carousel .slick-dots {
   bottom: -30px;
 }
@@ -302,6 +306,10 @@
 
   .tweet-wrapper {
     padding: 8px;
+  }
+
+  .tweet-carousel .slick-slide {
+    opacity: 1 !important;
   }
 }
 
