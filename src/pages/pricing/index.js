@@ -26,14 +26,14 @@ export default function Pricing() {
         "@type": "PriceSpecification",
         "name": "Basic Tier",
         "description": "Monthly Limit",
-        "price": "500.00",
+        "price": "250.00",
         "priceCurrency": "USD"
       },
       {
         "@type": "PriceSpecification",
         "name": "Pro Tier",
         "description": "Monthly Limit",
-        "price": "5000.00",
+        "price": "2500.00",
         "priceCurrency": "USD"
       }
     ]
@@ -139,7 +139,7 @@ export default function Pricing() {
                   <span className="inline-block px-4 py-1 rounded-full text-sm bg-primary/10 text-primary">Basic</span>
                   <div className="mt-4">
                     <p className="text-gray-500">Monthly Limit</p>
-                    <p className="text-4xl font-bold text-secondary">$500</p>
+                    <p className="text-4xl font-bold text-secondary">$250</p>
                   </div>
                 </div>
                 <ul className="mt-6 space-y-4">
@@ -170,7 +170,7 @@ export default function Pricing() {
                   <span className="inline-block px-4 py-1 rounded-full text-sm bg-secondary/10 text-secondary">Pro</span>
                   <div className="mt-4">
                     <p className="text-gray-500">Monthly Limit</p>
-                    <p className="text-4xl font-bold text-secondary">$5,000</p>
+                    <p className="text-4xl font-bold text-secondary">$2,500</p>
                   </div>
                 </div>
                 <ul className="mt-6 space-y-4">
@@ -249,9 +249,9 @@ export default function Pricing() {
                 <div className="text-center mb-4">
                   <span className="inline-block px-4 py-1 rounded-full text-sm bg-primary/10 text-primary">Basic Tier</span>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-secondary">$350</span>
+                    <span className="text-4xl font-bold text-secondary">$175</span>
                   </div>
-                  <p className="text-gray-500 mt-2">Get $500 worth of requests</p>
+                  <p className="text-gray-500 mt-2">Get $250 worth of requests</p>
                 </div>
                 <ul className="mt-6 space-y-4 flex-grow">
                   <li className="flex items-center text-gray-600">
@@ -277,9 +277,9 @@ export default function Pricing() {
                 <div className="text-center mb-4">
                   <span className="inline-block px-4 py-1 rounded-full text-sm bg-secondary/10 text-secondary">Pro Tier</span>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-secondary">$3,500</span>
+                    <span className="text-4xl font-bold text-secondary">$1,750</span>
                   </div>
-                  <p className="text-gray-500 mt-2">Get $5,000 worth of requests</p>
+                  <p className="text-gray-500 mt-2">Get $2,500 worth of requests</p>
                 </div>
                 <ul className="mt-6 space-y-4 flex-grow">
                   <li className="flex items-center text-gray-600">

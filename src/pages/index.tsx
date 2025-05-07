@@ -397,8 +397,8 @@ export default function Home(): ReactElement {
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
+                <div className="flex items-start space-x-4 flex-row md:flex-col lg:flex-row items-start md:items-center lg:items-start">
+                  <div className="flex-shrink-0 mb-3">
                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-secondary text-white">
                       <svg
                         className="h-6 w-6"
@@ -427,8 +427,8 @@ export default function Home(): ReactElement {
               </div>
 
               <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
+                <div className="flex items-start space-x-4 flex-row md:flex-col lg:flex-row items-start md:items-center lg:items-start">
+                  <div className="flex-shrink-0 mb-3">
                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-secondary text-white">
                       <svg
                         className="h-6 w-6"
@@ -457,8 +457,8 @@ export default function Home(): ReactElement {
               </div>
 
               <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
+                <div className="flex items-start space-x-4 flex-row md:flex-col lg:flex-row items-start md:items-center lg:items-start">
+                  <div className="flex-shrink-0 mb-3">
                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-secondary text-white">
                       <svg
                         className="h-6 w-6"
