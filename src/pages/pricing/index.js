@@ -65,9 +65,12 @@ export default function Pricing() {
 
           {/* Per-Line Pricing */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-secondary mb-6">Pay-As-You-Go Pricing</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold text-secondary mb-3">Pay-As-You-Go Pricing</h2>
+              <p className="mb-10 md:mb-8 text-gray-600 max-w-xl mx-auto">
+                Final pricing based on actual token count after upload.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-center">
                 <div className="text-center">
                   <h3 className="text-5xl font-bold text-secondary mb-2">$0.07</h3>
                   <p className="text-lg font-medium text-secondary mb-1">Lite</p>
@@ -78,13 +81,15 @@ export default function Pricing() {
                   <p className="text-lg font-medium text-secondary mb-1">Advanced</p>
                   <p className="text-gray-600">Comprehensive analysis using advanced models.</p>
                 </div>
+                <div className="text-center md:col-span-2 md:justify-self-center lg:col-span-1 lg:justify-self-auto">
+                  <h3 className="text-5xl font-bold text-secondary mb-2">$0.30</h3>
+                  <p className="text-lg font-medium text-secondary mb-1">Pro</p>
+                  <p className="text-gray-600">Premium analysis with highest-quality models.</p>
+                </div>
               </div>
-              <p className="mt-6 text-gray-600 max-w-xl mx-auto">
-                Final pricing based on actual token count after upload.
-              </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-gray-50 rounded-lg p-6 flex items-start">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
