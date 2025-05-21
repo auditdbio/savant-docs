@@ -82,7 +82,7 @@ export default function Pricing() {
                   <p className="text-gray-600">Comprehensive analysis using advanced models.</p>
                 </div>
                 <div className="text-center md:col-span-2 md:justify-self-center lg:col-span-1 lg:justify-self-auto">
-                  <h3 className="text-5xl font-bold text-secondary mb-2">$0.30</h3>
+                  <h3 className="text-5xl font-bold text-secondary mb-2">$0.50</h3>
                   <p className="text-lg font-medium text-secondary mb-1">Pro</p>
                   <p className="text-gray-600">Premium analysis with highest-quality models.</p>
                 </div>
