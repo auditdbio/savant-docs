@@ -205,17 +205,17 @@ const AnalysisDemo = () => {
   const earlyColorTransitionStartRef = useRef<number>(0); // Ref for early color change
 
   // State for the current panel width
-  const [currentPanelWidth, setCurrentPanelWidth] = useState<number>(getCurrentPanelWidth());
+  const [currentPanelWidth, setCurrentPanelWidth] = useState<number>(RESPONSIVE_PANEL_WIDTHS.lg); // Default value
   // State for the current padding left
-  const [currentPaddingLeft, setCurrentPaddingLeft] = useState<number>(getCurrentPaddingLeft());
+  const [currentPaddingLeft, setCurrentPaddingLeft] = useState<number>(-5); // Default value
   // State to track if screen is xs or smaller
-  const [isScreenXsOrSmaller, setIsScreenXsOrSmaller] = useState<boolean>(window.innerWidth < BREAKPOINTS.xs);
+  const [isScreenXsOrSmaller, setIsScreenXsOrSmaller] = useState<boolean>(false); // Default value
 
   // State for adaptive font size
-  const [currentFontSize, setCurrentFontSize] = useState<number>(window.innerWidth < BREAKPOINTS.xs ? 10 : 13);
+  const [currentFontSize, setCurrentFontSize] = useState<number>(13); // Default value (larger size)
 
   // State for adaptive demo container height
-  const [currentDemoContainerHeight, setCurrentDemoContainerHeight] = useState<number>(getCurrentDemoContainerHeight());
+  const [currentDemoContainerHeight, setCurrentDemoContainerHeight] = useState<number>(DEMO_CONTAINER_HEIGHT); // Default value
   // State for adaptive panel vertical offset
   const [currentPanelVerticalOffset, setCurrentPanelVerticalOffset] = useState<number>(PANEL_VERTICAL_OFFSET);
 
@@ -280,14 +280,7 @@ const AnalysisDemo = () => {
     setIsPanelVisible(false); 
     setPanelContentOpacity(1); 
     setPinnedVulnerabilityPanels([]); // Clear pinned panels on full reset
-    setCurrentPanelWidth(getCurrentPanelWidth()); // Also reset panel width
-    setCurrentPaddingLeft(getCurrentPaddingLeft()); // Also reset padding left
-    setIsScreenXsOrSmaller(window.innerWidth < BREAKPOINTS.xs); // Also reset screen size check
-    setCurrentFontSize(window.innerWidth < BREAKPOINTS.xs ? 10 : 13); // Reset font size
-    // Update adaptive height and offset on HMR too
-    setCurrentDemoContainerHeight(getCurrentDemoContainerHeight());
-    setCurrentPanelVerticalOffset(PANEL_VERTICAL_OFFSET);
-    resizeCanvas();
+    resizeCanvas(); // This will correctly set values on client-side
   }, [blocksData, resizeCanvas]);
 
   // Initial setup for canvas size and on resize

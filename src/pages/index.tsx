@@ -48,14 +48,14 @@ export default function Home(): ReactElement {
       <div>
         {/* Hero Section */}
         <div className="text-white bg-secondary">
-          <div className="flex flex-col lg:flex-row justify-between items-center mx-auto max-w-[1920px] py-0 space-y-12 lg:space-y-0">
-            <div className="flex flex-col lg:w-1/2 text-center lg:text-left space-y-8 px-0 lg:px-8 xl:px-12">
-              <h1 className="text-4xl md:text-5xl text-center font-bold leading-tight">
+          <div className="flex flex-col lg:flex-row justify-between items-center mx-auto max-w-[1920px] min-h-[494px] py-0 space-y-12 lg:space-y-0">
+            <div className="flex flex-col lg:w-1/2 text-center lg:text-left space-y-8 py-20 lg:py-0 px-0 lg:px-8 xl:px-12">
+              <h1 className="text-4xl md:text-5xl lg:text-4xl xl:text-5xl text-center font-bold leading-tight">
                 <span className="text-white/90">Smart Contract Security</span>
                 <br />
                 <span className="text-white">Powered by Advanced AI</span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 text-center max-w-3xl mx-auto lg:mx-0 leading-relaxed self-center">
+              <p className="text-xl md:text-2xl lg:text-xl xl:text-2xl text-white/80 text-center max-w-3xl mx-auto lg:mx-0 leading-relaxed self-center">
                 Comprehensive analysis, real-time monitoring, and automated
                 vulnerability detection for your blockchain projects
               </p>
@@ -74,7 +74,7 @@ export default function Home(): ReactElement {
                 </Link>
               </div>
             </div>
-            <div className="lg:w-1/2 w-full flex justify-center lg:justify-end">
+            <div className="lg:w-1/2 w-full h-[465px] lg:h-[494px] flex justify-center lg:justify-end bg-white">
               <div className="w-full">
                 <AnalysisDemo />
               </div>
