@@ -7,6 +7,7 @@ import PerformanceGraph from "@site/static/img/performance_graph.svg";
 import TweetCarousel from "../components/TweetCarousel";
 import useGlobalData from "@docusaurus/useGlobalData";
 import clsx from "clsx";
+import AnalysisDemo from "../components/AnalysisDemo/AnalysisDemo";
 
 interface GlobalData {
   "docusaurus-plugin-tweets"?: {
@@ -46,31 +47,36 @@ export default function Home(): ReactElement {
 
       <div>
         {/* Hero Section */}
-        <div className="bg-secondary text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="text-center space-y-8">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+        <div className="text-white bg-secondary">
+          <div className="flex flex-col lg:flex-row justify-between items-center mx-auto max-w-[1920px] min-h-[494px] py-0 space-y-12 lg:space-y-0">
+            <div className="flex flex-col lg:w-1/2 text-center lg:text-left space-y-8 py-20 lg:py-0 px-0 lg:px-8 xl:px-12">
+              <h1 className="text-4xl md:text-5xl lg:text-4xl xl:text-5xl text-center font-bold leading-tight">
                 <span className="text-white/90">Smart Contract Security</span>
                 <br />
                 <span className="text-white">Powered by Advanced AI</span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl lg:text-xl xl:text-2xl text-white/80 text-center max-w-3xl mx-auto lg:mx-0 leading-relaxed self-center">
                 Comprehensive analysis, real-time monitoring, and automated
                 vulnerability detection for your blockchain projects
               </p>
-              <div className="flex justify-center space-x-4">
+              <div className="flex justify-center space-x-4 px-4">
                 <a
                   href="/dashboard/login"
-                  className="inline-flex items-center bg-white text-secondary px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"
+                  className="inline-flex items-center bg-white text-secondary px-4 xs:px-8 py-3 rounded-lg font-semibold text-md xs:text-lg hover:bg-gray-100 transition-colors shadow-lg"
                 >
                   Get Started
                 </a>
                 <Link
-                  to="/pricing"
-                  className="inline-flex items-center bg-secondary text-white border-2 border-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-secondary-hover transition-colors shadow-lg"
+                  href="/pricing"
+                  className="inline-flex items-center bg-secondary text-white border-2 border-white px-4 xs:px-8 py-3 rounded-lg font-semibold text-md xs:text-lg hover:bg-secondary-hover transition-colors shadow-lg"
                 >
                   View Pricing
                 </Link>
+              </div>
+            </div>
+            <div className="lg:w-1/2 w-full h-[465px] lg:h-[494px] flex justify-center lg:justify-end bg-white">
+              <div className="w-full">
+                <AnalysisDemo />
               </div>
             </div>
           </div>
