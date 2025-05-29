@@ -250,6 +250,7 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
     overflowY: 'hidden', // The panel itself manages overflow via internal scrolling areas
     zIndex: 20, // Ensure it's above canvas highlights if necessary
     pointerEvents: 'none', // Ensure the panel doesn't interfere with canvas interactions
+    userSelect: 'none', // Prevent text selection
   };
 
   // Apply animation styles for compact (pinned) panels
@@ -345,7 +346,7 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
   }
 
   return (
-    <div style={panelStyle} ref={ref} className="text-[9px] xs:text-[10px]">
+    <div style={panelStyle} ref={ref} className="text-[9px] xs:text-[10px] select-none">
       <style>
         {webkitScrollbarStyle}
         {`

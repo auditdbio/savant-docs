@@ -49,7 +49,7 @@ export default function Home(): ReactElement {
         {/* Hero Section */}
         <div className="text-white bg-secondary">
           <div className="flex flex-col lg:flex-row justify-between items-center mx-auto max-w-[1920px] min-h-[494px] py-0 space-y-12 lg:space-y-0">
-            <div className="flex flex-col lg:w-1/2 text-center lg:text-left space-y-8 py-20 lg:py-0 px-0 lg:px-8 xl:px-12">
+            <div className="flex flex-col lg:w-1/2 text-center lg:text-left space-y-8 py-20 lg:py-0 px-6 lg:px-8 xl:px-12">
               <h1 className="text-4xl md:text-5xl lg:text-4xl xl:text-5xl text-center font-bold leading-tight">
                 <span className="text-white/90">Smart Contract Security</span>
                 <br />
@@ -59,7 +59,7 @@ export default function Home(): ReactElement {
                 Comprehensive analysis, real-time monitoring, and automated
                 vulnerability detection for your blockchain projects
               </p>
-              <div className="flex justify-center space-x-4 px-4">
+              <div className="flex justify-center space-x-4">
                 <a
                   href="/dashboard/login"
                   className="inline-flex items-center bg-white text-secondary px-4 xs:px-8 py-3 rounded-lg font-semibold text-md xs:text-lg hover:bg-gray-100 transition-colors shadow-lg"
