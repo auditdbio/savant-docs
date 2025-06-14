@@ -1,9 +1,61 @@
-import React, { type ReactElement } from "react";
+import React, { type ReactElement, useEffect } from "react";
 import Layout from "@theme/Layout";
 import Head from "@docusaurus/Head";
 import CTASection from "../../components/CTASection";
 
 export default function UseCases(): ReactElement {
+  // Instant anchor scrolling - no animation, immediate jump
+  useEffect(() => {
+    const handleAnchorScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        // Remove the # symbol
+        const elementId = hash.substring(1);
+        const element = document.getElementById(elementId);
+        
+        if (element) {
+          // Instant scroll without animation
+          element.scrollIntoView({
+            behavior: 'auto',
+            block: 'start',
+            inline: 'nearest'
+          });
+        }
+      }
+    };
+
+    // Immediate scroll on load - no delay
+    handleAnchorScroll();
+
+    // Also try to scroll immediately in case DOM isn't ready
+    const hash = window.location.hash;
+    if (hash) {
+      const elementId = hash.substring(1);
+      // Try to scroll multiple times to catch the element as soon as it's available
+      const attempts = [0, 10, 50];
+      attempts.forEach(delay => {
+        setTimeout(() => {
+          const element = document.getElementById(elementId);
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'auto',
+              block: 'start',
+              inline: 'nearest'
+            });
+          }
+        }, delay);
+      });
+    }
+
+    // Handle hash changes (if user clicks another anchor link)
+    window.addEventListener('hashchange', handleAnchorScroll);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('hashchange', handleAnchorScroll);
+    };
+  }, []);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
