@@ -32,7 +32,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "How does it work?",
-    answer: "It's easy. You upload the file (.zip, .sol), choose the scope for the audit, add any documentation you have, and start the audit. In a few minutes, you get a full report with a list of issues and comments for improvement."
+    answer: "It's simple. Upload your project (as a .zip, .sol files, or from a GitHub repository), select the audit scope, and let our AI vulnerability scanner go to work. In minutes, you'll receive a detailed security report with actionable recommendations."
   },
   {
     question: "How secure is my data?",

@@ -26,10 +26,10 @@ export default function HowItWorks(): ReactElement {
         <section className="bg-secondary text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              How Savant.chat Works
+              How Savant.chat's AI Audit Works
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-              AI-powered smart contract security analysis in 3 simple steps
+              Get an AI-powered smart contract security audit in 3 simple steps
             </p>
           </div>
         </section>
@@ -62,7 +62,7 @@ export default function HowItWorks(): ReactElement {
                   </svg>
                 </div>
                 <p className="text-gray-600 leading-relaxed text-center">
-                  Drag and drop your Solidity files or GitHub repo.
+                  Drag and drop your Solidity files or connect a GitHub repository.
                 </p>
               </div>
 
@@ -98,7 +98,7 @@ export default function HowItWorks(): ReactElement {
                   </svg>
                 </div>
                 <p className="text-gray-600 leading-relaxed text-center">
-                  Receive a detailed report identifying vulnerabilities, from simple bugs to complex logic flaws and architectural weaknesses.
+                  Receive a detailed report identifying security vulnerabilities, from common exploits to complex logic flaws and architectural weaknesses.
                 </p>
               </div>
 
@@ -128,7 +128,7 @@ export default function HowItWorks(): ReactElement {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Vulnerability Detection</h3>
                 <p className="text-gray-600">
-                  From simple bugs to complex logic flaws and architectural weaknesses
+                  Identifies security issues, gas optimizations, and complex logic flaws.
                 </p>
               </div>
 

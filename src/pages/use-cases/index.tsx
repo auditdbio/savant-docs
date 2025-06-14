@@ -51,7 +51,7 @@ export default function UseCases(): ReactElement {
               <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-blue-500">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Pre-Deployment Security Check</h3>
                 <p className="text-gray-600 mb-4">
-                  Run comprehensive security analysis before deploying your smart contracts to mainnet. 
+                  Run a comprehensive security audit before deploying your smart contracts to mainnet. 
                   Catch vulnerabilities early and save on gas costs from redeployments.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-2">
@@ -64,7 +64,7 @@ export default function UseCases(): ReactElement {
               <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-blue-500">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Continuous Security Monitoring</h3>
                 <p className="text-gray-600 mb-4">
-                  Integrate with your CI/CD pipeline to automatically scan every code change. 
+                  Integrate with your CI/CD pipeline to automatically scan every pull request and code change. 
                   Maintain security standards throughout your development lifecycle.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-2">
@@ -100,21 +100,21 @@ export default function UseCases(): ReactElement {
                 </svg>
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">For Audit Companies</h2>
-              <p className="text-xl text-gray-600">Enhance your audit capabilities with AI assistance</p>
+              <p className="text-xl text-gray-600">Enhance your audit workflow with AI assistance</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border-l-4 border-green-500">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Pre-Audit Screening</h3>
                 <p className="text-gray-600 text-sm">
-                  Quickly assess project complexity and identify obvious issues before starting manual review.
+                  Quickly assess project complexity and find low-hanging fruit before starting a manual review.
                 </p>
               </div>
 
               <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border-l-4 border-green-500">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Audit Acceleration</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">AI-Powered Audit Acceleration</h3>
                 <p className="text-gray-600 text-sm">
-                  Let AI handle routine checks while your experts focus on complex logic and business requirements.
+                  Let our AI audit tool handle routine checks while your experts focus on complex business logic.
                 </p>
               </div>
 
@@ -145,14 +145,14 @@ export default function UseCases(): ReactElement {
                 </svg>
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">For Investors</h2>
-              <p className="text-xl text-gray-600">Make informed investment decisions with security insights</p>
+              <p className="text-xl text-gray-600">Make informed investment decisions with AI security insights</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border-l-4 border-purple-500">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Due Diligence</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Due Diligence Security Scan</h3>
                 <p className="text-gray-600 text-sm">
-                  Quickly assess the security posture of projects before making investment decisions.
+                  Quickly assess the security posture of potential Web3 investments before you commit.
                 </p>
               </div>
 

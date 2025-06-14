@@ -58,8 +58,8 @@ export default function Home(): ReactElement {
                 <span className="text-white">Powered by Advanced AI</span>
               </h1>
               <p className="text-xl md:text-2xl lg:text-xl xl:text-2xl text-white/80 text-center max-w-3xl mx-auto lg:mx-0 leading-relaxed self-center">
-                Comprehensive analysis, real-time monitoring, and automated
-                vulnerability detection for your blockchain projects
+                Automated vulnerability scanning, real-time monitoring, and AI-powered
+                security analysis for your Solidity smart contracts
               </p>
               <div className="pb-6">
                 <HeroCTAButtons />
@@ -97,7 +97,7 @@ export default function Home(): ReactElement {
                     {/* Description */}
                     <div className="text-center px-2 md:px-0">
                       <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                        Savant.chat isn't just another LLM wrapper. We've built a sophisticated multi-agent system that coordinates thousands of parallel LLM calls across multiple specialized models—each focused on different vulnerability classes.
+                        Savant.chat provides more than a simple code scan. It's a sophisticated multi-agent AI system that performs a deep security audit, coordinating thousands of parallel LLM calls across specialized models to detect a wide range of vulnerability classes.
                       </p>
                     </div>
 
@@ -242,7 +242,7 @@ export default function Home(): ReactElement {
                       CI/CD Guardrail
                     </h3>
                     <p className="text-gray-600">
-                      Seamless integration into your development pipeline for continuous security monitoring
+                      Seamless integration for continuous smart contract security monitoring in your CI/CD pipeline
                     </p>
                   </div>
                 </div>
@@ -302,7 +302,7 @@ export default function Home(): ReactElement {
                       Accelerate Manual Audits
                     </h3>
                     <p className="text-gray-600">
-                      Free up human auditors to focus on complex logic and edge cases
+                      Free up your team to focus on complex logic by automating routine vulnerability checks
                     </p>
                   </div>
                 </div>
