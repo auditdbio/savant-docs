@@ -2,6 +2,8 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Head from '@docusaurus/Head';
+import PricingCalculator from '../../components/PricingCalculator';
+import { PRICING_PLANS } from '../../config/pricing';
 
 export default function Pricing() {
   const {siteConfig} = useDocusaurusContext();
@@ -41,7 +43,7 @@ export default function Pricing() {
   
   return (
     <Layout
-      title="Pricing"
+      title="Smart Contract Audit Pricing & Plans"
       description="Pricing plans for Savant Chat smart contract audit services">
       <Head>
         <script type="application/ld+json">
@@ -63,6 +65,9 @@ export default function Pricing() {
             </p>
           </div>
 
+          {/* Pricing Calculator */}
+          <PricingCalculator />
+
           {/* Per-Line Pricing */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="text-center mb-10">
@@ -71,21 +76,13 @@ export default function Pricing() {
                 Final pricing based on actual token count after upload.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-center">
-                <div className="text-center">
-                  <h3 className="text-5xl font-bold text-secondary mb-2">$0.07</h3>
-                  <p className="text-lg font-medium text-secondary mb-1">Lite</p>
-                  <p className="text-gray-600">Runs on more efficient models with lower price.</p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-5xl font-bold text-secondary mb-2">$0.12</h3>
-                  <p className="text-lg font-medium text-secondary mb-1">Advanced</p>
-                  <p className="text-gray-600">Comprehensive analysis using advanced models.</p>
-                </div>
-                <div className="text-center md:col-span-2 md:justify-self-center lg:col-span-1 lg:justify-self-auto">
-                  <h3 className="text-5xl font-bold text-secondary mb-2">$0.50</h3>
-                  <p className="text-lg font-medium text-secondary mb-1">Pro</p>
-                  <p className="text-gray-600">Premium analysis with highest-quality models.</p>
-                </div>
+                {PRICING_PLANS.map((plan, index) => (
+                  <div key={plan.id} className={`text-center ${index === 2 ? 'md:col-span-2 md:justify-self-center lg:col-span-1 lg:justify-self-auto' : ''}`}>
+                    <h3 className="text-5xl font-bold text-secondary mb-2">${plan.price}</h3>
+                    <p className="text-lg font-medium text-secondary mb-1">{plan.name}</p>
+                    <p className="text-gray-600">{plan.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
             
@@ -245,118 +242,9 @@ export default function Pricing() {
             </div>
           </div>
 
-          {/* Subscription Options */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-secondary mb-8 text-center">Subscription Plans</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Basic Subscription */}
-              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-primary transition-colors flex flex-col h-full">
-                <div className="text-center mb-4">
-                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-primary/10 text-primary">Basic Tier</span>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold text-secondary">$175</span>
-                  </div>
-                  <p className="text-gray-500 mt-2">Get $250 worth of requests</p>
-                </div>
-                <ul className="mt-6 space-y-4 flex-grow">
-                  <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    30% savings on requests
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Monthly subscription
-                  </li>
-                </ul>
-                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
-                  Coming Soon
-                </button>
-              </div>
 
-              {/* Pro Subscription */}
-              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-secondary transition-colors flex flex-col h-full">
-                <div className="text-center mb-4">
-                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-secondary/10 text-secondary">Pro Tier</span>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold text-secondary">$1,750</span>
-                  </div>
-                  <p className="text-gray-500 mt-2">Get $2,500 worth of requests</p>
-                </div>
-                <ul className="mt-6 space-y-4 flex-grow">
-                  <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    30% savings on requests
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Monthly subscription
-                  </li>
-                </ul>
-                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
-                  Coming Soon
-                </button>
-              </div>
 
-              {/* Enterprise Subscription */}
-              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-gray-900 transition-colors flex flex-col h-full">
-                <div className="text-center mb-4">
-                  <span className="inline-block px-4 py-1 rounded-full text-sm bg-gray-100 text-gray-800">Enterprise</span>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold text-secondary">Custom</span>
-                  </div>
-                  <p className="text-gray-500 mt-2">Contact us for custom pricing</p>
-                </div>
-                <ul className="mt-6 space-y-4 flex-grow">
-                  <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Custom volume discounts
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Annual billing available
-                  </li>
-                </ul>
-                <button className="w-full mt-6 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg font-medium cursor-not-allowed" disabled>
-                  Contact Us
-                </button>
-              </div>
-            </div>
-          </div>
 
-          {/* FAQ Section */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">How is the price calculated?</h3>
-                <p className="text-gray-600">While we show approximate pricing based on lines of code, the final price is calculated based on the actual token count in your smart contracts. You'll see the exact price when you upload your files.</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">What payment methods do you accept?</h3>
-                <p className="text-gray-600">Currently, we're working on implementing various payment methods. Please contact us for available options.</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">Can I upgrade my tier later?</h3>
-                <p className="text-gray-600">Yes, you can upgrade your tier at any time. Contact our support team for assistance with the upgrade process.</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">What's included in the audit?</h3>
-                <p className="text-gray-600">Our AI performs comprehensive security analysis of your Solidity smart contracts, focusing on identifying potential vulnerabilities and security issues.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </Layout>

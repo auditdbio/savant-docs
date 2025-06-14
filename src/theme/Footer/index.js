@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { DISCORD_URL, DISCORD_COMMUNITY_NAME } from '../../config/constants';
 
 export default function FooterWrapper() {
   const {footer} = useThemeConfig();
@@ -70,7 +71,7 @@ export default function FooterWrapper() {
             <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase mb-4">Contact</h3>
             <p className="text-gray-500">
               Have questions or want to learn more? Join our 
-              <a href="https://discord.gg/pHfxVh9WSc" className="text-secondary hover:text-secondary-hover" target="_blank" rel="noopener noreferrer"> AuditDB Community</a>
+              <a href={DISCORD_URL} className="text-secondary hover:text-secondary-hover" target="_blank" rel="noopener noreferrer"> {DISCORD_COMMUNITY_NAME}</a>
               {' '}on Discord!
             </p>
           </div>

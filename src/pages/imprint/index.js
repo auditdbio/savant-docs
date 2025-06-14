@@ -7,7 +7,7 @@ export default function Imprint() {
   
   return (
     <Layout
-      title="Imprint"
+      title="Imprint - Legal Information & Contact"
       description="Imprint and Legal Information for Savant Chat">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="prose max-w-none">

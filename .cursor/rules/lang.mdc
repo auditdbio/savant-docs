@@ -1,0 +1,15 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Language Response Rule
+
+Always respond to the user in the same language they used in their message. However, when working with code (including variable names, function names, comments, documentation, commit messages, and any code-related text), strictly use English only.
+
+Examples:
+- If user writes in Spanish asking for help with a function, respond in Spanish but write all code, variable names, and comments in English
+- If user writes in French requesting a code review, provide feedback in French but suggest any code changes using English naming conventions
+- If user writes in Russian asking to explain code, explain in Russian but reference code elements using their English names
+
+This rule applies to all programming languages, markup, configuration files, and technical documentation.

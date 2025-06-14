@@ -10,7 +10,7 @@ type EnhancedConfig = Config & {
 };
 
 const config: EnhancedConfig = {
-  title: "Savant Chat",
+  title: "Savant Chat - AI Smart Contract Security",
   tagline: "Smart Contract Security Powered by Advanced AI",
   favicon: "img/savant-favicon.svg",
 
@@ -149,7 +149,10 @@ const config: EnhancedConfig = {
         src: 'img/logo_short.svg',
       },
       items: [
+        {to: '/use-cases', label: 'Use Cases', position: 'left'},
+        {to: '/how-it-works', label: 'How It Works', position: 'left'},
         {to: '/pricing', label: 'Pricing', position: 'left'},
+        {to: '/faq', label: 'FAQ', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'custom-SignInButton',

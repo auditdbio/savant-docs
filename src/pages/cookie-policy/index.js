@@ -7,7 +7,7 @@ export default function CookiePolicy() {
   
   return (
     <Layout
-      title="Cookie Policy"
+      title="Cookie Policy - Website Data Usage"
       description="Cookie Policy for Savant Chat">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="prose max-w-none">
