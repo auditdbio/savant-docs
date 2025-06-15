@@ -6,16 +6,35 @@ import CTASection from "../../components/CTASection";
 export default function HowItWorks(): ReactElement {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "How It Works - Savant Chat",
-    description: "Learn how Savant Chat's AI-powered smart contract security analysis works step by step",
-    url: "https://savant.chat/how-it-works",
+    "@type": "HowTo",
+    "name": "How Savant.chat's AI Smart Contract Audit Works",
+    "description": "Get a comprehensive AI-powered smart contract security audit for your Solidity project in 3 simple steps.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload Your Contract",
+        "text": "Drag and drop your Solidity files or connect a GitHub repository.",
+        "url": "https://savant.chat/how-it-works#step1"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "AI Analysis Begins",
+        "text": "Our multi-agent system deploys thousands of parallel LLM calls to analyze your code.",
+        "url": "https://savant.chat/how-it-works#step2"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Get Comprehensive Results",
+        "text": "Receive a detailed security report identifying vulnerabilities, from common exploits to complex logic flaws.",
+        "url": "https://savant.chat/how-it-works#step3"
+      }
+    ]
   };
 
   return (
     <Layout
-      title="How AI Smart Contract Security Analysis Works"
-      description="Learn how Savant Chat's AI-powered smart contract security analysis works step by step"
+      title="How AI Smart Contract Security Audits Work"
+      description="Learn how Savant Chat's AI-powered security audit works: upload your Solidity code, let our AI analyze it, and get a comprehensive vulnerability report in minutes."
     >
       <Head>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -39,7 +58,7 @@ export default function HowItWorks(): ReactElement {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                How Savant.chat Works
+                How Our AI Audit Works
               </h2>
               <p className="text-xl text-gray-600">
                 Get comprehensive security analysis in just 3 simple steps
@@ -49,14 +68,14 @@ export default function HowItWorks(): ReactElement {
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               
               {/* Step 1 */}
-              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div id="step1" className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-6">
                   <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-primary text-white text-xl font-bold mr-4">
                     1
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">Upload Your Contract</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">Upload Your Solidity Project</h3>
                 </div>
-                <div className="flex items-center justify-center mb-4">
+                <div className="flex items-center justify-center mb-4" role="img" aria-label="Cloud upload icon">
                   <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                   </svg>
@@ -67,14 +86,14 @@ export default function HowItWorks(): ReactElement {
               </div>
 
               {/* Step 2 */}
-              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div id="step2" className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-6">
                   <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-primary text-white text-xl font-bold mr-4">
                     2
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">AI Analysis Begins</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">AI Vulnerability Analysis</h3>
                 </div>
-                <div className="flex items-center justify-center mb-4">
+                <div className="flex items-center justify-center mb-4" role="img" aria-label="AI brain icon">
                   <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                   </svg>
@@ -85,14 +104,14 @@ export default function HowItWorks(): ReactElement {
               </div>
 
               {/* Step 3 */}
-              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div id="step3" className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-6">
                   <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-primary text-white text-xl font-bold mr-4">
                     3
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">Get Comprehensive Results</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">Receive Your Security Report</h3>
                 </div>
-                <div className="flex items-center justify-center mb-4">
+                <div className="flex items-center justify-center mb-4" role="img" aria-label="Document report icon">
                   <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                   </svg>
@@ -111,46 +130,46 @@ export default function HowItWorks(): ReactElement {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                What You Get
+                What Your AI Audit Report Includes
               </h2>
               <p className="text-xl text-gray-600">
-                Comprehensive security analysis powered by AI
+                A comprehensive overview of your smart contract's security posture
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               
               <div className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
-                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-red-100 text-red-600 mx-auto mb-6">
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-red-100 text-red-600 mx-auto mb-6" role="img" aria-label="Red alert icon">
                   <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Vulnerability Detection</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Vulnerability Detection & Gas Optimization</h3>
                 <p className="text-gray-600">
                   Identifies security issues, gas optimizations, and complex logic flaws.
                 </p>
               </div>
 
               <div className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
-                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-6">
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-6" role="img" aria-label="Blue document icon">
                   <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Detailed Reports</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Detailed PDF & Markdown Reports</h3>
                 <p className="text-gray-600">
                   Professional reports in Markdown or PDF format, ready for sharing and analysis
                 </p>
               </div>
 
               <div className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
-                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mx-auto mb-6">
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mx-auto mb-6" role="img" aria-label="Green brain icon">
                   <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Multi-Agent Analysis</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Multi-Agent AI Analysis</h3>
                 <p className="text-gray-600">
                   Thousands of parallel LLM calls with different specialized models
                 </p>
@@ -162,8 +181,8 @@ export default function HowItWorks(): ReactElement {
 
         {/* CTA Section */}
         <CTASection 
-          title="Ready to Experience the Future of Smart Contract Security?"
-          description="Join thousands of developers and auditors who trust Savant Chat"
+          title="Ready to Secure Your Solidity Project?"
+          description="Get started with a free AI security audit and see the results for yourself"
         />
       </div>
     </Layout>

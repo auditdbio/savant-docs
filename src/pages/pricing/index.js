@@ -4,54 +4,62 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Head from '@docusaurus/Head';
 import PricingCalculator from '../../components/PricingCalculator';
 import { PRICING_PLANS } from '../../config/pricing';
+import CTASection from '../../components/CTASection';
 
 export default function Pricing() {
   const {siteConfig} = useDocusaurusContext();
   
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "PriceSpecification",
-    "name": "Savant Chat Pricing",
-    "description": "Smart Contract Security Audit Pricing",
-    "price": "1.00",
-    "priceCurrency": "USD",
-    "validFrom": "2023-01-01",
-    "priceComponent": [
-      {
-        "@type": "PriceSpecification",
-        "name": "Pay-As-You-Go",
-        "description": "Per line of code",
-        "price": "1.00",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "PriceSpecification",
-        "name": "Basic Tier",
-        "description": "Monthly Limit",
-        "price": "250.00",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "PriceSpecification",
-        "name": "Pro Tier",
-        "description": "Monthly Limit",
-        "price": "2500.00",
-        "priceCurrency": "USD"
-      }
-    ]
+    "@type": "Product",
+    "name": "Savant Chat AI Smart Contract Audit",
+    "description": "AI-powered security audits for Solidity smart contracts. Choose from flexible pay-as-you-go pricing or account tiers.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Savant Chat"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "0.07",
+      "highPrice": "2500.00",
+      "offers": [
+        ...PRICING_PLANS.map(plan => ({
+          "@type": "Offer",
+          "name": `Pay-As-You-Go: ${plan.name}`,
+          "price": plan.price,
+          "priceCurrency": "USD",
+          "description": plan.description
+        })),
+        {
+          "@type": "Offer",
+          "name": "Basic Account Tier",
+          "price": "250",
+          "priceCurrency": "USD",
+          "description": "Monthly spending limit with standard features."
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro Account Tier",
+          "price": "2500",
+          "priceCurrency": "USD",
+          "description": "Higher monthly limit with priority support and unlimited lines per request."
+        }
+      ]
+    }
   };
   
   return (
     <Layout
       title="Smart Contract Audit Pricing & Plans"
-      description="Pricing plans for Savant Chat smart contract audit services">
+      description="Transparent pricing for AI-powered smart contract security audits. Choose pay-as-you-go plans for Solidity code or flexible account tiers for your team.">
       <Head>
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
         <meta name="description" content="See Savant Chat pricing plans for smart contract security audits. Pay only for what you use, with flexible options for every need." />
         <meta property="og:title" content="Pricing - Savant Chat" />
-        <meta property="og:description" content="Pricing plans for Savant Chat smart contract audit services. Simple and transparent pricing." />
+        <meta property="og:description" content="Transparent pricing for AI-powered smart contract security audits. Choose pay-as-you-go or account tiers for your team." />
         <meta property="og:image" content="https://savant.chat/img/logo_short.svg" />
       </Head>
       
@@ -71,9 +79,9 @@ export default function Pricing() {
           {/* Per-Line Pricing */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="text-center mb-10">
-              <h2 className="text-2xl font-bold text-secondary mb-3">Pay-As-You-Go Pricing</h2>
+              <h2 className="text-2xl font-bold text-secondary mb-3">Pay-As-You-Go AI Audit Pricing</h2>
               <p className="mb-10 md:mb-8 text-gray-600 max-w-xl mx-auto">
-                Final pricing based on actual token count after upload.
+                Final pricing is based on the actual token count of your Solidity code after upload.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-center">
                 {PRICING_PLANS.map((plan, index) => (
@@ -87,7 +95,7 @@ export default function Pricing() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-50 rounded-lg p-6 flex items-start">
+              <div className="bg-gray-50 rounded-lg p-6 flex items-start" role="img" aria-label="Shield with checkmark icon">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +109,7 @@ export default function Pricing() {
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6 flex items-start">
+              <div className="bg-gray-50 rounded-lg p-6 flex items-start" role="img" aria-label="Lightning bolt icon">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,12 +118,12 @@ export default function Pricing() {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-medium text-secondary mb-2">Instant Results</h3>
-                  <p className="text-gray-600">Get comprehensive analysis in minutes, not weeks, enabling rapid iteration and deployment</p>
+                  <h3 className="text-lg font-medium text-secondary mb-2">Instant Security Results</h3>
+                  <p className="text-gray-600">Get a comprehensive vulnerability report in minutes, not weeks, enabling rapid iteration and deployment</p>
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6 flex items-start">
+              <div className="bg-gray-50 rounded-lg p-6 flex items-start" role="img" aria-label="Price tag icon">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,8 +132,8 @@ export default function Pricing() {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-medium text-secondary mb-2">Transparent Pricing</h3>
-                  <p className="text-gray-600">See the exact price when you upload your contracts</p>
+                  <h3 className="text-lg font-medium text-secondary mb-2">Transparent Per-Token Pricing</h3>
+                  <p className="text-gray-600">See the exact price for your smart contract audit when you upload your files</p>
                 </div>
               </div>
             </div>
@@ -133,7 +141,7 @@ export default function Pricing() {
 
           {/* Account Tiers */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-secondary mb-8 text-center">Account Tiers</h2>
+            <h2 className="text-2xl font-bold text-secondary mb-8 text-center">Account Tiers & Spending Limits</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Basic Tier */}
               <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-primary transition-colors">
@@ -146,19 +154,19 @@ export default function Pricing() {
                 </div>
                 <ul className="mt-6 space-y-4">
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Standard audit queue
                   </li>
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     No KYC required
                   </li>
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Includes $75 welcome bonus
@@ -177,25 +185,25 @@ export default function Pricing() {
                 </div>
                 <ul className="mt-6 space-y-4">
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Priority audit processing
                   </li>
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Unlimited lines per request
                   </li>
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Priority support
                   </li>
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     KYC required
@@ -214,25 +222,25 @@ export default function Pricing() {
                 </div>
                 <ul className="mt-6 space-y-4">
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Expedited audit pipeline
                   </li>
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Custom volume discounts
                   </li>
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Dedicated support
                   </li>
                   <li className="flex items-center text-gray-600">
-                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Checkmark icon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     Custom integration options
@@ -241,12 +249,12 @@ export default function Pricing() {
               </div>
             </div>
           </div>
-
-
-
-
         </div>
       </div>
+      <CTASection
+        title="Ready to Secure Your Smart Contracts?"
+        description="Get started with a free AI security audit and see the results for yourself"
+      />
     </Layout>
   );
 }

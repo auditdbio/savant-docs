@@ -30,17 +30,21 @@ export default function Home(): ReactElement {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Savant Chat",
-    description:
-      "AI-powered smart contract security analysis and vulnerability detection",
-    url: "https://savant.chat",
+    "@type": "Organization",
+    "name": "Savant Chat",
+    "url": "https://savant.chat",
+    "logo": "https://savant.chat/img/logo_short.svg",
+    "description": "AI-powered smart contract security audits for Solidity. Find vulnerabilities, optimize gas, and secure your Web3 projects.",
+    "sameAs": [
+      "https://twitter.com/SavantChat",
+      "https://discord.gg/pHfxVh9WSc"
+    ]
   };
 
   return (
     <Layout
-      title="AI Smart Contract Security Audit Platform"
-      description="Comprehensive analysis, real-time monitoring, and automated vulnerability detection for your blockchain projects"
+      title="AI-Powered Smart Contract Security Audits"
+      description="Savant Chat provides AI-powered security audits for Solidity smart contracts. Find vulnerabilities, optimize gas, and integrate security into your CI/CD pipeline."
     >
       <Head>
         {/* JSON-LD for search engines */}
@@ -66,7 +70,7 @@ export default function Home(): ReactElement {
               </div>
             </div>
             <div className="lg:w-1/2 w-full h-[465px] lg:h-[494px] flex justify-center lg:justify-end bg-white">
-              <div className="w-full">
+              <div className="w-full" role="img" aria-label="Savant Chat AI analyzing a smart contract for vulnerabilities">
                 <AnalysisDemo />
               </div>
             </div>
@@ -78,10 +82,10 @@ export default function Home(): ReactElement {
           <div className="max-w-7xl mx-auto px-0 md:px-4 lg:px-8">
             <div className="text-center mb-16 px-4 md:px-0">
               <h2 className="text-4xl font-bold text-gray-900">
-                What is Savant Chat?
+                Your AI Co-Pilot for Smart Contract Security Audits
               </h2>
               <p className="mt-4 text-xl text-secondary font-semibold">
-                Next-Gen Audit Collaboration Tool
+                Go Beyond a Simple Vulnerability Scanner
               </p>
             </div>
 
@@ -126,10 +130,10 @@ export default function Home(): ReactElement {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900">
-                Built for Your Team
+                AI Security Solutions for Your Entire Team
               </h2>
               <p className="mt-4 text-xl text-secondary font-semibold">
-                Tailored Solutions for Every Role
+                From Developers to Investors, We've Got You Covered
               </p>
             </div>
 
@@ -210,10 +214,10 @@ export default function Home(): ReactElement {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900">
-                Why Choose Savant Chat?
+                Why Savant Chat for Your Security Audits?
               </h2>
               <p className="text-xl text-secondary mt-4 font-semibold">
-                Next-Level Security for Web3 Innovators
+                Key Advantages of Our AI-Powered Platform
               </p>
             </div>
 
@@ -346,15 +350,15 @@ export default function Home(): ReactElement {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900">
-                Industry-Leading Performance
+                Industry-Leading Performance in Vulnerability Detection
               </h2>
               <p className="text-xl text-secondary mt-4 font-semibold">
-                Proven Excellence in Smart Contract Security
+                Proven Excellence in Smart Contract Security Benchmarks
               </p>
             </div>
 
             <div className="grid md:grid-cols-1 gap-12 items-center max-w-5xl mx-auto">
-              <div className="relative">
+              <div className="relative" role="img" aria-label="Graph showing Savant Chat's performance compared to other tools on CTFBench">
                 <div className="rounded-lg shadow-lg bg-white p-4">
                   <PerformanceGraph />
                 </div>

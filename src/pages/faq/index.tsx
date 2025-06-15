@@ -3,6 +3,7 @@ import Layout from "@theme/Layout";
 import Head from "@docusaurus/Head";
 import CTASection from "../../components/CTASection";
 import { DISCORD_URL, DISCORD_COMMUNITY_NAME } from "../../config/constants";
+import clsx from 'clsx';
 
 interface FAQItem {
   question: string;
@@ -114,6 +115,8 @@ export default function FAQ(): ReactElement {
                   <button
                     className="w-full px-6 py-4 text-left focus:outline-none focus:bg-gray-50 hover:bg-gray-50 transition-colors"
                     onClick={() => toggleFAQ(index)}
+                    aria-expanded={openIndex === index}
+                    aria-controls={`faq-answer-${index}`}
                   >
                     <div className="flex justify-between items-center">
                       <h3 className="text-lg font-semibold text-gray-900 pr-4">
@@ -138,13 +141,23 @@ export default function FAQ(): ReactElement {
                       </div>
                     </div>
                   </button>
-                  {openIndex === index && (
-                    <div className="px-6 pb-4">
+                  <div
+                    id={`faq-answer-${index}`}
+                    className={clsx(
+                      'overflow-hidden transition-all duration-500 ease-in-out',
+                      {
+                        'max-h-screen opacity-100': openIndex === index,
+                        'max-h-0 opacity-0': openIndex !== index,
+                      }
+                    )}
+                    aria-hidden={openIndex !== index}
+                  >
+                    <div className="px-6 pb-4 pt-2">
                       <div className="text-gray-600 leading-relaxed">
                         {faq.answer}
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               ))}
             </div>
