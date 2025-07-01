@@ -155,6 +155,12 @@ const config: EnhancedConfig = {
         {to: '/faq', label: 'FAQ', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
+          href: 'https://x.com/savantchat',
+          className: 'header-x-link',
+          'aria-label': 'Savant Chat on X',
+          position: 'right',
+        },
+        {
           type: 'custom-SignInButton',
           position: 'right',
         },
