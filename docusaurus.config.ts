@@ -115,7 +115,7 @@ const config: EnhancedConfig = {
         content:
           "smart contract, security, audit, blockchain, AI, ethereum, solidity, web3, defi",
       },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
       {
         name: "twitter:title",
         content: "Savant Chat - AI Smart Contract Auditor Agent",
@@ -135,13 +135,13 @@ const config: EnhancedConfig = {
       },
       {
         property: "og:image",
-        content: "https://savant.chat/img/logo_short.svg",
+        content: "https://savant.chat/img/logo_short.png",
       },
       { property: "og:url", content: "https://savant.chat" },
       { property: "og:site_name", content: "Savant Chat" },
     ],
     // Replace with your project's social card
-    image: 'img/logo_short.svg',
+    image: 'img/logo_short.png',
     navbar: {
       title: 'Savant Chat',
       logo: {
