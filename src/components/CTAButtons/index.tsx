@@ -1,4 +1,5 @@
 import React, { type ReactElement } from "react";
+import { appendUTMToUrl } from "../../utils/utm";
 
 interface CTAButtonsProps {
   primaryText?: string;
@@ -17,7 +18,7 @@ export default function CTAButtons({
     <div className={`flex justify-center items-center space-x-4 ${className}`}>
       <div className="relative">
         <a
-          href="/dashboard/login"
+          href={appendUTMToUrl("/dashboard/login")}
           className="inline-flex items-center bg-primary text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg"
         >
           {primaryText}
@@ -29,7 +30,7 @@ export default function CTAButtons({
         )}
       </div>
       <a
-        href="/pricing"
+        href={appendUTMToUrl("/pricing")}
         className="inline-flex items-center bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg font-semibold text-lg hover:bg-primary/5 transition-colors shadow-lg"
       >
         {secondaryText}

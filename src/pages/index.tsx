@@ -1,4 +1,4 @@
-import React, { type ReactElement } from "react";
+import React, { type ReactElement, useEffect, useState } from "react";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
@@ -10,6 +10,7 @@ import clsx from "clsx";
 import AnalysisDemo from "../components/AnalysisDemo/AnalysisDemo";
 import HeroCTAButtons from "../components/HeroCTAButtons";
 import CTASection from "../components/CTASection";
+import { getEffectiveUTM, storeUTM, isFromBlockscout } from "../utils/utm";
 
 interface GlobalData {
   "docusaurus-plugin-tweets"?: {
@@ -41,6 +42,28 @@ export default function Home(): ReactElement {
     ]
   };
 
+  // Blockscout banner state
+  const [showBlockscoutBanner, setShowBlockscoutBanner] = useState(false);
+
+  useEffect(() => {
+    // Capture and persist UTM on landing
+    const utm = getEffectiveUTM();
+    storeUTM(utm);
+
+    // Show banner if from blockscout and not dismissed
+    const dismissed = typeof window !== "undefined" ? window.localStorage.getItem("savant_blockscout_banner_dismissed") : null;
+    if (isFromBlockscout(utm) && dismissed !== "1") {
+      setShowBlockscoutBanner(true);
+    }
+  }, []);
+
+  const dismissBanner = (): void => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("savant_blockscout_banner_dismissed", "1");
+    }
+    setShowBlockscoutBanner(false);
+  };
+
   return (
     <Layout
       title="AI-Powered Smart Contract Security Audits"
@@ -52,6 +75,22 @@ export default function Home(): ReactElement {
       </Head>
 
       <div>
+        {showBlockscoutBanner && (
+          <div className="bg-primary text-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
+              <p className="text-sm md:text-base font-medium">
+                Welcome, Blockscout users! Enjoy $75 in free credits to try Savant Chat.
+              </p>
+              <button
+                aria-label="Dismiss Blockscout banner"
+                className="ml-4 rounded-md bg-white/10 hover:bg-white/20 px-3 py-1 text-sm"
+                onClick={dismissBanner}
+              >
+                Dismiss
+              </button>
+            </div>
+          </div>
+        )}
         {/* Hero Section */}
         <div className="text-white bg-secondary">
           <div className="flex flex-col lg:flex-row justify-between items-center mx-auto max-w-[1920px] min-h-[494px] py-0 space-y-12 lg:space-y-0">

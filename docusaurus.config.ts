@@ -152,6 +152,7 @@ const config: EnhancedConfig = {
         {to: '/use-cases', label: 'Use Cases', position: 'left'},
         {to: '/how-it-works', label: 'How It Works', position: 'left'},
         {to: '/pricing', label: 'Pricing', position: 'left'},
+        {to: '/ecosystem', label: 'Ecosystem', position: 'left'},
         {to: '/faq', label: 'FAQ', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {

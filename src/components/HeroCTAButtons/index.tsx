@@ -1,4 +1,5 @@
 import React, { type ReactElement } from "react";
+import { appendUTMToUrl } from "../../utils/utm";
 import Link from "@docusaurus/Link";
 
 interface HeroCTAButtonsProps {
@@ -18,7 +19,7 @@ export default function HeroCTAButtons({
     <div className={`flex justify-center items-center space-x-4 ${className}`}>
       <div className="relative">
         <a
-          href="/dashboard/login"
+          href={appendUTMToUrl("/dashboard/login")}
           className="inline-flex items-center bg-white text-secondary px-4 xs:px-8 py-3 rounded-lg font-semibold text-md xs:text-lg hover:bg-gray-100 transition-colors shadow-lg"
         >
           {primaryText}
@@ -30,7 +31,7 @@ export default function HeroCTAButtons({
         )}
       </div>
       <Link
-        href="/pricing"
+        href={appendUTMToUrl("/pricing")}
         className="inline-flex items-center bg-secondary text-white border-2 border-white px-4 xs:px-8 py-3 rounded-lg font-semibold text-md xs:text-lg hover:bg-secondary-hover transition-colors shadow-lg"
       >
         {secondaryText}
