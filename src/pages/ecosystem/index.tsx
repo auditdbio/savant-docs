@@ -6,10 +6,33 @@ export default function Ecosystem(): React.ReactElement {
   return (
     <Layout
       title="Ecosystem & Integrations"
-      description="Explore Savant Chat's ecosystem: integrations, listings, and partners including Blockscout."
+      description="Discover curated tools and applications that enhance your web3 development and security workflow. Our ecosystem features trusted partners and complementary solutions."
     >
       <Head>
         <meta name="robots" content="index,follow" />
+        <link rel="canonical" href="https://savant.chat/ecosystem" />
+        <meta property="og:title" content="Ecosystem & Integrations - Savant Chat" />
+        <meta property="og:description" content="Discover curated tools and applications that enhance your web3 development and security workflow. Our ecosystem features trusted partners and complementary solutions." />
+        <meta property="og:image" content="https://savant.chat/img/logo_short.svg" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Ecosystem & Integrations - Savant Chat",
+          description: "Discover curated tools and applications that enhance your web3 development and security workflow. Our ecosystem features trusted partners and complementary solutions.",
+          url: "https://savant.chat/ecosystem",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Blockscout",
+                url: "https://blockscout.com/"
+              }
+            ]
+          }
+        })}</script>
       </Head>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
