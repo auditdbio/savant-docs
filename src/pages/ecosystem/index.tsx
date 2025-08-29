@@ -15,7 +15,7 @@ export default function Ecosystem(): React.ReactElement {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-secondary">Ecosystem & Integrations</h1>
           <p className="mt-4 text-lg text-gray-600">
-            Savant Chat works with leading tools and platforms in the web3 security ecosystem.
+            Discover curated tools and applications that enhance your web3 development and security workflow. Our ecosystem features trusted partners and complementary solutions to help you build safer, more efficient decentralized applications.
           </p>
         </div>
 
@@ -37,13 +37,6 @@ export default function Ecosystem(): React.ReactElement {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="space-y-6 mt-12">
-          <h2 className="text-2xl font-semibold text-gray-900">More Partners</h2>
-          <div className="rounded-lg border-2 border-dashed border-gray-200 p-8 text-center text-gray-500">
-            More announcements coming soon.
           </div>
         </section>
       </div>
