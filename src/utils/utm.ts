@@ -46,6 +46,9 @@ export function storeUTM(params: UTMParams): void {
     const existing = loadStoredUTM();
     const merged: UTMParams = { ...existing, ...params };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+    if (params.utm_source) {
+      window.localStorage.setItem("pendingPromoCode", params.utm_source.toLowerCase());
+    }
   } catch {
     // ignore
   }
