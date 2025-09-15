@@ -197,10 +197,10 @@ export default function UseCases(): ReactElement {
 
         {/* Use Cases Sections */}
         {useCasesData.map(section => (
-          <section key={section.id} id={section.id} className={`py-20 bg-gradient-to-br from-${section.id === 'developers' ? 'blue' : section.id === 'audit-companies' ? 'green' : section.id === 'investors' ? 'purple' : 'orange'}-50 to-${section.id === 'developers' ? 'blue' : section.id === 'audit-companies' ? 'green' : section.id === 'investors' ? 'purple' : 'orange'}-100`}>
+          <section key={section.id} id={section.id} className={`py-20 bg-gradient-to-br from-${section.id === 'developers' ? 'primary' : section.id === 'audit-companies' ? 'secondary' : section.id === 'investors' ? 'primary' : 'secondary'}-50 to-${section.id === 'developers' ? 'primary' : section.id === 'audit-companies' ? 'secondary' : section.id === 'investors' ? 'primary' : 'secondary'}-100`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
-                <div className={`flex items-center justify-center h-16 w-16 rounded-full bg-${section.id === 'developers' ? 'blue' : section.id === 'audit-companies' ? 'green' : section.id === 'investors' ? 'purple' : 'orange'}-500 text-white mx-auto mb-6`}>
+                <div className={`flex items-center justify-center h-16 w-16 rounded-full bg-${section.id === 'developers' ? 'primary' : section.id === 'audit-companies' ? 'secondary' : section.id === 'investors' ? 'primary' : 'secondary'} text-white mx-auto mb-6`}>
                   {section.icon}
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">{section.title}</h2>
@@ -208,7 +208,7 @@ export default function UseCases(): ReactElement {
               </div>
               <div className={`grid md:grid-cols-${section.items.length === 4 ? 2 : 3} lg:grid-cols-${section.items.length} gap-6`}>
                 {section.items.map(item => (
-                  <div key={item.title} className={`bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border-l-4 border-${section.id === 'developers' ? 'blue' : section.id === 'audit-companies' ? 'green' : section.id === 'investors' ? 'purple' : 'orange'}-500`}>
+                  <div key={item.title} className={`bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border-l-4 border-${section.id === 'developers' ? 'primary' : section.id === 'audit-companies' ? 'secondary' : section.id === 'investors' ? 'primary' : 'secondary'}`}>
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">{item.title}</h3>
                     <p className="text-gray-600 text-sm mb-4">{item.description}</p>
                     {item.features && (

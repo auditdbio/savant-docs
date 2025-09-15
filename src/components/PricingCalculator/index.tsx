@@ -58,7 +58,7 @@ export default function PricingCalculator() {
           </div>
 
                      {/* Results */}
-           <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 border border-green-200">
+           <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/20">
              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
                <div>
                  <div className="text-lg text-gray-600">SavantChat</div>
@@ -72,8 +72,8 @@ export default function PricingCalculator() {
                </div>
                <div>
                  <div className="text-lg text-gray-600">You Save</div>
-                 <div className="text-xl font-bold text-green-600">${savings.toLocaleString()}</div>
-                 <div className="text-xs text-green-600">({costMultiplier}x cheaper + {SPEED_ADVANTAGE}x faster)</div>
+                 <div className="text-xl font-bold text-primary">${savings.toLocaleString()}</div>
+                 <div className="text-xs text-primary">({costMultiplier}x cheaper + {SPEED_ADVANTAGE}x faster)</div>
                </div>
              </div>
            </div>

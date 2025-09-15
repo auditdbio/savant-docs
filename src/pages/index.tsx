@@ -264,7 +264,7 @@ export default function Home(): ReactElement {
               <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex flex-col items-center text-center">
                   <div className="flex-shrink-0 mb-4">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-secondary to-secondary-hover text-white">
                       <svg
                         className="h-8 w-8"
                         fill="none"
@@ -294,7 +294,7 @@ export default function Home(): ReactElement {
               <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex flex-col items-center text-center">
                   <div className="flex-shrink-0 mb-4">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 text-white">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-secondary to-secondary-hover text-white">
                       <svg
                         className="h-8 w-8"
                         fill="none"
@@ -324,7 +324,7 @@ export default function Home(): ReactElement {
               <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex flex-col items-center text-center">
                   <div className="flex-shrink-0 mb-4">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-green-500 to-green-600 text-white">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-secondary to-secondary-hover text-white">
                       <svg
                         className="h-8 w-8"
                         fill="none"
@@ -354,7 +354,7 @@ export default function Home(): ReactElement {
               <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex flex-col items-center text-center">
                   <div className="flex-shrink-0 mb-4">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 text-white">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-secondary to-secondary-hover text-white">
                       <svg
                         className="h-8 w-8"
                         fill="none"
