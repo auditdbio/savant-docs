@@ -33,30 +33,18 @@ export default function Ecosystem(): React.ReactElement {
               {
                 "@type": "ListItem",
                 position: 2,
-                name: "1inch",
-                url: "https://1inch.io/"
-              },
-              {
-                "@type": "ListItem",
-                position: 3,
-                name: "Lido",
-                url: "https://lido.fi/"
-              },
-              {
-                "@type": "ListItem",
-                position: 4,
                 name: "MixBytes",
                 url: "https://mixbytes.io/"
               },
               {
                 "@type": "ListItem",
-                position: 5,
+                position: 3,
                 name: "Pessimistic",
                 url: "https://pessimistic.io/"
               },
               {
                 "@type": "ListItem",
-                position: 6,
+                position: 4,
                 name: "Oxorio",
                 url: "https://oxor.io/"
               }
@@ -92,39 +80,7 @@ export default function Ecosystem(): React.ReactElement {
             </div>
 
             <div className="group bg-white rounded-lg border-2 border-gray-100 hover:border-primary/40 hover:shadow-md transition-all p-6 flex space-x-4">
-              <img src="/img/1inch/1inch_without_text.svg" alt="1inch" className="h-10 w-10" />
-              <div className="flex-1">
-                <div className="flex items-center space-x-2">
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary">1inch</h3>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary">Partner</span>
-                </div>
-                <p className="text-gray-700 text-sm mt-2">
-                  A decentralized exchange aggregator that sources liquidity from various exchanges to offer users the best possible trading rates across multiple DEXs.
-                </p>
-                <div className="mt-3 flex items-center space-x-4">
-                  <a href="https://1inch.io/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 text-sm underline">Visit 1inch</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="group bg-white rounded-lg border-2 border-gray-100 hover:border-primary/40 hover:shadow-md transition-all p-6 flex space-x-4">
-              <img src="/img/lido/Lido_Staked_ETH_stETH_Logo.svg" alt="Lido" className="h-10 w-10" />
-              <div className="flex-1">
-                <div className="flex items-center space-x-2">
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary">Lido</h3>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary">Partner</span>
-                </div>
-                <p className="text-gray-700 text-sm mt-2">
-                  A liquid staking solution that allows users to stake their assets while maintaining liquidity through tokenized representations of staked assets.
-                </p>
-                <div className="mt-3 flex items-center space-x-4">
-                  <a href="https://lido.fi/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 text-sm underline">Visit Lido</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="group bg-white rounded-lg border-2 border-gray-100 hover:border-primary/40 hover:shadow-md transition-all p-6 flex space-x-4">
-              <img src="/img/mixbytes/Logo-mixBytes-vertic.svg" alt="MixBytes" className="h-10 w-10" />
+              <img src="/img/mixbytes/mixbytes_vertical.svg" alt="MixBytes" className="h-10 w-10" />
               <div className="flex-1">
                 <div className="flex items-center space-x-2">
                   <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary">MixBytes</h3>
@@ -140,7 +96,7 @@ export default function Ecosystem(): React.ReactElement {
             </div>
 
             <div className="group bg-white rounded-lg border-2 border-gray-100 hover:border-primary/40 hover:shadow-md transition-all p-6 flex space-x-4">
-              <img src="/img/pessimistic/pessimistic.svg" alt="Pessimistic" className="h-10 w-10" />
+              <img src="/img/pessimistic/pessimistic_icon.svg" alt="Pessimistic" className="h-10 w-10" />
               <div className="flex-1">
                 <div className="flex items-center space-x-2">
                   <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary">Pessimistic</h3>
@@ -156,7 +112,7 @@ export default function Ecosystem(): React.ReactElement {
             </div>
 
             <div className="group bg-white rounded-lg border-2 border-gray-100 hover:border-primary/40 hover:shadow-md transition-all p-6 flex space-x-4">
-              <img src="/img/oxorio/logo-mobile-orange.svg" alt="Oxorio" className="h-10 w-10" />
+              <img src="/img/oxorio/oxorio_icon.svg" alt="Oxorio" className="h-10 w-10" />
               <div className="flex-1">
                 <div className="flex items-center space-x-2">
                   <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary">Oxorio</h3>

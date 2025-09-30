@@ -416,6 +416,67 @@ export default function Home(): ReactElement {
           </div>
         </section>
 
+        {/* Our Clients and Partners Section */}
+        <section className="bg-white py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900">
+                Our Clients and Partners
+              </h2>
+              <p className="text-xl text-secondary mt-4 font-semibold">
+                Trusted by Leading Companies in the Web3 Ecosystem
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+              {/* 1inch */}
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/img/1inch/1inch_horizontal.svg"
+                  alt="1inch"
+                  className="h-12 w-auto max-w-full object-contain"
+                />
+              </div>
+
+              {/* Lido */}
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/img/lido/lido_horizontal.svg"
+                  alt="Lido"
+                  className="h-12 w-auto max-w-full object-contain"
+                />
+              </div>
+
+              {/* Pessimistic */}
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/img/pessimistic/pessimistic_horizontal.svg"
+                  alt="Pessimistic"
+                  className="h-12 w-auto max-w-full object-contain"
+                />
+              </div>
+
+              {/* Oxorio */}
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/img/oxorio/oxorio_horizontal.svg"
+                  alt="Oxorio"
+                  className="h-12 w-auto max-w-full object-contain"
+                />
+              </div>
+
+              {/* Mixbytes */}
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/img/mixbytes/mixbytes_horizontal.svg"
+                  alt="Mixbytes"
+                  className="h-12 w-auto max-w-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Tweet Carousel */}
         <TweetCarousel tweetIds={tweetIds} />
 
