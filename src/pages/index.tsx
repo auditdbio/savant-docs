@@ -428,7 +428,7 @@ export default function Home(): ReactElement {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 items-center justify-items-center">
               {/* 1inch */}
               <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
                 <img
@@ -479,6 +479,15 @@ export default function Home(): ReactElement {
                 <img
                   src="/img/gearbox/gearbox_horizontal.svg"
                   alt="Gearbox Protocol"
+                  className="h-12 w-auto max-w-full object-contain"
+                />
+              </div>
+
+              {/* Hexens */}
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/img/hexens/hexens_horizontal.svg"
+                  alt="Hexens"
                   className="h-12 w-auto max-w-full object-contain"
                 />
               </div>
