@@ -6,7 +6,7 @@ interface User {
   // Add other user properties as needed
 }
 
-export default function SignInButton(): JSX.Element {
+export default function SignInButton(): React.ReactElement {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -18,9 +18,12 @@ export default function SignInButton(): JSX.Element {
         if (response.ok) {
           const userData = await response.json();
           setUser(userData);
+        } else {
+          setUser(null);
         }
       } catch (error) {
         console.error('Failed to fetch user data:', error);
+        setUser(null);
       } finally {
         setIsLoading(false);
       }
@@ -29,19 +32,16 @@ export default function SignInButton(): JSX.Element {
     checkAuth();
   }, []);
 
-  if (isLoading) {
-    return null;
-  }
-
   return (
     <a
       href={appendUTMToUrl(user ? '/dashboard' : '/dashboard/login')}
-      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-hover"
+      className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-hover"
       style={{
         textDecoration: 'none',
+        width: '110px',
       }}
     >
-      {user ? 'Dashboard' : 'Sign In'}
+      {isLoading || user ? 'Dashboard' : 'Sign In'}
     </a>
   );
 }
