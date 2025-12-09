@@ -428,7 +428,7 @@ export default function Home(): ReactElement {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 items-center justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-8 items-center justify-items-center">
               {/* 1inch */}
               <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
                 <img
@@ -488,6 +488,15 @@ export default function Home(): ReactElement {
                 <img
                   src="/img/hexens/hexens_horizontal.svg"
                   alt="Hexens"
+                  className="h-12 w-auto max-w-full object-contain"
+                />
+              </div>
+
+              {/* BGD */}
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/img/bgd/bgd_black_logo.svg"
+                  alt="Bored Ghosts"
                   className="h-12 w-auto max-w-full object-contain"
                 />
               </div>

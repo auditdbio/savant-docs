@@ -126,6 +126,22 @@ export default function Ecosystem(): React.ReactElement {
                 </div>
               </div>
             </div>
+
+            <div className="group bg-white rounded-lg border-2 border-gray-100 hover:border-primary/40 hover:shadow-md transition-all p-6 flex space-x-4">
+              <img src="/img/bgd/bgd_black_onlyGhost_logo.svg" alt="Bored Ghosts" className="h-10 w-10" />
+              <div className="flex-1">
+                <div className="flex items-center space-x-2">
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary">Bored Ghosts</h3>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary">Partner</span>
+                </div>
+                <p className="text-gray-700 text-sm mt-2">
+                A collective of former Aave contributors focused on protocol engineering, governance, and consulting for DeFi protocols, including core work on Aave v3 and Aave DAO upgrades.
+                </p>
+                <div className="mt-3 flex items-center space-x-4">
+                  <a href="https://bgdlabs.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 text-sm underline">Visit Bored Ghosts</a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
