@@ -12,7 +12,7 @@ type EnhancedConfig = Config & {
 const config: EnhancedConfig = {
   title: "Savant Chat - AI Smart Contract Security",
   tagline: "Smart Contract Security Powered by Advanced AI",
-  favicon: "img/savant-favicon.svg",
+  favicon: "img/savant-favicon.png",
 
   // Set the production url of your site here
   url: 'https://savant.chat',
@@ -206,8 +206,25 @@ const config: EnhancedConfig = {
     {
       tagName: 'link',
       attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '48x48',
+        href: '/img/savant-favicon.png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'shortcut icon',
+        href: '/img/savant-favicon.png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
         rel: 'apple-touch-icon',
-        href: '/img/logo_short.svg',
+        sizes: '180x180',
+        href: '/img/savant-apple-touch-icon.png',
       },
     },
     {
