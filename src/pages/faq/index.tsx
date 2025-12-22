@@ -13,7 +13,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: "What exactly is Savant Chat?",
-    answer: "Savant Chat is an AI‑powered co‑pilot for smart‑contract security. It reviews Solidity code in real time, flags exploits before they hit mainnet, and stores audit proofs on‑chain so anyone can verify the work later."
+    answer: "Savant Chat is an AI‑powered co‑pilot for smart‑contract security. It reviews smart contract code in real time, flags exploits before they hit mainnet, and stores audit proofs on‑chain so anyone can verify the work later."
   },
   {
     question: "Can I rely on Savant Chat alone instead of a human audit?",
@@ -54,6 +54,10 @@ const faqs: FAQItem[] = [
   {
     question: "How can I invite friends to join Savant Chat?",
     answer: "Go to \"Referrals\" in settings and share your unique referral link to grow your network on Savant Chat and get bonuses."
+  },
+  {
+    question: "What programming languages does Savant Chat support?",
+    answer: "Savant Chat supports multiple smart contract languages including Solidity (for EVM-compatible chains), Vyper (Python-like language for Ethereum), and Rust (for Near and Solana networks). This ensures you can audit smart contracts across the entire Web3 ecosystem."
   }
 ];
 

@@ -13,7 +13,7 @@ export default function Pricing() {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "Savant Chat AI Smart Contract Audit",
-    "description": "AI-powered security audits for Solidity smart contracts. Choose from flexible pay-as-you-go pricing or account tiers.",
+    "description": "AI-powered security audits for smart contracts (Solidity, Vyper, Rust). Choose from flexible pay-as-you-go pricing or account tiers.",
     "brand": {
       "@type": "Brand",
       "name": "Savant Chat"
@@ -52,7 +52,7 @@ export default function Pricing() {
   return (
     <Layout
       title="Smart Contract Audit Pricing & Plans"
-      description="Transparent pricing for AI-powered smart contract security audits. Choose pay-as-you-go plans for Solidity code or flexible account tiers for your team.">
+      description="Transparent pricing for AI-powered smart contract security audits. Choose pay-as-you-go plans for smart contract code or flexible account tiers for your team.">
       <Head>
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
@@ -80,8 +80,11 @@ export default function Pricing() {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="text-center mb-10">
               <h2 className="text-2xl font-bold text-secondary mb-3">Pay-As-You-Go AI Audit Pricing</h2>
-              <p className="mb-10 md:mb-8 text-gray-600 max-w-xl mx-auto">
-                Final pricing is based on the actual token count of your Solidity code after upload.
+              <p className="mb-4 text-gray-600 max-w-xl mx-auto">
+                Final pricing is based on the actual token count of your smart contract code after upload.
+              </p>
+              <p className="mb-10 md:mb-8 text-sm text-gray-500 max-w-xl mx-auto">
+                Supports Solidity, Vyper, and Rust (Near & Solana)
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-center">
                 {PRICING_PLANS.map((plan, index) => (

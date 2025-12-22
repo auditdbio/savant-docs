@@ -8,12 +8,12 @@ export default function HowItWorks(): ReactElement {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "How Savant.chat's AI Smart Contract Audit Works",
-    "description": "Get a comprehensive AI-powered smart contract security audit for your Solidity project in 3 simple steps.",
+    "description": "Get a comprehensive AI-powered smart contract security audit for your project in 3 simple steps.",
     "step": [
       {
         "@type": "HowToStep",
         "name": "Upload Your Contract",
-        "text": "Drag and drop your Solidity files or connect a GitHub repository.",
+        "text": "Drag and drop your smart contract files or connect a GitHub repository.",
         "url": "https://savant.chat/how-it-works#step1"
       },
       {
@@ -34,7 +34,7 @@ export default function HowItWorks(): ReactElement {
   return (
     <Layout
       title="How AI Smart Contract Security Audits Work"
-      description="Learn how Savant Chat's AI-powered security audit works: upload your Solidity code, let our AI analyze it, and get a comprehensive vulnerability report in minutes."
+      description="Learn how Savant Chat's AI-powered security audit works: upload your smart contract code, let our AI analyze it, and get a comprehensive vulnerability report in minutes."
     >
       <Head>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -49,6 +49,9 @@ export default function HowItWorks(): ReactElement {
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
               Get an AI-powered smart contract security audit in 3 simple steps
+            </p>
+            <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mt-4">
+              Supporting Solidity, Vyper, and Rust (Near & Solana)
             </p>
           </div>
         </section>
@@ -73,7 +76,7 @@ export default function HowItWorks(): ReactElement {
                   <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-primary text-white text-xl font-bold mr-4">
                     1
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">Upload Your Solidity Project</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">Upload Your Smart Contract Project</h3>
                 </div>
                 <div className="flex items-center justify-center mb-4" role="img" aria-label="Cloud upload icon">
                   <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,7 +84,7 @@ export default function HowItWorks(): ReactElement {
                   </svg>
                 </div>
                 <p className="text-gray-600 leading-relaxed text-center">
-                  Drag and drop your Solidity files or connect a GitHub repository.
+                  Drag and drop your smart contract files (Solidity, Vyper, or Rust) or connect a GitHub repository.
                 </p>
               </div>
 
@@ -181,7 +184,7 @@ export default function HowItWorks(): ReactElement {
 
         {/* CTA Section */}
         <CTASection 
-          title="Ready to Secure Your Solidity Project?"
+          title="Ready to Secure Your Smart Contract Project?"
           description="Get started with a free AI security audit and see the results for yourself"
         />
       </div>

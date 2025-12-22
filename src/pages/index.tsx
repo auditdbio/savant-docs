@@ -35,7 +35,7 @@ export default function Home(): ReactElement {
     "name": "Savant Chat",
     "url": "https://savant.chat",
     "logo": "https://savant.chat/img/logo_short.svg",
-    "description": "AI-powered smart contract security audits for Solidity. Find vulnerabilities, optimize gas, and secure your Web3 projects.",
+    "description": "AI-powered smart contract security audits for Solidity, Vyper, and Rust. Find vulnerabilities, optimize gas, and secure your Web3 projects.",
     "sameAs": [
       "https://twitter.com/SavantChat",
       "https://discord.gg/pHfxVh9WSc"
@@ -67,7 +67,7 @@ export default function Home(): ReactElement {
   return (
     <Layout
       title="AI-Powered Smart Contract Security Audits"
-      description="Savant Chat provides AI-powered security audits for Solidity smart contracts. Find vulnerabilities, optimize gas, and integrate security into your CI/CD pipeline."
+      description="Savant Chat provides AI-powered security audits for smart contracts (Solidity, Vyper, Rust). Find vulnerabilities, optimize gas, and integrate security into your CI/CD pipeline."
     >
       <Head>
         {/* JSON-LD for search engines */}
@@ -102,7 +102,10 @@ export default function Home(): ReactElement {
               </h1>
               <p className="text-xl md:text-2xl lg:text-xl xl:text-2xl text-white/80 text-center max-w-3xl mx-auto lg:mx-0 leading-relaxed self-center">
                 Automated vulnerability scanning, real-time monitoring, and AI-powered
-                security analysis for your Solidity smart contracts
+                security analysis for your smart contracts
+              </p>
+              <p className="text-base md:text-lg lg:text-base xl:text-lg text-white/70 text-center max-w-2xl mx-auto lg:mx-0">
+                Supporting Solidity, Vyper, and Rust (Near & Solana)
               </p>
               <div className="pb-6">
                 <HeroCTAButtons />
@@ -141,6 +144,9 @@ export default function Home(): ReactElement {
                     <div className="text-center px-2 md:px-0">
                       <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
                         Savant.chat provides more than a simple code scan. It's a sophisticated multi-agent AI system that performs a deep security audit, coordinating thousands of parallel LLM calls across specialized models to detect a wide range of vulnerability classes.
+                      </p>
+                      <p className="text-base text-gray-600 leading-relaxed max-w-4xl mx-auto mt-4">
+                        We support multiple smart contract languages including Solidity, Vyper, and Rust (for Near and Solana networks), ensuring comprehensive security coverage across the Web3 ecosystem.
                       </p>
                     </div>
 

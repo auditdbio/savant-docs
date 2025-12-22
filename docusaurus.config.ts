@@ -12,7 +12,7 @@ type EnhancedConfig = Config & {
 const config: EnhancedConfig = {
   title: "Savant Chat - AI Smart Contract Security",
   tagline: "Smart Contract Security Powered by Advanced AI",
-  favicon: "img/savant-favicon.png",
+  favicon: "img/savant-favicon.svg",
 
   // Set the production url of your site here
   url: 'https://savant.chat',
@@ -113,7 +113,7 @@ const config: EnhancedConfig = {
       {
         name: "keywords",
         content:
-          "smart contract, security, audit, blockchain, AI, ethereum, solidity, web3, defi",
+          "smart contract, security, audit, blockchain, AI, ethereum, solidity, vyper, rust, near, solana, web3, defi",
       },
       { name: "twitter:card", content: "summary" },
       {

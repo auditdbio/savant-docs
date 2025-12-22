@@ -12,9 +12,9 @@ export default function UseCases(): ReactElement {
       icon: <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>,
       items: [
         {
-          title: "Pre-Deployment Security Audit for Solidity",
-          description: "Run a comprehensive security audit before deploying your smart contracts to mainnet. Catch vulnerabilities early and save on gas costs from redeployments.",
-          features: ["Automated vulnerability scanning", "Gas optimization recommendations", "Best practices compliance"]
+          title: "Pre-Deployment Security Audit",
+          description: "Run a comprehensive security audit before deploying your smart contracts to mainnet. Catch vulnerabilities early and save on gas costs from redeployments. Works with Solidity, Vyper, and Rust (Near & Solana).",
+          features: ["Automated vulnerability scanning", "Gas optimization recommendations", "Best practices compliance", "Multi-language support"]
         },
         {
           title: "Continuous Security in Your CI/CD Pipeline",
