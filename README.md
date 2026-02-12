@@ -53,6 +53,33 @@ The site will be available at: http://localhost:3000
 docker-compose down
 ```
 
+## CI/CD (auto deploy from `main`)
+
+This repository includes a GitHub Actions workflow at `.github/workflows/deploy-main.yml`.
+
+On every push/merge to `main`, it deploys **only** the docs service on production:
+
+```bash
+/root/savant/deploy/deploy-docs.sh
+```
+
+The server script runs:
+
+```bash
+cd /root/savant/deploy
+docker compose -p app up -d --no-deps --build docs
+```
+
+So it does not restart other services in the main `savant` stack.
+
+### Required GitHub secrets
+
+Set these repository secrets before enabling the workflow:
+
+- `DOCS_DEPLOY_HOST` (example: `your.server.ip`)
+- `DOCS_DEPLOY_USER` (example: `root`)
+- `DOCS_DEPLOY_SSH_KEY` (private SSH key with access to the server)
+
 # Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
