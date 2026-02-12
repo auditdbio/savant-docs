@@ -7,28 +7,48 @@ export default function HowItWorks(): ReactElement {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "How Savant.chat's AI Smart Contract Audit Works",
-    "description": "Get a comprehensive AI-powered smart contract security audit for your project in 3 simple steps.",
-    "step": [
+    name: "How to Audit Your Smart Contract with Savant Chat",
+    description:
+      "Step-by-step guide to running an AI-powered security audit on your smart contract using Savant Chat. Supports Solidity, Vyper, and Rust.",
+    step: [
       {
         "@type": "HowToStep",
-        "name": "Upload Your Contract",
-        "text": "Drag and drop your smart contract files or connect a GitHub repository.",
-        "url": "https://savant.chat/how-it-works#step1"
+        name: "Sign up for free",
+        text: "Create a free account at savant.chat. New accounts receive $75 in free credits to start auditing immediately.",
+        url: "https://savant.chat/dashboard/login",
       },
       {
         "@type": "HowToStep",
-        "name": "AI Analysis Begins",
-        "text": "Our multi-agent system deploys thousands of parallel LLM calls to analyze your code.",
-        "url": "https://savant.chat/how-it-works#step2"
+        name: "Submit your smart contract",
+        text: "Upload or paste your smart contract code. Savant Chat supports Solidity, Vyper, and Rust (for Solana and NEAR networks).",
       },
       {
         "@type": "HowToStep",
-        "name": "Get Comprehensive Results",
-        "text": "Receive a detailed security report identifying vulnerabilities, from common exploits to complex logic flaws.",
-        "url": "https://savant.chat/how-it-works#step3"
-      }
-    ]
+        name: "AI multi-agent analysis runs",
+        text: "Savant Chat's multi-agent AI system coordinates thousands of parallel LLM calls across specialized models to scan for vulnerabilities, gas optimization issues, and security best practices.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Review your audit report",
+        text: "Receive a detailed security report with vulnerability findings, severity ratings, and remediation recommendations. Each finding includes an explanation and suggested fix.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Integrate into CI/CD (optional)",
+        text: "Set up GitHub Actions integration to automatically run security scans on every pull request, catching vulnerabilities before they reach production.",
+      },
+    ],
+    tool: {
+      "@type": "SoftwareApplication",
+      name: "Savant Chat",
+      url: "https://savant.chat",
+    },
+    totalTime: "PT30M",
+    estimatedCost: {
+      "@type": "MonetaryAmount",
+      currency: "USD",
+      value: "0",
+    },
   };
 
   return (

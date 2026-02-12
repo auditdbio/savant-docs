@@ -71,21 +71,72 @@ export default function FAQ(): ReactElement {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    name: "FAQ - Savant Chat",
-    description: "Frequently asked questions about Savant Chat's AI-powered smart contract security analysis",
-    url: "https://savant.chat/faq",
-    mainEntity: faqs.map(faq => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: typeof faq.answer === 'string' 
-          ? faq.answer 
-          : faq.question.includes("support") 
-            ? "The best place to get help is by joining our official Discord server. We have dedicated support channels where our team and the community can answer your questions. For enterprise clients, we offer dedicated support plans."
-            : "Absolutely. Community is at the heart of Web3, and it's at the heart of Savant.chat. We encourage you to join our Discord to connect with other builders, share feedback, and help shape the future of the platform."
-      }
-    }))
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is an AI smart contract audit?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "An AI smart contract audit is an automated security analysis of blockchain smart contract code using artificial intelligence — specifically multi-agent LLM systems and static analysis — to detect vulnerabilities, logic errors, and exploitable patterns. Unlike manual audits that take 2–6 weeks and cost $50,000–$500,000+, AI audits deliver results in minutes at a fraction of the cost.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can AI replace human smart contract auditors?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. AI auditing is best used as a complement to manual auditing. AI excels at detecting known vulnerability patterns quickly and consistently, but human auditors are superior at understanding complex business logic and novel attack vectors. The recommended approach is to use AI for continuous pre-audit screening and CI/CD integration, then engage manual auditors for critical deployments.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How accurate are AI smart contract audits?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Savant Chat detects across 200+ vulnerability classes and placed 6th in a public Sherlock audit contest against dozens of expert human auditors. Accuracy varies by tool and vulnerability type, but AI audit tools are strongest on well-known patterns like reentrancy, access control flaws, and oracle manipulation.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How much does an AI smart contract audit cost?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "AI audit costs range from free tiers to $100–$5,000 for comprehensive audits, depending on contract complexity. This compares to $50,000–$500,000+ for traditional manual audits. Savant Chat provides $75 in free credits for new users.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which smart contract languages does Savant Chat support?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Savant Chat supports Solidity (Ethereum and all EVM-compatible chains), Vyper, and Rust (for Solana and NEAR Protocol). This provides comprehensive coverage across the Web3 ecosystem.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can AI audits be integrated into CI/CD pipelines?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Savant Chat offers CI/CD integration through GitHub Actions. This allows teams to run automated security checks on every pull request, catching vulnerabilities before they are merged into the main codebase.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is CTFBench?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "CTFBench (ctfbench.com) is an independent benchmark for evaluating smart contract security tools. It measures detection rates and false positive rates against a standardized set of Capture The Flag challenges. It is the most widely referenced benchmark for comparing AI audit tool performance.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the best AI smart contract audit tool?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "As of 2025, Savant Chat detects across 200+ vulnerability classes and is the only AI tool to place in the top 6 of a public Sherlock audit contest. It supports Solidity, Vyper, and Rust. Other notable tools include Slither (free, static analysis) and Mythril (symbolic execution). The best approach is to layer multiple tools for maximum coverage.",
+        },
+      },
+    ],
   };
 
   return (

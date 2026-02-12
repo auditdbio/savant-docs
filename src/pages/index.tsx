@@ -31,15 +31,84 @@ export default function Home(): ReactElement {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Savant Chat",
-    "url": "https://savant.chat",
-    "logo": "https://savant.chat/img/logo_short.svg",
-    "description": "AI-powered smart contract security audits for Solidity, Vyper, and Rust. Find vulnerabilities, optimize gas, and secure your Web3 projects.",
-    "sameAs": [
-      "https://twitter.com/SavantChat",
-      "https://discord.gg/pHfxVh9WSc"
-    ]
+    "@type": "SoftwareApplication",
+    name: "Savant Chat",
+    alternateName: "SavantChat AI Smart Contract Auditor",
+    url: "https://savant.chat",
+    applicationCategory: "DeveloperApplication",
+    applicationSubCategory: "Smart Contract Security Audit Tool",
+    operatingSystem: "Web-based (SaaS)",
+    description:
+      "AI-powered smart contract security platform that uses a multi-agent architecture to perform deep vulnerability scanning across 200+ vulnerability classes. Supports Solidity, Vyper, and Rust (Solana & NEAR). Placed 6th in a Sherlock DeFi audit contest against human auditors.",
+    featureList: [
+      "Multi-agent AI vulnerability scanning",
+      "Solidity smart contract auditing",
+      "Vyper smart contract auditing",
+      "Rust smart contract auditing (Solana & NEAR)",
+      "CI/CD pipeline integration via GitHub Actions",
+      "Real-time security monitoring",
+      "Gas optimization suggestions",
+      "Automated proof-of-concept generation",
+    ],
+    screenshot: "https://savant.chat/img/video-poster.jpg",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Free tier with $75 in credits. Paid plans available.",
+      url: "https://savant.chat/pricing",
+    },
+    creator: {
+      "@type": "Organization",
+      name: "Novel Codes DMCC",
+      url: "https://savant.chat",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Organization",
+          name: "Pessimistic Security",
+          url: "https://pessimistic.io",
+        },
+        reviewBody:
+          "We recently tested savant.chat and were pleasantly surprised! It correctly identified several findings on our test contract and didn't produce a single clear false positive. This is the first genuinely useful security tool we've come across in quite a while.",
+        datePublished: "2025-03-05",
+      },
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Organization",
+          name: "OXORIO",
+          url: "https://oxor.io",
+        },
+        reviewBody:
+          "We recently tested @savantchat — an AI-powered auditing tool — on a real DeFi project (~3k SLOC), previously audited by multiple top firms. The question: can AI surface anything meaningful post-audit? Spoiler: it can. And it made us rethink how automation can augment human.",
+        datePublished: "2025-04-14",
+      },
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: "Petr Korolev",
+          url: "https://x.com/skywinder",
+        },
+        reviewBody:
+          "I just put Savant.Chat to the test on a complex contract — and wow, what a game-changer! It uncovered a critical issue that many seasoned auditors overlooked, proving its ability to boost audit quality. This tool is set to redefine smart contract security!",
+        datePublished: "2025-02-27",
+      },
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Organization",
+          name: "1inch",
+          url: "https://1inch.io",
+        },
+        reviewBody:
+          "Our friends @savantchat built a multi-agent AI system to find vulnerabilities fast - with high reliability and much lower costs. This kind of new development is helping 1inch scale at speed.",
+        datePublished: "2025-07-01",
+      },
+    ],
   };
 
   // Blockscout banner state
