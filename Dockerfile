@@ -33,5 +33,5 @@ COPY --from=build /app/build /app
 # Expose port 3000
 EXPOSE 3000
 
-# Run simple web server
-CMD ["serve", "-s", ".", "-l", "3000"] 
+# Serve static files with per-route HTML support
+CMD ["serve", ".", "-l", "3000"]
