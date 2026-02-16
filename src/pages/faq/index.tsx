@@ -95,7 +95,7 @@ const faqCategories: FAQCategory[] = [
       {
         question: "How long does an audit take?",
         answer:
-          "Minutes. Most audits complete while your coffee is still hot. Traditional manual audits take 2-4 weeks.",
+          "It depends on the specific request and project scale — ranging from minutes to a couple of hours for larger projects.",
       },
     ],
   },
@@ -105,9 +105,9 @@ const faqCategories: FAQCategory[] = [
     icon: "⚖️",
     faqs: [
       {
-        question: "How is this different from ChatGPT?",
+        question: "How is Savant Chat different from general AI models?",
         answer:
-          "We use specialized AI models for smart contract security. ChatGPT lacks specific security context. Savant Chat uses multi-agent architecture with thousands of specialized AI agents across 200+ vulnerability types.",
+          "General AI models lack specific smart contract security context. Savant Chat uses a specialized multi-agent architecture with thousands of AI agents trained specifically for vulnerability detection across 200+ security classes.",
       },
       {
         question: "What makes you different from free tools like Slither?",
