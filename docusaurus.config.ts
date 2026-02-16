@@ -1,6 +1,6 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 import tailwindPlugin from "./plugins/tailwind-config.cjs";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -15,7 +15,7 @@ const config: EnhancedConfig = {
   favicon: "img/savant-favicon.svg",
 
   // Set the production url of your site here
-  url: 'https://savant.chat',
+  url: "https://savant.chat",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -35,18 +35,18 @@ const config: EnhancedConfig = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'auditdbio', // Usually your GitHub org/user name.
-  projectName: 'savant-docs', // Usually your repo name.
+  organizationName: "auditdbio", // Usually your GitHub org/user name.
+  projectName: "savant-docs", // Usually your repo name.
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   // SEO optimization plugins
@@ -76,31 +76,31 @@ const config: EnhancedConfig = {
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: false,
         blog: {
-          path: 'blog',
-          blogTitle: 'Blog',
-          blogDescription: 'Smart Contract Security Insights',
+          path: "blog",
+          blogTitle: "Blog",
+          blogDescription: "Smart Contract Security Insights",
           blogSidebarCount: 5,
-          blogSidebarTitle: 'Recent Posts',
-          routeBasePath: 'blog',
+          blogSidebarTitle: "Recent Posts",
+          routeBasePath: "blog",
           postsPerPage: 10,
           showReadingTime: true,
           feedOptions: {
-            type: 'all',
-            title: 'Savant Chat Blog',
-            description: 'Smart Contract Security Insights and Updates',
+            type: "all",
+            title: "Savant Chat Blog",
+            description: "Smart Contract Security Insights and Updates",
             copyright: `Copyright © ${new Date().getFullYear()} Novel Codes DMCC`,
           },
-        }, 
+        },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
         // SEO settings
         sitemap: {
-          changefreq: 'daily',
+          changefreq: "daily",
           priority: 0.5,
         },
       } satisfies Preset.Options,
@@ -141,38 +141,38 @@ const config: EnhancedConfig = {
       { property: "og:site_name", content: "Savant Chat" },
     ],
     // Replace with your project's social card
-    image: 'img/logo_short.png',
+    image: "img/logo_short.png",
     navbar: {
-      title: 'Savant Chat',
+      title: "Savant Chat",
       logo: {
-        alt: 'Savant Chat Logo',
-        src: 'img/logo_short.svg',
+        alt: "Savant Chat Logo",
+        src: "img/logo_short.svg",
       },
       items: [
-        {to: '/use-cases', label: 'Use Cases', position: 'left'},
-        {to: '/how-it-works', label: 'How It Works', position: 'left'},
-        {to: '/pricing', label: 'Pricing', position: 'left'},
-        {to: '/ecosystem', label: 'Ecosystem', position: 'left'},
-        {to: '/faq', label: 'FAQ', position: 'left'},
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: "/use-cases", label: "Use Cases", position: "left" },
+        { to: "/how-it-works", label: "How It Works", position: "left" },
+        { to: "/pricing", label: "Pricing", position: "left" },
+        { to: "/ecosystem", label: "Ecosystem", position: "left" },
+        { to: "/faq", label: "FAQ", position: "left" },
+        { to: "/blog", label: "Blog", position: "left" },
         {
-          href: 'https://x.com/savantchat',
-          className: 'header-x-link',
-          'aria-label': 'Savant Chat on X',
-          position: 'right',
+          href: "https://x.com/savantchat",
+          className: "header-x-link",
+          "aria-label": "Savant Chat on X",
+          position: "right",
         },
         {
-          type: 'custom-SignInButton',
-          position: 'right',
+          type: "custom-SignInButton",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'light',
+      style: "light",
       logo: {
-        alt: 'Savant Chat Logo',
-        src: 'img/logo_short.svg',
-        href: '/',
+        alt: "Savant Chat Logo",
+        src: "img/logo_short.svg",
+        href: "/",
         width: 32,
         height: 32,
       },
@@ -180,7 +180,7 @@ const config: EnhancedConfig = {
     },
     colorMode: {
       disableSwitch: true,
-      defaultMode: 'light',
+      defaultMode: "light",
     },
     prism: {
       theme: prismThemes.github,
@@ -190,66 +190,66 @@ const config: EnhancedConfig = {
 
   headTags: [
     {
-      tagName: 'meta',
+      tagName: "meta",
       attributes: {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1.0',
+        name: "viewport",
+        content: "width=device-width, initial-scale=1.0",
       },
     },
     {
-      tagName: 'link',
+      tagName: "link",
       attributes: {
-        rel: 'manifest',
-        href: '/manifest.json',
+        rel: "manifest",
+        href: "/manifest.json",
       },
     },
     {
-      tagName: 'link',
+      tagName: "link",
       attributes: {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '48x48',
-        href: '/img/savant-favicon.png',
+        rel: "icon",
+        type: "image/png",
+        sizes: "48x48",
+        href: "/img/savant-favicon.png",
       },
     },
     {
-      tagName: 'link',
+      tagName: "link",
       attributes: {
-        rel: 'shortcut icon',
-        href: '/img/savant-favicon.png',
+        rel: "shortcut icon",
+        href: "/img/savant-favicon.png",
       },
     },
     {
-      tagName: 'link',
+      tagName: "link",
       attributes: {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: '/img/savant-apple-touch-icon.png',
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/img/savant-apple-touch-icon.png",
       },
     },
     {
-      tagName: 'meta',
+      tagName: "meta",
       attributes: {
-        name: 'msapplication-TileImage',
-        content: '/img/logo_short.svg',
+        name: "msapplication-TileImage",
+        content: "/img/logo_short.svg",
       },
     },
     {
-      tagName: 'meta',
+      tagName: "meta",
       attributes: {
-        name: 'msapplication-TileColor',
-        content: '#FF6B00',
+        name: "msapplication-TileColor",
+        content: "#FF6B00",
       },
     },
     {
-      tagName: 'meta',
+      tagName: "meta",
       attributes: {
-        name: 'theme-color',
-        content: '#FF6B00',
+        name: "theme-color",
+        content: "#FF6B00",
       },
     },
     {
-      tagName: 'script',
+      tagName: "script",
       attributes: {},
       innerHTML: `
         var _paq = window._paq = window._paq || [];
@@ -264,6 +264,77 @@ const config: EnhancedConfig = {
         g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
         })();
       `,
+    },
+    {
+      tagName: "script",
+      attributes: {
+        type: "application/ld+json",
+      },
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "Savant Chat",
+        alternateName: ["SavantChat", "Savant.chat"],
+        applicationCategory: "SecurityApplication",
+        operatingSystem: "Web",
+        url: "https://savant.chat",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+          description: "Free tier with $75 credits",
+        },
+        featureList: [
+          "AI-powered smart contract security audits",
+          "Multi-agent vulnerability detection with 87-95% CTFBench accuracy",
+          "CI/CD pipeline integration via GitHub Actions",
+          "Solidity, Vyper, and Rust (Near & Solana) support",
+          "Real-time monitoring and gas optimization",
+          "Low false-positive rate validated by Pessimistic and Oxorio",
+        ],
+        screenshot: "https://savant.chat/img/video-poster.jpg",
+        softwareVersion: "0.2",
+        creator: {
+          "@type": "Organization",
+          name: "Novel Codes DMCC",
+          url: "https://savant.chat",
+        },
+      }),
+    },
+    {
+      tagName: "script",
+      attributes: {
+        type: "application/ld+json",
+      },
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Savant Chat",
+        url: "https://savant.chat",
+        logo: "https://savant.chat/img/logo_short.svg",
+        description:
+          "AI-powered smart contract security platform with multi-agent vulnerability detection. First AI to achieve Top 6 in Sherlock DeFi Audit Contest, matching human expert auditors. Trusted by 1inch, Lido, and leading audit firms.",
+        foundingDate: "2024",
+        sameAs: [
+          "https://twitter.com/savantchat",
+          "https://www.linkedin.com/company/savantchat",
+          "https://discord.gg/pHfxVh9WSc",
+          "https://ethglobal.com/showcase/savant-chat-hh0ua",
+          "https://medium.com/savantchat",
+          "https://ctfbench.com",
+        ],
+        knowsAbout: [
+          "Smart Contract Security",
+          "Blockchain Auditing",
+          "AI Security Analysis",
+          "DeFi Security",
+          "Solidity Auditing",
+          "Vyper Security",
+          "Rust Smart Contracts",
+          "Near Protocol",
+          "Solana Security",
+        ],
+      }),
     },
   ],
 };
