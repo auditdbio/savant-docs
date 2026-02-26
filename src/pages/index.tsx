@@ -120,7 +120,10 @@ export default function Home(): ReactElement {
     storeUTM(utm);
 
     // Show banner if from blockscout and not dismissed
-    const dismissed = typeof window !== "undefined" ? window.localStorage.getItem("savant_blockscout_banner_dismissed") : null;
+    const dismissed =
+      typeof window !== "undefined"
+        ? window.localStorage.getItem("savant_blockscout_banner_dismissed")
+        : null;
     if (isFromBlockscout(utm) && dismissed !== "1") {
       setShowBlockscoutBanner(true);
     }
@@ -135,7 +138,7 @@ export default function Home(): ReactElement {
 
   return (
     <Layout
-      title="AI-Powered Smart Contract Security Audits"
+      title="AI Smart Contract Auditing | Find Vulnerabilities Before Attackers Do"
       description="Savant Chat provides AI-powered security audits for smart contracts (Solidity, Vyper, Rust). Find vulnerabilities, optimize gas, and integrate security into your CI/CD pipeline."
     >
       <Head>
@@ -148,7 +151,8 @@ export default function Home(): ReactElement {
           <div className="bg-primary text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
               <p className="text-sm md:text-base font-medium">
-                Welcome, Blockscout users! Enjoy $75 in free credits to try Savant Chat.
+                Welcome, Blockscout users! Enjoy $75 in free credits to try
+                Savant Chat.
               </p>
               <button
                 aria-label="Dismiss Blockscout banner"
@@ -165,23 +169,29 @@ export default function Home(): ReactElement {
           <div className="flex flex-col lg:flex-row justify-between items-center mx-auto max-w-[1920px] min-h-[494px] py-0 space-y-12 lg:space-y-0">
             <div className="flex flex-col lg:w-1/2 text-center lg:text-left space-y-8 py-20 lg:py-0 px-6 lg:px-8 xl:px-12">
               <h1 className="text-4xl md:text-5xl lg:text-4xl xl:text-5xl text-center font-bold leading-tight">
-                <span className="text-white/90">Smart Contract Security</span>
+                <span className="text-white/90">
+                  Find Smart Contract Vulnerabilities
+                </span>
                 <br />
-                <span className="text-white">Powered by Advanced AI</span>
+                <span className="text-white">Before Attackers Do</span>
               </h1>
               <p className="text-xl md:text-2xl lg:text-xl xl:text-2xl text-white/80 text-center max-w-3xl mx-auto lg:mx-0 leading-relaxed self-center">
-                Automated vulnerability scanning, real-time monitoring, and AI-powered
-                security analysis for your smart contracts
+                Deeper than a scanner. Faster than a manual audit. AI security
+                for Solidity, Vyper, and Rust smart contracts.
               </p>
               <p className="text-base md:text-lg lg:text-base xl:text-lg text-white/70 text-center max-w-2xl mx-auto lg:mx-0">
-                Supporting Solidity, Vyper, and Rust (Near & Solana)
+                Trusted by 1inch, Lido, and Pessimistic Security
               </p>
               <div className="pb-6">
                 <HeroCTAButtons />
               </div>
             </div>
             <div className="lg:w-1/2 w-full h-[465px] lg:h-[494px] flex justify-center lg:justify-end bg-white">
-              <div className="w-full" role="img" aria-label="Savant Chat AI analyzing a smart contract for vulnerabilities">
+              <div
+                className="w-full"
+                role="img"
+                aria-label="Savant Chat AI analyzing a smart contract for vulnerabilities"
+              >
                 <AnalysisDemo />
               </div>
             </div>
@@ -193,7 +203,7 @@ export default function Home(): ReactElement {
           <div className="max-w-7xl mx-auto px-0 md:px-4 lg:px-8">
             <div className="text-center mb-16 px-4 md:px-0">
               <h2 className="text-4xl font-bold text-gray-900">
-                Your AI Co-Pilot for Smart Contract Security Audits
+                Deep Security Audits, Powered by Multi-Agent AI
               </h2>
               <p className="mt-4 text-xl text-secondary font-semibold">
                 Go Beyond a Simple Vulnerability Scanner
@@ -212,22 +222,32 @@ export default function Home(): ReactElement {
                     {/* Description */}
                     <div className="text-center px-2 md:px-0">
                       <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                        Savant.chat provides more than a simple code scan. It's a sophisticated multi-agent AI system that performs a deep security audit, coordinating thousands of parallel LLM calls across specialized models to detect a wide range of vulnerability classes.
+                        Savant.chat provides more than a simple code scan. It's
+                        a sophisticated multi-agent AI system that performs a
+                        deep security audit, coordinating thousands of parallel
+                        LLM calls across specialized models to detect a wide
+                        range of vulnerability classes.
                       </p>
                       <p className="text-base text-gray-600 leading-relaxed max-w-4xl mx-auto mt-4">
-                        We support multiple smart contract languages including Solidity, Vyper, and Rust (for Near and Solana networks), ensuring comprehensive security coverage across the Web3 ecosystem.
+                        We support multiple smart contract languages including
+                        Solidity, Vyper, and Rust (for Near and Solana
+                        networks), ensuring comprehensive security coverage
+                        across the Web3 ecosystem.
                       </p>
                     </div>
 
                     {/* Video Player */}
                     <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] md:w-full md:left-auto md:right-auto md:ml-0 md:mr-0 md:relative">
                       <div className="relative rounded-none md:rounded-lg overflow-hidden shadow-lg bg-black">
-                        <video 
-                          controls 
+                        <video
+                          controls
                           className="w-full h-auto"
                           poster="/img/video-poster.jpg"
                         >
-                          <source src="/video/SavantChatCICD.mp4" type="video/mp4" />
+                          <source
+                            src="/video/SavantChatCICD.mp4"
+                            type="video/mp4"
+                          />
                           Your browser does not support the video tag.
                         </video>
                       </div>
@@ -253,14 +273,24 @@ export default function Home(): ReactElement {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {/* For Developers */}
-              <a 
-                href="/use-cases#developers" 
+              <a
+                href="/use-cases#developers"
                 className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all hover:border-primary/30 border-2 border-gray-100 hover:scale-105 cursor-pointer group"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    <svg
+                      className="h-8 w-8"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      />
                     </svg>
                   </div>
                   <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors">
@@ -270,14 +300,24 @@ export default function Home(): ReactElement {
               </a>
 
               {/* For Audit Companies */}
-              <a 
-                href="/use-cases#audit-companies" 
+              <a
+                href="/use-cases#audit-companies"
                 className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all hover:border-primary/30 border-2 border-gray-100 hover:scale-105 cursor-pointer group"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    <svg
+                      className="h-8 w-8"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
                     </svg>
                   </div>
                   <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors">
@@ -287,14 +327,24 @@ export default function Home(): ReactElement {
               </a>
 
               {/* For Investors */}
-              <a 
-                href="/use-cases#investors" 
+              <a
+                href="/use-cases#investors"
                 className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all hover:border-primary/30 border-2 border-gray-100 hover:scale-105 cursor-pointer group"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    <svg
+                      className="h-8 w-8"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                      />
                     </svg>
                   </div>
                   <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors">
@@ -304,14 +354,24 @@ export default function Home(): ReactElement {
               </a>
 
               {/* For Enterprise */}
-              <a 
-                href="/use-cases#enterprise" 
+              <a
+                href="/use-cases#enterprise"
                 className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all hover:border-primary/30 border-2 border-gray-100 hover:scale-105 cursor-pointer group"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    <svg
+                      className="h-8 w-8"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      />
                     </svg>
                   </div>
                   <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors">
@@ -360,7 +420,8 @@ export default function Home(): ReactElement {
                       CI/CD Guardrail
                     </h3>
                     <p className="text-gray-600">
-                      Seamless integration for continuous smart contract security monitoring in your CI/CD pipeline
+                      Seamless integration for continuous smart contract
+                      security monitoring in your CI/CD pipeline
                     </p>
                   </div>
                 </div>
@@ -390,7 +451,8 @@ export default function Home(): ReactElement {
                       Catch Bugs Early
                     </h3>
                     <p className="text-gray-600">
-                      Identify vulnerabilities before deployment when they're easier and cheaper to fix
+                      Identify vulnerabilities before deployment when they're
+                      easier and cheaper to fix
                     </p>
                   </div>
                 </div>
@@ -420,7 +482,8 @@ export default function Home(): ReactElement {
                       Accelerate Manual Audits
                     </h3>
                     <p className="text-gray-600">
-                      Free up your team to focus on complex logic by automating routine vulnerability checks
+                      Free up your team to focus on complex logic by automating
+                      routine vulnerability checks
                     </p>
                   </div>
                 </div>
@@ -450,7 +513,8 @@ export default function Home(): ReactElement {
                       Secure Data Handling
                     </h3>
                     <p className="text-gray-600">
-                      Enterprise-grade privacy with data transformation and trusted AI providers
+                      Enterprise-grade privacy with data transformation and
+                      trusted AI providers
                     </p>
                   </div>
                 </div>
@@ -472,7 +536,11 @@ export default function Home(): ReactElement {
             </div>
 
             <div className="grid md:grid-cols-1 gap-12 items-center max-w-5xl mx-auto">
-              <div className="relative" role="img" aria-label="Graph showing Savant Chat's performance compared to other tools on CTFBench">
+              <div
+                className="relative"
+                role="img"
+                aria-label="Graph showing Savant Chat's performance compared to other tools on CTFBench"
+              >
                 <div className="rounded-lg shadow-lg bg-white p-4">
                   <PerformanceGraph />
                 </div>
@@ -485,6 +553,11 @@ export default function Home(): ReactElement {
                   >
                     View on CTFBench
                   </a>
+                  <p className="text-lg text-gray-700 mt-4">
+                    Savant Chat v0.2 achieved 87-95% accuracy on CTFBench,
+                    outperforming GPT o3-mini, Grok 3, and all other AI auditors
+                    on the leaderboard.
+                  </p>
                 </div>
               </div>
             </div>
@@ -579,8 +652,157 @@ export default function Home(): ReactElement {
           </div>
         </section>
 
+        {/* Static Testimonials for SEO */}
+        {/* Static Testimonials for SEO */}
+        <section className="bg-gray-50 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900">
+                What Industry Leaders Say
+              </h2>
+              <p className="text-xl text-secondary mt-4 font-semibold">
+                Trusted by Top Security Firms and Web3 Projects
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Pessimistic */}
+              <div className="bg-white p-8 rounded-xl shadow-lg relative">
+                <a
+                  href="https://x.com/pessimistic_io/status/1897264142308008089"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 text-gray-400 hover:text-primary"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                <div className="flex items-center mb-4">
+                  <img
+                    src="/img/pessimistic/pessimistic_horizontal.svg"
+                    alt="Pessimistic"
+                    className="h-8"
+                  />
+                </div>
+                <p className="text-gray-700 italic mb-4">
+                  "We recently tested savant.chat and were pleasantly surprised!
+                  It correctly identified several findings on our test contract
+                  and didn't produce a single clear false positive. This is the
+                  first genuinely useful security tool we've come across in
+                  quite a while."
+                </p>
+                <p className="text-sm text-gray-500">— Pessimistic Security</p>
+              </div>
+
+              {/* OXORIO */}
+              <div className="bg-white p-8 rounded-xl shadow-lg relative">
+                <a
+                  href="https://x.com/0xorio/status/1911822312124330132"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 text-gray-400 hover:text-primary"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                <div className="flex items-center mb-4">
+                  <img
+                    src="/img/oxorio/oxorio_horizontal.svg"
+                    alt="OXORIO"
+                    className="h-8"
+                  />
+                </div>
+                <p className="text-gray-700 italic mb-4">
+                  "We recently tested @savantchat — an AI-powered auditing tool
+                  — on a real DeFi project (~3k SLOC), previously audited by
+                  multiple top firms. The question: can AI surface anything
+                  meaningful post-audit? Spoiler: it can. And it made us rethink
+                  how automation can augment human."
+                </p>
+                <p className="text-sm text-gray-500">— OXORIO</p>
+              </div>
+
+              {/* 1inch */}
+              <div className="bg-white p-8 rounded-xl shadow-lg relative">
+                <a
+                  href="https://x.com/1inch/status/1940035965059309746"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 text-gray-400 hover:text-primary"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                <div className="flex items-center mb-4">
+                  <img
+                    src="/img/1inch/1inch_horizontal.svg"
+                    alt="1inch"
+                    className="h-8"
+                  />
+                </div>
+                <p className="text-gray-700 italic mb-4">
+                  "Our friends @savantchat built a multi-agent AI system to find
+                  vulnerabilities fast - with high reliability and much lower
+                  costs. This kind of new development is helping 1inch scale at
+                  speed."
+                </p>
+                <p className="text-sm text-gray-500">— 1inch</p>
+              </div>
+
+              {/* Petr Korolev */}
+              <div className="bg-white p-8 rounded-xl shadow-lg relative">
+                <a
+                  href="https://x.com/skywinder/status/1895228438237061588"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 text-gray-400 hover:text-primary"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                <div className="flex items-center mb-4">
+                  <div className="h-10 w-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold">
+                    PK
+                  </div>
+                  <span className="ml-3 font-semibold text-gray-900">
+                    Petr Korolev
+                  </span>
+                </div>
+                <p className="text-gray-700 italic mb-4">
+                  "I just put Savant.Chat to the test on a complex contract —
+                  and wow, what a game-changer! It uncovered a critical issue
+                  that many seasoned auditors overlooked, proving its ability to
+                  boost audit quality. This tool is set to redefine smart
+                  contract security!"
+                </p>
+                <p className="text-sm text-gray-500">— @skywinder</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Tweet Carousel */}
-        <TweetCarousel tweetIds={tweetIds} />
+        {/* <TweetCarousel tweetIds={tweetIds} /> */}
 
         {/* CTA Section */}
         <CTASection />
