@@ -648,6 +648,14 @@ export default function Home(): ReactElement {
                   className="h-12 w-auto max-w-full object-contain"
                 />
               </div>
+              {/* BugBlow */}
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/img/bugblow/bugblow_logo.png"
+                  alt="BugBlow"
+                  className="h-12 w-auto max-w-full object-contain"
+                />
+              </div>
             </div>
           </div>
         </section>
