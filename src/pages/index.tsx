@@ -805,6 +805,40 @@ export default function Home(): ReactElement {
                 </p>
                 <p className="text-sm text-gray-500">— @skywinder</p>
               </div>
+              {/* Vasiliy Shapovalov */}
+              <div className="bg-white p-8 rounded-xl shadow-lg relative">
+                <a
+                  href="https://x.com/_vshapovalov/status/1976320011850612884"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 text-gray-400 hover:text-primary"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                <div className="flex items-center mb-4">
+                  <img
+                    src="/img/lido/lido_horizontal.svg"
+                    alt="Lido"
+                    className="h-8"
+                  />
+                </div>
+                <p className="text-gray-700 italic mb-4">
+                  "This checks with my impression, @savantchat does a great job
+                  of filtering false positives while finding issues. It's not an
+                  audit replacement - as faster, cheaper tool its place in
+                  developer pipeline is closer to an internal review or a
+                  heavier linter run."
+                </p>
+                <p className="text-sm text-gray-500">
+                  — Vasiliy Shapovalov, Lido
+                </p>
+              </div>
             </div>
           </div>
         </section>
