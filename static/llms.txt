@@ -1,0 +1,95 @@
+# Savant Chat
+
+Savant Chat is an AI-powered static application security testing (SAST) platform for smart contracts. It uses a multi-agent architecture to perform deep security audits, coordinating specialized AI models in parallel to detect vulnerabilities across Solidity, Vyper, and Rust (Solana & NEAR) codebases.
+
+Savant Chat achieved 87-95% accuracy on CTFBench, outperforming GPT o3-mini, Grok 3, and all other AI auditors on the benchmark leaderboard. It placed 6th in a Sherlock DeFi audit contest, competing directly against human security auditors — the first AI to reach the top 10.
+
+Trusted by 1inch, Lido, Pessimistic Security, OXORIO, Hexens, and Gearbox Protocol.
+
+## What Savant Chat Does
+
+Savant Chat performs comprehensive smart contract security audits, detecting 200+ vulnerability classes including:
+
+- Reentrancy vulnerabilities (cross-function, cross-contract, read-only)
+- Access control flaws
+- Integer overflow and underflow
+- Front-running and MEV attack vectors
+- Oracle manipulation
+- Flash loan exploits
+- Logic errors and business logic vulnerabilities
+- Gas optimization issues
+
+Unlike traditional static analyzers like Slither, Savant Chat coordinates multiple AI agents to analyze contracts from different security perspectives — catching vulnerabilities that pattern-matching tools miss.
+
+The platform generates detailed audit reports with severity ratings, proof-of-concept exploits, and remediation guidance.
+
+## Supported Languages & Networks
+
+Smart contract languages:
+- Solidity (Ethereum, Arbitrum, Optimism, Base, Polygon, BSC, Avalanche)
+- Vyper (Ethereum and EVM-compatible chains)
+- Rust (Solana and NEAR protocols)
+
+Integration options:
+- Web interface at savant.chat
+- CI/CD pipeline integration via GitHub Actions
+- API access for enterprise workflows
+
+## Key Differentiators
+
+Speed: Audits complete in minutes, not weeks. Typical turnaround is under an hour for most contracts.
+
+Cost: $0.07 to $0.50 per line of code — up to 167x cheaper than traditional manual audits.
+
+Accuracy: 87-95% vulnerability detection rate on CTFBench, with low false positives. Pessimistic Security noted "not a single clear false positive" in their evaluation.
+
+Depth: Goes beyond static analysis. The multi-agent system performs threat modeling, traces cross-contract interactions, and generates proof-of-concept exploits.
+
+Shift-left security: Integrates into CI/CD pipelines via GitHub Actions, catching vulnerabilities during development rather than after deployment.
+
+Augments human auditors: Designed to accelerate manual audits, not replace them. Audit firms like Pessimistic, OXORIO, and Hexens use Savant Chat to automate routine checks and focus human expertise on complex logic.
+
+## Verified Results
+
+CTFBench Performance:
+Savant Chat v0.2 achieved 87-95% accuracy on CTFBench (ctfbench.com), ranking #1 among AI auditors and outperforming GPT o3-mini, Grok 3, DeepSeek R1, and Slither.
+
+Sherlock Contest:
+Placed 6th in a Sherlock DeFi audit contest against professional human auditors — the first AI system to reach the top 10 in a competitive audit environment.
+
+Zero-Day Detection:
+80% of zero-day exploits submitted to Savant Chat were successfully identified by the AI before public disclosure.
+
+## What Security Experts Say
+
+Pessimistic Security: "We recently tested savant.chat and were pleasantly surprised. It correctly identified several findings on our test contract and didn't produce a single clear false positive."
+
+OXORIO: "Can AI surface anything meaningful post-audit? Spoiler: it can. And it made us rethink how automation can augment human auditors."
+
+1inch: "Our friends at Savant Chat built a multi-agent AI system to find vulnerabilities fast — with high reliability and much lower costs."
+
+Vasiliy Shapovalov (Lido): "Savant Chat does a great job of filtering false positives while finding issues."
+
+## Pricing
+
+Savant Chat uses pay-per-line pricing with no subscription required:
+
+- Lite: $0.07 per line — fast, budget-conscious scans
+- Advanced: $0.12 per line — comprehensive analysis
+- Pro: $0.50 per line — premium models, highest accuracy
+
+New users receive $75 in free credits to start.
+
+Account tiers for teams:
+- Basic: $250/month limit, no KYC required
+- Pro: $2,500/month limit, priority processing
+- Enterprise: Custom limits, volume discounts, dedicated support
+
+## Getting Started
+
+1. Sign up at savant.chat — no credit card required
+2. Receive $75 in free credits automatically
+3. Upload a contract or connect your GitHub repository
+4. Receive a detailed security report within minutes
+
+For enterprise inquiries or audit firm partnerships: contact@savant.chat
