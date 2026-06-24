@@ -179,8 +179,9 @@ const config: EnhancedConfig = {
       copyright: `Copyright © ${new Date().getFullYear()} Novel Codes DMCC. All rights reserved.`,
     },
     colorMode: {
-      disableSwitch: true,
+      disableSwitch: false,
       defaultMode: "light",
+      respectPrefersColorScheme: true,
     },
     prism: {
       theme: prismThemes.github,

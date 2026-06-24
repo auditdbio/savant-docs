@@ -5,6 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "dev": "docusaurus start",
     "preload-tweets": "node scripts/preload-tweets.mjs",
     "prebuild": "npm run preload-tweets",
     "build": "docusaurus build",
@@ -31,6 +32,7 @@
     "highlight.js": "^10.7.3",
     "highlightjs-solidity": "^2.0.6",
     "http-proxy-agent": "^7.0.2",
+    "lucide-react": "^0.460.0",
     "node-fetch": "^2.7.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",

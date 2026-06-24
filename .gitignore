@@ -3,6 +3,10 @@
 
 # Production
 /build
+/out
+
+# Next.js leftovers (this repo is Docusaurus; .next only appears from local experiments)
+/.next
 
 # Generated files
 .docusaurus
@@ -26,3 +30,7 @@ yarn-error.log*
 old_frontend/
 
 *.ignore.*
+# Next.js / TS leftovers
+next-env.d.ts
+tsconfig.tsbuildinfo
+/public

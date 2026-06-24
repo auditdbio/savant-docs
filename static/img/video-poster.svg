@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="Savant Chat — AI security in your CI/CD pipeline">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#271832"/>
+      <stop offset="100%" stop-color="#150A1C"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <!-- play button -->
+  <circle cx="640" cy="312" r="74" fill="#FF6B00"/>
+  <path d="M620 278 l46 34 -46 34 z" fill="#fff"/>
+  <!-- wordmark -->
+  <text x="640" y="468" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="46" font-weight="800" letter-spacing="-0.02em" fill="#F4F1F8">Savant Chat</text>
+  <text x="640" y="514" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="500" fill="#9A95A8">AI security in your CI/CD pipeline</text>
+</svg>
