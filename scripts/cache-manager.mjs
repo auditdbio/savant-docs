@@ -15,7 +15,7 @@ import {
   preloadTweets,
   loadTweetCache,
   saveTweetCache,
-} from "../src/utils/tweet-cache.mjs";
+} from "../lib/tweets/tweet-cache.mjs";
 
 // Get cache directory
 const __filename = fileURLToPath(import.meta.url);
@@ -197,7 +197,7 @@ async function main() {
     }
 
     // Load tweet IDs from configuration
-    const { tweetIds } = await import("../src/config/tweets.mjs");
+    const { tweetIds } = await import("../config/tweets.mjs");
 
     // Check if cache exists
     const cacheExists = fs.existsSync(CACHE_FILE);

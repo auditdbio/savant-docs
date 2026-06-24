@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Correct import for named export
-import { preloadTweets } from "../src/utils/tweet-cache.mjs";
+import { preloadTweets } from "../lib/tweets/tweet-cache.mjs";
 import {
   createTimestampedBackup,
   restoreFromBackup,
@@ -44,7 +44,7 @@ async function main() {
       console.log(`📁 Created cache directory: ${CACHE_DIR}`);
     }
 
-    const { tweetIds } = await import("../src/config/tweets.mjs");
+    const { tweetIds } = await import("../config/tweets.mjs");
 
     if (!Array.isArray(tweetIds) || tweetIds.length === 0) {
       console.warn("⚠️ No tweet IDs found in config!");

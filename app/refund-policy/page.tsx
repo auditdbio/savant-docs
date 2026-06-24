@@ -1,0 +1,119 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refund Policy",
+  description:
+    "Refund Policy outlining the circumstances under which Savant Chat provides refunds for payments or deposits made for the service.",
+  alternates: { canonical: "/refund-policy/" },
+};
+
+export default function Page() {
+  return (
+    <div className="container-max py-12">
+      <article className="prose-savant">
+        <h1>Refund Policy</h1>
+
+        <p>
+          We strive to be fair and transparent with our billing. This Refund Policy outlines the
+          circumstances under which we provide refunds for payments or deposits made for the Savant
+          Chat service.
+        </p>
+
+        <h2>Accidental Deposit Refunds</h2>
+        <p>
+          If you have <strong>mistakenly deposited funds</strong> into your Savant Chat account (for
+          example, you intended one amount but paid another, or you deposited money into the system by
+          error), you may request a refund of that deposit.
+        </p>
+        <p>
+          Refunds for mistaken deposits are only considered when the request is made in a timely
+          manner. Specifically, a refund request must be submitted{" "}
+          <strong>
+            within two (2) weeks (14 calendar days) from the date of the original deposit
+          </strong>
+          . Requests made after this period will generally <strong>not be eligible</strong> for a
+          refund.
+        </p>
+
+        <h2>Conditions for Refund Approval</h2>
+        <p>
+          In your refund request, please provide details of the mistaken payment, including the date,
+          amount, and reason it is believed to be made in error. We reserve the right to investigate
+          the claim and confirm that the deposit was indeed made by mistake.
+        </p>
+        <p>
+          If the deposit was used (fully or partially) to pay for services (e.g., audits) during that
+          two-week period, we may pro-rate or deny the refund accordingly, since services may have
+          already been rendered.
+        </p>
+
+        <h2>Exclusion of Processing Fees</h2>
+        <p>
+          Approved refunds will be processed{" "}
+          <strong>minus any third-party payment processing fees</strong> or charges incurred. This
+          means that if our payment processor (such as a credit card gateway or bank) does not return
+          the transaction fee to us, that fee will be deducted from the refunded amount.
+        </p>
+        <p>
+          We only refund the <strong>net amount</strong> that we actually received and are able to
+          return. For example, if you deposited $100 and the payment provider&apos;s fee was $3, we
+          might only be able to refund $97.
+        </p>
+
+        <h2>No Refunds for Completed Services</h2>
+        <p>
+          Aside from deposits made in error,{" "}
+          <strong>we do not offer refunds for services that have been delivered</strong>. Once an AI
+          audit report or any consulting service is provided to the user, the associated costs and
+          efforts have been expended.
+        </p>
+
+        <h2>Cancellation of Ordered Services</h2>
+        <p>
+          Customer can cancel their order/requested services within 24 hours; refunds will be made
+          back to the payment solution used initially by the customer. Please allow for up to 45 days
+          for the refund transfer to be completed.
+        </p>
+        <p>
+          This cancellation policy applies only to services that have not been provided or started at
+          the time of cancellation. If service delivery has already begun, cancellation may not be
+          possible or may result in partial refund.
+        </p>
+
+        <h2>Timeline for Refund Processing</h2>
+        <p>
+          If a refund is approved, we will process it as quickly as possible. Please allow some time
+          for the refund to be reflected in your original payment method. Typically, once approved, we
+          will issue the refund within a few business days, but your bank or credit card provider
+          might take an additional 5-10 business days to post the credit to your account.
+        </p>
+
+        <h2>Method of Refund</h2>
+        <p>
+          Refunds will be made using the same payment method which was used for the original deposit
+          whenever possible. For instance, if you paid via credit card, the refund will be credited
+          back to that card; if you paid via bank transfer, we will return the funds to the same bank
+          account.
+        </p>
+        <p>
+          Refunds will be done only through the Original Mode of Payment and will be processed within
+          10 to 45 days depends on the issuing bank of the credit card.
+        </p>
+
+        <h2>Contact for Refunds</h2>
+        <p>
+          To request a refund for a mistaken deposit, please contact our billing support at{" "}
+          <a href="mailto:hello@savant.chat">hello@savant.chat</a>. Include your account details,
+          payment reference, date of payment, and an explanation of the mistake.
+        </p>
+
+        <p>
+          <strong>Note:</strong> Nothing in this policy affects any{" "}
+          <strong>statutory rights</strong> you may have under law. If applicable law provides you a
+          right to cancel or refund that is broader than this policy (for example, certain consumer
+          protection laws), we will honor the applicable law.
+        </p>
+      </article>
+    </div>
+  );
+}

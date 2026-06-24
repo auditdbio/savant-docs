@@ -1,124 +1,46 @@
-# Savant Chat - Smart Contract Security
+# Savant Chat — Website
 
-Documentation and static website for Savant Chat. The site is built using [Docusaurus](https://docusaurus.io/).
+Marketing + docs site for [Savant Chat](https://savant.chat), an AI-powered smart-contract security
+auditing platform. Built with **Next.js (App Router) + Tailwind CSS + MDX**, statically exported,
+and styled with the Savant Chat design system.
 
-## Development
-
-### Local Setup
+## Develop
 
 ```bash
 npm install
-npm start
+npm run dev          # http://localhost:3000
 ```
 
-The site will be available at: http://localhost:3000
+The dev/build steps preload tweet data and blog assets first (see `scripts/`).
 
-### Build
+## Build
 
 ```bash
-npm run build
+npm run build        # static export to ./out
+npm run serve        # serve ./out locally
 ```
-
-The built site will be located in the `build/` directory.
 
 ## Docker
 
-### Building Docker Image
-
 ```bash
-docker build -t savant-docs .
+docker compose up -d                                   # production (serves ./out)
+docker compose -f docker-compose.dev.yml up            # dev with hot reload
 ```
 
-### Running Docker Container
+## Configuration
 
-```bash
-docker run -p 3000:3000 savant-docs
-```
+Copy `.env.example` to `.env` to configure the tweet preloader (`USE_PROXY`, `PROXY_URL`,
+`FORCE_MOCK_TWEETS`, `SKIP_TWEET_ERRORS`, `STRICT_TWEET_LOADING`).
 
-The site will be available at: http://localhost:3000
+## Structure
 
-## Docker Compose
+- `app/` — routes (marketing, legal, blog) — see `CLAUDE.md` for the full map
+- `components/ui/` — design-system primitives
+- `components/marketing/` — site sections (Nav, Footer, CTA, FAQ, AnalysisDemo)
+- `config/`, `lib/` — data, SEO, blog + tweet helpers
+- `content/blog/` — MDX blog posts
+- `styles/globals.css`, `tailwind.config.ts` — design tokens
 
-For easier development and testing, you can use Docker Compose:
+## Deployment
 
-```bash
-docker-compose up -d
-```
-
-The site will be available at: http://localhost:3000
-
-### Stopping
-
-```bash
-docker-compose down
-```
-
-## CI/CD (auto deploy from `main`)
-
-This repository includes a GitHub Actions workflow at `.github/workflows/deploy-main.yml`.
-
-On every push/merge to `main`, it deploys **only** the docs service on production:
-
-```bash
-/root/savant/deploy/deploy-docs.sh
-```
-
-The server script runs:
-
-```bash
-cd /root/savant/deploy
-docker compose -p app up -d --no-deps --build docs
-```
-
-So it does not restart other services in the main `savant` stack.
-
-### Required GitHub secrets
-
-Set these repository secrets before enabling the workflow:
-
-- `DOCS_DEPLOY_HOST` (example: `your.server.ip`)
-- `DOCS_DEPLOY_USER` (example: `root`)
-- `DOCS_DEPLOY_SSH_KEY` (private SSH key with access to the server)
-
-# Website
-
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
-
-### Installation
-
-```
-$ yarn
-```
-
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-# savant-docs
+Pushing to `main` triggers `.github/workflows/deploy-main.yml`, which runs the remote deploy script.
