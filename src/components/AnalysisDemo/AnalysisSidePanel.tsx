@@ -23,6 +23,14 @@ interface AnalysisSidePanelProps {
   maxPanelHeightPx: number; // Represents height for 'full', maxHeight for 'compact'
   panelMode?: 'full' | 'compact'; // Height behavior
   isNewlyPinned?: boolean; // For animation of pinned panels
+  colors: {
+    panelBg: string;
+    panelText: string;
+    panelBorder: string;
+    panelRule: string;
+    brand: string;
+    accent: string;
+  };
 }
 
 const SCROLL_TRIGGER_OFFSET_PX = 60; // Pixels from bottom to trigger scroll
@@ -40,6 +48,7 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
   maxPanelHeightPx,
   panelMode = 'full', // Default to 'full'
   isNewlyPinned, // Destructure the new prop
+  colors,
 }, ref) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const scrollModeRef = useRef<'inactive' | 'pending_trigger' | 'active'>('inactive');
@@ -49,6 +58,10 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
   // State for animation of pinned panel
   const [currentOpacity, setCurrentOpacity] = React.useState(0);
   const [currentTransform, setCurrentTransform] = React.useState('scale(0.95) translateY(10px)');
+  const hasPanelContent = currentAnalysisMessages.some((_part, index) => {
+    return index < typedMessagePartIndex || index === typedMessagePartIndex;
+  });
+  const shouldShowPanel = isVisible && hasPanelContent && contentOpacity > 0.05;
 
   useEffect(() => {
     if (panelMode === 'compact' && isVisible) { // Only animate compact (pinned) panels that are visible
@@ -235,19 +248,19 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
     top: `${topPositionPx}px`,
     right: '20px',
     width: `${panelWidth}px`,
-    backgroundColor: '#FFFFFF', // White background
-    border: '1px solid #DDE2E7', // Softer border
-    borderRadius: '6px',         // Slightly more rounded corners
+    backgroundColor: colors.panelBg,
+    border: `1px solid ${colors.panelBorder}`,
+    borderRadius: '8px',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', // Softer shadow for floating effect
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
     fontFamily: "'SF Pro Text', 'Helvetica Neue', 'Arial', sans-serif", // Common UI font stack
     lineHeight: '1.3',
-    color: '#333333',      // Softer text color
+    color: colors.panelText,
     transition: 'opacity 0.3s ease-in-out', // Keep panel fade if isVisible changes
     opacity: isVisible ? 1 : 0,
-    overflowY: 'hidden', // The panel itself manages overflow via internal scrolling areas
+    overflow: 'hidden',
     zIndex: 20, // Ensure it's above canvas highlights if necessary
     pointerEvents: 'none', // Ensure the panel doesn't interfere with canvas interactions
     userSelect: 'none', // Prevent text selection
@@ -259,8 +272,8 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
     panelStyle.transform = currentTransform;
     panelStyle.transition = 'opacity 300ms ease-out, transform 300ms ease-out';
   } else {
-    // For full panel, only use the isVisible prop for opacity (already doing this)
-    panelStyle.opacity = isVisible ? 1 : 0;
+    // Keep the full shell hidden during idle/fade gaps so screenshots never catch an empty panel.
+    panelStyle.opacity = shouldShowPanel ? 1 : 0;
     panelStyle.transition = 'opacity 0.3s ease-in-out'; // Keep panel fade if isVisible changes
   }
 
@@ -273,7 +286,8 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
   const analysisContentStyle: React.CSSProperties = {
     flexGrow: 1,
     overflowY: 'auto',
-    padding: '8px 6px', // Adjusted padding
+    overflowX: 'hidden',
+    padding: '8px 8px',
     opacity: contentOpacity,
     transition: 'opacity 0.3s ease-in-out',
     scrollbarWidth: 'none',  // Firefox
@@ -314,14 +328,15 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
           color: part.color || 'inherit',
           display: 'block',
           whiteSpace: 'pre-wrap',
-          wordWrap: 'break-word',
+          overflowWrap: 'break-word',
+          wordBreak: 'normal',
           marginBottom: '0.1em',
         };
 
         if (part.isTitle && index > 0) {
            const prevPart = currentAnalysisMessages[index-1];
            if (!prevPart.isProcessing || !part.isProcessing) {
-                elementsToRender.push(<hr key={`hr-${part.id}`} style={{ border: 'none', borderTop: '1px solid #EEEEEE', margin: '4px 0'}} />);
+                elementsToRender.push(<hr key={`hr-${part.id}`} style={{ border: 'none', borderTop: `1px solid ${colors.panelRule}`, margin: '4px 0'}} />);
            }
         }
 
@@ -333,7 +348,7 @@ const AnalysisSidePanel = React.memo(React.forwardRef<HTMLDivElement, AnalysisSi
                 display: 'inline-block',
                 width: '6px',
                 height: '1em',
-                backgroundColor: 'rgba(82, 23, 109, 1)',
+                backgroundColor: colors.brand,
                 animation: 'blinker 1s linear infinite',
                 marginLeft: '2px',
                 verticalAlign: 'text-bottom',

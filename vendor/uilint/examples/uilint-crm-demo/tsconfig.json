@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": ["svelte", "vitest/globals"],
+    "verbatimModuleSyntax": true,
+    "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.svelte",
+    "playwright/**/*.ts",
+    "playwright/**/*.d.ts",
+    "uilint/**/*.ts",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "svelte.config.js",
+    "scripts/**/*.cjs",
+    "tests/**/*.ts",
+    "component-tests/**/*.ts"
+  ]
+}

@@ -1,0 +1,81 @@
+import type {ReactNode} from 'react';
+
+import BalancedHeading from '../BalancedHeading';
+import styles from './styles.module.css';
+
+type ProofStatsProps = {
+  signupUrl: string;
+};
+
+const proofStats = [
+  {
+    value: 'Top 6',
+    label:
+      'Sherlock Symbiotic contest (Sep 2025) — placed against dozens of expert human auditors.',
+    sourceUrl:
+      'https://www.globenewswire.com/news-release/2025/09/02/3143051/0/en/savant-chat-achieves-a-historic-top-6-ranking-in-the-sherlock-defi-audit-contest.html',
+  },
+  {
+    value: '100% recall',
+    label:
+      'on the Crestal Sherlock contest in an independent blind pilot: 7/7 judge-adjudicated issues, each with a PoC.',
+    sourceUrl: 'https://github.com/LyuboslavLyubenov/ai-audit-tools-eval',
+  },
+  {
+    value: '17.9% precision',
+    label:
+      'best precision among AI auditors across three judge-adjudicated contests in the same pilot.',
+    sourceUrl: 'https://github.com/LyuboslavLyubenov/ai-audit-tools-eval',
+  },
+  {
+    value: '87–95%',
+    label:
+      'accuracy on CTFBench, our open-methodology benchmark (methodology published on ethresear.ch).',
+    sourceUrl: 'https://github.com/auditdbio/ctfbench',
+  },
+  {
+    value: '200+',
+    label:
+      'vulnerability classes, curated from a reference book of 20,000 real-world vulnerabilities.',
+    sourceUrl:
+      'https://savant.chat/blog/building-autonomous-auditor-vulnerability-reference-book',
+  },
+];
+
+export default function ProofStats({signupUrl}: ProofStatsProps): ReactNode {
+  const signupSourceUrl = signupUrl.startsWith('/')
+    ? `https://savant.chat${signupUrl}`
+    : signupUrl;
+
+  return (
+    <section className={styles.proofStats} data-testid="proof-stats" id="proof">
+      <div className={styles.header}>
+        <p className={styles.kicker}>PROOF</p>
+        <BalancedHeading as="h2" className={styles.title}>
+          The numbers behind the name.
+        </BalancedHeading>
+      </div>
+      <div className={styles.grid}>
+        {proofStats.map(stat => (
+          <article className={styles.statCard} data-testid="stat-card" key={stat.value}>
+            <strong className={styles.statValue}>{stat.value}</strong>
+            <p className={styles.statLabel}>{stat.label}</p>
+            <a className={styles.sourceLink} href={stat.sourceUrl}>
+              Source ↗
+            </a>
+          </article>
+        ))}
+        <article className={styles.statCard} data-testid="stat-card">
+          <strong className={styles.statValue}>$75</strong>
+          <p className={styles.statLabel}>
+            free credits on signup — no card required. Enough to audit a typical ERC-20
+            end-to-end.
+          </p>
+          <a className={styles.sourceLink} href={signupSourceUrl}>
+            Source ↗
+          </a>
+        </article>
+      </div>
+    </section>
+  );
+}

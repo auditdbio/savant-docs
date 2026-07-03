@@ -1,0 +1,94 @@
+.pillars {
+  background: var(--site-bg);
+  overflow-x: clip;
+  padding: 72px 56px 64px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.header {
+  margin-bottom: 32px;
+  max-width: 760px;
+}
+
+.kicker {
+  color: var(--site-accent-text);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+[data-theme='dark'] .kicker {
+  color: var(--site-accent-text);
+}
+
+.title {
+  color: var(--site-text);
+  font-size: 44px;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pillarCard {
+  background: var(--site-surface);
+  border: 1px solid var(--site-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.pillarIndex {
+  color: var(--site-accent-text);
+  display: block;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+[data-theme='dark'] .pillarIndex {
+  color: var(--site-accent);
+}
+
+.cardTitle {
+  color: var(--site-text);
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.cardBody {
+  color: var(--site-text-secondary);
+  font-size: 15px;
+  line-height: 1.58;
+  margin: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .pillars {
+    padding: 48px 24px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillarCard {
+    padding: 24px;
+  }
+}

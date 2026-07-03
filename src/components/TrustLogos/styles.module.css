@@ -1,0 +1,88 @@
+.trustLogos {
+  background: var(--site-bg);
+  border-top: 1px solid var(--site-border);
+  overflow-x: clip;
+  padding: 32px 56px 32px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.label {
+  color: var(--site-text-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.partnerLogos {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 24px;
+  justify-content: center;
+}
+
+.partnerLogo {
+  align-items: center;
+  color: var(--site-text-muted);
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 28px;
+  max-width: 220px;
+  transition: color .2s ease;
+  white-space: nowrap;
+  width: auto;
+}
+
+.partnerLogo:not(:hover) {
+  opacity: .88;
+}
+
+.partnerLogo:hover {
+  color: var(--site-text);
+  opacity: 1;
+}
+
+[data-theme='dark'] .partnerLogo {
+  opacity: 1;
+}
+
+.partnerLogo svg {
+  display: block;
+  height: 100%;
+  max-width: 220px;
+  width: auto;
+}
+
+.mellowLogo {
+  aspect-ratio: 4 / 1;
+  background-color: currentColor;
+  background-color: var(--logo-mellow, currentColor);
+  display: block;
+  height: 22px;
+  mask-image: url('/img/partners/mellow.png');
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: url('/img/partners/mellow.png');
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  width: 88px;
+}
+
+@media screen and (max-width: 996px) {
+  .trustLogos {
+    padding: 28px 24px 32px;
+    text-align: center;
+  }
+
+  .partnerLogos {
+    gap: 16px 28px;
+    justify-content: center;
+  }
+}

@@ -1,28 +1,27 @@
 # Dependencies
-/node_modules
+node_modules/
 
-# Production
-/build
-
-# Generated files
-.docusaurus
+# Docusaurus
+.docusaurus/
+build/
 .cache-loader
-.cache
+
+# Test artifacts
+test-results/
+playwright-report/
+uilint-report/
 
 # Misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Environment variables
-.env
-
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.env*
+!.env.example
 
-old_frontend/
-
-*.ignore.*
+# Extracted design reference (zip is the source of truth)
+ui_example_tmp/
+.sya/events.jsonl
+.sya/wisps/
+.sya/.lock

@@ -1,386 +1,387 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'katex/dist/katex.min.css';
 
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* Savant Color Scheme */
 :root {
-  /* Savant Primary (Orange) */
-  --ifm-color-primary: #ff6b00;
-  --ifm-color-primary-dark: #e65d00;
-  --ifm-color-primary-darker: #d05500;
-  --ifm-color-primary-darkest: #b84c00;
-  --ifm-color-primary-light: #ff7b1a;
-  --ifm-color-primary-lighter: #ff8c33;
-  --ifm-color-primary-lightest: #ff9d4d;
+  --site-bg: #ffffff;
+  --site-bg-alt: #f9fafb;
+  --site-bg-deep: var(--site-bg-alt);
+  --site-surface: #ffffff;
+  --site-text: #111827;
+  --site-text-soft: #4b5563;
+  --site-text-secondary: #4b5563;
+  --site-text-muted: #6b7280;
+  --site-text-chip: #374151;
+  --site-border: #e5e7eb;
+  --site-border-strong: #d1d5db;
+  --site-border-btn: rgba(17, 24, 39, .22);
+  --site-accent: #FF6B00;
+  --site-accent-hover: #E65D00;
+  --site-accent-text: #D05500;
+  --site-on-accent: #ffffff;
+  --site-brand: #52176D;
+  --site-brand-hover: #47145F;
+  --site-brand-band: #52176D;
+  --site-on-brand: #ffffff;
+  --site-hero-cta-bg: #ffffff;
+  --site-inverse: #111827;
+  --site-success: #15803d;
+  --site-warning: #b45309;
 
-  /* Savant Secondary (Purple) */
-  --ifm-color-secondary: rgb(82, 23, 109);
-  --ifm-color-secondary-dark: rgb(71, 20, 95);
-  --ifm-color-secondary-darker: rgb(60, 17, 80);
-  --ifm-color-secondary-darkest: rgb(49, 14, 65);
-  --ifm-color-secondary-light: rgb(93, 26, 123);
-  --ifm-color-secondary-lighter: rgb(104, 29, 137);
-  --ifm-color-secondary-lightest: rgb(115, 32, 152);
-
-  /* Gray Scale */
-  --savant-gray-50: #f9fafb;
-  --savant-gray-100: #f3f4f6;
-  --savant-gray-600: #4b5563;
-  --savant-gray-700: #374151;
-  --savant-gray-900: #111827;
-
+  --ifm-color-primary: #D05500;
+  --ifm-color-primary-dark: #bb4d00;
+  --ifm-color-primary-darker: #b04800;
+  --ifm-color-primary-darkest: #913b00;
+  --ifm-color-primary-light: #e65d00;
+  --ifm-color-primary-lighter: #f06400;
+  --ifm-color-primary-lightest: #ff7920;
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-font-color-base: #111827;
+  --ifm-font-family-base: 'Archivo', system-ui, sans-serif;
+  --ifm-font-family-monospace: 'IBM Plex Mono', monospace;
+  --ifm-code-background: #f3f4f6;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #4b5563;
+  --ifm-navbar-link-hover-color: #D05500;
+  --ifm-footer-background-color: #f9fafb;
+  --ifm-footer-color: #4b5563;
+  --ifm-footer-link-color: #4b5563;
+  --ifm-footer-title-color: #6b7280;
+  --ifm-global-radius: 9px;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(17, 24, 39, .08);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
-  --ifm-color-primary: #ff7b1a;
-  --ifm-color-primary-dark: #ff6b00;
-  --ifm-color-primary-darker: #e65d00;
-  --ifm-color-primary-darkest: #d05500;
+[data-theme='light'] {
+  /* partner logo originals */
+  --logo-ink: #111827;
+  --logo-pessimistic-plate: #FFE500;
+  --logo-oxorio-dot: #FF6C1A;
+  --logo-oxorio-dot-stop: #FF6C1A;
+  --logo-mixbytes-accent: #29C278;
+  --logo-gearbox-accent: #FF4C00;
+  --logo-gearbox-accent2: #F4129A;
+  --logo-ton-circle: #0098EA;
+  --logo-mellow: #111827;
+}
+
+[data-theme='dark'] {
+  --site-bg: #120C18;
+  --site-bg-alt: #0C0810;
+  --site-bg-deep: var(--site-bg-alt);
+  --site-surface: #1E1528;
+  --site-text: #F5F2F8;
+  --site-text-soft: #B3A9BF;
+  --site-text-secondary: #B3A9BF;
+  --site-text-muted: #877C93;
+  --site-text-chip: #D8D0DE;
+  --site-border: rgba(245, 242, 248, .10);
+  --site-border-strong: rgba(245, 242, 248, .16);
+  --site-border-btn: rgba(245, 242, 248, .28);
+  --site-accent: #FF7B1A;
+  --site-accent-hover: #FF8C33;
+  --site-accent-text: #FF8C33;
+  --site-on-accent: #1A0D02;
+  --site-brand: #7A2FA3;
+  --site-brand-hover: #8A3AB5;
+  --site-brand-band: #221030;
+  --site-on-brand: #F5F2F8;
+  --site-hero-cta-bg: #ffffff;
+  --site-inverse: #F5F2F8;
+  --site-success: #5fce7f;
+  --site-warning: #f0b33c;
+
+  --ifm-color-primary: #FF7B1A;
+  --ifm-color-primary-dark: #e66f17;
+  --ifm-color-primary-darker: #d96816;
+  --ifm-color-primary-darkest: #b35612;
   --ifm-color-primary-light: #ff8c33;
-  --ifm-color-primary-lighter: #ff9d4d;
-  --ifm-color-primary-lightest: #ffad66;
-
-  --ifm-color-secondary: rgb(104, 29, 137);
-  --ifm-color-secondary-dark: rgb(93, 26, 123);
-  --ifm-color-secondary-darker: rgb(82, 23, 109);
-  --ifm-color-secondary-darkest: rgb(71, 20, 95);
-  --ifm-color-secondary-light: rgb(115, 32, 152);
-  --ifm-color-secondary-lighter: rgb(126, 35, 167);
-  --ifm-color-secondary-lightest: rgb(137, 38, 182);
-
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary-lighter: #ff9847;
+  --ifm-color-primary-lightest: #ffb070;
+  --ifm-background-color: #120C18;
+  --ifm-background-surface-color: #1E1528;
+  --ifm-font-color-base: #F5F2F8;
+  --ifm-font-family-base: 'Archivo', system-ui, sans-serif;
+  --ifm-font-family-monospace: 'IBM Plex Mono', monospace;
+  --ifm-code-background: #0C0810;
+  --ifm-navbar-background-color: #120C18;
+  --ifm-navbar-link-color: #B3A9BF;
+  --ifm-navbar-link-hover-color: #FF8C33;
+  --ifm-footer-background-color: #0C0810;
+  --ifm-footer-color: #B3A9BF;
+  --ifm-footer-link-color: #B3A9BF;
+  --ifm-footer-title-color: #877C93;
+  --ifm-global-radius: 9px;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 123, 26, .14);
 }
 
-/* Adding styles for tweet carousel at the end of the file */
-
-/* Styles for Twitter carousel */
-.tweet-carousel .slick-prev,
-.tweet-carousel .slick-next {
-  z-index: 10;
-  width: 35px;
-  height: 35px;
+html,
+body {
+  background: var(--site-bg);
+  color: var(--site-text);
+  font-family: var(--ifm-font-family-base);
+  line-height: 1.6;
 }
 
-.tweet-carousel .slick-prev {
-  left: -40px;
+h1,
+.h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
 }
 
-.tweet-carousel .slick-next {
-  right: -40px;
+h2,
+.h2 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
-.tweet-carousel .slick-prev:before,
-.tweet-carousel .slick-next:before {
-  font-size: 30px;
-  color: var(--ifm-color-primary);
-  opacity: 0.75;
+h3,
+.h3 {
+  font-weight: 700;
+  text-wrap: balance;
 }
 
-.tweet-carousel .slick-dots li button:before {
-  color: var(--ifm-color-primary);
+h1 {
+  text-wrap: balance;
 }
 
-.tweet-carousel .slick-dots li.slick-active button:before {
-  color: var(--ifm-color-primary-darker);
+h2 {
+  text-wrap: balance;
 }
 
-/* Centering tweet in carousel */
-.tweet-carousel .slick-slide {
-  display: flex;
-  justify-content: center;
+h3 {
+  text-wrap: balance;
 }
 
-/* Adding padding for slides */
-.tweet-slide {
-  padding: 20px;
+p {
+  text-wrap: pretty;
 }
 
-/* Style for tweet container */
-.tweet-slide > div {
-  transition: transform 0.3s ease;
-  margin: 0 auto;
+.bw {
+  display: inline;
 }
 
-.tweet-slide > div:hover {
-  transform: translateY(-5px);
+a,
+[data-theme='dark'] a {
+  color: var(--site-accent-text);
 }
 
-/* Responsiveness */
-@media (max-width: 800px) {
-  .tweet-carousel .slick-prev,
-  .tweet-carousel .slick-next {
-    display: none !important;
-  }
-
-  .tweet-carousel-container {
-    max-width: 100%;
-    padding: 0;
-    margin: 0 auto;
-  }
-
-  .tweet-container {
-    margin: 0 auto;
-    max-width: 450px;
-    width: 100%;
-  }
-
-  /* Center tweet inside container */
-  .tweet-wrapper {
-    margin: 0 auto;
-  }
-
-  /* Improve paddings */
-  .px-2 {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-
-  /* Center slide content */
-  .tweet-slide-content {
-    display: flex;
-    justify-content: center;
-  }
+.blogPostTitleLink {
+  color: var(--site-text);
 }
 
-@media (max-width: 768px) {
-  .tweet-container {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .tweet-wrapper {
-    padding: 8px;
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  /* Reduce font size and paddings for mobile devices */
-  .react-tweet-theme {
-    --tweet-container-margin: 0 !important;
-    --tweet-container-padding: 8px !important;
-    --tweet-body-font-size: 0.95rem !important;
-    --tweet-header-font-size: 0.95rem !important;
-    --tweet-header-margin: 0 0 4px !important;
-  }
-
-  /* Tweet carousel on mobile devices */
-  .tweet-carousel-container {
-    margin: 0 -10px;
-    width: 100vw;
-    max-width: 100vw;
-    overflow: hidden;
-  }
-
-  .tweet-carousel .slick-dots {
-    bottom: -25px;
-  }
-
-  .tweet-carousel .slick-dots li button:before {
-    font-size: 8px;
-  }
-
-  /* Headings on mobile */
-  .text-2xl {
-    font-size: 1.75rem;
-    line-height: 1.25;
-  }
-
-  .text-lg {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  /* Tweet content on mobile */
-  .tweet-content img,
-  .tweet-content video {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
+.blogPostTitleLink:hover {
+  color: var(--site-accent-text);
 }
 
-@media (max-width: 640px) {
-  .tweet-carousel .slick-prev,
-  .tweet-carousel .slick-next {
-    display: none !important;
-  }
-
-  .tweet-container {
-    padding: 0 4px;
-  }
-
-  /* Fix text to prevent overflow */
-  .tweet-content p,
-  .tweet-content .text {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    font-size: 0.9rem;
-  }
-
-  /* Reduce paddings in carousel section */
-  .bg-white.py-8 {
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
-  }
-
-  /* Reduce margins between heading and carousel */
-  .mb-8 {
-    margin-bottom: 1rem;
-  }
+hr {
+  border-color: var(--site-border);
 }
 
-/* Removing duplicate selector */
-.tweet-container {
-  margin: 0 auto;
-  max-width: 550px;
-  width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+.navbar {
+  background: var(--ifm-navbar-background-color);
+  border-bottom: 1px solid var(--site-border);
+  min-height: 64px;
 }
 
-.tweet-wrapper {
-  transition: all 0.2s ease;
-  width: 100%;
-  padding: 12px;
-  background: #fff;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.05);
+.navbar__brand {
+  color: var(--site-text);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 
-.tweet-wrapper:hover {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
+.navbar__logo {
+  height: 30px;
+  margin-right: .65rem;
+  width: 28px;
 }
 
-/* Styles for internal tweet elements */
-.tweet-wrapper :global(.react-tweet-theme) {
-  --tweet-body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-  --tweet-color-blue-primary: rgb(29, 155, 240);
-  --tweet-color-blue-secondary: rgb(239, 243, 244);
-  --tweet-font-size-base: 15px;
-  --tweet-line-height: 1.3125;
+.navbar__logo img {
+  height: 30px;
+  width: 28px;
 }
 
-/* Styles for carousel */
-.tweet-carousel {
-  padding: 16px 0;
+.navbar__link {
+  color: var(--site-text-soft);
+  font-size: 15px;
+  font-weight: 500;
 }
 
-.tweet-carousel .slick-slide {
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
+[data-theme='dark'] .navbar__link {
+  color: var(--site-text-soft);
 }
 
-.tweet-carousel .slick-active {
-  opacity: 1;
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--site-text);
+  text-decoration: none;
 }
 
-.tweet-carousel .slick-current {
-  opacity: 1 !important;
-}
-
-.tweet-carousel .slick-dots {
-  bottom: -30px;
-}
-
-.tweet-carousel .slick-dots li button:before {
-  font-size: 8px;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  .tweet-container {
-    max-width: 100%;
-  }
-
-  .tweet-wrapper {
-    padding: 8px;
-  }
-
-  .tweet-carousel .slick-slide {
-    opacity: 1 !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .tweet-carousel .slick-prev,
-  .tweet-carousel .slick-next {
-    display: none !important;
-  }
-}
-
-/* Animations */
-@keyframes tweet-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.tweet-wrapper {
-  animation: tweet-fade-in 0.3s ease-out;
-}
-
-/* Improved tweet centering in carousel */
-.tweet-slide-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.tweet-slide-content {
-  max-width: 550px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.center-tweet-slide .slick-track {
-  display: flex;
+.navbar-cta {
   align-items: center;
+  background: transparent;
+  border: 1px solid var(--site-border-btn);
+  border-radius: 8px;
+  color: var(--site-text);
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  padding: 8px 20px;
+  text-decoration: none;
 }
 
-.tweet-centered {
+.navbar-cta:link,
+.navbar-cta:visited,
+.navbar-cta:focus,
+[data-theme='dark'] .navbar-cta,
+[data-theme='dark'] .navbar-cta:link,
+[data-theme='dark'] .navbar-cta:visited,
+[data-theme='dark'] .navbar-cta:focus {
+  color: var(--site-text);
+}
+
+.navbar-cta:hover,
+[data-theme='dark'] .navbar-cta:hover {
+  background: transparent;
+  border-color: var(--site-accent);
+  color: var(--site-text);
+  text-decoration: none;
+}
+
+.footer {
+  background: var(--ifm-footer-background-color);
+  border-top: 1px solid var(--site-border);
+  color: var(--site-text-soft);
+  width: 100%;
+}
+
+.footer > .container {
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.footer .footer__links {
+  justify-content: space-between;
+}
+
+.footer .footer__col {
+  flex: 0 1 240px;
+  max-width: 280px;
+}
+
+.footer .footer__title {
+  color: var(--site-text-muted);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.footer .footer__link-item,
+.footer .footer__link-item:link,
+.footer .footer__link-item:visited,
+[data-theme='dark'] .footer .footer__link-item,
+[data-theme='dark'] .footer .footer__link-item:link,
+[data-theme='dark'] .footer .footer__link-item:visited {
+  color: var(--site-text-soft);
+  font-size: 14px;
+}
+
+.footer .footer__link-item:hover,
+[data-theme='dark'] .footer .footer__link-item:hover,
+.footer .footer__link-item:focus,
+[data-theme='dark'] .footer .footer__link-item:focus {
+  color: var(--site-accent-text);
+  text-decoration: none;
+}
+
+.footer .footer__copyright {
+  color: var(--site-text-muted);
+  font-size: 14px;
+}
+
+.card,
+.theme-doc-sidebar-container,
+.table-of-contents {
+  background: var(--site-surface);
+}
+
+.button {
+  border-radius: var(--ifm-global-radius);
+  font-weight: 700;
+}
+
+.button--primary {
+  --ifm-button-background-color: var(--site-accent);
+  --ifm-button-border-color: var(--site-accent);
+  --ifm-button-color: var(--site-on-accent);
+  background: var(--site-accent);
+  border-color: var(--site-accent);
+  color: var(--site-on-accent);
+}
+
+.button--primary:link,
+.button--primary:visited,
+.button--primary:focus,
+[data-theme='dark'] .button--primary,
+[data-theme='dark'] .button--primary:link,
+[data-theme='dark'] .button--primary:visited,
+[data-theme='dark'] .button--primary:focus {
+  color: var(--site-on-accent);
+}
+
+.button--primary:hover,
+[data-theme='dark'] .button--primary:hover {
+  --ifm-button-background-color: var(--site-accent-hover);
+  --ifm-button-border-color: var(--site-accent-hover);
+  background: var(--site-accent-hover);
+  border-color: var(--site-accent-hover);
+  color: var(--site-on-accent);
+}
+
+.button--secondary {
+  --ifm-button-background-color: transparent;
+  --ifm-button-border-color: var(--site-border-btn);
+  --ifm-button-color: var(--site-text);
+  background: transparent;
+  border-color: var(--site-border-btn);
+  color: var(--site-text);
+}
+
+.button--secondary:focus,
+.button--secondary:visited,
+[data-theme='dark'] .button--secondary,
+[data-theme='dark'] .button--secondary:focus,
+[data-theme='dark'] .button--secondary:visited {
+  color: var(--site-text);
+}
+
+.button--secondary:hover,
+[data-theme='dark'] .button--secondary:hover {
+  --ifm-button-background-color: transparent;
+  --ifm-button-border-color: var(--site-text-secondary);
+  background: transparent;
+  border-color: var(--site-text-secondary);
+  color: var(--site-text);
+}
+
+code,
+pre,
+div[class*='codeBlockContainer'] {
+  background: var(--ifm-code-background);
+}
+
+.menu__list .navbar-cta {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: .35rem .75rem;
+  width: calc(100% - 1.5rem);
 }
 
-/**
- * Any custom CSS below here will be compiled to themes/dark/custom.css and themes/light/custom.css.
- */
-
- .header-x-link:hover {
-  opacity: 0.7;
-}
-
-.header-x-link::before {
-  content: '';
-  width: 20px;
-  height: 20px;
-  display: block;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1227' fill='none'%3e%3cpath d='M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6904H306.615L611.412 515.685L658.88 583.589L1058.01 1154.97H895.408L569.165 687.854V687.828Z' fill='black'/%3e%3c/svg%3e");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-html[data-theme='dark'] .header-x-link::before {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1227' fill='none'%3e%3cpath d='M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6904H306.615L611.412 515.685L658.88 583.589L1058.01 1154.97H895.408L569.165 687.854V687.828Z' fill='white'/%3e%3c/svg%3e");
+@media (max-width: 996px) {
+  .navbar__item.navbar-cta {
+    display: inline-flex;
+  }
 }

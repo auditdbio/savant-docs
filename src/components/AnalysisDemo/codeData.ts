@@ -1,4 +1,4 @@
-import { CodeBlock } from './AnalysisDemo';
+import type {CodeBlock} from './AnalysisDemo';
 
 export const codeData = `
 // SPDX-License-Identifier: MIT

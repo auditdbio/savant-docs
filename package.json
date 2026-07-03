@@ -1,15 +1,15 @@
 {
-  "name": "savant-docs",
+  "name": "website2",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "preload-tweets": "node scripts/preload-tweets.mjs",
-    "prebuild": "npm run preload-tweets",
     "build": "docusaurus build",
-    "docker-build": "npm run preload-tweets && docker-compose build",
-    "docker-up": "npm run preload-tweets && docker-compose up -d",
+    "test": "vitest run",
+    "test:layout": "uilint layout",
+    "test:layout:fast": "uilint layout --skip-build",
+    "uilint:build": "cd vendor/uilint && npx pnpm@10.11.0 install && npx pnpm@10.11.0 build && mkdir -p ../../.uilint-packages && npx pnpm@10.11.0 --filter @uilint/core pack --pack-destination ../../.uilint-packages && npx pnpm@10.11.0 --filter @uilint/playwright pack --pack-destination ../../.uilint-packages && npx pnpm@10.11.0 --filter @uilint/cli pack --pack-destination ../../.uilint-packages",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -19,38 +19,34 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "3.7.0",
-    "@docusaurus/plugin-sitemap": "^3.7.0",
-    "@docusaurus/preset-classic": "3.7.0",
+    "@docusaurus/core": "3.10.1",
+    "@docusaurus/faster": "3.10.1",
+    "@docusaurus/preset-classic": "3.10.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
-    "cors": "^2.8.5",
-    "date-fns": "^3.6.0",
-    "dotenv": "^16.4.7",
-    "express": "^4.18.2",
-    "highlight.js": "^10.7.3",
-    "highlightjs-solidity": "^2.0.6",
-    "http-proxy-agent": "^7.0.2",
-    "node-fetch": "^2.7.0",
+    "katex": "^0.17.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-slick": "^0.30.3",
-    "react-tweet": "^3.2.2",
-    "react-tweet-embed": "^2.0.0",
-    "shiki": "^3.4.2",
-    "slick-carousel": "^1.8.1"
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
+    "shiki": "^3.23.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.7.0",
-    "@docusaurus/tsconfig": "3.7.0",
-    "@docusaurus/types": "3.7.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.3",
-    "postcss-import": "^16.1.0",
-    "tailwindcss": "3",
-    "tailwindcss-cli": "^0.1.2",
-    "typescript": "~5.6.2"
+    "@docusaurus/module-type-aliases": "3.10.1",
+    "@docusaurus/tsconfig": "3.10.1",
+    "@docusaurus/types": "3.10.1",
+    "@playwright/test": "^1.61.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.0.0",
+    "@uilint/cli": "file:.uilint-packages/uilint-cli-0.1.2.tgz",
+    "@uilint/core": "file:.uilint-packages/uilint-core-0.1.2.tgz",
+    "@uilint/playwright": "file:.uilint-packages/uilint-playwright-0.1.2.tgz",
+    "@vitejs/plugin-react": "^6.0.3",
+    "jsdom": "^29.1.1",
+    "typescript": "~6.0.2",
+    "vitest": "^4.1.9"
   },
   "browserslist": {
     "production": [
@@ -64,7 +60,11 @@
       "last 5 safari version"
     ]
   },
+  "overrides": {
+    "@uilint/core": "file:.uilint-packages/uilint-core-0.1.2.tgz",
+    "@uilint/playwright": "file:.uilint-packages/uilint-playwright-0.1.2.tgz"
+  },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   }
 }

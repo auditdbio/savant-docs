@@ -1,0 +1,5 @@
+project: website2
+prefix: web
+id_length: 6
+archive:
+  after_days: 30

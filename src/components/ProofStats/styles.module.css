@@ -1,0 +1,114 @@
+.proofStats {
+  background: var(--site-bg-deep);
+  border-bottom: 1px solid var(--site-border);
+  border-top: 1px solid var(--site-border);
+  overflow-x: clip;
+  padding: 64px 56px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.header {
+  margin-bottom: 32px;
+  max-width: 760px;
+}
+
+.kicker {
+  color: var(--site-accent-text);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+[data-theme='dark'] .kicker {
+  color: var(--site-accent-text);
+}
+
+.title {
+  color: var(--site-text);
+  font-size: 44px;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.statCard {
+  background: var(--site-surface);
+  border: 1px solid var(--site-border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-height: 218px;
+  padding: 24px;
+}
+
+.statValue {
+  color: var(--site-text);
+  display: block;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+[data-theme='dark'] .statValue {
+  color: var(--site-text);
+}
+
+.statLabel {
+  color: var(--site-text-secondary);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.sourceLink {
+  color: var(--site-text-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: auto;
+  padding-top: 20px;
+  text-transform: uppercase;
+}
+
+.sourceLink:visited,
+[data-theme='dark'] .sourceLink,
+[data-theme='dark'] .sourceLink:visited {
+  color: var(--site-text-muted);
+}
+
+.sourceLink:hover,
+[data-theme='dark'] .sourceLink:hover {
+  color: var(--site-accent);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 996px) {
+  .proofStats {
+    padding: 48px 24px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statCard {
+    min-height: 0;
+  }
+}

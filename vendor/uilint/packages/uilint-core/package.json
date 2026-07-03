@@ -1,0 +1,23 @@
+{
+  "name": "@uilint/core",
+  "version": "0.1.2",
+  "description": "Constraint DSL, geometry primitives, and runtime engine for uilint layout linting.",
+  "license": "MIT",
+  "author": "Igor Gulamov <igor.gulamov@gmail.com>",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

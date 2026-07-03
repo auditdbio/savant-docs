@@ -1,0 +1,301 @@
+schema_version: 1
+
+description: >
+  TDD-процесс для website2 (Docusaurus). Роли: Claude — тех-лид, дизайнер и
+  верстальщик (спеки, дизайн-токены, ревью, приёмка); Codex — разработчик
+  (реализация по спеке через codex-ctl). Для feature и bug действует железное
+  правило TDD: перед имплементацией пишутся тесты (unit/component — vitest,
+  layout — uilint), и они ОБЯЗАНЫ быть красными на этапе tests_red.
+  Норма плотности: 1 тест на каждые 1–10 строк планируемого кода.
+  Тип task — инфраструктурные работы без TDD-гейта. Layout-инварианты
+  описываются декларативно в uilint/specs (Galen-стиль) и проверяются
+  на review через `npm run test:layout`.
+
+defaults:
+  type: task
+
+relations:
+  depends_on:
+    description: "Жёсткая зависимость: цель должна быть закрыта до закрытия источника"
+    reverse: blocks
+    graph: dag
+    blocking: true
+  discovered_from:
+    description: "Провенанс: работа найдена в ходе другой задачи"
+    reverse: discovered
+    graph: dag
+  relates:
+    description: "Неблокирующая симметричная связь"
+    symmetric: true
+  duplicates:
+    description: "Задача дублирует другую"
+    reverse: duplicated_by
+  superseded_by:
+    description: "Решение заменено более новым"
+    reverse: supersedes
+    from: [decision]
+    to: [decision]
+  affects:
+    description: "Решение влияет на задачу/область"
+    reverse: affected_by
+    from: [decision]
+
+types:
+  epic:
+    description: "Контейнер связанных работ (например: тема, страница, релиз)"
+    container: true
+    children: [feature, bug, docs, task]
+    pipeline: [open, active, done, scrapped]
+    statuses:
+      open: "Эпик создан, работа не началась"
+      active: "Дочерние задачи в работе"
+      done: "Все дети закрыты"
+      scrapped: "Отменён, причина в Log"
+    terminal: [done, scrapped]
+    working: [active]
+    sections: [Description]
+    transitions:
+      open -> active:
+        kind: advance
+        description: "Старт работ по эпику"
+      active -> done:
+        kind: advance
+        description: "Все дочерние задачи в терминальном статусе"
+        guards:
+          - kind: children_status
+            in: [terminal]
+            message: "У эпика есть незакрытые дети"
+            hint: "Закройте или отмените оставшиеся дочерние задачи"
+      "* -> scrapped":
+        kind: setback
+        description: "Отмена эпика, причина в Log"
+
+  feature:
+    description: >
+      Новая функциональность. Обязательный TDD-цикл: спека -> красные тесты ->
+      имплементация -> ревью. В tests_red пишутся ТОЛЬКО тесты (vitest на
+      логику/компоненты, uilint-спеки на layout); они должны падать до
+      имплементации. Плотность: 1 тест на 1-10 строк планируемого кода.
+    pipeline: [draft, spec, tests_red, impl, review, done, scrapped]
+    statuses:
+      draft: "Идея зафиксирована, требования не созрели"
+      spec: "Тех-лид пишет/утверждает спеку и дизайн; оценивается объём кода"
+      tests_red: "Codex пишет тесты по спеке; тесты обязаны падать (красные)"
+      impl: "Codex реализует до зелёных тестов; новые тесты не переписываются под код"
+      review: "Тех-лид: код-ревью, uilint layout, визуальная приёмка дизайна"
+      done: "Принято и закоммичено"
+      scrapped: "Отменено, причина в Log"
+    terminal: [done, scrapped]
+    working: [tests_red, impl, review]
+    sections: [Description, Design, Test Plan, Acceptance]
+    fields:
+      spec_approved:
+        type: bool
+        default: false
+        description: "Спека и дизайн утверждены тех-лидом"
+      loc_estimate:
+        type: number
+        default: 0
+        description: "Оценка строк кода имплементации (для нормы 1 тест / 1-10 LOC)"
+    transitions:
+      draft -> spec:
+        kind: advance
+        description: "Требования созрели — пишем спеку"
+      spec -> tests_red:
+        kind: advance
+        description: "Спека утверждена — сначала тесты"
+        guards:
+          - kind: field
+            field: spec_approved
+            equals: true
+            message: "Спека не утверждена тех-лидом"
+            hint: "После ревью спеки: sya update <id> --field spec_approved=true"
+          - kind: section_nonempty
+            section: Design
+            message: "Секция Design пуста"
+            hint: "sya edit <id> --section Design"
+          - kind: section_nonempty
+            section: "Test Plan"
+            message: "Секция Test Plan пуста: перечислите тесты (1 на 1-10 строк кода)"
+            hint: "sya edit <id> --section 'Test Plan'"
+      tests_red -> impl:
+        kind: advance
+        description: "Тесты написаны и подтверждённо красные — можно реализовывать"
+        guards:
+          - kind: attest
+            id: tests_are_red
+            question: "Новые тесты закоммичены и ПАДАЮТ (красные)? Количество соответствует норме 1 тест / 1-10 LOC (см. loc_estimate)? Приведите вывод прогона с падениями."
+            message: "Красные тесты не подтверждены"
+            hint: "Прогоните тесты, убедитесь что новые падают, затем: sya move <id> impl --attest tests_are_red=\"yes: <N тестов, вывод прогона>\""
+      impl -> review:
+        kind: advance
+        description: "Тесты зелёные — на ревью"
+        guards:
+          - kind: check
+            run: "npm test --silent"
+            timeout: 600
+            message: "Тесты не проходят (npm test)"
+            hint: "Доведите имплементацию до зелёных тестов; тесты под код не переписывать"
+      review -> impl:
+        kind: setback
+        description: "Ревью провалено: дефекты кода/вёрстки — возврат, причина в Log"
+        ignore_blocking: [depends_on]
+      review -> tests_red:
+        kind: setback
+        description: "Ревью выявило дыры в тестовом покрытии — дописать тесты (красные для нового поведения)"
+        ignore_blocking: [depends_on]
+      review -> done:
+        kind: advance
+        description: "Код-ревью пройдено, layout-инварианты и acceptance выполнены"
+        guards:
+          - kind: attest
+            id: review_approved
+            question: "Тех-лид провёл код-ревью, uilint layout зелёный, визуальная приёмка (light+dark) пройдена?"
+            message: "Ревью тех-лида не подтверждено"
+            hint: "sya move <id> done --attest review_approved=\"yes: <итог ревью>\""
+      "* -> scrapped":
+        kind: setback
+        description: "Отмена, причина в Log"
+
+  bug:
+    description: >
+      Дефект. TDD-фикс: сначала регрессионный тест, воспроизводящий баг
+      (красный), затем фикс до зелёного. Плотность: 1 тест на 1-10 строк фикса.
+    pipeline: [open, triage, tests_red, impl, verify, done, scrapped]
+    statuses:
+      open: "Баг зарегистрирован"
+      triage: "Диагностика: причина, серьёзность, план фикса и объём"
+      tests_red: "Пишется регрессионный тест, воспроизводящий баг; обязан падать"
+      impl: "Фикс до зелёных тестов"
+      verify: "Тех-лид проверяет фикс, регрессию и layout"
+      done: "Фикс принят"
+      scrapped: "Не баг / не будет исправлен, причина в Log"
+    terminal: [done, scrapped]
+    working: [tests_red, impl, verify]
+    sections: [Description, Test Plan]
+    fields:
+      severity:
+        type: enum
+        values: [critical, major, minor]
+        default: major
+        description: "Серьёзность дефекта"
+    transitions:
+      open -> triage:
+        kind: advance
+        description: "Начата диагностика"
+      triage -> tests_red:
+        kind: advance
+        description: "Причина ясна — пишем воспроизводящий тест"
+        guards:
+          - kind: section_nonempty
+            section: "Test Plan"
+            message: "Test Plan пуст: какие тесты воспроизведут баг?"
+            hint: "sya edit <id> --section 'Test Plan'"
+      tests_red -> impl:
+        kind: advance
+        description: "Регрессионный тест красный — можно фиксить"
+        guards:
+          - kind: attest
+            id: tests_are_red
+            question: "Регрессионный тест закоммичен и ПАДАЕТ, воспроизводя баг? Приведите вывод прогона."
+            message: "Красный регрессионный тест не подтверждён"
+            hint: "sya move <id> impl --attest tests_are_red=\"yes: <вывод прогона>\""
+      impl -> verify:
+        kind: advance
+        description: "Тесты зелёные — на проверку"
+        guards:
+          - kind: check
+            run: "npm test --silent"
+            timeout: 600
+            message: "Тесты не проходят (npm test)"
+            hint: "Доведите фикс до зелёных тестов"
+      verify -> impl:
+        kind: setback
+        description: "Фикс не подтвердился — возврат в работу"
+        ignore_blocking: [depends_on]
+      verify -> done:
+        kind: advance
+        description: "Фикс подтверждён тех-лидом"
+        guards:
+          - kind: attest
+            id: fix_verified
+            question: "Тех-лид подтверждает: баг не воспроизводится, регрессионный тест зелёный, layout не сломан?"
+            message: "Проверка фикса не подтверждена"
+            hint: "sya move <id> done --attest fix_verified=\"yes: <итог проверки>\""
+      "* -> scrapped":
+        kind: setback
+        description: "Отмена, причина в Log"
+
+  docs:
+    description: "Документация и контент (без TDD-гейта)"
+    pipeline: [todo, writing, done, scrapped]
+    statuses:
+      todo: "Запланировано"
+      writing: "Пишется"
+      done: "Готово"
+      scrapped: "Отменено"
+    terminal: [done, scrapped]
+    working: [writing]
+    sections: [Description]
+    transitions:
+      todo -> writing:
+        kind: advance
+        description: "Начата работа над текстом"
+      writing -> done:
+        kind: advance
+        description: "Текст готов и вычитан"
+      "* -> scrapped":
+        kind: setback
+        description: "Отменено, причина в Log"
+
+  decision:
+    description: "ADR: архитектурные и дизайн-решения (палитра, стек, конвенции)"
+    pipeline: [proposed, accepted, superseded, rejected]
+    statuses:
+      proposed: "Предложено на рассмотрение"
+      accepted: "Принято, действует"
+      superseded: "Заменено новым решением"
+      rejected: "Отклонено"
+    terminal: [superseded, rejected]
+    parked: [accepted]
+    sections: [Description]
+    transitions:
+      proposed -> accepted:
+        kind: advance
+        description: "Решение принято"
+      proposed -> rejected:
+        kind: setback
+        description: "Решение отклонено"
+      accepted -> superseded:
+        kind: advance
+        description: "Заменено новым решением"
+        guards:
+          - kind: relation_exists
+            relation: superseded_by
+            message: "Сначала свяжите новое решение через superseded_by"
+            hint: "sya relate <id> superseded_by <new-id>"
+
+  task:
+    description: "Инфраструктура/чоры (скаффолдинг, CI, тулинг) — без TDD-гейта"
+    pipeline: [todo, in_progress, done, scrapped]
+    statuses:
+      todo: "Запланировано"
+      in_progress: "В работе"
+      done: "Сделано и проверено"
+      scrapped: "Отменено"
+    terminal: [done, scrapped]
+    working: [in_progress]
+    sections: [Description]
+    transitions:
+      todo -> in_progress:
+        kind: advance
+        description: "Начата работа"
+      in_progress -> done:
+        kind: advance
+        description: "Сделано и проверено"
+      in_progress -> todo:
+        kind: setback
+        description: "Отложено обратно в очередь"
+      "* -> scrapped":
+        kind: setback
+        description: "Отменено, причина в Log"

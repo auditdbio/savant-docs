@@ -1,7 +1,83 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import BrowserOnlyImport from '@docusaurus/BrowserOnly';
+import * as ThemeCommon from '@docusaurus/theme-common';
 import AnalysisSidePanel from './AnalysisSidePanel';
-import { codeData, blocksData } from './codeData';
+import {codeData, blocksData} from './codeData';
 import * as shiki from 'shiki';
+
+export type DemoColorMode = 'light' | 'dark';
+
+export type DemoColors = {
+  bg: string;
+  code: string;
+  gutter: string;
+  shikiTheme: 'github-light' | 'github-dark';
+  panelBg: string;
+  panelText: string;
+  panelBorder: string;
+  panelRule: string;
+  brand: string;
+  accent: string;
+};
+
+export function getDemoColors(colorMode: DemoColorMode): DemoColors {
+  if (colorMode === 'light') {
+    return {
+      bg: '#FFFFFF',
+      code: '#111827',
+      gutter: '#6b7280',
+      shikiTheme: 'github-light',
+      panelBg: '#FFFFFF',
+      panelText: '#111827',
+      panelBorder: '#e5e7eb',
+      panelRule: '#e5e7eb',
+      brand: '#52176D',
+      accent: '#FF6B00',
+    };
+  }
+
+  return {
+    bg: '#0C0810',
+    code: '#E5E7EB',
+    gutter: '#877C93',
+    shikiTheme: 'github-dark',
+    panelBg: '#1E1528',
+    panelText: '#F5F2F8',
+    panelBorder: 'rgba(245, 242, 248, .16)',
+    panelRule: 'rgba(245, 242, 248, .12)',
+    brand: '#7A2FA3',
+    accent: '#FF7B1A',
+  };
+}
+
+type BrowserOnlyProps = {
+  children: () => React.ReactNode;
+  fallback?: React.ReactNode;
+};
+
+const BrowserOnly = typeof BrowserOnlyImport === 'function'
+  ? BrowserOnlyImport as React.ComponentType<BrowserOnlyProps>
+  : function LocalBrowserOnly({children, fallback}: BrowserOnlyProps) {
+    return <>{typeof window === 'undefined' ? fallback : children()}</>;
+  };
+
+function useSafeColorMode(): DemoColorMode {
+  const useColorMode = (ThemeCommon as {useColorMode?: () => {colorMode?: string}}).useColorMode;
+
+  if (typeof useColorMode === 'function') {
+    try {
+      return useColorMode().colorMode === 'light' ? 'light' : 'dark';
+    } catch {
+      // Fall through to the DOM attribute fallback used by unit tests.
+    }
+  }
+
+  if (typeof document !== 'undefined' && document.documentElement.dataset.theme === 'light') {
+    return 'light';
+  }
+
+  return 'dark';
+}
 
 export interface CodeBlock {
   id: number;
@@ -40,6 +116,12 @@ interface PinnedPanelProps {
   isNewlyPinned?: boolean; // Flag to trigger animation on first appearance
 }
 
+type ActivePanelPositionAnchor = {
+  blockId: number;
+  anchorPanelHeight: number;
+  initialOffset: number;
+};
+
 type BlockState =
   | 'idle' // Waiting to start or between blocks
   | 'scrolling_to_block'
@@ -59,14 +141,12 @@ const LINE_HEIGHT = 16; // px
 const FONT_FAMILY = 'monospace';
 const PADDING_TOP = 20; // px
 const LINE_NUMBER_GUTTER_WIDTH = 42; // px for line numbers an its padding
-const LINE_NUMBER_COLOR = '#555555'; // Color for line numbers (darker grey)
-const CODE_TEXT_COLOR = '#000000'; // Color for code text (black)
-const BACKGROUND_COLOR = '#FFFFFF'; // Canvas background (white)
-
 const DEMO_CONTAINER_HEIGHT = 494; // Height of the main demo container in px
 const PANEL_VERTICAL_MARGIN = 265; // Vertical margin for panel from container edges (e.g. top and bottom)
 const PANEL_VERTICAL_OFFSET = -4; // Vertical offset for panel from the top of the code block
 const MIN_PANEL_HEIGHT = 100; // Minimum height for the analysis panel in px
+const ACTIVE_PANEL_TOP_MARGIN = 12;
+const ACTIVE_PANEL_MIN_VISIBLE = 40;
 
 const HIGHLIGHT_COLOR_INITIAL_RGB = '59, 130, 255'; // Blueish, for initial highlight
 const HIGHLIGHT_COLOR_SAFE_RGB = '46, 204, 113'; // Greenish for safe blocks
@@ -94,10 +174,47 @@ const VULNERABLE_BLOCK_SCROLL_DELAY_MS = 1100; // Delay before scrolling a vulne
 const LINES_ON_LAST_BLOCK_BEFORE_REWIND = 8; // Lines of the last block to remain visible before rewind
 
 const TARGET_FULL_PANEL_HEIGHT = 125; // Desired fixed height for the main analysis panel
+const PANEL_TEXT_LINE_HEIGHT = 14;
+const PANEL_VERTICAL_PADDING = 16;
 
 const PANEL_TEXT_FADE_OUT_DURATION_MS = {
   default: 300
 };
+
+export function measureAnalysisPanelTextHeight(text: string, panelWidth: number): number {
+  const usableWidth = Math.max(80, panelWidth - 16);
+  const averageCharWidth = 5.7;
+  const charsPerLine = Math.max(12, Math.floor(usableWidth / averageCharWidth));
+  const lineCount = text.split('\n').reduce((total, line) => {
+    return total + Math.max(1, Math.ceil(line.length / charsPerLine));
+  }, 0);
+
+  return (lineCount * PANEL_TEXT_LINE_HEIGHT) + PANEL_VERTICAL_PADDING;
+}
+
+export function getAnalysisPanelLayout(
+  messages: Array<{text: string}>,
+  panelWidth: number,
+): {contentHeight: number; panelHeight: number; clipsText: boolean} {
+  const contentHeight = messages.reduce((total, message) => {
+    return total + measureAnalysisPanelTextHeight(message.text, panelWidth);
+  }, 0);
+  const panelHeight = Math.max(TARGET_FULL_PANEL_HEIGHT, contentHeight);
+
+  return {
+    contentHeight,
+    panelHeight,
+    clipsText: panelHeight < contentHeight,
+  };
+}
+
+export function prepareCanvasCodeLine(line: string, _maxWidth?: number): string {
+  return line;
+}
+
+export function getCanvasCodeDrawWidth(canvasWidth: number, codeX: number): number {
+  return Math.max(0, canvasWidth - codeX);
+}
 
 // Define responsive widths for the analysis panel
 const RESPONSIVE_PANEL_WIDTHS = {
@@ -157,7 +274,7 @@ const getCurrentDemoContainerHeight = () => {
 };
 
 // Helper function to calculate top position for a panel to be centered vertically with its code block
-const calculatePanelCenterAlignedTop = (
+export const calculatePanelCenterAlignedTop = (
   associatedBlock: CodeBlock,
   panelHeight: number, // Current height of the panel (could be min for pinned, or dynamic for full)
   currentScrollY: number,
@@ -170,6 +287,63 @@ const calculatePanelCenterAlignedTop = (
   const panelCenterYRelativeToPanelTop = panelHeight / 2;
   
   return blockCenterY - panelCenterYRelativeToPanelTop;
+};
+
+export const calculatePanelTopWithinContainer = (
+  associatedBlock: Pick<CodeBlock, 'startLine' | 'endLine'>,
+  panelHeight: number,
+  currentScrollY: number,
+  paddingTop: number,
+  lineHeight: number,
+  _containerHeight: number,
+  _verticalOffset = 0,
+): number => {
+  return calculatePanelCenterAlignedTop(
+    associatedBlock as CodeBlock,
+    panelHeight,
+    currentScrollY,
+    paddingTop,
+    lineHeight,
+  );
+};
+
+export const calculateInitialActivePanelTop = (
+  associatedBlock: Pick<CodeBlock, 'startLine' | 'endLine'>,
+  anchorPanelHeight: number,
+  currentScrollY: number,
+  paddingTop: number,
+  lineHeight: number,
+  containerHeight: number,
+  topMargin = ACTIVE_PANEL_TOP_MARGIN,
+  minVisible = ACTIVE_PANEL_MIN_VISIBLE,
+): number => {
+  const centeredTop = calculatePanelCenterAlignedTop(
+    associatedBlock as CodeBlock,
+    anchorPanelHeight,
+    currentScrollY,
+    paddingTop,
+    lineHeight,
+  );
+  const maxTop = Math.max(topMargin, containerHeight - minVisible);
+
+  return Math.min(Math.max(centeredTop, topMargin), maxTop);
+};
+
+export const calculateActivePanelTopWithInitialOffset = (
+  associatedBlock: Pick<CodeBlock, 'startLine' | 'endLine'>,
+  anchorPanelHeight: number,
+  currentScrollY: number,
+  paddingTop: number,
+  lineHeight: number,
+  initialOffset: number,
+): number => {
+  return calculatePanelCenterAlignedTop(
+    associatedBlock as CodeBlock,
+    anchorPanelHeight,
+    currentScrollY,
+    paddingTop,
+    lineHeight,
+  ) + initialOffset;
 };
 
 // Helper function to draw a rounded rectangle
@@ -186,7 +360,13 @@ function drawRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, wi
   ctx.fill();
 }
 
-const AnalysisDemo = () => {
+type AnalysisDemoClientProps = {
+  className?: string;
+  colorMode: DemoColorMode;
+};
+
+const AnalysisDemoClient = ({className, colorMode}: AnalysisDemoClientProps) => {
+  const demoColors = useMemo(() => getDemoColors(colorMode), [colorMode]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [code, setCode] = useState<string>(codeData); // Use imported codeData
   const [blocks, setBlocks] = useState<CodeBlock[]>(blocksData); // Use imported blocksData
@@ -236,6 +416,7 @@ const AnalysisDemo = () => {
   const [panelTopPx, setPanelTopPx] = useState<number>(PANEL_VERTICAL_MARGIN);
   const [panelMaxHeightPx, setPanelMaxHeightPx] = useState<number>(currentDemoContainerHeight - (PANEL_VERTICAL_MARGIN * 2)); // Use state here
   const [pinnedVulnerabilityPanels, setPinnedVulnerabilityPanels] = useState<PinnedPanelProps[]>([]);
+  const activePanelPositionRef = useRef<ActivePanelPositionAnchor | null>(null);
   const vulnerablePanelTransformTimeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref for panel transformation timeout
   const panelContentFadeInTimeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref for content fade-in
 
@@ -281,7 +462,7 @@ const AnalysisDemo = () => {
     setPanelContentOpacity(1); 
     setPinnedVulnerabilityPanels([]); // Clear pinned panels on full reset
     resizeCanvas(); // This will correctly set values on client-side
-  }, [blocksData, resizeCanvas]);
+  }, [blocksData, colorMode, resizeCanvas]);
 
   // Initial setup for canvas size and on resize
   useEffect(() => {
@@ -309,7 +490,7 @@ const AnalysisDemo = () => {
     canvas.style.height = canvasDimensions.height + 'px';
 
     // Clear canvas
-    ctx.fillStyle = BACKGROUND_COLOR;
+    ctx.fillStyle = demoColors.bg;
     ctx.fillRect(0, 0, canvasDimensions.width, canvasDimensions.height);
 
     // Setup text rendering properties
@@ -327,18 +508,20 @@ const AnalysisDemo = () => {
         }
 
         // Draw line number
-        ctx.fillStyle = LINE_NUMBER_COLOR;
+        ctx.fillStyle = demoColors.gutter;
         ctx.textAlign = 'right';
         ctx.fillText(String(i + 1), currentPaddingLeft + LINE_NUMBER_GUTTER_WIDTH - 10, yPos);
 
         // Draw code tokens for the line
         ctx.textAlign = 'left';
         let currentX = currentPaddingLeft + LINE_NUMBER_GUTTER_WIDTH;
+        const codeDrawWidth = getCanvasCodeDrawWidth(canvasDimensions.width, currentX);
         for (const token of lineTokens) {
           // Use color from token's htmlStyle, or fallback to default code color
-          ctx.fillStyle = token.htmlStyle?.color || CODE_TEXT_COLOR; 
-          ctx.fillText(token.content, currentX, yPos);
-          currentX += ctx.measureText(token.content).width;
+          ctx.fillStyle = token.htmlStyle?.color || demoColors.code; 
+          const content = prepareCanvasCodeLine(token.content, codeDrawWidth);
+          ctx.fillText(content, currentX, yPos);
+          currentX += ctx.measureText(content).width;
         }
       }
     } else {
@@ -350,12 +533,14 @@ const AnalysisDemo = () => {
         if (yPos < -LINE_HEIGHT || yPos > canvasDimensions.height + LINE_HEIGHT) {
           continue;
         }
-        ctx.fillStyle = LINE_NUMBER_COLOR;
+        ctx.fillStyle = demoColors.gutter;
         ctx.textAlign = 'right';
         ctx.fillText(String(i + 1), currentPaddingLeft + LINE_NUMBER_GUTTER_WIDTH - 10, yPos);
-        ctx.fillStyle = CODE_TEXT_COLOR;
+        ctx.fillStyle = demoColors.code;
         ctx.textAlign = 'left';
-        ctx.fillText(line, currentPaddingLeft + LINE_NUMBER_GUTTER_WIDTH, yPos);
+        const codeX = currentPaddingLeft + LINE_NUMBER_GUTTER_WIDTH;
+        const codeDrawWidth = getCanvasCodeDrawWidth(canvasDimensions.width, codeX);
+        ctx.fillText(prepareCanvasCodeLine(line, codeDrawWidth), codeX, yPos);
       }
     }
 
@@ -408,7 +593,7 @@ const AnalysisDemo = () => {
     ctx.fillStyle = 'yellow';
     ctx.font = '12px sans-serif';
     ctx.textAlign = 'left';
-  }, [canvasDimensions, scrollY, currentBlockIndex, currentBlockState, code, blocks, highlightOpacity, animatedHighlightHeight, currentHighlightColor, tokenizedLines, maxCodeLineWidthPx, currentPaddingLeft, currentFontSize]);
+  }, [canvasDimensions, scrollY, currentBlockIndex, currentBlockState, code, blocks, highlightOpacity, animatedHighlightHeight, currentHighlightColor, tokenizedLines, maxCodeLineWidthPx, currentPaddingLeft, currentFontSize, demoColors]);
 
   // Effect to calculate the maximum code line width globally
   useEffect(() => {
@@ -435,14 +620,14 @@ const AnalysisDemo = () => {
     const initializeHighlighter = async () => {
       try {
         const shikiHighlighter = await shiki.createHighlighter({
-          themes: ['light-plus'],
+          themes: [demoColors.shikiTheme],
           langs: ['typescript', 'javascript', 'tsx', 'jsx', 'solidity'],
         });
         setHighlighter(shikiHighlighter);
       } catch (error) {}
     };
     initializeHighlighter();
-  }, []);
+  }, [demoColors.shikiTheme]);
 
   // Tokenize code when highlighter is ready and code changes
   useEffect(() => {
@@ -450,7 +635,7 @@ const AnalysisDemo = () => {
       try {
         const options: any = { 
           lang: 'solidity',
-          themes: { light: 'light-plus', dark: 'light-plus' }
+          themes: { light: demoColors.shikiTheme, dark: demoColors.shikiTheme }
         };
         const themedTokensResult = highlighter.codeToTokens(code, options);
         
@@ -459,17 +644,17 @@ const AnalysisDemo = () => {
         } else {
             const lines = code.split('\n');
             setTokenizedLines(
-              lines.map(line => ([{ content: line, color: CODE_TEXT_COLOR, htmlStyle: { color: CODE_TEXT_COLOR }, offset: 0 }])) // ensure fallback matches expected structure
+              lines.map(line => ([{ content: line, color: demoColors.code, htmlStyle: { color: demoColors.code }, offset: 0 }])) // ensure fallback matches expected structure
             );
         }
       } catch (error) {
         const lines = code.split('\n');
         setTokenizedLines(
-          lines.map(line => ([{ content: line, color: CODE_TEXT_COLOR, htmlStyle: { color: CODE_TEXT_COLOR }, offset: 0 }])) // ensure fallback matches expected structure
+          lines.map(line => ([{ content: line, color: demoColors.code, htmlStyle: { color: demoColors.code }, offset: 0 }])) // ensure fallback matches expected structure
         );
       }
     }
-  }, [highlighter, code]);
+  }, [highlighter, code, demoColors]);
 
   // Main animation loop
   useEffect(() => {
@@ -562,17 +747,17 @@ const AnalysisDemo = () => {
               });
             }
             if (blockToAnalyze.analysisText.summary) {
-              newParts.push({ id: `sum-title-${partIdCounter++}`, text: "Summary:", isTitle: true, isSummary: true, requiresNewline: true, color: 'rgb(82, 23, 109)' });
+              newParts.push({ id: `sum-title-${partIdCounter++}`, text: "Summary:", isTitle: true, isSummary: true, requiresNewline: true, color: demoColors.brand });
               newParts.push({ id: `sum-text-${partIdCounter++}`, text: blockToAnalyze.analysisText.summary, isSummary: true });
             }
             if (blockToAnalyze.isVulnerable) {
               if (blockToAnalyze.analysisText.vulnerability) {
-                newParts.push({ id: `vuln-title-${partIdCounter++}`, text: "Vulnerability:", isTitle: true, isVulnerability: true, color: '#FF6B00', requiresNewline: true });
-                newParts.push({ id: `vuln-text-${partIdCounter++}`, text: blockToAnalyze.analysisText.vulnerability, isVulnerability: true, color: '#FF6B00' });
+                newParts.push({ id: `vuln-title-${partIdCounter++}`, text: "Vulnerability:", isTitle: true, isVulnerability: true, color: demoColors.accent, requiresNewline: true });
+                newParts.push({ id: `vuln-text-${partIdCounter++}`, text: blockToAnalyze.analysisText.vulnerability, isVulnerability: true, color: demoColors.accent });
               }
               if (blockToAnalyze.analysisText.remediation) {
-                newParts.push({ id: `fix-title-${partIdCounter++}`, text: "Remediation:", isTitle: true, isRemediation: true, color: 'rgb(82, 23, 109)', requiresNewline: true });
-                newParts.push({ id: `fix-text-${partIdCounter++}`, text: blockToAnalyze.analysisText.remediation, isRemediation: true, color: 'rgb(82, 23, 109)' });
+                newParts.push({ id: `fix-title-${partIdCounter++}`, text: "Remediation:", isTitle: true, isRemediation: true, color: demoColors.brand, requiresNewline: true });
+                newParts.push({ id: `fix-text-${partIdCounter++}`, text: blockToAnalyze.analysisText.remediation, isRemediation: true, color: demoColors.brand });
               }
             }
             setAnalysisPanelMessages(newParts);
@@ -621,12 +806,13 @@ const AnalysisDemo = () => {
             if (analysisPanelMessages.length > 0) { // Ensure there are messages to pin (should be vulnerability text)
               const blockHeightPx = (activeBlock.endLine - activeBlock.startLine + 1) * LINE_HEIGHT;
               // Calculate initial top position using the new helper function
-              const initialPanelTopForPinned = calculatePanelCenterAlignedTop(
+              const initialPanelTopForPinned = calculatePanelTopWithinContainer(
                 activeBlock,
                 MIN_PANEL_HEIGHT, // Pinned panel always uses min height
                 scrollY,
                 PADDING_TOP,
-                LINE_HEIGHT
+                LINE_HEIGHT,
+                currentDemoContainerHeight
               );
 
               const newPinnedPanel: PinnedPanelProps = {
@@ -687,22 +873,29 @@ const AnalysisDemo = () => {
               const blockHeightPx = (activeBlock.endLine - activeBlock.startLine + 1) * LINE_HEIGHT;
               
               // Recalculate top position based on current scrollY for accuracy before setting height relative to it.
-              const blockFirstLineCanvasY = PADDING_TOP + ((activeBlock.startLine - 1) * LINE_HEIGHT) - scrollY;
-              const currentPanelTop = Math.max(PADDING_TOP, blockFirstLineCanvasY);
-              setPanelTopPx(currentPanelTop + currentPanelVerticalOffset);
-
               const newMaxHeightForVulnerableBlock = Math.max(MIN_PANEL_HEIGHT, blockHeightPx);
+              const currentPanelTop = calculatePanelTopWithinContainer(
+                activeBlock,
+                newMaxHeightForVulnerableBlock,
+                scrollY,
+                PADDING_TOP,
+                LINE_HEIGHT,
+                currentDemoContainerHeight,
+                currentPanelVerticalOffset,
+              );
+              setPanelTopPx(currentPanelTop);
               setPanelMaxHeightPx(newMaxHeightForVulnerableBlock);
             }
             // Add the current panel to pinnedVulnerabilityPanels ONLY if screen is large enough
             if (window.innerWidth >= BREAKPOINTS.xs) {
                 if (activeBlock && analysisPanelMessages.length > 0) {
-                  const initialPanelTop = calculatePanelCenterAlignedTop(
+                  const initialPanelTop = calculatePanelTopWithinContainer(
                     activeBlock,
                     MIN_PANEL_HEIGHT, // Pinned panel always uses MIN_PANEL_HEIGHT
                     scrollY,
                     PADDING_TOP,
-                    LINE_HEIGHT
+                    LINE_HEIGHT,
+                    currentDemoContainerHeight
                   );
                   const newPinnedPanel: PinnedPanelProps = {
                     blockId: activeBlock.id,
@@ -837,7 +1030,7 @@ const AnalysisDemo = () => {
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
       animationFrameId.current = null;
     };
-  }, [currentBlockState, currentBlockIndex, blocks, canvasDimensions, scrollY, highlightOpacity, code, animatedHighlightHeight, analysisPanelMessages, isTypingVulnerability, currentHighlightColor, tokenizedLines, currentFontSize]);
+  }, [currentBlockState, currentBlockIndex, blocks, canvasDimensions, scrollY, highlightOpacity, code, animatedHighlightHeight, analysisPanelMessages, isTypingVulnerability, currentHighlightColor, tokenizedLines, currentFontSize, currentDemoContainerHeight, currentPanelVerticalOffset, currentPanelWidth]);
 
   useEffect(() => {
     if (blocks.length > 0 && currentBlockState === 'idle') {
@@ -889,6 +1082,12 @@ const AnalysisDemo = () => {
     return () => { if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current); };
   }, [currentBlockState, analysisPanelMessages, panelTypedMessagePartIndex, panelTypedCharIndex, isTypingVulnerability]);
 
+  useEffect(() => {
+    if (!isPanelVisible || currentBlockState !== 'analyzing_text_appearing') {
+      activePanelPositionRef.current = null;
+    }
+  }, [isPanelVisible, currentBlockState]);
+
   // Effect for handling state transitions after analysis_pause and color transformation
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
@@ -919,20 +1118,59 @@ const AnalysisDemo = () => {
         currentBlockState === 'analyzing_text_appearing' ||
         currentBlockState === 'analysis_pause'
       ) {
-        // 1. Calculate top for the panel so its center aligns with the code block's center.
-        //    Use TARGET_FULL_PANEL_HEIGHT as the panel height for this calculation.
-        const newPanelTop = calculatePanelCenterAlignedTop(
-          activeBlock,
-          TARGET_FULL_PANEL_HEIGHT, // The panel will have this height
-          scrollY,
-          PADDING_TOP,
-          LINE_HEIGHT
-        );
+        const panelLayout = getAnalysisPanelLayout(analysisPanelMessages, currentPanelWidth);
+        let newPanelTop: number;
+
+        if (currentBlockState === 'analyzing_text_appearing') {
+          let positionAnchor = activePanelPositionRef.current;
+
+          if (!positionAnchor || positionAnchor.blockId !== activeBlock.id) {
+            const initialTop = calculateInitialActivePanelTop(
+              activeBlock,
+              panelLayout.panelHeight,
+              scrollY,
+              PADDING_TOP,
+              LINE_HEIGHT,
+              currentDemoContainerHeight,
+            );
+            const anchoredTop = calculatePanelCenterAlignedTop(
+              activeBlock,
+              panelLayout.panelHeight,
+              scrollY,
+              PADDING_TOP,
+              LINE_HEIGHT,
+            );
+            positionAnchor = {
+              blockId: activeBlock.id,
+              anchorPanelHeight: panelLayout.panelHeight,
+              initialOffset: initialTop - anchoredTop,
+            };
+            activePanelPositionRef.current = positionAnchor;
+            newPanelTop = initialTop;
+          } else {
+            newPanelTop = calculateActivePanelTopWithInitialOffset(
+              activeBlock,
+              positionAnchor.anchorPanelHeight,
+              scrollY,
+              PADDING_TOP,
+              LINE_HEIGHT,
+              positionAnchor.initialOffset,
+            );
+          }
+        } else {
+          activePanelPositionRef.current = null;
+          newPanelTop = calculatePanelTopWithinContainer(
+            activeBlock,
+            panelLayout.panelHeight,
+            scrollY,
+            PADDING_TOP,
+            LINE_HEIGHT,
+            currentDemoContainerHeight,
+          );
+        }
         
         setPanelTopPx(newPanelTop);
-        // Set the panel's max height to TARGET_FULL_PANEL_HEIGHT.
-        // The AnalysisSidePanel component is responsible for internal scrolling if content overflows.
-        setPanelMaxHeightPx(TARGET_FULL_PANEL_HEIGHT);
+        setPanelMaxHeightPx(panelLayout.panelHeight);
       } 
     } 
   }, [
@@ -943,7 +1181,9 @@ const AnalysisDemo = () => {
     currentBlockState, 
     PADDING_TOP, // Still needed for calculatePanelCenterAlignedTop
     LINE_HEIGHT, // Still needed for calculatePanelCenterAlignedTop
-    TARGET_FULL_PANEL_HEIGHT // Now a direct input to height and centering logic
+    analysisPanelMessages,
+    currentPanelWidth,
+    currentDemoContainerHeight
   ]);
 
   // Effect to update topPx for pinned panels on scrollY change
@@ -953,12 +1193,13 @@ const AnalysisDemo = () => {
         prevPanels.map(panel => {
           const associatedBlock = blocks.find(b => b.id === panel.blockId);
           if (associatedBlock) {
-            const newTopPx = calculatePanelCenterAlignedTop( // Use new unified function
+            const newTopPx = calculatePanelTopWithinContainer( // Use new unified function
               associatedBlock,
               panel.heightPx, // This is MIN_PANEL_HEIGHT for pinned panels
               scrollY,
               PADDING_TOP,
-              LINE_HEIGHT
+              LINE_HEIGHT,
+              currentDemoContainerHeight
             );
             return { ...panel, topPx: newTopPx };
           }
@@ -966,7 +1207,7 @@ const AnalysisDemo = () => {
         })
       );
     }
-  }, [scrollY, blocks, PADDING_TOP, LINE_HEIGHT, pinnedVulnerabilityPanels]); 
+  }, [scrollY, blocks, PADDING_TOP, LINE_HEIGHT, pinnedVulnerabilityPanels, currentDemoContainerHeight]); 
 
   // Effect for handling vulnerable panel transformation (fade out, resize/re-content, fade in)
   useEffect(() => {
@@ -977,16 +1218,25 @@ const AnalysisDemo = () => {
         if (activeBlock && activeBlock.isVulnerable && activeBlock.analysisText.vulnerability) {
           // 1. Calculate and SET new dimensions and position WHILE PANEL IS STILL HIDDEN
           const blockHeightPx = (activeBlock.endLine - activeBlock.startLine + 1) * LINE_HEIGHT;
-          const panelTopForNewSize = PADDING_TOP + ((activeBlock.startLine - 1) * LINE_HEIGHT) - scrollY + currentPanelVerticalOffset;
+          const nextPanelHeight = Math.max(MIN_PANEL_HEIGHT, blockHeightPx);
+          const panelTopForNewSize = calculatePanelTopWithinContainer(
+            activeBlock,
+            nextPanelHeight,
+            scrollY,
+            PADDING_TOP,
+            LINE_HEIGHT,
+            currentDemoContainerHeight,
+            currentPanelVerticalOffset,
+          );
           setPanelTopPx(panelTopForNewSize); 
-          setPanelMaxHeightPx(Math.max(MIN_PANEL_HEIGHT, blockHeightPx));
+          setPanelMaxHeightPx(nextPanelHeight);
 
           // 2. Change content
           const vulnerabilityOnlyMessages: AiMessagePart[] = [{
             id: `vuln-text-pinned-${activeBlock.id}`,
             text: activeBlock.analysisText.summary,
             isVulnerability: true, 
-            color: 'rgb(82, 23, 109)' 
+            color: demoColors.brand
           }];
           setAnalysisPanelMessages(vulnerabilityOnlyMessages);
           setPanelTypedMessagePartIndex(vulnerabilityOnlyMessages.length); 
@@ -1010,7 +1260,7 @@ const AnalysisDemo = () => {
       if (vulnerablePanelTransformTimeoutRef.current) clearTimeout(vulnerablePanelTransformTimeoutRef.current);
       if (panelContentFadeInTimeoutRef.current) clearTimeout(panelContentFadeInTimeoutRef.current); // Clear new timeout
     };
-  }, [currentBlockState, blocks, currentBlockIndex, scrollY, currentPanelVerticalOffset]);  // Added currentPanelVerticalOffset to dependencies
+  }, [currentBlockState, blocks, currentBlockIndex, scrollY, currentPanelVerticalOffset, currentDemoContainerHeight]);  // Added currentPanelVerticalOffset to dependencies
 
   // useEffect for delaying scroll after vulnerable block analysis
   useEffect(() => {
@@ -1044,7 +1294,16 @@ const AnalysisDemo = () => {
   }, [pinnedVulnerabilityPanels]);
 
   return (
-    <div className={`w-full max-w-[1536px] h-[${currentDemoContainerHeight}px] mx-auto relative overflow-hidden 3xl:pl-4`}>
+    <div
+      className={className}
+      data-testid="analysis-demo"
+      role="img"
+      aria-label="Animated smart contract audit analysis"
+      style={{
+        background: demoColors.bg,
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
       <div style={{ flexGrow: 1, position: 'relative', height: '100%' }}> {/* Canvas Container */} 
         <canvas ref={canvasRef} style={{ display: 'block', width: '100%', height: '100%' }} />
       </div>
@@ -1059,6 +1318,7 @@ const AnalysisDemo = () => {
         topPositionPx={panelTopPx}
         maxPanelHeightPx={panelMaxHeightPx}
         panelMode="full"
+        colors={demoColors}
       />
       {/* Render pinned vulnerability panels */}
       {pinnedVulnerabilityPanels.map(pinnedPanel => (
@@ -1074,10 +1334,44 @@ const AnalysisDemo = () => {
           maxPanelHeightPx={pinnedPanel.heightPx}
           isNewlyPinned={pinnedPanel.isNewlyPinned} // Pass the flag for animation
           panelMode='compact'
+          colors={demoColors}
         />
       ))}
     </div>
   );
 };
 
-export default AnalysisDemo;
+type AnalysisDemoProps = {
+  className?: string;
+};
+
+function AnalysisDemoFallback({className}: AnalysisDemoProps) {
+  const colorMode = typeof document !== 'undefined' && document.documentElement.dataset.theme === 'light'
+    ? 'light'
+    : 'dark';
+  const demoColors = getDemoColors(colorMode);
+
+  return (
+    <div
+      className={className}
+      data-testid="analysis-demo"
+      role="img"
+      aria-label="Animated smart contract audit analysis"
+      style={{
+        background: demoColors.bg,
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    />
+  );
+}
+
+export default function AnalysisDemo({className}: AnalysisDemoProps) {
+  const colorMode = useSafeColorMode();
+
+  return (
+    <BrowserOnly fallback={<AnalysisDemoFallback className={className} />}>
+      {() => <AnalysisDemoClient className={className} colorMode={colorMode} />}
+    </BrowserOnly>
+  );
+}
