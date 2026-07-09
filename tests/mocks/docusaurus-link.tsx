@@ -6,8 +6,10 @@ interface DocusaurusLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 export default function Link({children, href, to, ...props}: DocusaurusLinkProps) {
+  // Real Docusaurus strips the pathname:// protocol and bypasses SPA routing.
+  const resolved = (to ?? href)?.replace(/^pathname:\/\//, '');
   return (
-    <a href={to ?? href} {...props}>
+    <a href={resolved} {...props}>
       {children}
     </a>
   );

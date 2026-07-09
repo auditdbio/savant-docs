@@ -43,8 +43,9 @@ const proofStats = [
 ];
 
 export default function ProofStats({signupUrl}: ProofStatsProps): ReactNode {
-  const signupSourceUrl = signupUrl.startsWith('/')
-    ? `https://savant.chat${signupUrl}`
+  const signupPath = signupUrl.replace(/^pathname:\/\//, '');
+  const signupSourceUrl = signupPath.startsWith('/')
+    ? `https://savant.chat${signupPath}`
     : signupUrl;
 
   return (

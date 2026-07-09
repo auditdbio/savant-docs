@@ -79,7 +79,7 @@ export default function Home(): ReactNode {
 
   const {siteConfig} = useDocusaurusContext();
   const {title, customFields} = siteConfig as SiteConfigWithSignup;
-  const signupUrl = customFields?.signupUrl ?? '/dashboard/login';
+  const signupUrl = customFields?.signupUrl ?? 'pathname:///dashboard/login';
 
   return (
     <Layout

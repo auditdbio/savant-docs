@@ -41,9 +41,11 @@ describe('Docusaurus theme config', () => {
     expect(config.url).toBe('https://savant.chat');
   });
 
-  it('uses the dashboard login signup URL', () => {
-    expect(signupUrl).toBe('/dashboard/login');
-    expect(String(signupUrl)).toMatch(/^\//);
+  it('uses the dashboard login signup URL, escaping the SPA router', () => {
+    // pathname:// makes Docusaurus render a plain full-page link — without it
+    // the docs router client-side-routes /dashboard/login to its own 404.
+    expect(signupUrl).toBe('pathname:///dashboard/login');
+    expect(String(signupUrl)).toMatch(/^pathname:\/\/\//);
   });
 
   it('allows the temporary dashboard route to remain unresolved until the app exists', () => {

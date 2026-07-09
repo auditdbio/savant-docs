@@ -6,7 +6,9 @@ import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-const signupUrl = '/dashboard/login';
+// pathname:// keeps the app route out of the Docusaurus SPA router:
+// a plain '/dashboard/login' link would be client-side-routed to the docs 404.
+const signupUrl = 'pathname:///dashboard/login';
 
 const config = {
   title: 'Savant Chat — AI Smart Contract Auditor',
