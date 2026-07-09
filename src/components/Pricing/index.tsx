@@ -86,7 +86,7 @@ export default function Pricing({signupUrl}: PricingProps): ReactNode {
               className={`button ${
                 plan.ctaStyle === 'primary' ? 'button--primary' : 'button--secondary'
               } ${styles.planCta}`}
-              to={signupUrl}>
+              to={signupUrl} target="_self">
               Start free
             </Link>
           </article>

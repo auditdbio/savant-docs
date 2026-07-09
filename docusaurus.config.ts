@@ -123,6 +123,7 @@ const config = {
           label: 'Start free',
           position: 'right',
           className: 'navbar-cta',
+          target: '_self',
         },
       ],
     },

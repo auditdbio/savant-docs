@@ -54,7 +54,7 @@ function HomepageHero({signupUrl}: {signupUrl: string}) {
           <div className={styles.ctas} data-testid="hero-ctas">
             <Link
               className={`button button--primary ${styles.primaryCta}`}
-              to={signupUrl}>
+              to={signupUrl} target="_self">
               Start Free — $75 in credits
             </Link>
             <Link

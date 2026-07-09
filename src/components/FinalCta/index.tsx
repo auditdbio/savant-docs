@@ -18,7 +18,7 @@ export default function FinalCta({signupUrl}: FinalCtaProps): ReactNode {
         <p className={styles.lead}>
           Run a real audit on your codebase today — results in minutes.
         </p>
-        <Link className={styles.button} to={signupUrl}>
+        <Link className={styles.button} to={signupUrl} target="_self">
           Start your first audit
         </Link>
       </div>
