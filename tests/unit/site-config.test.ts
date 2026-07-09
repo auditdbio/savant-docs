@@ -73,7 +73,7 @@ describe('Docusaurus theme config', () => {
     ).toBe(true);
   });
 
-  it('loads Archivo and IBM Plex Mono from Google Fonts css2', () => {
+  it('loads Geist and Geist Mono from Google Fonts css2', () => {
     expect(
       getHeadTags().some(tag => {
         const href = tag.attributes?.href ?? '';
@@ -82,8 +82,8 @@ describe('Docusaurus theme config', () => {
           tag.tagName === 'link' &&
           tag.attributes?.rel === 'stylesheet' &&
           href.includes('fonts.googleapis.com/css2') &&
-          href.includes('Archivo') &&
-          href.includes('IBM+Plex+Mono')
+          href.includes('Geist') &&
+          href.includes('Geist+Mono')
         );
       }),
     ).toBe(true);

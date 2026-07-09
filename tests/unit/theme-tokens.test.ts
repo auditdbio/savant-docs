@@ -49,7 +49,7 @@ describe('theme CSS tokens', () => {
     ['--site-border', '#e5e7eb'],
     ['--site-accent', '#FF6B00'],
     ['--site-accent-hover', '#E65D00'],
-    ['--site-accent-text', '#D05500'],
+    ['--site-accent-text', '#BF4D00'],
     ['--site-brand', '#52176D'],
     ['--site-on-brand', '#ffffff'],
     ['--site-hero-cta-bg', '#ffffff'],
@@ -58,16 +58,16 @@ describe('theme CSS tokens', () => {
   });
 
   test.each([
-    ['--site-bg', '#120C18'],
+    ['--site-bg', '#150A1C'],
     ['--site-bg-alt', '#0C0810'],
-    ['--site-surface', '#1E1528'],
-    ['--site-text', '#F5F2F8'],
+    ['--site-surface', '#1C1126'],
+    ['--site-text', '#F4F1F8'],
     ['--site-text-secondary', '#B3A9BF'],
-    ['--site-accent', '#FF7B1A'],
-    ['--site-accent-hover', '#FF8C33'],
-    ['--site-brand', '#7A2FA3'],
-    ['--site-brand-band', '#221030'],
-    ['--ifm-color-primary', '#FF7B1A'],
+    ['--site-accent', '#FF6B00'],
+    ['--site-accent-hover', '#E65D00'],
+    ['--site-brand', '#834AA6'],
+    ['--site-brand-band', '#230730'],
+    ['--ifm-color-primary', '#FF8A33'],
   ])("[data-theme='dark'] defines %s", (token, expected) => {
     expect(getToken(darkTokens, token)).toBe(normalizeExpected(expected));
   });

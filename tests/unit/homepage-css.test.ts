@@ -50,16 +50,16 @@ describe('homepage hero css module', () => {
     expect(kicker['letter-spacing']).toBe('.14em');
   });
 
-  it('sets the hero title weight to 800', () => {
+  it('sets the hero title weight to 600', () => {
     const title = declarationsFor('.title');
 
-    expect(title['font-weight']).toBe('800');
+    expect(title['font-weight']).toBe('600');
   });
 
-  it('sets the hero title tracking to -0.03em', () => {
+  it('sets the hero title tracking to -0.02em', () => {
     const title = declarationsFor('.title');
 
-    expect(title['letter-spacing']).toBe('-0.03em');
+    expect(title['letter-spacing']).toBe('-0.02em');
   });
 
   it('defines the CTA container class', () => {

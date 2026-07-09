@@ -44,14 +44,14 @@
 .item {
   background: var(--site-surface);
   border: 1px solid var(--site-border);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .summary {
   color: var(--site-text);
   cursor: pointer;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
   min-height: 44px;
   padding: 16px 20px;

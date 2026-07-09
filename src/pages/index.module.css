@@ -37,8 +37,8 @@
 .title {
   color: var(--site-on-brand);
   font-size: 56px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   line-height: 1.12;
   margin: 0;
   max-width: 900px;
@@ -68,7 +68,7 @@
   border-radius: var(--ifm-global-radius);
   box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
   color: #52176D;
-  font-weight: 700;
+  font-weight: 600;
   padding: 16px 24px;
 }
 
@@ -89,14 +89,14 @@
 [data-theme='dark'] .hero .primaryCta:focus {
   background: var(--site-hero-cta-bg);
   border-color: var(--site-hero-cta-bg);
-  color: #111827;
+  color: #52176D;
 }
 
 .hero .primaryCta:hover,
 [data-theme='dark'] .hero .primaryCta:hover {
   background: var(--site-hero-cta-bg);
   border-color: var(--site-hero-cta-bg);
-  color: #111827;
+  color: #52176D;
   text-decoration: none;
 }
 
@@ -106,7 +106,7 @@
   border-width: 2px;
   border-radius: var(--ifm-global-radius);
   color: var(--site-on-brand);
-  font-weight: 700;
+  font-weight: 600;
   padding: 16px 24px;
 }
 
@@ -156,7 +156,7 @@
 .analysisDemo {
   background: var(--site-hero-cta-bg);
   border: 1px solid rgba(255, 255, 255, .24);
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: 0 28px 70px rgba(0, 0, 0, .28);
   height: 494px;
   min-width: 0;

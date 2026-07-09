@@ -18,14 +18,13 @@ describe('blog math configuration', () => {
     expect(hasDependency(name)).toBe(true);
   });
 
-  it('wires remark-math into docs markdown processing', () => {
-    expect(configSource).toMatch(/import\s+remarkMath\s+from\s+['"]remark-math['"]/);
-    expect(configSource).toMatch(/docs:\s*\{[\s\S]*?remarkPlugins:\s*\[[^\]]*remarkMath[^\]]*\]/);
+  it('disables the docs plugin (landing + blog only)', () => {
+    expect(configSource).toMatch(/docs:\s*false/);
   });
 
-  it('wires rehype-katex into docs markdown processing', () => {
+  it('imports remark-math and rehype-katex for the blog', () => {
+    expect(configSource).toMatch(/import\s+remarkMath\s+from\s+['"]remark-math['"]/);
     expect(configSource).toMatch(/import\s+rehypeKatex\s+from\s+['"]rehype-katex['"]/);
-    expect(configSource).toMatch(/docs:\s*\{[\s\S]*?rehypePlugins:\s*\[[^\]]*rehypeKatex[^\]]*\]/);
   });
 
   it('wires remark-math into blog markdown processing', () => {

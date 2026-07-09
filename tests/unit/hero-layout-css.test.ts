@@ -61,7 +61,7 @@ describe('hero AnalysisDemo layout css', () => {
     expect(analysisDemo.width).toBe('100%');
   });
 
-  it('rounds the demo panel to 14px', () => {
-    expect(declarationsFor('.analysisDemo')['border-radius']).toBe('14px');
+  it('rounds the demo panel to 16px', () => {
+    expect(declarationsFor('.analysisDemo')['border-radius']).toBe('16px');
   });
 });

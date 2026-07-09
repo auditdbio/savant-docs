@@ -15,10 +15,10 @@
   --site-border-btn: rgba(17, 24, 39, .22);
   --site-accent: #FF6B00;
   --site-accent-hover: #E65D00;
-  --site-accent-text: #D05500;
-  --site-on-accent: #ffffff;
+  --site-accent-text: #BF4D00;
+  --site-on-accent: #1C1126;
   --site-brand: #52176D;
-  --site-brand-hover: #47145F;
+  --site-brand-hover: #47115F;
   --site-brand-band: #52176D;
   --site-on-brand: #ffffff;
   --site-hero-cta-bg: #ffffff;
@@ -26,27 +26,27 @@
   --site-success: #15803d;
   --site-warning: #b45309;
 
-  --ifm-color-primary: #D05500;
-  --ifm-color-primary-dark: #bb4d00;
-  --ifm-color-primary-darker: #b04800;
-  --ifm-color-primary-darkest: #913b00;
-  --ifm-color-primary-light: #e65d00;
-  --ifm-color-primary-lighter: #f06400;
-  --ifm-color-primary-lightest: #ff7920;
+  --ifm-color-primary: #BF4D00;
+  --ifm-color-primary-dark: #ac4500;
+  --ifm-color-primary-darker: #a24100;
+  --ifm-color-primary-darkest: #863600;
+  --ifm-color-primary-light: #d25500;
+  --ifm-color-primary-lighter: #dc5900;
+  --ifm-color-primary-lightest: #f26200;
   --ifm-background-color: #ffffff;
   --ifm-background-surface-color: #ffffff;
   --ifm-font-color-base: #111827;
-  --ifm-font-family-base: 'Archivo', system-ui, sans-serif;
-  --ifm-font-family-monospace: 'IBM Plex Mono', monospace;
+  --ifm-font-family-base: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --ifm-font-family-monospace: 'Geist Mono', ui-monospace, monospace;
   --ifm-code-background: #f3f4f6;
   --ifm-navbar-background-color: #ffffff;
   --ifm-navbar-link-color: #4b5563;
-  --ifm-navbar-link-hover-color: #D05500;
+  --ifm-navbar-link-hover-color: #BF4D00;
   --ifm-footer-background-color: #f9fafb;
   --ifm-footer-color: #4b5563;
   --ifm-footer-link-color: #4b5563;
   --ifm-footer-title-color: #6b7280;
-  --ifm-global-radius: 9px;
+  --ifm-global-radius: 12px;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(17, 24, 39, .08);
 }
@@ -65,53 +65,53 @@
 }
 
 [data-theme='dark'] {
-  --site-bg: #120C18;
+  --site-bg: #150A1C;
   --site-bg-alt: #0C0810;
   --site-bg-deep: var(--site-bg-alt);
-  --site-surface: #1E1528;
-  --site-text: #F5F2F8;
+  --site-surface: #1C1126;
+  --site-text: #F4F1F8;
   --site-text-soft: #B3A9BF;
   --site-text-secondary: #B3A9BF;
   --site-text-muted: #877C93;
   --site-text-chip: #D8D0DE;
-  --site-border: rgba(245, 242, 248, .10);
-  --site-border-strong: rgba(245, 242, 248, .16);
-  --site-border-btn: rgba(245, 242, 248, .28);
-  --site-accent: #FF7B1A;
-  --site-accent-hover: #FF8C33;
-  --site-accent-text: #FF8C33;
-  --site-on-accent: #1A0D02;
-  --site-brand: #7A2FA3;
-  --site-brand-hover: #8A3AB5;
-  --site-brand-band: #221030;
-  --site-on-brand: #F5F2F8;
+  --site-border: #2A1E38;
+  --site-border-strong: #392A4A;
+  --site-border-btn: #4A3A5E;
+  --site-accent: #FF6B00;
+  --site-accent-hover: #E65D00;
+  --site-accent-text: #FF8A33;
+  --site-on-accent: #1C1126;
+  --site-brand: #834AA6;
+  --site-brand-hover: #B07FCB;
+  --site-brand-band: #230730;
+  --site-on-brand: #F4F1F8;
   --site-hero-cta-bg: #ffffff;
-  --site-inverse: #F5F2F8;
+  --site-inverse: #F4F1F8;
   --site-success: #5fce7f;
   --site-warning: #f0b33c;
 
-  --ifm-color-primary: #FF7B1A;
-  --ifm-color-primary-dark: #e66f17;
-  --ifm-color-primary-darker: #d96816;
-  --ifm-color-primary-darkest: #b35612;
-  --ifm-color-primary-light: #ff8c33;
-  --ifm-color-primary-lighter: #ff9847;
-  --ifm-color-primary-lightest: #ffb070;
-  --ifm-background-color: #120C18;
-  --ifm-background-surface-color: #1E1528;
-  --ifm-font-color-base: #F5F2F8;
-  --ifm-font-family-base: 'Archivo', system-ui, sans-serif;
-  --ifm-font-family-monospace: 'IBM Plex Mono', monospace;
+  --ifm-color-primary: #FF8A33;
+  --ifm-color-primary-dark: #ff7b14;
+  --ifm-color-primary-darker: #ff7305;
+  --ifm-color-primary-darkest: #d65e00;
+  --ifm-color-primary-light: #ff9952;
+  --ifm-color-primary-lighter: #ffa161;
+  --ifm-color-primary-lightest: #ffb98f;
+  --ifm-background-color: #150A1C;
+  --ifm-background-surface-color: #1C1126;
+  --ifm-font-color-base: #F4F1F8;
+  --ifm-font-family-base: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --ifm-font-family-monospace: 'Geist Mono', ui-monospace, monospace;
   --ifm-code-background: #0C0810;
-  --ifm-navbar-background-color: #120C18;
+  --ifm-navbar-background-color: #150A1C;
   --ifm-navbar-link-color: #B3A9BF;
-  --ifm-navbar-link-hover-color: #FF8C33;
+  --ifm-navbar-link-hover-color: #FF8A33;
   --ifm-footer-background-color: #0C0810;
   --ifm-footer-color: #B3A9BF;
   --ifm-footer-link-color: #B3A9BF;
   --ifm-footer-title-color: #877C93;
-  --ifm-global-radius: 9px;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 123, 26, .14);
+  --ifm-global-radius: 12px;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 138, 51, .14);
 }
 
 html,
@@ -124,21 +124,22 @@ body {
 
 h1,
 .h1 {
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
 h2,
 .h2 {
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
 h3,
 .h3 {
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.011em;
   text-wrap: balance;
 }
 
@@ -188,7 +189,7 @@ hr {
 .navbar__brand {
   color: var(--site-text);
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.35;
 }
@@ -224,10 +225,10 @@ hr {
   align-items: center;
   background: transparent;
   border: 1px solid var(--site-border-btn);
-  border-radius: 8px;
+  border-radius: 12px;
   color: var(--site-text);
   display: inline-flex;
-  font-weight: 700;
+  font-weight: 600;
   justify-content: center;
   padding: 8px 20px;
   text-decoration: none;
@@ -276,8 +277,7 @@ hr {
 .footer .footer__title {
   color: var(--site-text-muted);
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: .06em;
+  font-weight: 500;
 }
 
 .footer .footer__link-item,
@@ -311,7 +311,13 @@ hr {
 
 .button {
   border-radius: var(--ifm-global-radius);
-  font-weight: 700;
+  font-weight: 600;
+}
+
+.button:focus-visible,
+.navbar-cta:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, .28);
+  outline: none;
 }
 
 .button--primary {

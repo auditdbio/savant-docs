@@ -1,6 +1,6 @@
 .finalCta {
   background: var(--site-accent);
-  color: #1a0d02;
+  color: #1C1126;
   overflow-x: clip;
   padding: 64px 56px;
   width: 100%;
@@ -16,14 +16,14 @@
 }
 
 .title {
-  color: #1a0d02;
+  color: #1C1126;
   font-size: 44px;
   line-height: 1.06;
   margin: 0;
 }
 
 .lead {
-  color: #1a0d02;
+  color: #1C1126;
   font-size: 18px;
   line-height: 1.55;
   margin: 16px 0 28px;
@@ -32,11 +32,11 @@
 
 .button {
   align-items: center;
-  background: #111827;
-  border-radius: 9px;
+  background: #1C1126;
+  border-radius: 12px;
   color: #ffffff;
   display: inline-flex;
-  font-weight: 800;
+  font-weight: 600;
   justify-content: center;
   min-height: 48px;
   padding: 12px 24px;

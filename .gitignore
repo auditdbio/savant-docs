@@ -25,3 +25,7 @@ ui_example_tmp/
 .sya/events.jsonl
 .sya/wisps/
 .sya/.lock
+
+# Next.js experiment artifacts
+.next/
+.cache/

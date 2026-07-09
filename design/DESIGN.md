@@ -1,23 +1,28 @@
-# Design System v2 — savant.chat brand
+# Design System v3 — savant.chat brand
 
-Источник истины: реконструкция из имплементации https://github.com/auditdbio/savant-docs
-(tailwind.config.js + src/css/custom.css + фактическое использование в разметке).
-Явного брендбука не существует — эта реконструкция и есть брендбук.
-v1 (Obsidian/Porcelain из ui_example.zip) упразднён этой версией; типографика и форма (§3–4) сохранены.
+Источник истины: дизайн-система savant-app (ветка `dev`, `reference/design-system/tokens/*.css`) —
+лендинг обязан быть консистентен с приложением. v2 (реконструкция из старого savant-docs) упразднена
+этой версией: типографика переведена на Geist, форма и палитра выровнены с app-токенами.
+Правила переноса строк (§3.1) и выравнивания (§5) сохранены из v2 без изменений.
 
-## 0. Бренд-константы (из имплементации)
+## 0. Бренд-константы (= app design system)
 
-| Роль | Значение | Откуда восстановлено |
+| Роль | Значение | Соответствие в app |
 |---|---|---|
-| Primary (CTA, важные кнопки) | `#FF6B00`, hover `#E65D00` | tailwind `colors.primary` |
-| Secondary (заголовки, hero-фон, второстепенные элементы) | `#52176D`, hover `#47145F` | tailwind `colors.secondary` (rgb 82,23,109) |
-| Gray-шкала | Tailwind: 50 `#f9fafb` · 100 `#f3f4f6` · 200 `#e5e7eb` · 400 `#9ca3af` · 500 `#6b7280` · 600 `#4b5563` · 700 `#374151` · 900 `#111827` | custom.css `--savant-gray-*` + классы разметки |
+| Primary / Flame (CTA) | `#FF6B00`, hover `#E65D00`, active `#BF4D00` | `--flame-500/600/700` |
+| Текст на flame-заливке | `#1C1126` (тёмный ink, WCAG AA) | `--action-primary-text` (`--ink-900`) |
+| Secondary / Plum (hero-band, акценты) | `#52176D`, hover `#47115F` | `--plum-600/700` |
+| Ink-поверхности (dark) | `#150A1C` фон · `#1C1126` карточки | `--ink-950` / `--ink-900` |
+| Оранжевый текст на светлом | `#BF4D00` | `--flame-700` |
+| Оранжевый текст на тёмном | `#FF8A33` | `--flame-400` |
+| Focus ring | `rgba(255,107,0,.28)`, 3px | `--shadow-focus` |
 | Логотип | `logo_short.svg`: знак `#47115F` + `#FE9900` + контур `#020202` | static/img |
-| Signup URL | `/dashboard/login` (с UTM) | HeroCTAButtons |
+| Signup URL | `/dashboard/login` (через `siteConfig.customFields.signupUrl`) | HeroCTAButtons |
 
-Паттерны использования из имплементации: hero = фиолетовый band с белым текстом;
-primary-CTA **внутри hero** = белая кнопка с фиолетовым текстом; вне hero = оранжевая кнопка;
-секции чередуются white / gray-50; заголовки gray-900, подзаголовки-акценты — secondary purple.
+Паттерны использования: hero = фиолетовый band с белым текстом;
+primary-CTA **внутри hero** = белая кнопка с фиолетовым текстом; вне hero = flame-кнопка с ink-текстом;
+секции чередуются white / gray-50; заголовки gray-900, подзаголовки-акценты — plum.
+Final-CTA = flame-band с ink-текстом и ink-кнопкой (inverse-приём из app).
 
 ## 1. Палитра WHITE (default-инверсия не менять: dark остаётся дефолтом сайта)
 
@@ -30,41 +35,45 @@ primary-CTA **внутри hero** = белая кнопка с фиолетов�
 | `--site-text-secondary` | `#4b5563` | лиды, описания |
 | `--site-text-muted` | `#6b7280` | подписи, мета |
 | `--site-border` | `#e5e7eb` | бордеры, разделители |
-| `--site-accent` | `#FF6B00` | заливка CTA |
-| `--site-accent-hover` | `#E65D00` | hover CTA |
-| `--site-accent-text` | `#D05500` | оранжевый ТЕКСТ на светлом (контраст) |
-| `--site-brand` | `#52176D` | hero-band, kickers, подзаголовки-акценты |
-| `--site-brand-hover` | `#47145F` | hover фиолетовых элементов |
+| `--site-accent` | `#FF6B00` | заливка CTA (`--flame-500`) |
+| `--site-accent-hover` | `#E65D00` | hover CTA (`--flame-600`) |
+| `--site-accent-text` | `#BF4D00` | оранжевый ТЕКСТ на светлом (`--flame-700`) |
+| `--site-on-accent` | `#1C1126` | текст на flame-заливке (`--ink-900`) |
+| `--site-brand` | `#52176D` | hero-band, kickers (`--plum-600`) |
+| `--site-brand-hover` | `#47115F` | hover фиолетовых элементов (`--plum-700`) |
 | `--site-on-brand` | `#ffffff` | текст на фиолетовом |
 | `--site-hero-cta-bg` | `#ffffff` | primary CTA в hero (текст `--site-brand`) |
 
-## 2. Палитра DARK (производная от white: те же hue — оранжевый + фиолетовый, тёмные поверхности с фиолетовым подтоном)
+## 2. Палитра DARK (ink/plum-ramp из app design system)
 
-| Токен | Значение | Правило наследования |
+| Токен | Значение | Соответствие в app |
 |---|---|---|
-| `--site-bg` | `#120C18` | gray-900, сдвинутый к hue фиолетового бренда |
-| `--site-bg-alt` | `#0C0810` | глубже фона (инверсия gray-50) |
-| `--site-surface` | `#1E1528` | карточки (инверсия white-surface) |
-| `--site-text` | `#F5F2F8` | инверсия gray-900 |
-| `--site-text-secondary` | `#B3A9BF` | инверсия gray-600 |
-| `--site-text-muted` | `#877C93` | инверсия gray-500 |
-| `--site-border` | `rgba(245,242,248,.10)` | инверсия gray-200 |
-| `--site-accent` | `#FF7B1A` | primary светлеет на тёмном (шкала savant dark) |
-| `--site-accent-hover` | `#FF8C33` | их dark-hover |
-| `--site-accent-text` | `#FF8C33` | оранжевый текст на тёмном |
-| `--site-on-accent` | `#1A0D02` | текст на оранжевой заливке |
-| `--site-brand` | `#7A2FA3` | secondary осветлён (между их rgb(115,32,152) и (137,38,182)) |
-| `--site-brand-band` | `#221030` | hero-band на тёмном (глубокий фиолетовый, отличим от --site-bg) |
-| `--site-on-brand` | `#F5F2F8` | текст на фиолетовом |
+| `--site-bg` | `#150A1C` | `--ink-950` (surface-page dark) |
+| `--site-bg-alt` | `#0C0810` | глубже фона (локальный токен лендинга) |
+| `--site-surface` | `#1C1126` | `--ink-900` (surface-card dark) |
+| `--site-text` | `#F4F1F8` | text-strong dark |
+| `--site-text-secondary` | `#B3A9BF` | между body/muted dark (локальный) |
+| `--site-text-muted` | `#877C93` | локальный |
+| `--site-border` | `#2A1E38` | border-subtle dark |
+| `--site-border-strong` | `#392A4A` | border-default dark |
+| `--site-border-btn` | `#4A3A5E` | border-strong dark |
+| `--site-accent` | `#FF6B00` | flame-500 (как в app: заливка не светлеет) |
+| `--site-accent-hover` | `#E65D00` | flame-600 |
+| `--site-accent-text` | `#FF8A33` | `--flame-400` (text-brand dark) |
+| `--site-on-accent` | `#1C1126` | ink-900 на flame |
+| `--site-brand` | `#834AA6` | `--plum-400` |
+| `--site-brand-hover` | `#B07FCB` | `--plum-300` |
+| `--site-brand-band` | `#230730` | `--plum-900` (hero-band на тёмном) |
+| `--site-on-brand` | `#F4F1F8` | текст на фиолетовом |
 | `--site-hero-cta-bg` | `#ffffff` | hero-CTA остаётся белой (узнаваемость), текст `#52176D` |
 
-Правило: dark не вводит новых hue — только пересчёт светлоты white-токенов.
+Правило: dark не вводит новых hue — только ink/plum/flame-рампы app-системы.
 
-## 3. Типографика (без изменений v1)
+## 3. Типографика (v3: Geist, как в app)
 
-Archivo (500–800) + IBM Plex Mono (400–600). H1 62/800/-0.03em (desktop), H2 38/800/-0.02em,
+Geist (400–800) + Geist Mono (400–600), Google Fonts. H1 62/800/-0.03em (desktop), H2 38/800/-0.02em,
 kicker mono 12.5/600/.14em uppercase, body 15–18/1.6. Kicker-цвет: `--site-accent-text` на светлом,
-`--site-accent` на тёмном; на фиолетовом band — `#FE9900` (янтарный из логотипа).
+`--site-accent-text` на тёмном; на фиолетовом band — `#FE9900` (янтарный из логотипа).
 
 ### 3.1 Правила переноса строк (обязательные, тестируются)
 
@@ -75,10 +84,12 @@ kicker mono 12.5/600/.14em uppercase, body 15–18/1.6. Kicker-цвет: `--site
   секционные H2 ≤2 (desktop/wide), ≤3 (mobile).
 - `textDoesNotOverflow` на всех текстовых элементах спек.
 
-## 4. Форма (без изменений v1)
+## 4. Форма (v3: радиусы app-системы)
 
-Радиусы: кнопки 8–9, карточки 12–14, pills 99. Секции 72px+56px паддинги (desktop), разделитель `--site-border`.
+Радиусы: кнопки и FAQ-элементы 12 (`--radius-lg`), карточки и панели 16 (`--radius-xl`), pills 99.
+Секции 72px+56px паддинги (desktop), разделитель `--site-border`.
 Тени только на плавающих объектах (AnalysisDemo-панель, hero-CTA в light).
+Focus-visible на кнопках: flame-ring `0 0 0 3px rgba(255,107,0,.28)`.
 
 ## 5. Выравнивание (обязательные правила, тестируются)
 
@@ -99,8 +110,8 @@ uilint: центрированные элементы — `centered(el, containe
 
 - **AnalysisDemo** (порт из savant-docs, единственный переносимый UI-элемент): canvas-анимация аудита.
   Цвета параметризуются темой: light — bg `#FFFFFF`, код `#111827` (shiki light), gutter `#6b7280`;
-  dark — bg `#0C0810`, код `#E5E7EB` (shiki dark), gutter `#877C93`. Highlight RGB (blue 59,130,255 / green 46,204,113 / red 231,76,60) одинаковы в обеих темах. Панель демо на white в light / surface в dark.
-- **Логотип**: `logo_short.svg` как есть (light); dark-вариант: `#020202` контур → `#F5F2F8`, остальные цвета не трогать.
+  dark — bg `#0C0810`, код `#E5E7EB` (shiki dark), gutter `#877C93`. Highlight RGB (blue 59,130,255 / green 46,204,113 / red 231,76,60) одинаковы в обеих темах. Панель демо на white в light / surface в dark. Радиус панели 16.
+- **Логотип**: `logo_short.svg` как есть (light); dark-вариант: `#020202` контур → `#F4F1F8`, остальные цвета не трогать.
 - **Партнёрские логотипы** (`static/img/partners/*`): horizontal-варианты, высота 24–32px,
   монохромизация через CSS `filter: grayscale(1) opacity(.65)`, hover — полный цвет; в dark добавить `brightness()`-инверсию для тёмных логотипов (проверять глазами per-logo, тёмные версии не выдумывать).
-- **Твит-карточки** (мой дизайн, НЕ порт): карточка `--site-surface`, радиус 14px; шапка: круглый аватар 40px (локальный ассет/инициалы), имя 15/700, @handle+дата 13 muted; текст 15/1.55; футер: мини-метрики (реплаи/репосты/лайки) muted + логотип X справа вверху; вся карточка — ссылка на пост. Никаких внешних запросов.
+- **Твит-карточки** (мой дизайн, НЕ порт): карточка `--site-surface`, радиус 16px; шапка: круглый аватар 40px (локальный ассет/инициалы), имя 15/700, @handle+дата 13 muted; текст 15/1.55; футер: мини-метрики (реплаи/репосты/лайки) muted + логотип X справа вверху; вся карточка — ссылка на пост. Никаких внешних запросов.

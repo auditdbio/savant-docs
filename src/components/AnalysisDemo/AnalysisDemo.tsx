@@ -41,12 +41,12 @@ export function getDemoColors(colorMode: DemoColorMode): DemoColors {
     code: '#E5E7EB',
     gutter: '#877C93',
     shikiTheme: 'github-dark',
-    panelBg: '#1E1528',
-    panelText: '#F5F2F8',
+    panelBg: '#1C1126',
+    panelText: '#F4F1F8',
     panelBorder: 'rgba(245, 242, 248, .16)',
     panelRule: 'rgba(245, 242, 248, .12)',
-    brand: '#7A2FA3',
-    accent: '#FF7B1A',
+    brand: '#834AA6',
+    accent: '#FF8A33',
   };
 }
 

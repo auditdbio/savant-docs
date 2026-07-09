@@ -15,8 +15,8 @@ function extractRule(selectorPattern: RegExp): string {
 }
 
 describe('tweet card css', () => {
-  it('uses a 14px radius on tweet cards', () => {
-    expect(css).toMatch(/border-radius:\s*14px/);
+  it('uses a 16px radius on tweet cards', () => {
+    expect(css).toMatch(/border-radius:\s*16px/);
   });
 
   it('lifts tweet cards on hover', () => {
