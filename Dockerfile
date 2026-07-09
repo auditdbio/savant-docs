@@ -5,8 +5,10 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-# Copy dependency files
+# Copy dependency files (the lockfile references local file: tarballs
+# for the dev-only uilint packages, so they must exist before npm ci)
 COPY package.json package-lock.json ./
+COPY .uilint-packages ./.uilint-packages
 
 # Install dependencies
 RUN npm ci
