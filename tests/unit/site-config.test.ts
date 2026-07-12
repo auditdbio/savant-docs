@@ -112,8 +112,8 @@ describe('savant.chat navbar config', () => {
     expect(navbarItems.some(item => item.label === label && item.to === to)).toBe(true);
   });
 
-  it('removes the Docs navbar item', () => {
-    expect(navbarItems.some(item => item.label === 'Docs' || item.type === 'docSidebar')).toBe(false);
+  it('keeps the Docs navbar item', () => {
+    expect(navbarItems.some(item => item.label === 'Docs' && item.type === 'docSidebar')).toBe(true);
   });
 
   it('uses the signup URL for the navbar CTA', () => {

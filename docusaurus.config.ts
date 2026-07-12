@@ -72,7 +72,11 @@ const config = {
     [
       'classic',
       {
-        docs: false,
+        docs: {
+          sidebarPath: './sidebars.ts',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
         blog: {
           blogTitle: 'Blog',
           blogDescription: 'Smart Contract Security Insights',
@@ -117,6 +121,12 @@ const config = {
         {to: '/#proof', label: 'Proof', position: 'left'},
         {to: '/#pricing', label: 'Pricing', position: 'left'},
         {to: '/#faq', label: 'FAQ', position: 'left'},
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          label: 'Docs',
+          position: 'left',
+        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           to: signupUrl,
@@ -134,6 +144,7 @@ const config = {
           items: [
             {label: 'Pricing', href: '/#pricing'},
             {label: 'FAQ', href: '/#faq'},
+            {label: 'Docs', href: '/docs'},
             {label: 'Blog', href: '/blog'},
           ],
         },

@@ -3,7 +3,6 @@ import path from 'node:path';
 
 const blogDir = path.resolve(process.cwd(), 'blog');
 const articleDirs = [
-  '2025-03-12-howto-load-non-standard-projects-to-savant-chat',
   '2026-02-12-how-ai-detects-smart-contract-vulnerabilities',
   '2026-04-03-building-autonomous-auditor-vulnerability-reference-book',
 ];
@@ -29,7 +28,7 @@ function frontMatter(slug: string): string {
 }
 
 describe('savant-docs blog content', () => {
-  it('contains exactly the three savant-docs article directories', () => {
+  it('contains exactly the savant-docs article directories', () => {
     const directories = existsSync(blogDir)
       ? readdirSync(blogDir).filter(entry => statSync(path.join(blogDir, entry)).isDirectory())
       : [];

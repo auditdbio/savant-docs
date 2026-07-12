@@ -1,0 +1,84 @@
+---
+slug: /
+title: Documentation
+sidebar_label: Overview
+sidebar_position: 1
+description: >-
+  Official Savant Chat documentation. Learn how to audit Solidity, Vyper, and
+  Rust smart contracts with an AI auditor: quick start, project upload guides,
+  pricing tiers, and CI integration.
+keywords:
+  - AI smart contract audit
+  - smart contract security
+  - Savant Chat documentation
+  - Solidity audit
+  - Vyper audit
+  - Rust smart contract audit
+  - automated security audit
+---
+
+# Savant Chat Documentation
+
+[Savant Chat](https://savant.chat) is an AI smart contract auditor. It finds
+vulnerabilities in your code before attackers do — in 10–30 minutes for a
+typical codebase, at a fraction of the cost of a manual audit.
+
+## How it works
+
+Savant Chat is not a static analyzer. Instead of pattern-matching known bug
+shapes, a multi-agent stack runs thousands of specialized LLM calls over your
+codebase:
+
+- **200+ vulnerability classes** — each distilled from a real-world exploit in
+  a 20,000-case vulnerability reference book.
+- **Semantic analysis** — the agents trace value flows and model attacker
+  incentives instead of matching syntax.
+- **PoC validation** — a separate critic subagent builds a proof-of-concept
+  for every finding before it reaches your dashboard. If the PoC fails, the
+  finding is discarded.
+- **Severity and confidence** — every finding ships with a severity rating and
+  a confidence score, so you can triage fast.
+
+## Supported languages and chains
+
+| Language | Ecosystem |
+| -------- | --------- |
+| Solidity | Ethereum and EVM L2s |
+| Vyper    | Curve-style DeFi |
+| Rust     | Near, Solana |
+
+## Quick start
+
+1. **[Sign up](https://savant.chat/dashboard/login)** — you get **$75 free
+   credit**, no credit card required.
+2. **Upload your project** — a ZIP archive of your repository or a GitHub
+   import.
+3. **Run the audit** — severity-ranked, PoC-validated findings land in your
+   dashboard in 10–30 minutes.
+
+Follow the [Getting Started guide](/docs/getting-started) for a detailed
+walkthrough.
+
+## Pricing at a glance
+
+Pay as you go, priced per line of code. Credits never expire.
+
+| Tier | Price | Best for |
+| ---- | ----- | -------- |
+| Lite | $0.07/line | Efficient models. CI-friendly quick pass. |
+| Advanced | $0.12/line | Comprehensive analysis. The default for pre-audit runs. |
+| Pro | $0.50/line | Highest-quality models for critical releases. |
+
+See [full pricing details](https://savant.chat/#pricing) on the homepage.
+
+## Guides
+
+- [Getting Started — run your first audit](/docs/getting-started)
+- [HOWTO load non-standard projects](/docs/howto-load-non-standard-projects-to-savant-chat)
+
+## Learn more
+
+- [Blog](/blog) — engineering deep dives and benchmark reports.
+- [CTFBench](https://github.com/auditdbio/ctfbench) — the open benchmark we
+  use to measure detection accuracy.
+- [X (Twitter)](https://x.com/savantchat) — product news and announcements.

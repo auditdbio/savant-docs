@@ -1,0 +1,79 @@
+---
+slug: /getting-started
+title: Getting Started
+sidebar_label: Getting Started
+sidebar_position: 2
+description: >-
+  Step-by-step guide to your first AI smart contract audit with Savant Chat:
+  create an account with $75 free credit, upload a Solidity, Vyper, or Rust
+  project, choose an audit tier, and read the PoC-validated report.
+keywords:
+  - smart contract audit tutorial
+  - AI code audit
+  - Savant Chat getting started
+  - Solidity security scan
+  - audit smart contract online
+---
+
+# Getting Started
+
+This guide walks you through your first audit with
+[Savant Chat](https://savant.chat) — from signup to a severity-ranked,
+PoC-validated report.
+
+## 1. Create an account
+
+[Sign up](https://savant.chat/dashboard/login) with your email or GitHub
+account. Every new account gets **$75 free credit** — no credit card required,
+and credits never expire.
+
+## 2. Prepare your project
+
+The simplest path is a ZIP archive of your repository:
+
+1. On GitHub, open your repository page.
+2. Click **Code → Download ZIP**.
+3. Upload the archive to Savant Chat.
+
+For most projects that's all it takes. If your repository uses non-standard
+dependency managers, git submodules, or closed-source libraries, follow the
+[HOWTO load non-standard projects](/docs/howto-load-non-standard-projects-to-savant-chat)
+guide — it ships a script that packages your project with all dependencies
+included.
+
+Savant Chat audits **Solidity** (Ethereum and EVM L2s), **Vyper**, and
+**Rust** (Near, Solana) codebases.
+
+## 3. Choose an audit tier
+
+| Tier | Price | When to use it |
+| ---- | ----- | -------------- |
+| Lite | $0.07/line | Quick pass with efficient models — good for CI and early iterations. |
+| Advanced | $0.12/line | Comprehensive analysis with PoC validation — the default for pre-audit runs. |
+| Pro | $0.50/line | Highest-quality model pass for critical releases. |
+
+## 4. Run the audit and read the report
+
+A typical codebase takes **10–30 minutes**. When the audit completes, the
+dashboard shows the findings:
+
+- **Severity rating** on every issue, so critical problems surface first.
+- **Confidence score**, so you know how much weight to give each finding.
+- **PoC validation** (Advanced and Pro): a critic subagent builds a
+  proof-of-concept exploit for each finding before it reaches you — findings
+  whose PoC fails are discarded, which keeps false positives low.
+- **Report export** (Advanced and Pro) for sharing with your team or auditors.
+
+## 5. Make it continuous
+
+Savant Chat integrates with **GitHub and GitLab CI**, so every commit gets
+audited automatically. Run the Lite tier on pull requests and an Advanced pass
+before releases.
+
+## What's next
+
+- Fix the criticals, re-run the audit, and iterate until clean.
+- Schedule a manual audit for novel economic designs — Savant Chat is the
+  second pair of eyes, not the last one. Running it first means the human
+  auditor's time goes to the bugs AI cannot yet see.
+- Read the [blog](/blog) for engineering deep dives on how the auditor works.

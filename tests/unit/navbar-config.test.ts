@@ -27,8 +27,8 @@ describe('navbar config', () => {
     expect(navbar.logo?.srcDark).toBe('img/logo_short_dark.svg');
   });
 
-  it('does not include a Docs link', () => {
-    expect(navbarItems.some(item => item.label === 'Docs' || item.type === 'docSidebar')).toBe(false);
+  it('includes a Docs sidebar link', () => {
+    expect(navbarItems.some(item => item.label === 'Docs' && item.type === 'docSidebar')).toBe(true);
   });
 
   it.each([
