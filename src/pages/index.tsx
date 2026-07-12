@@ -1,4 +1,5 @@
 import type {ReactNode} from 'react';
+import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -8,11 +9,12 @@ import AnalysisDemo from '@site/src/components/AnalysisDemo';
 import BalancedHeading from '@site/src/components/BalancedHeading';
 import Comparison from '@site/src/components/Comparison';
 import Coverage from '@site/src/components/Coverage';
-import Faq from '@site/src/components/Faq';
+import Faq, {faqs} from '@site/src/components/Faq';
 import FinalCta from '@site/src/components/FinalCta';
 import Pillars from '@site/src/components/Pillars';
 import Pricing from '@site/src/components/Pricing';
 import ProofStats from '@site/src/components/ProofStats';
+import ScopeStrip from '@site/src/components/ScopeStrip';
 import Testimonials from '@site/src/components/Testimonials';
 import TrustLogos from '@site/src/components/TrustLogos';
 import styles from './index.module.css';
@@ -31,10 +33,59 @@ function useRegisterHomeAnchors(): void {
 
   const brokenLinks = useBrokenLinks();
 
-  ['hero', 'pillars', 'proof', 'pricing', 'faq'].forEach(anchor => {
+  ['hero', 'pillars', 'proof', 'coverage', 'pricing', 'faq'].forEach(anchor => {
     brokenLinks.collectAnchor(anchor);
   });
 }
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://savant.chat/#organization',
+      name: 'Savant Chat',
+      legalName: 'Novel Codes DMCC',
+      url: 'https://savant.chat/',
+      logo: 'https://savant.chat/img/savant-logo-512.png',
+      sameAs: ['https://x.com/savantchat', 'https://github.com/auditdbio'],
+      description:
+        'AI code auditor. Smart contract audits for Solidity, Vyper, and Rust — and one language-agnostic engine for ZK circuits, blockchain nodes, and off-chain code.',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://savant.chat/#website',
+      url: 'https://savant.chat/',
+      name: 'Savant Chat',
+      publisher: {'@id': 'https://savant.chat/#organization'},
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://savant.chat/#software',
+      name: 'Savant Chat',
+      applicationCategory: 'SecurityApplication',
+      operatingSystem: 'Web',
+      url: 'https://savant.chat/',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        description:
+          'Start free with $75 in credits — no card required. Pay-as-you-go audits from $0.07 per line of code.',
+      },
+      publisher: {'@id': 'https://savant.chat/#organization'},
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://savant.chat/#faq',
+      mainEntity: faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {'@type': 'Answer', text: faq.answer},
+      })),
+    },
+  ],
+};
 
 function HomepageHero({signupUrl}: {signupUrl: string}) {
   return (
@@ -42,19 +93,21 @@ function HomepageHero({signupUrl}: {signupUrl: string}) {
       <div className={styles.heroInner}>
         <div className={styles.heroText}>
           <p className={styles.kicker} data-testid="hero-kicker">
-            AI SMART CONTRACT AUDITS
+            AI SMART CONTRACT AUDITS · AND THE CODE AROUND THEM
           </p>
           <BalancedHeading as="h1" className={styles.title} data-testid="hero-title">
-            {'Find Smart\u00a0Contract Vulnerabilities Before Attackers\u00a0Do'}
+            {'Find Smart Contract Vulnerabilities Before Attackers Do'}
           </BalancedHeading>
           <p className={styles.lead} data-testid="hero-lead">
             Deeper than a scanner. Faster than a manual audit. AI security for
-            Solidity, Vyper, and Rust smart contracts.
+            Solidity, Vyper, and Rust smart contracts — and for everything your
+            protocol depends on: the circuits, the node, the backend that
+            touches your keys.
           </p>
           <div className={styles.ctas} data-testid="hero-ctas">
             <Link
               className={`button button--primary ${styles.primaryCta}`}
-              to={signupUrl} target="_self">
+              to={signupUrl}>
               Start Free — $75 in credits
             </Link>
             <Link
@@ -78,16 +131,20 @@ export default function Home(): ReactNode {
   useRegisterHomeAnchors();
 
   const {siteConfig} = useDocusaurusContext();
-  const {title, customFields} = siteConfig as SiteConfigWithSignup;
-  const signupUrl = customFields?.signupUrl ?? 'pathname:///dashboard/login';
+  const {customFields} = siteConfig as SiteConfigWithSignup;
+  const signupUrl = customFields?.signupUrl ?? 'https://savant.chat/dashboard/login';
 
   return (
     <Layout
-      title={title}
-      description="Find Smart Contract Vulnerabilities Before Attackers Do">
+      title="AI Smart Contract Auditor"
+      description="AI smart contract audits for Solidity, Vyper & Rust — and one language-agnostic engine for ZK circuits, nodes, and off-chain code. $75 free credits.">
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      </Head>
       <main>
         <HomepageHero signupUrl={signupUrl} />
         <TrustLogos />
+        <ScopeStrip />
         <ProofStats signupUrl={signupUrl} />
         <Pillars />
         <Coverage />

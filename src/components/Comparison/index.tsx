@@ -59,7 +59,8 @@ const rows: ComparisonRow[] = [
     manual: 'Varies',
     auditAgent: 'Solidity, some Solana, Starknet',
     octane: 'Language-agnostic',
-    savant: 'Solidity + Vyper + Rust (NEAR + Solana)',
+    savant:
+      'Solidity + Vyper + Rust (smart contracts); ZK, node, and backend audits rolling out',
   },
   {
     criterion: 'CI/CD',
@@ -79,6 +80,9 @@ export default function Comparison(): ReactNode {
         <BalancedHeading as="h2" className={styles.title}>
           Savant Chat vs the alternatives — at a glance.
         </BalancedHeading>
+        <p className={styles.subtitle} data-testid="comparison-subtitle">
+          Head-to-head on smart contract audits.
+        </p>
       </div>
       <div className={styles.comparisonScroll} data-testid="comparison-scroll">
         <table className={styles.table}>

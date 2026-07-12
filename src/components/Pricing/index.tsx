@@ -95,6 +95,11 @@ export default function Pricing({signupUrl}: PricingProps): ReactNode {
       <p className={styles.tierNote}>
         Account tiers: Basic $250/mo · Pro $2,500/mo · Enterprise — custom.
       </p>
+      <p className={styles.scopeNote} data-testid="pricing-scope-note">
+        Smart contract audits: transparent per-line pricing above — no quote
+        needed. Auditing a node client, ZK circuit, or a large off-chain repo?{' '}
+        <a href="mailto:hello@savant.chat">Contact us for a flat scoped quote</a>.
+      </p>
     </section>
   );
 }

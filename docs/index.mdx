@@ -1,12 +1,11 @@
 ---
 slug: /
-title: Documentation
+title: Documentation — AI Code & Contract Audits
 sidebar_label: Overview
 sidebar_position: 1
 description: >-
-  Official Savant Chat documentation. Learn how to audit Solidity, Vyper, and
-  Rust smart contracts with an AI auditor: quick start, project upload guides,
-  pricing tiers, and CI integration.
+  Official Savant Chat docs: audit Solidity, Vyper, and Rust smart contracts —
+  plus ZK circuits and any codebase. Quick start, upload guides, pricing, CI.
 keywords:
   - AI smart contract audit
   - smart contract security
@@ -14,14 +13,17 @@ keywords:
   - Solidity audit
   - Vyper audit
   - Rust smart contract audit
+  - AI code audit
   - automated security audit
 ---
 
 # Savant Chat Documentation
 
-[Savant Chat](https://savant.chat) is an AI smart contract auditor. It finds
-vulnerabilities in your code before attackers do — in 10–30 minutes for a
-typical codebase, at a fraction of the cost of a manual audit.
+[Savant Chat](https://savant.chat) is an AI code auditor. Smart contracts —
+Solidity, Vyper, Rust — are its first and best-proven domain; the same
+language-agnostic engine audits ZK circuits, node clients, and backend code. It
+finds vulnerabilities before attackers do — in 10–30 minutes for a typical
+codebase, at a fraction of the cost of a manual audit.
 
 ## How it works
 
@@ -39,13 +41,25 @@ codebase:
 - **Severity and confidence** — every finding ships with a severity rating and
   a confidence score, so you can triage fast.
 
-## Supported languages and chains
+## What Savant audits
+
+Smart contracts are the flagship domain — where our benchmarks and contest
+results are published:
 
 | Language | Ecosystem |
 | -------- | --------- |
 | Solidity | Ethereum and EVM L2s |
 | Vyper    | Curve-style DeFi |
 | Rust     | Near, Solana |
+
+The same engine audits the code around your contracts:
+
+- **ZK circuits & cryptography** — Circom, Halo2, Noir, arkworks
+- **Node clients & infrastructure** — Rust, Go, C++
+- **Off-chain code** — TypeScript, Python, Go backends, keepers, and services
+
+See the full [supported languages and upload formats](/docs/supported-languages)
+matrix.
 
 ## Quick start
 
@@ -69,12 +83,14 @@ Pay as you go, priced per line of code. Credits never expire.
 | Advanced | $0.12/line | Comprehensive analysis. The default for pre-audit runs. |
 | Pro | $0.50/line | Highest-quality models for critical releases. |
 
-See [full pricing details](https://savant.chat/#pricing) on the homepage.
+See [full audit pricing](/pricing/) for billing mechanics and scoped quotes.
 
 ## Guides
 
 - [Getting Started — run your first audit](/docs/getting-started)
-- [HOWTO load non-standard projects](/docs/howto-load-non-standard-projects-to-savant-chat)
+- [Supported languages and upload formats](/docs/supported-languages)
+- [Prepare any codebase for audit](/docs/prepare-any-codebase)
+- [HOWTO load non-standard Foundry / Solidity projects](/docs/howto-load-non-standard-projects-to-savant-chat)
 
 ## Learn more
 

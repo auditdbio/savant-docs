@@ -1,7 +1,7 @@
 import {render, screen, within} from '@testing-library/react';
 import Home from '../../src/pages';
 
-const signupUrl = '/dashboard/login';
+const signupUrl = 'https://savant.chat/dashboard/login';
 
 describe('pricing, FAQ, and final CTA sections', () => {
   beforeEach(() => {
@@ -59,19 +59,32 @@ describe('pricing, FAQ, and final CTA sections', () => {
     expect(screen.getByTestId('faq')).toHaveAttribute('id', 'faq');
   });
 
-  it('renders exactly six FAQ details', () => {
-    expect(screen.getAllByTestId('faq-item')).toHaveLength(6);
+  it('renders exactly eight FAQ details', () => {
+    expect(screen.getAllByTestId('faq-item')).toHaveLength(8);
   });
 
   test.each([
     'Can AI really audit a smart contract?',
+    'Does Savant only audit smart contracts?',
     'How is this different from Slither or Aderyn?',
+    'How is this different from Semgrep, CodeQL, or Snyk?',
     'What about false positives?',
     'Do I still need a human audit?',
     'Is my code private?',
     'What does it cost?',
   ])('renders the FAQ question "%s"', question => {
     expect(screen.getByTestId('faq')).toHaveTextContent(question);
+  });
+
+  it('keeps the smart-contract question first and the scope question second', () => {
+    const summaries = screen.getAllByTestId('faq-summary');
+
+    expect(summaries[0]).toHaveTextContent('Can AI really audit a smart contract?');
+    expect(summaries[1]).toHaveTextContent('Does Savant only audit smart contracts?');
+  });
+
+  it('renders the scoped-quote pricing note', () => {
+    expect(screen.getByTestId('pricing-scope-note')).toHaveTextContent(/scoped quote/i);
   });
 
   it('answers the human audit question honestly', () => {

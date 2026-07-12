@@ -36,7 +36,7 @@ const proofStats = [
   {
     value: '200+',
     label:
-      'vulnerability classes, curated from a reference book of 20,000 real-world vulnerabilities.',
+      'vulnerability classes, curated from a reference book of 20,000 real-world smart contract vulnerabilities.',
     sourceUrl:
       'https://savant.chat/blog/building-autonomous-auditor-vulnerability-reference-book',
   },
@@ -55,6 +55,10 @@ export default function ProofStats({signupUrl}: ProofStatsProps): ReactNode {
         <BalancedHeading as="h2" className={styles.title}>
           The numbers behind the name.
         </BalancedHeading>
+        <p className={styles.subtitle} data-testid="proof-subtitle">
+          Every number below comes from public, verifiable smart contract
+          audits — links included.
+        </p>
       </div>
       <div className={styles.grid}>
         {proofStats.map(stat => (

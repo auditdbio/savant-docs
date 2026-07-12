@@ -1,0 +1,101 @@
+---
+slug: /prepare-any-codebase
+title: Prepare Any Codebase for an AI Audit
+sidebar_label: Prepare Any Codebase
+sidebar_position: 4
+description: >-
+  Package any codebase — ZK circuits, Rust or Go nodes, TypeScript or Python
+  backends — into a clean ZIP for a Savant Chat AI security audit.
+keywords:
+  - prepare codebase for audit
+  - upload rust project audit
+  - zk circuit audit upload
+  - package code for security review
+---
+
+# Prepare Any Codebase for an AI Audit
+
+The simplest upload is a ZIP of your repository. That works for most projects.
+This guide is for everything else: ZK circuits, node clients, backends, and
+monorepos where you want to audit a defined scope — without shipping
+`node_modules`, build artifacts, and vendored dependencies that only add noise
+and cost.
+
+:::tip
+For Foundry / Solidity projects with git submodules, use the dedicated
+[HOWTO for non-standard projects](/docs/howto-load-non-standard-projects-to-savant-chat)
+instead — it preserves the layout Foundry needs.
+:::
+
+## What to include
+
+- **The source under audit** — the module, service, or circuit you want
+  reviewed.
+- **The interfaces it touches** — type definitions, trait/interface files, and
+  the immediate callers, so the auditor sees how the code is used.
+- **Documentation** — README, architecture notes, invariants. Context
+  materially improves finding quality.
+
+## What to exclude
+
+Dependency and build directories: `node_modules`, `target`, `dist`, `build`,
+`vendor`, `.git`, test fixtures with large binary data.
+
+## Packaging script
+
+Save this as `savant-pack.sh` in your project root, adjust `INCLUDE_EXT` to
+your stack, then run it:
+
+```bash
+#!/bin/bash
+# Packages source files into <project>-savant.zip for a Savant Chat audit.
+
+INCLUDE_EXT="sol vy rs circom go cpp hpp c h ts tsx js py move cairo md txt toml"
+EXCLUDE_DIRS="node_modules target dist build vendor .git .github artifacts cache out"
+
+DIR_NAME=$(basename "$(pwd)")
+TARGET_DIR="$DIR_NAME-savant"
+
+rm -rf "$TARGET_DIR" "$TARGET_DIR.zip"
+mkdir "$TARGET_DIR"
+
+PRUNE_ARGS=()
+for dir in $EXCLUDE_DIRS; do
+  PRUNE_ARGS+=(-name "$dir" -prune -o)
+done
+
+NAME_ARGS=()
+for ext in $INCLUDE_EXT; do
+  [ ${#NAME_ARGS[@]} -gt 0 ] && NAME_ARGS+=(-o)
+  NAME_ARGS+=(-name "*.$ext")
+done
+
+find . "${PRUNE_ARGS[@]}" \( "${NAME_ARGS[@]}" \) -type f -print | while read -r file; do
+  case "$file" in
+    ./"$TARGET_DIR"/*) continue ;;
+  esac
+  mkdir -p "$TARGET_DIR/$(dirname "$file")"
+  cp "$file" "$TARGET_DIR/$(dirname "$file")/"
+done
+
+if command -v zip >/dev/null 2>&1; then
+  zip -qr "$TARGET_DIR.zip" "$TARGET_DIR"
+else
+  tar -czf "$TARGET_DIR.zip" "$TARGET_DIR"
+fi
+
+echo "Done: $TARGET_DIR.zip ($(find "$TARGET_DIR" -type f | wc -l) files)"
+```
+
+Then upload `your-project-savant.zip` to [Savant Chat](https://savant.chat).
+
+## Scoping a monorepo
+
+Audit one subsystem at a time. Run the script from the subdirectory you want
+audited, and add the shared types/interfaces it imports. A focused 5,000-line
+scope produces sharper findings than a 300,000-line dump — and costs
+proportionally less.
+
+For very large scopes (a full node client, an entire backend), a flat quote
+usually beats per-line pricing —
+[contact us](mailto:hello@savant.chat).

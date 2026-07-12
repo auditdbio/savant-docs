@@ -7,14 +7,9 @@
   max-width: 1440px;
 }
 
-.content {
-  display: grid;
-  gap: 40px;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-}
-
-.languageColumn {
-  min-width: 0;
+.header {
+  margin-bottom: 40px;
+  max-width: 760px;
 }
 
 .kicker {
@@ -35,8 +30,49 @@
   color: var(--site-text);
   font-size: 44px;
   line-height: 1.1;
-  margin: 0 0 24px;
-  max-width: 420px;
+  margin: 0 0 16px;
+  max-width: 720px;
+}
+
+.subtitle {
+  color: var(--site-text-muted);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.flagship {
+  border: 1px solid var(--site-accent);
+  border-radius: 16px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  margin-bottom: 24px;
+  padding: 32px;
+}
+
+.flagshipInfo {
+  min-width: 0;
+}
+
+.domainTitle {
+  color: var(--site-text);
+  font-size: 20px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+.domainBadge {
+  color: var(--site-accent-text, var(--site-accent));
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  letter-spacing: .06em;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+[data-theme='dark'] .domainBadge {
+  color: var(--site-accent);
 }
 
 .languages {
@@ -67,15 +103,43 @@
   text-align: right;
 }
 
+.domainGrid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.domainCard {
+  border: 1px solid var(--site-border);
+  border-radius: 16px;
+  min-width: 0;
+  padding: 24px;
+}
+
+.domainCard .domainTitle {
+  font-size: 18px;
+}
+
+.domainLanguages {
+  color: var(--site-text-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
 .chips {
   align-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  height: 100%;
   min-width: 0;
   padding-top: 0;
+}
+
+.domainCard .chips {
+  gap: 8px;
 }
 
 .chip {
@@ -90,6 +154,12 @@
   white-space: nowrap;
 }
 
+.domainCard .chip {
+  font-size: 12.5px;
+  padding: 8px 12px;
+  white-space: normal;
+}
+
 .highlightChip {
   background: rgba(255, 107, 0, .1);
   border-color: var(--site-accent);
@@ -100,19 +170,31 @@
   color: var(--site-accent);
 }
 
+.caption {
+  color: var(--site-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 24px 0 0;
+}
+
 @media screen and (max-width: 996px) {
   .coverage {
     padding: 0 24px 52px;
   }
 
-  .content {
-    gap: 28px;
-    grid-template-columns: 1fr;
-  }
-
   .title {
     font-size: 32px;
     max-width: 100%;
+  }
+
+  .flagship {
+    gap: 28px;
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .domainGrid {
+    grid-template-columns: 1fr;
   }
 
   .chips {

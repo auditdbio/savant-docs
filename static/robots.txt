@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /dashboard
+Disallow: /api
+
+# Keep render-critical assets crawlable even if you block folders elsewhere
+Allow: /assets/*.css
+Allow: /assets/*.js
+
+Sitemap: https://savant.chat/sitemap.xml

@@ -12,6 +12,6 @@ snjax:
 alexandra:
   name: Alexandra Gulamova
   title: Co-founder Savant.Chat
-  image_url: /img/alexandra_gulamova.jpg
+  image_url: https://savant.chat/img/alexandra_gulamova.jpg
   socials:
     x: alexgulamova

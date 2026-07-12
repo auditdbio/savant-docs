@@ -32,10 +32,10 @@ describe('navbar config', () => {
   });
 
   it.each([
+    ['What we audit', '/#coverage'],
     ['How it works', '/#pillars'],
     ['Proof', '/#proof'],
-    ['Pricing', '/#pricing'],
-    ['FAQ', '/#faq'],
+    ['Pricing', '/pricing/'],
     ['Blog', '/blog'],
   ])('includes the %s nav item', (label, to) => {
     expect(navbarItems.some(item => item.label === label && item.to === to)).toBe(true);

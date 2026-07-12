@@ -25,6 +25,10 @@ export default defineConfig({
         find: /^@docusaurus\/useDocusaurusContext$/,
         replacement: path.join(mockDir, 'docusaurus-context.ts'),
       },
+      {
+        find: /^@docusaurus\/Head$/,
+        replacement: path.join(mockDir, 'docusaurus-head.tsx'),
+      },
       {find: /^@docusaurus\/.+$/, replacement: path.join(mockDir, 'docusaurus-generic.ts')},
       {find: /^@generated\/.+$/, replacement: path.join(mockDir, 'docusaurus-generic.ts')},
     ],

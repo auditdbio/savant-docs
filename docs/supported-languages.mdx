@@ -1,0 +1,50 @@
+---
+slug: /supported-languages
+title: Supported Languages & Upload Formats
+sidebar_label: Supported Languages
+sidebar_position: 3
+description: >-
+  What Savant Chat audits: Solidity, Vyper, and Rust contracts; ZK circuits;
+  node software; backends — and how to upload each for an AI security audit.
+keywords:
+  - Savant Chat supported languages
+  - Solidity audit upload
+  - Circom supported
+  - Rust codebase audit
+  - what does Savant audit
+---
+
+# Supported Languages, Domains & Upload Formats
+
+Savant Chat's engine is language-agnostic: it reasons about code the way an
+auditor does, rather than pattern-matching per-language rules. Smart contracts
+are the flagship domain — that is where our public benchmarks and contest
+results live — and the same pipeline audits the code around them.
+
+## The matrix
+
+| Domain | Languages & frameworks | Upload format |
+| ------ | ---------------------- | ------------- |
+| **Smart contracts** (flagship) | Solidity (Ethereum + EVM L2s), Vyper (Curve-style DeFi), Rust (Solana, NEAR / Anchor) | ZIP of the repo, or the [Foundry packaging script](/docs/howto-load-non-standard-projects-to-savant-chat) for non-standard setups |
+| **ZK circuits & cryptography** | Circom, Halo2, Noir, arkworks; cryptographic code in any language | ZIP — include circuits, constraint definitions, and the calling code ([packaging guide](/docs/prepare-any-codebase)) |
+| **Node clients & infrastructure** | Rust, Go, C++ | ZIP of the module or subsystem under audit ([packaging guide](/docs/prepare-any-codebase)) |
+| **Off-chain code** | TypeScript, Python, Go — backends, keepers, relayers, APIs | ZIP of the service ([packaging guide](/docs/prepare-any-codebase)) |
+
+Don't see your language? The engine is not restricted to this table — these are
+the domains we have processes and guides for. Upload your codebase or
+[ask us](mailto:hello@savant.chat) first.
+
+## Scoping large codebases
+
+Per-line pricing is calibrated for smart contract repositories. For larger
+codebases — a full node client, a monorepo with off-chain services — audit a
+defined scope (a module, a subsystem, a release diff) or
+[contact us](mailto:hello@savant.chat) for a flat quote.
+
+## Honest limits
+
+Savant Chat is the second pair of eyes, not the last one. Novel
+economic-design invariants — where the auditor must reason about incentives
+across protocols — are still where AI misses most. For those, pair the AI
+audit with a human audit: run Savant first, so the human auditor's time goes
+to the bugs AI cannot yet see.

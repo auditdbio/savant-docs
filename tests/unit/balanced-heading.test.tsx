@@ -7,7 +7,7 @@ import Home from '../../src/pages';
 const balancedSectionHeadings = [
   'The numbers behind the name.',
   'Deeper. Faster. Trusted.',
-  'Every major contract language.',
+  'Every major contract language. And everything around your contracts.',
   'Savant Chat vs the alternatives — at a glance.',
   'Used before senior auditors spend their time.',
   'Pay as you go. Priced per line.',

@@ -36,16 +36,17 @@ const signupUrl = config.customFields?.signupUrl;
 
 describe('Docusaurus theme config', () => {
   it('uses the savant.chat site identity', () => {
-    expect(config.title).toContain('Savant Chat');
-    expect(config.tagline).toBe('Find Smart Contract Vulnerabilities Before Attackers Do');
+    expect(config.title).toBe('Savant Chat — AI Code Auditor');
+    expect(config.tagline).toBe(
+      'Smart contract audits first — and one language-agnostic engine for the ZK circuits, nodes, and code around them.',
+    );
     expect(config.url).toBe('https://savant.chat');
   });
 
-  it('uses the dashboard login signup URL, escaping the SPA router', () => {
-    // pathname:// makes Docusaurus render a plain full-page link — without it
-    // the docs router client-side-routes /dashboard/login to its own 404.
-    expect(signupUrl).toBe('pathname:///dashboard/login');
-    expect(String(signupUrl)).toMatch(/^pathname:\/\/\//);
+  it('uses the dashboard login signup URL', () => {
+    // Absolute URL: keeps the exact dashboard route out of the static site's
+    // trailing-slash rewriting (the dashboard app serves /dashboard/login).
+    expect(signupUrl).toBe('https://savant.chat/dashboard/login');
   });
 
   it('allows the temporary dashboard route to remain unresolved until the app exists', () => {
@@ -75,7 +76,7 @@ describe('Docusaurus theme config', () => {
     ).toBe(true);
   });
 
-  it('loads Geist and Geist Mono from Google Fonts css2', () => {
+  it('loads Archivo and IBM Plex Mono from Google Fonts css2', () => {
     expect(
       getHeadTags().some(tag => {
         const href = tag.attributes?.href ?? '';
@@ -84,8 +85,8 @@ describe('Docusaurus theme config', () => {
           tag.tagName === 'link' &&
           tag.attributes?.rel === 'stylesheet' &&
           href.includes('fonts.googleapis.com/css2') &&
-          href.includes('Geist') &&
-          href.includes('Geist+Mono')
+          href.includes('Archivo') &&
+          href.includes('IBM+Plex+Mono')
         );
       }),
     ).toBe(true);
@@ -103,10 +104,10 @@ describe('savant.chat navbar config', () => {
   });
 
   it.each([
+    ['What we audit', '/#coverage'],
     ['How it works', '/#pillars'],
     ['Proof', '/#proof'],
-    ['Pricing', '/#pricing'],
-    ['FAQ', '/#faq'],
+    ['Pricing', '/pricing/'],
     ['Blog', '/blog'],
   ])('includes the %s nav item', (label, to) => {
     expect(navbarItems.some(item => item.label === label && item.to === to)).toBe(true);
@@ -140,8 +141,8 @@ describe('savant.chat footer config', () => {
   it.each([
     ['GitHub', 'https://github.com/auditdbio'],
     ['X', 'https://x.com/savantchat'],
-    ['Privacy', 'https://savant.chat/privacy-policy'],
-    ['Terms', 'https://savant.chat/terms-of-service'],
+    ['Privacy', '/privacy-policy/'],
+    ['Terms', '/terms-of-service/'],
   ])('includes the %s footer link', (label, href) => {
     const allItems = footerLinks.flatMap(column => column.items ?? []);
 

@@ -1,0 +1,66 @@
+.scopeStrip {
+  background: var(--site-bg);
+  border-top: 1px solid var(--site-border);
+  overflow-x: clip;
+  padding: 32px 56px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+  text-align: center;
+}
+
+.label {
+  color: var(--site-accent-text);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  line-height: 1.4;
+  margin: 0 0 16px;
+}
+
+.domains {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  justify-content: center;
+  margin: 0 0 16px;
+}
+
+.domain {
+  border: 1px solid var(--site-border);
+  border-radius: 999px;
+  color: var(--site-text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+.languages {
+  color: var(--site-text-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  letter-spacing: .04em;
+  line-height: 1.7;
+  margin: 0 0 8px;
+}
+
+.tagline {
+  color: var(--site-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .scopeStrip {
+    padding: 24px 20px;
+  }
+
+  .domain {
+    white-space: normal;
+  }
+}

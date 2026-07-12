@@ -1298,7 +1298,7 @@ const AnalysisDemoClient = ({className, colorMode}: AnalysisDemoClientProps) => 
       className={className}
       data-testid="analysis-demo"
       role="img"
-      aria-label="Animated smart contract audit analysis"
+      aria-label="Animated code security audit analysis"
       style={{
         background: demoColors.bg,
         position: 'relative',
@@ -1356,7 +1356,7 @@ function AnalysisDemoFallback({className}: AnalysisDemoProps) {
       className={className}
       data-testid="analysis-demo"
       role="img"
-      aria-label="Animated smart contract audit analysis"
+      aria-label="Animated code security audit analysis"
       style={{
         background: demoColors.bg,
         position: 'relative',

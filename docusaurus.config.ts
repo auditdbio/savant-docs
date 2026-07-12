@@ -11,8 +11,9 @@ import rehypeKatex from 'rehype-katex';
 const signupUrl = 'pathname:///dashboard/login';
 
 const config = {
-  title: 'Savant Chat — AI Smart Contract Auditor',
-  tagline: 'Find Smart Contract Vulnerabilities Before Attackers Do',
+  title: 'Savant Chat — AI Code Auditor',
+  tagline:
+    'Smart contract audits first — and one language-agnostic engine for the ZK circuits, nodes, and code around them.',
   favicon: 'img/savant-favicon.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -25,6 +26,9 @@ const config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
+  // Production serves trailing-slash URLs (e.g. /pricing/); keep canonical,
+  // sitemap, and edge URLs identical to avoid canonical-points-to-redirect.
+  trailingSlash: true,
 
   customFields: {
     signupUrl,
@@ -79,7 +83,8 @@ const config = {
         },
         blog: {
           blogTitle: 'Blog',
-          blogDescription: 'Smart Contract Security Insights',
+          blogDescription:
+            'Engineering notes from the Savant Chat team on AI code auditing, smart contract security, and vulnerability detection.',
           blogSidebarCount: 5,
           blogSidebarTitle: 'Recent Posts',
           showReadingTime: true,
@@ -94,6 +99,16 @@ const config = {
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
+        sitemap: {
+          lastmod: 'date',
+          ignorePatterns: [
+            '/blog/archive/**',
+            '/blog/authors/**',
+            '/blog/tags/**',
+            '/docs/tags/**',
+            '/search/**',
+          ],
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -102,7 +117,11 @@ const config = {
   ],
 
   themeConfig: {
-    image: 'img/logo_short.png',
+    image: 'img/savant-social-card.png',
+    metadata: [
+      {name: 'twitter:site', content: '@savantchat'},
+      {name: 'twitter:card', content: 'summary_large_image'},
+    ],
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
@@ -117,10 +136,10 @@ const config = {
         srcDark: 'img/logo_short_dark.svg',
       },
       items: [
+        {to: '/#coverage', label: 'What we audit', position: 'left'},
         {to: '/#pillars', label: 'How it works', position: 'left'},
         {to: '/#proof', label: 'Proof', position: 'left'},
-        {to: '/#pricing', label: 'Pricing', position: 'left'},
-        {to: '/#faq', label: 'FAQ', position: 'left'},
+        {to: '/pricing/', label: 'Pricing', position: 'left'},
         {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
@@ -142,10 +161,11 @@ const config = {
         {
           title: 'PRODUCT',
           items: [
-            {label: 'Pricing', href: '/#pricing'},
+            {label: 'What we audit', href: '/#coverage'},
+            {label: 'Pricing', href: '/pricing/'},
             {label: 'FAQ', href: '/#faq'},
-            {label: 'Docs', href: '/docs'},
-            {label: 'Blog', href: '/blog'},
+            {label: 'Docs', href: '/docs/'},
+            {label: 'Blog', href: '/blog/'},
           ],
         },
         {
@@ -159,9 +179,9 @@ const config = {
         {
           title: 'COMPANY',
           items: [
-            {label: 'Imprint', href: 'https://savant.chat/imprint'},
-            {label: 'Privacy', href: 'https://savant.chat/privacy-policy'},
-            {label: 'Terms', href: 'https://savant.chat/terms-of-service'},
+            {label: 'Imprint', href: '/imprint/'},
+            {label: 'Privacy', href: '/privacy-policy/'},
+            {label: 'Terms', href: '/terms-of-service/'},
           ],
         },
       ],

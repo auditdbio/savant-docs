@@ -1,12 +1,12 @@
 ---
 slug: /howto-load-non-standard-projects-to-savant-chat
-title: HOWTO Load Non-Standard Projects
-sidebar_label: Loading Non-Standard Projects
-sidebar_position: 3
+title: HOWTO Load Non-Standard Foundry Projects
+sidebar_label: Foundry / Solidity Projects
+sidebar_position: 5
 description: >-
-  How to upload Foundry projects with git submodules, non-standard dependency
-  managers, or closed-source libraries to Savant Chat for an AI smart contract
-  audit — with a ready-to-use packaging script.
+  Upload Foundry projects with git submodules, non-standard dependency
+  managers, or closed-source libraries to Savant Chat — with a packaging
+  script.
 keywords:
   - upload Foundry project
   - smart contract audit upload
@@ -15,9 +15,15 @@ keywords:
 tags: [github, zip, scope loading]
 ---
 
+:::info
+This guide is for **Foundry / Solidity projects**. For ZK circuits, Rust or Go
+codebases, backends, and other languages, see
+[Prepare any codebase for audit](/docs/prepare-any-codebase).
+:::
+
 When you want to load a project from GitHub to [Savant Chat](https://savant.chat), you can download the repository as a ZIP archive and upload it to Savant Chat.
 
-![example](./2025-03-12_05-33.png)
+![GitHub repository page: Code → Download ZIP menu](./2025-03-12_05-33.png)
 
 In most cases, it's enough, and it will work OK.
 
