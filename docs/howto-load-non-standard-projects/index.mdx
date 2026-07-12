@@ -76,6 +76,7 @@ fi
 
 if command -v zip &> /dev/null; then
     ARCHIVE="$TARGET_DIR.zip"
+    rm -f "$ARCHIVE"
     zip -r "$ARCHIVE" "$TARGET_DIR"
 elif command -v tar &> /dev/null; then
     ARCHIVE="$TARGET_DIR.tar.gz"

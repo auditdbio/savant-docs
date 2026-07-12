@@ -17,7 +17,7 @@ export const faqs = [
   {
     question: 'How is this different from Slither or Aderyn?',
     answer:
-      "Static scanners pattern-match known syntactic shapes. Savant Chat traces value flows, models attacker incentives, covers 200+ vulnerability classes, and uses a critic subagent to PoC each finding before it reaches you.",
+      "Static scanners pattern-match known syntactic shapes. Savant Chat traces value flows, models attacker incentives, covers 200+ vulnerability classes, and on Advanced and Pro tiers uses a critic subagent to PoC each finding before it reaches you.",
   },
   {
     question: 'How is this different from Semgrep, CodeQL, or Snyk?',

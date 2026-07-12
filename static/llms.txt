@@ -5,7 +5,7 @@
 ## The essentials
 
 - **What it is:** an AI security auditor that reads code the way a human auditor does — a multi-agent system running thousands of specialized LLM calls in parallel, tracing value flows and modeling attacker behavior, not pattern-matching syntax.
-- **What it audits:** any code. Smart contracts (Solidity — Ethereum + EVM L2s; Vyper — Curve-style DeFi; Rust — Solana/Anchor, NEAR) are the flagship domain; the same language-agnostic engine audits ZK circuits (Circom, Halo2, Noir, arkworks), node clients and infrastructure (Rust, Go, C++), and off-chain code (TypeScript, Python, Go backends, keepers, relayers) — these are examples, not limits.
+- **What it audits:** any code. Smart contracts (Solidity — Ethereum + EVM L2s; Vyper — Curve-style DeFi; Rust — Solana/Anchor, NEAR; Move, Cairo, FunC, or any other contract language) are the flagship domain; the same language-agnostic engine audits ZK circuits (Circom, Halo2, Noir, arkworks), node clients and infrastructure (Rust, Go, C++), and off-chain code (TypeScript, Python, Go backends, keepers, relayers) — these are examples, not limits.
 - **Positioning:** universality belongs to the engine; proof is published domain by domain. Smart contracts are where the public benchmarks and contest results live. Savant Chat is the second pair of eyes, not the last one — it augments human audits; it does not replace them.
 - **Speed:** a typical codebase is audited in 10–30 minutes.
 - **Pricing:** Lite $0.07/line (CI-friendly quick pass), Advanced $0.12/line (comprehensive, PoC-validated — the default for pre-audit runs), Pro $0.50/line (highest-quality models for critical releases). Account tiers: Basic $250/mo, Pro $2,500/mo, Enterprise custom. $75 free credits on signup — enough to audit a typical ERC-20 end-to-end. Credits never expire. Per-line pricing applies to any code; for very large scopes — a full node client, a monorepo of services — flat scoped quotes are available (hello@savant.chat).
@@ -69,7 +69,7 @@ A plain ZIP works for most projects in any language. Packaging guides in the doc
 
 **Does Savant only audit smart contracts?** No. Smart contracts are the first and best-proven domain — that's where the contest results and benchmarks live. But the engine underneath is language-agnostic: the same multi-agent pipeline audits ZK circuits, node clients, off-chain backends — any code you upload.
 
-**How is this different from Slither or Aderyn?** Static scanners pattern-match known syntactic shapes. Savant Chat traces value flows, models attacker incentives, covers 200+ vulnerability classes, and uses a critic subagent to PoC each finding before it reaches you.
+**How is this different from Slither or Aderyn?** Static scanners pattern-match known syntactic shapes. Savant Chat traces value flows, models attacker incentives, covers 200+ vulnerability classes, and on Advanced and Pro tiers uses a critic subagent to PoC each finding before it reaches you.
 
 **How is this different from Semgrep, CodeQL, or Snyk?** Those tools match known patterns. Savant runs hundreds of specialized LLM agents in parallel — one per vulnerability class — tracing data flows, modeling attacker behavior, and validating findings with a proof-of-concept critic. Use both: pattern scanners for hygiene, Savant for bugs that need reasoning.
 

@@ -118,7 +118,7 @@ export default function Coverage(): ReactNode {
         ))}
       </div>
       <p className={styles.caption}>
-        The same engine behind every domain above.{' '}
+        The same engine behind every domain above — and any other code you upload.{' '}
         <Link to="/docs/supported-languages">See the full matrix and upload formats →</Link>
       </p>
     </section>

@@ -53,7 +53,7 @@ want audited (a Go package named `build/`, a `vendor/` tree in scope). Then run
 #!/bin/bash
 # Packages source files into <project>-savant.zip for a Savant Chat audit.
 
-INCLUDE_EXT="sol vy rs circom nr go cpp hpp c h ts tsx js py move cairo fc func md txt toml"
+INCLUDE_EXT="sol vy rs circom nr go cpp hpp c h ts tsx js py move cairo fc func md txt toml yml yaml"
 EXCLUDE_DIRS="node_modules target dist build vendor .git .github artifacts cache out .venv venv"
 
 DIR_NAME=$(basename "$(pwd)")
@@ -62,7 +62,7 @@ TARGET_DIR="$DIR_NAME-savant"
 rm -rf "$TARGET_DIR" "$TARGET_DIR.zip" "$TARGET_DIR.tar.gz"
 mkdir "$TARGET_DIR"
 
-PRUNE_ARGS=(-path "./$TARGET_DIR" -prune -o)
+PRUNE_ARGS=(-samefile "$TARGET_DIR" -prune -o)
 for dir in $EXCLUDE_DIRS; do
   PRUNE_ARGS+=(-type d -name "$dir" -prune -o)
 done

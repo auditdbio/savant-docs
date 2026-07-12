@@ -7,6 +7,7 @@ const domains = [
   'ZK circuits & cryptography',
   'Node clients & infrastructure',
   'Off-chain services & keepers',
+  'Any other code',
 ];
 
 const languages = [

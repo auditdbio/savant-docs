@@ -71,7 +71,7 @@ export default function PricingPage(): ReactNode {
 
   return (
     <Layout
-      title="Smart Contract Audit Pricing — $0.07/Line"
+      title="Smart Contract Audit Pricing — From $0.07/Line"
       description="Transparent per-line pricing for AI code audits: Lite $0.07, Advanced $0.12, Pro $0.50 per line. $75 free credits on signup — no card required.">
       <Head>
         <script type="application/ld+json">
@@ -98,8 +98,8 @@ export default function PricingPage(): ReactNode {
               required, and credits never expire.
             </li>
             <li>
-              A typical smart contract audit completes in 10–30 minutes, at
-              roughly 1–3% of the cost of a manual engagement.
+              A typical codebase is audited in 10–30 minutes — for smart
+              contracts, that's roughly 1–3% of the cost of a manual audit.
             </li>
             <li>
               Run audits on every commit via GitHub and GitLab CI — Lite is

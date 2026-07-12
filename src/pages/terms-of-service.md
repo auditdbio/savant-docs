@@ -7,7 +7,7 @@ description: Terms and conditions governing the use of the Savant Chat AI code a
 
 ## Introduction
 
-**Novel Codes DMCC** maintains the https://savant.chat/ Website ("Site"). United Arab of Emirates is our country of domicile. By using our services, you agree to these Terms of Service.
+**Novel Codes DMCC** maintains the https://savant.chat/ Website ("Site"). The United Arab Emirates is our country of domicile. By using our services, you agree to these Terms of Service.
 
 ## Experimental Beta Service (Provided "AS IS")
 

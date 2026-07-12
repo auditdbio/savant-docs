@@ -37,18 +37,18 @@ The simplest path is a ZIP archive of your repository:
 
 Or skip the download and import the repository straight from GitHub in the dashboard.
 
-For most projects, that's all it takes. If your Foundry / Solidity repository
-uses non-standard dependency managers, git submodules, or closed-source
-libraries, follow the
+For most projects, that's all it takes — whatever the language: ZK circuits,
+Rust or Go projects, and backends all upload as a plain ZIP. Two cases have
+dedicated guides. If your Foundry / Solidity repository uses non-standard
+dependency managers, git submodules, or closed-source libraries, follow the
 [HOWTO load non-standard projects](/docs/howto-load-non-standard-projects-to-savant-chat)
 guide — it ships a script that packages your project with all dependencies
-included. Any other codebase — ZK circuits, Rust or Go projects, backends —
-uploads the same way. When you want to trim a large repo to a defined scope,
-see [Prepare any codebase for audit](/docs/prepare-any-codebase).
+included. And when you want to trim a large repo to a defined scope, see
+[Prepare any codebase for audit](/docs/prepare-any-codebase).
 
-Savant Chat audits smart contracts — **Solidity**, **Vyper**, and **Rust**
-(Ethereum and EVM L2s, Solana, NEAR), or any other contract language — and any
-other codebase, from ZK circuits and node clients to backends. The full matrix
+Savant Chat audits smart contracts — **Solidity**, **Vyper**, **Rust**
+(Ethereum and EVM L2s, Solana, NEAR), or any other contract language — and
+everything beyond them. The full matrix
 lives in [Supported languages](/docs/supported-languages).
 
 ## 3. Choose an audit tier
@@ -74,7 +74,7 @@ dashboard shows the findings:
 ## 5. Make it continuous
 
 Savant Chat integrates with **GitHub and GitLab CI**, so every commit gets
-audited automatically. Run the Lite tier on pull requests and an Advanced pass
+audited automatically. Run a Lite pass on pull requests and an Advanced pass
 before releases.
 
 ## What's next

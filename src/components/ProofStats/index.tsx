@@ -57,7 +57,7 @@ export default function ProofStats({signupUrl}: ProofStatsProps): ReactNode {
         </BalancedHeading>
         <p className={styles.subtitle} data-testid="proof-subtitle">
           Every number below comes from public, verifiable smart contract
-          audits — links included.
+          audits and benchmarks — links included.
         </p>
       </div>
       <div className={styles.grid}>
