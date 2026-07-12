@@ -8,6 +8,7 @@ const contractLanguages = [
   {name: 'Solidity', scope: 'Ethereum + EVM L2s'},
   {name: 'Vyper', scope: 'Curve-style DeFi'},
   {name: 'Rust', scope: 'Solana · NEAR'},
+  {name: 'Any contract language', scope: 'Move · Cairo · FunC · …'},
 ];
 
 const contractChips = [
@@ -118,7 +119,7 @@ export default function Coverage(): ReactNode {
       </div>
       <p className={styles.caption}>
         One language-agnostic engine behind every column.{' '}
-        <Link to="/docs/supported-languages">See exactly what we support →</Link>
+        <Link to="/docs/supported-languages">See the full matrix and upload formats →</Link>
       </p>
     </section>
   );

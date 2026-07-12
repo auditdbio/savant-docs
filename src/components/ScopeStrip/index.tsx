@@ -32,7 +32,7 @@ export default function ScopeStrip(): ReactNode {
         ))}
       </div>
       <p className={styles.languages} data-testid="scope-languages">
-        {languages.join(' · ')}
+        {languages.join(' · ')} — and any other language
       </p>
       <p className={styles.tagline}>
         One language-agnostic engine behind them all — proof published domain by

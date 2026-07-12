@@ -56,7 +56,7 @@ export default function Pricing({signupUrl}: PricingProps): ReactNode {
           Pay as you go. Priced per line.
         </BalancedHeading>
         <p className={styles.subtitle}>
-          $75 free credit on signup — no card required. Credits never expire.
+          $75 in free credits on signup — no card required. Credits never expire.
         </p>
       </div>
       <div className={styles.grid}>
@@ -96,8 +96,8 @@ export default function Pricing({signupUrl}: PricingProps): ReactNode {
         Account tiers: Basic $250/mo · Pro $2,500/mo · Enterprise — custom.
       </p>
       <p className={styles.scopeNote} data-testid="pricing-scope-note">
-        Smart contract audits: transparent per-line pricing above — no quote
-        needed. Auditing a node client, ZK circuit, or a large off-chain repo?{' '}
+        The per-line pricing above applies to any code — no quote needed.
+        Auditing a very large scope, like a full node client or a monorepo?{' '}
         <a href="mailto:hello@savant.chat">Contact us for a flat scoped quote</a>.
       </p>
     </section>

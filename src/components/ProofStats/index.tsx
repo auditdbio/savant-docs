@@ -30,7 +30,7 @@ const proofStats = [
   {
     value: '87–95%',
     label:
-      'accuracy on CTFBench, our open-methodology benchmark (methodology published on ethresear.ch).',
+      'accuracy on CTFBench, our open benchmark (methodology published on ethresear.ch).',
     sourceUrl: 'https://github.com/auditdbio/ctfbench',
   },
   {

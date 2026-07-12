@@ -44,7 +44,7 @@ Dependency and build directories: `node_modules`, `target`, `dist`, `build`,
 ## Packaging script
 
 Save this as `savant-pack.sh` in your project root, adjust `INCLUDE_EXT` to
-your stack, then run it:
+your stack, then run `bash savant-pack.sh`:
 
 ```bash
 #!/bin/bash
@@ -56,12 +56,12 @@ EXCLUDE_DIRS="node_modules target dist build vendor .git .github artifacts cache
 DIR_NAME=$(basename "$(pwd)")
 TARGET_DIR="$DIR_NAME-savant"
 
-rm -rf "$TARGET_DIR" "$TARGET_DIR.zip"
+rm -rf "$TARGET_DIR" "$TARGET_DIR.zip" "$TARGET_DIR.tar.gz"
 mkdir "$TARGET_DIR"
 
-PRUNE_ARGS=()
+PRUNE_ARGS=(-path "./$TARGET_DIR" -prune -o)
 for dir in $EXCLUDE_DIRS; do
-  PRUNE_ARGS+=(-name "$dir" -prune -o)
+  PRUNE_ARGS+=(-type d -name "$dir" -prune -o)
 done
 
 NAME_ARGS=()
@@ -70,21 +70,20 @@ for ext in $INCLUDE_EXT; do
   NAME_ARGS+=(-name "*.$ext")
 done
 
-find . "${PRUNE_ARGS[@]}" \( "${NAME_ARGS[@]}" \) -type f -print | while read -r file; do
-  case "$file" in
-    ./"$TARGET_DIR"/*) continue ;;
-  esac
+find . "${PRUNE_ARGS[@]}" \( "${NAME_ARGS[@]}" \) -type f -print | while IFS= read -r file; do
   mkdir -p "$TARGET_DIR/$(dirname "$file")"
   cp "$file" "$TARGET_DIR/$(dirname "$file")/"
 done
 
 if command -v zip >/dev/null 2>&1; then
-  zip -qr "$TARGET_DIR.zip" "$TARGET_DIR"
+  ARCHIVE="$TARGET_DIR.zip"
+  zip -qr "$ARCHIVE" "$TARGET_DIR"
 else
-  tar -czf "$TARGET_DIR.zip" "$TARGET_DIR"
+  ARCHIVE="$TARGET_DIR.tar.gz"
+  tar -czf "$ARCHIVE" "$TARGET_DIR"
 fi
 
-echo "Done: $TARGET_DIR.zip ($(find "$TARGET_DIR" -type f | wc -l) files)"
+echo "Done: $ARCHIVE ($(find "$TARGET_DIR" -type f | wc -l) files)"
 ```
 
 Then upload `your-project-savant.zip` to [Savant Chat](https://savant.chat).

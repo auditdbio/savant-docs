@@ -7,7 +7,7 @@ export const faqs = [
   {
     question: 'Can AI really audit a smart contract?',
     answer:
-      'Yes — for the 200+ vulnerability classes our multi-agent stack covers, with PoC validation on every finding. No — for novel economic designs where the auditor needs to reason about incentives and cross-protocol invariants. The right model is AI first, human second.',
+      'Yes — for the 200+ vulnerability classes our multi-agent stack covers, with PoC validation on every finding on Advanced and Pro tiers. No — for novel economic designs where the auditor needs to reason about incentives and cross-protocol invariants. The right model is AI first, human second.',
   },
   {
     question: 'Does Savant only audit smart contracts?',
@@ -27,7 +27,7 @@ export const faqs = [
   {
     question: 'What about false positives?',
     answer:
-      'Every finding has a severity rating and confidence score. A separate critic subagent builds a proof-of-concept exploit before the finding surfaces; if the PoC fails, the finding is discarded.',
+      'Every finding has a severity rating and confidence score. On Advanced and Pro tiers, a separate critic subagent builds a proof-of-concept exploit before the finding surfaces; if the PoC fails, the finding is discarded.',
   },
   {
     question: 'Do I still need a human audit?',
@@ -42,7 +42,7 @@ export const faqs = [
   {
     question: 'What does it cost?',
     answer:
-      'Pay as you go per line of code: Lite $0.07/line, Advanced $0.12/line, Pro $0.50/line. $75 free credit on signup, no credit card.',
+      'Pay as you go per line of code: Lite $0.07/line, Advanced $0.12/line, Pro $0.50/line. $75 in free credits on signup, no credit card.',
   },
 ];
 

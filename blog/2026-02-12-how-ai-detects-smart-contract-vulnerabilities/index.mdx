@@ -25,7 +25,7 @@ AI-powered smart contract auditing uses multi-agent systems and large language m
 
 - AI auditing detects vulnerabilities through semantic code analysis, not just pattern matching
 - Multi-agent AI systems can run thousands of specialized checks simultaneously
-- Savant Chat supports Solidity, Vyper, and Rust across Ethereum, Near, and Solana
+- Savant Chat supports Solidity, Vyper, and Rust across Ethereum, Solana, and NEAR
 - 200+ vulnerability class coverage vs. 15-20 for free static analysis tools
 - Combined AI + human auditing provides the strongest security posture
 
@@ -59,8 +59,8 @@ Before understanding how AI improves security, it's important to recognize where
 
 **Limitations:**
 
-- Time-intensive (2-4 weeks typical)
-- Expensive ($20,000-$100,000+ per audit)
+- Time-intensive (3–38 days typical)
+- Expensive (\$40K–\$100K per audit)
 - Human fatigue leads to missed issues
 - Doesn't scale with code complexity
 - Auditor expertise varies widely
@@ -308,8 +308,8 @@ CTFBench is our open-methodology benchmark for smart contract security tools —
 | Audit Type | Typical Duration | Vulnerability Coverage | Cost Range |
 |------------|------------------|------------------------|------------|
 | Free Static Analysis (Slither, etc.) | Minutes | 15-20 patterns | Free (insufficient alone) |
-| Manual Audit | 2-4 weeks | Depends on auditor | $20,000-$100,000+ |
-| AI-Powered Audit (Savant Chat) | Minutes | 200+ classes | ~80% less than manual |
+| Manual Audit | 3–38 days | Depends on auditor | \$40K–\$100K |
+| AI-Powered Audit (Savant Chat) | Minutes | 200+ classes | ~1–3% of a manual audit |
 
 ### Coverage Comparison
 
@@ -356,15 +356,15 @@ Smart contracts aren't written in just one language. Savant Chat provides native
 - Understanding of Vyper's safety-first design choices
 - Detection of patterns that violate Vyper principles
 
-### Rust (Solana, Near)
+### Rust (Solana, NEAR)
 
 - Rust ownership and borrowing analysis
 - Solana program account validation
-- Near contract state management
+- NEAR contract state management
 - Cross-program invocation security
-- Understanding of Anchor and Near SDK patterns
+- Understanding of Anchor and NEAR SDK patterns
 
-**Why this matters:** Security tools that only understand Solidity leave Solana and Near developers without proper protection. Savant Chat provides comprehensive 200+ class coverage regardless of which blockchain you're building on.
+**Why this matters:** Security tools that only understand Solidity leave Solana and NEAR developers without proper protection. Savant Chat provides comprehensive 200+ class coverage regardless of which blockchain you're building on.
 
 ## When to Use AI Auditing
 
@@ -455,7 +455,7 @@ This hybrid approach provides the strongest security posture at a fraction of tr
 
 ### Q: What languages and blockchains are supported?
 
-**A:** Savant Chat supports Solidity (Ethereum and EVM chains), Vyper (Curve and DeFi), and Rust (Solana and Near). Coverage includes all major smart contract platforms with the same 200+ vulnerability class taxonomy across all languages.
+**A:** Savant Chat supports Solidity (Ethereum and EVM chains), Vyper (Curve and DeFi), and Rust (Solana and NEAR). Coverage includes all major smart contract platforms with the same 200+ vulnerability class taxonomy across all languages.
 
 ### Q: How long does an AI audit take?
 
@@ -463,11 +463,11 @@ This hybrid approach provides the strongest security posture at a fraction of tr
 
 ### Q: Is my code sent to third parties or stored?
 
-**A:** Savant Chat uses enterprise-grade privacy with data transformation. Code is processed securely and not stored or shared. We work with trusted AI providers under strict data handling agreements.
+**A:** Code is processed securely and not stored or shared beyond the request. We work with trusted AI providers under strict data-handling agreements.
 
 ### Q: How much does AI auditing cost?
 
-**A:** Significantly less than manual audits—typically 80% cost reduction. Savant Chat uses usage-based pricing. New users receive $75 in free credits to get started.
+**A:** Roughly 1–3% of the cost of a manual audit. Savant Chat uses usage-based per-line pricing: Lite \$0.07/line, Advanced \$0.12/line, Pro \$0.50/line. New users receive \$75 in free credits to get started.
 
 ## Getting Started with Savant Chat
 
@@ -479,7 +479,7 @@ Create your free account at [savant.chat](https://savant.chat) and receive $75 i
 
 ### Step 2: Upload Your Contract
 
-Paste your Solidity, Vyper, or Rust code directly into the platform, or integrate with your GitHub repository.
+Upload your project as a ZIP archive (GitHub → Code → Download ZIP) or connect your GitHub repository.
 
 ### Step 3: Run Your First Audit
 
@@ -515,7 +515,7 @@ AI-powered smart contract auditing represents a fundamental shift in how we appr
 - Multi-agent architecture enables comprehensive analysis across the entire threat landscape
 - AI excels at finding edge cases, logic errors, novel exploits, and subtle vulnerabilities
 - The hybrid approach (AI + human auditors) provides the strongest security
-- AI auditing costs 80% less than manual audits while providing faster, more comprehensive results
+- AI auditing costs roughly 1–3% of a manual audit while providing faster, more comprehensive results
 
 Smart contract security isn't optional—it's existential. Every bug is a potential exploit. Every exploit is a headline. Every headline is a setback for Web3 adoption.
 
@@ -536,13 +536,13 @@ Savant Chat is an AI code auditor. Smart contracts are its flagship domain — a
 
 **Key features:**
 
-- 200+ vulnerability class coverage, curated from 20,000 real-world exploits
-- Support for Solidity, Vyper, and Rust across Ethereum, Solana, and Near
+- 200+ vulnerability class coverage, curated from a reference book of 20,000 real-world smart contract vulnerabilities
+- Support for Solidity, Vyper, and Rust across Ethereum, Solana, and NEAR
 - CI/CD integration — audits on every commit via GitHub and GitLab
 - Multi-agent AI architecture with specialized detection agents
 - Proven detection rates on independent benchmarks
 - Results in minutes, not weeks
-- Trusted by 1inch, Lido, Pessimistic, Oxorio, and other leading Web3 projects
+- Trusted by 1inch, Lido, Pessimistic Security, OXORIO, and other leading Web3 security teams
 
 **Get started today with $75 in free credits →** [savant.chat](https://savant.chat)
 

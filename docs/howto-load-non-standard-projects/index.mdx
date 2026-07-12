@@ -21,20 +21,17 @@ codebases, backends, and other languages, see
 [Prepare any codebase for audit](/docs/prepare-any-codebase).
 :::
 
-When you want to load a project from GitHub to [Savant Chat](https://savant.chat), you can download the repository as a ZIP archive and upload it to Savant Chat.
+The fastest way to load a GitHub project into [Savant Chat](https://savant.chat) is to download the repository as a ZIP archive and upload it.
 
 ![GitHub repository page: Code → Download ZIP menu](./2025-03-12_05-33.png)
 
-In most cases, it's enough, and it will work OK.
+In most cases, that's all it takes.
 
-But sometimes repositories use non-standard dependency manager configurations, outdated language versions, and especially
-non-open-source libraries. Additionally, during archiving, the structure of subrepositories may not be completely transferred, which is critical for foundry to work.
+Some repositories need more: non-standard dependency managers, outdated compiler versions, closed-source libraries — or git submodules, which GitHub's ZIP export leaves empty and which Foundry needs to build.
 
-In this case, to upload your files to Savant Chat, you'll need to take a few additional steps.
+For those projects, a few extra steps. First, clone the project locally and install all its dependencies — both Node.js and Foundry packages, if the project uses them.
 
-First, download your project locally and install all its dependencies: both nodejs and foundry (if it's being used).
-
-Then save the following script savant-build.sh in the root folder of your project:
+Then save the following script as `savant-build.sh` in the root folder of your project:
 
 ```bash
 #!/bin/bash
@@ -42,7 +39,7 @@ Then save the following script savant-build.sh in the root folder of your projec
 if command -v realpath >/dev/null 2>&1; then
     DIR_NAME=$(basename "$(dirname "$(realpath "$0")")")
 else
-    DIR_NAME=$(basename "$(dirname "$(cd "$(dirname "$0")" && pwd)")")
+    DIR_NAME=$(basename "$(cd "$(dirname "$0")" && pwd)")
 fi
 TARGET_DIR="$DIR_NAME-savant"
 
@@ -78,17 +75,17 @@ if [ -f "./foundry.toml" ]; then
 fi
 
 if command -v zip &> /dev/null; then
-    zip -r "$TARGET_DIR.zip" "$TARGET_DIR"
+    ARCHIVE="$TARGET_DIR.zip"
+    zip -r "$ARCHIVE" "$TARGET_DIR"
+elif command -v tar &> /dev/null; then
+    ARCHIVE="$TARGET_DIR.tar.gz"
+    tar -czf "$ARCHIVE" "$TARGET_DIR"
 else
-    if command -v tar &> /dev/null; then
-        tar -czf "$TARGET_DIR.zip" "$TARGET_DIR"
-    else
-        echo "ERROR: Neither zip nor tar utilities were found for archiving."
-        exit 1
-    fi
+    echo "ERROR: Neither zip nor tar utilities were found for archiving."
+    exit 1
 fi
 
-echo "Done! The $TARGET_DIR directory has been created and archived in $TARGET_DIR.zip"
+echo "Done! The $TARGET_DIR directory has been created and archived in $ARCHIVE"
 ```
 
 To use the script:
@@ -97,11 +94,11 @@ To use the script:
 2. Make it executable with: `chmod +x savant-build.sh`
 3. Run it with: `./savant-build.sh`
 
-Then you get a `your-project-name-savant.zip` archive in your project folder, with all dependencies included.
+You'll get a `your-project-name-savant.zip` archive in your project folder with all dependencies included.
 
 :::warning
 
-If your foundry project uses non-standard path for its dependencies (other than `lib/`), rename it to `lib` and fix the `remappings.txt` file before running the script.
+If your Foundry project keeps dependencies in a non-standard path (anything other than `lib/`), rename that directory to `lib` and update `remappings.txt` before running the script.
 
 :::
 

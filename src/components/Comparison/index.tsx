@@ -35,7 +35,7 @@ const rows: ComparisonRow[] = [
     manual: '$40K–$100K (Sherlock)',
     auditAgent: 'From $199/mo subscription',
     octane: 'Invitation-only, sales-led',
-    savant: '$0.07–$0.50/line, $75 free trial',
+    savant: '$0.07–$0.50/line, $75 free credits',
   },
   {
     criterion: 'Public benchmark',
@@ -61,7 +61,7 @@ const rows: ComparisonRow[] = [
     auditAgent: 'Solidity, some Solana, Starknet',
     octane: 'Language-agnostic',
     savant:
-      'Solidity + Vyper + Rust (smart contracts) — plus ZK, node, and backend audits on the same engine',
+      'Language-agnostic — any code: smart contracts (Solidity · Vyper · Rust), ZK circuits, nodes, backends',
   },
   {
     criterion: 'CI/CD',
@@ -69,7 +69,7 @@ const rows: ComparisonRow[] = [
     manual: 'No',
     auditAgent: 'Yes',
     octane: 'Yes (GitHub/GitLab)',
-    savant: 'Yes (GitHub Actions)',
+    savant: 'Yes (GitHub & GitLab CI)',
   },
 ];
 
@@ -148,7 +148,7 @@ export default function Comparison(): ReactNode {
         </table>
       </div>
       <p className={styles.bottomLine}>
-        Roughly 1–3% the cost of a manual DeFi audit — with a public contest record.
+        Roughly 1–3% of the cost of a manual DeFi audit — with a public contest record.
       </p>
     </section>
   );

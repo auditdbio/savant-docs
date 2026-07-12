@@ -5,7 +5,7 @@ sidebar_label: Overview
 sidebar_position: 1
 description: >-
   Official Savant Chat docs: audit Solidity, Vyper, and Rust smart contracts —
-  plus ZK circuits and any codebase. Quick start, upload guides, pricing, CI.
+  plus ZK circuits, nodes, and any other codebase. Quick start, upload guides, pricing, CI.
 keywords:
   - AI smart contract audit
   - smart contract security
@@ -21,8 +21,8 @@ keywords:
 
 [Savant Chat](https://savant.chat) is an AI code auditor. Smart contracts —
 Solidity, Vyper, Rust — are its first and best-proven domain; the same
-language-agnostic engine audits ZK circuits, node clients, and backend code. It
-finds vulnerabilities before attackers do — in 10–30 minutes for a typical
+language-agnostic engine audits any code, from ZK circuits and node clients to
+backends. It finds vulnerabilities before attackers do — in 10–30 minutes for a typical
 codebase, at a fraction of the cost of a manual audit.
 
 ## How it works
@@ -32,12 +32,12 @@ shapes, a multi-agent stack runs thousands of specialized LLM calls over your
 codebase:
 
 - **200+ vulnerability classes** — each distilled from a real-world exploit in
-  a 20,000-case vulnerability reference book.
+  a 20,000-case smart-contract vulnerability reference book.
 - **Semantic analysis** — the agents trace value flows and model attacker
   incentives instead of matching syntax.
-- **PoC validation** — a separate critic subagent builds a proof-of-concept
-  for every finding before it reaches your dashboard. If the PoC fails, the
-  finding is discarded.
+- **PoC validation** (Advanced and Pro tiers) — a separate critic subagent
+  builds a proof-of-concept for every finding before it reaches your
+  dashboard. If the PoC fails, the finding is discarded.
 - **Severity and confidence** — every finding ships with a severity rating and
   a confidence score, so you can triage fast.
 
@@ -50,21 +50,22 @@ results are published:
 | -------- | --------- |
 | Solidity | Ethereum and EVM L2s |
 | Vyper    | Curve-style DeFi |
-| Rust     | Near, Solana |
+| Rust     | Solana, NEAR |
 
-The same engine audits the code around your contracts:
+The same engine audits the code around your contracts — for example:
 
 - **ZK circuits & cryptography** — Circom, Halo2, Noir, arkworks
 - **Node clients & infrastructure** — Rust, Go, C++
 - **Off-chain code** — TypeScript, Python, Go backends, keepers, and services
 
-See the full [supported languages and upload formats](/docs/supported-languages)
-matrix.
+These are the domains with dedicated guides, not the engine's limits — if it's
+code, Savant can audit it. See the full
+[supported languages and upload formats](/docs/supported-languages) matrix.
 
 ## Quick start
 
-1. **[Sign up](https://savant.chat/dashboard/login)** — you get **$75 free
-   credit**, no credit card required.
+1. **[Sign up](https://savant.chat/dashboard/login)** — you get **$75 in free
+   credits**, no credit card required.
 2. **Upload your project** — a ZIP archive of your repository or a GitHub
    import.
 3. **Run the audit** — severity-ranked, PoC-validated findings land in your
@@ -96,5 +97,5 @@ See [full audit pricing](/pricing/) for billing mechanics and scoped quotes.
 
 - [Blog](/blog) — engineering deep dives and benchmark reports.
 - [CTFBench](https://github.com/auditdbio/ctfbench) — the open benchmark we
-  use to measure detection accuracy.
+  use to measure smart-contract detection accuracy.
 - [X (Twitter)](https://x.com/savantchat) — product news and announcements.

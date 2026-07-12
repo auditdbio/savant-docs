@@ -50,7 +50,7 @@ const structuredData = {
       logo: 'https://savant.chat/img/savant-logo-512.png',
       sameAs: ['https://x.com/savantchat', 'https://github.com/auditdbio'],
       description:
-        'AI code auditor. Smart contract audits for Solidity, Vyper, and Rust — and one language-agnostic engine for ZK circuits, blockchain nodes, and off-chain code.',
+        'AI code auditor. Smart contract audits for Solidity, Vyper, and Rust — and one language-agnostic engine for any code: ZK circuits, blockchain nodes, off-chain services.',
     },
     {
       '@type': 'WebSite',
@@ -108,7 +108,7 @@ function HomepageHero({signupUrl}: {signupUrl: string}) {
             <Link
               className={`button button--primary ${styles.primaryCta}`}
               to={signupUrl}>
-              Start Free — $75 in credits
+              Start free — $75 in credits
             </Link>
             <Link
               className={`button button--secondary ${styles.secondaryCta}`}
@@ -138,7 +138,7 @@ export default function Home(): ReactNode {
 
   return (
     <Layout
-      description="AI smart contract audits for Solidity, Vyper & Rust — and one language-agnostic engine for ZK circuits, nodes, and off-chain code. $75 free credits.">
+      description="AI smart contract audits for Solidity, Vyper & Rust — and one language-agnostic engine for any code: ZK circuits, nodes, backends. $75 free credits.">
       {/* Standalone title: overrides the "| site title" suffix, which would
           otherwise render the tautological "…Auditor | …Auditor". */}
       <Head>

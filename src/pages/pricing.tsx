@@ -83,7 +83,7 @@ export default function PricingPage(): ReactNode {
           <h1 className={styles.pageIntroTitle}>Smart Contract Audit Pricing</h1>
           <p className={styles.pageIntroLead}>
             The same transparent per-line pricing for every audit — smart
-            contracts first, and the code around them. Costs are known before
+            contracts first, and the code around them. You know the cost before
             you start: lines of code × tier rate. No sales calls for standard
             audits.
           </p>
@@ -102,14 +102,14 @@ export default function PricingPage(): ReactNode {
               costs roughly 1–3% of a manual audit engagement.
             </li>
             <li>
-              Run audits on every commit via GitHub and GitLab CI — Lite tier is
+              Run audits on every commit via GitHub and GitLab CI — Lite is
               calibrated for CI passes, Advanced for pre-audit runs, Pro for
               critical releases.
             </li>
             <li>
               Upload guides and audit walkthroughs live in the{' '}
-              <Link to="/docs/">documentation</Link>; for large off-chain
-              repositories, node clients, or ZK circuits,{' '}
+              <Link to="/docs/">documentation</Link>; for very large scopes — a
+              full node client, a monorepo of services —{' '}
               <a href="mailto:hello@savant.chat">contact us for a flat scoped quote</a>.
             </li>
           </ul>

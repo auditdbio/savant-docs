@@ -135,7 +135,7 @@ export const blocksData: CodeBlock[] = [
       endLine: 30,
       isVulnerable: false,
       analysisText: {
-        processing: "Verify onlyOwner modifier restricts access to the EO designated as protocol owner.\nFuzz allowance paths – simulate insufficient approval to ensure transferFrom reverts as expected.\nTrack storage writes and confirm no state is mutated after the external ERC-20 call (reentrancy safety).\nInspect for missing event emission; mark as informational finding if absent.\nTest with deflationary tokens to detect balance discrepancies – require still guards against short transfers.",
+        processing: "Verify onlyOwner modifier restricts access to the EOA designated as protocol owner.\nFuzz allowance paths – simulate insufficient approval to ensure transferFrom reverts as expected.\nTrack storage writes and confirm no state is mutated after the external ERC-20 call (reentrancy safety).\nInspect for missing event emission; mark as informational finding if absent.\nTest with deflationary tokens to detect balance discrepancies – require still guards against short transfers.",
         summary: "`depositLiquidity` is gated by `onlyOwner`, performs a single `transferFrom` guarded by `require` and makes no external ETH calls. State is not modified after the external call, so typical reentrancy and privilege-escalation vectors are absent. No security-critical findings in this slice.",
       },
     },
@@ -157,7 +157,7 @@ export const blocksData: CodeBlock[] = [
       analysisText: {
         processing: "Simulate standard borrow with positive borrowAmount and adequate collateral.\nSymbolically test borrowAmount == 0 edge case – observe loan struct persisted with principal 0.\nTrace ERC-20 transfer call for zero value; compliant tokens return true, masking issue.\nPropagate state to repayLoan – require on principal > 0 blocks collateral retrieval.\nConclude collateral becomes permanently locked; mark severity as High.",
         summary: "The function records a new loan and disburses ERC-20 tokens to the borrower. Absence of a `borrowAmount > 0` guard allows creation of zero-principal loans that cannot be repaid later, permanently locking collateral.",
-        vulnerability: "Locked collateral via zero-amount borrow: `borrow` stores a `Loan` with `principal = 0` when `borrowAmount` is zero. `repayLoan` rejects such loans (`require(loan.principal > 0)`), so the user's ETH is unrecoverable. Attack is trivial – call `borrow(0)` with ETH.",
+        vulnerability: "Locked collateral via zero-amount borrow: `borrow` stores a `Loan` with `principal = 0` when `borrowAmount` is zero. `repayLoan` rejects such loans (`require(loan.principal > 0)`), so the user's ETH is unrecoverable. The attack is trivial — call `borrow(0)` with ETH.",
         remediation: "Add an explicit check at the top of `borrow`: `require(borrowAmount > 0, \"Borrow amount must be positive\");` to forbid zero-principal loans.",
       },
     },
@@ -168,7 +168,7 @@ export const blocksData: CodeBlock[] = [
       isVulnerable: true,
       analysisText: {
         processing: "Inspect INTEREST_RATE_PER_SECOND scaling (1e18) and compare with target APR.\nCompute x, x², x³ terms for 30-day interval using 256-bit math – detect truncation to zero.\nCross-validate against double-precision python model; error > 99%.\nEvaluate impact on debt growth, liquidation timing, and protocol revenue.\nDocument precision bug and recommend single-division strategy.",
-        summary: "`getCurrentDebt` approximates `e^{rt}` via first-order Taylor terms but prematurely divides by `scale` (1e18). For realistic durations, `x`, `x2`, `x3` collapse to zero due to integer truncation, leading to near-zero interest.",
+        summary: "`getCurrentDebt` approximates `e^{rt}` via first-order Taylor terms but prematurely divides by `scale` (1e18). For realistic durations, `x`, `x²`, `x³` collapse to zero due to integer truncation, leading to near-zero interest.",
         vulnerability: "Incorrect interest due to integer truncation: the scaling strategy causes `x`, `x²`, `x³` to round down to zero unless the loan lasts decades, eliminating accrued interest, starving LP revenue, and weakening liquidation math.",
         remediation: "Defer division until after multiplications: compute `val_rTs = INTEREST_RATE_PER_SECOND * timeElapsed` (already scaled), then build higher-order terms before a single division step as illustrated in the audit report. This preserves precision while keeping gas low.",
       },
@@ -179,8 +179,8 @@ export const blocksData: CodeBlock[] = [
       endLine: 99,
       isVulnerable: false,
       analysisText: {
-        processing: "Confirm caller owns an active loan -  loans[msg.sender].principal != 0.\nCalculate dynamic debt via getCurrentDebt; integrate earlier interest bug context.\nDelete loan state before any external token or ETH transfers (checks-effects-interactions).\nValidate ERC-20 pull pattern with transferFrom; ensure allowance >= debt.\nExecute ETH refund via call and assert success flag; attempt reentrant callback – state already cleared so safe.",
-        summary: "The function deletes loan state before external transfers (`token.transferFrom` and ETH refund), mitigating reentrancy. The optimistic ETH send is wrapped in low-level `call` but guarded by success check. Potential gas-cost griefing via failing token transfer is acknowledged but acceptable under ERC-20 standard. No exploitable flaw detected in this snippet.",
+        processing: "Confirm caller owns an active loan — loans[msg.sender].principal != 0.\nCalculate dynamic debt via getCurrentDebt; integrate earlier interest bug context.\nDelete loan state before any external token or ETH transfers (checks-effects-interactions).\nValidate ERC-20 pull pattern with transferFrom; ensure allowance >= debt.\nExecute ETH refund via call and assert success flag; attempt reentrant callback – state already cleared so safe.",
+        summary: "The function deletes loan state before external transfers (`token.transferFrom` and ETH refund), mitigating reentrancy. The optimistic ETH send is wrapped in a low-level `call` but guarded by a success check. Potential gas-cost griefing via a failing token transfer is acknowledged but acceptable under the ERC-20 standard. No exploitable flaw detected in this snippet.",
       },
     },
     {
@@ -190,7 +190,7 @@ export const blocksData: CodeBlock[] = [
       isVulnerable: false,
       analysisText: {
         processing: "Short-circuit when principal == 0 to avoid unnecessary oracle read.\nRecalculate debt with getCurrentDebt and observe precision constraints.\nFetch price from oracle; fuzz with low/high extremes to detect overflow.\nCompute collateralValue and evaluate LIQUIDATION_THRESHOLD comparison.\nExhaustively test using Echidna to ensure no false liquidations under realistic volatility.",
-        summary: "`isLiquidatable` checks if debt exceeds `LIQUIDATION_THRESHOLD` percent of collateral value. The math is straightforward and resists overflow under 256-bit bounds. Economic parameters (150 → 110) is reasonable. No direct bug in this view.",
+        summary: "`isLiquidatable` checks if debt exceeds `LIQUIDATION_THRESHOLD` percent of collateral value. The math is straightforward and resists overflow under 256-bit bounds. The economic parameters (150 → 110) are reasonable. No direct bug in this view.",
       },
     },
     {
@@ -199,10 +199,10 @@ export const blocksData: CodeBlock[] = [
       endLine: 123,
       isVulnerable: true,
       analysisText: {
-        processing: "Invoke isLiquidatable to gate execution; confirm same math branch as analysed earlier.\nCopy loan data into memory and delete mapping entry pre-external calls (good).\nRequire transferFrom from liquidator – compute capital outlay >= debt.\nForward full collateral to liquidator; benchmark economic result across price ranges.\nMonte-Carlo simulate liquidation incentives – 100% scenarios show negative ROI; classify as critical economic flaw.",
-        summary: "`liquidate` extracts full debt from the liquidator while returning only the borrower's collateral. Because `isLiquidatable` triggers when debt ≥ 110 % of collateral value, the liquidator is guaranteed to overpay and incur a loss, making the function economically non-viable.",
-        vulnerability: "Forced unprofitable liquidations: liquidation requires paying ≥ debt (≥ 110 % of collateral value) to receive collateral worth less, disincentivising liquidators and risking protocol insolvency.",
-        remediation: "Redesign payout maths to ensure positive expected value – e.g., let liquidators acquire collateral at a discount (`<= 95 %` of collateral value) or receive protocol fee rewards. Adjust `LIQUIDATION_THRESHOLD` in tandem to preserve solvency guarantees.",
+        processing: "Invoke isLiquidatable to gate execution; confirm same math branch as analyzed earlier.\nCopy loan data into memory and delete mapping entry pre-external calls (good).\nRequire transferFrom from liquidator – compute capital outlay >= debt.\nForward full collateral to liquidator; benchmark economic result across price ranges.\nMonte-Carlo simulate liquidation incentives – 100% scenarios show negative ROI; classify as critical economic flaw.",
+        summary: "`liquidate` extracts the full debt from the liquidator while returning only the borrower's collateral. Because `isLiquidatable` triggers when debt ≥ 110% of collateral value, the liquidator is guaranteed to overpay and incur a loss, making the function economically non-viable.",
+        vulnerability: "Forced unprofitable liquidations: liquidation requires paying ≥ debt (≥ 110% of collateral value) to receive collateral worth less, disincentivizing liquidators and risking protocol insolvency.",
+        remediation: "Redesign the payout math to ensure positive expected value — e.g., let liquidators acquire collateral at a discount (`<= 95%` of collateral value) or receive protocol fee rewards. Adjust `LIQUIDATION_THRESHOLD` in tandem to preserve solvency guarantees.",
       },
     },
   ];

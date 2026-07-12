@@ -42,7 +42,7 @@ describe('homepage hero', () => {
   it('renders the primary and secondary hero CTAs', () => {
     const ctas = within(screen.getByTestId('hero-ctas'));
 
-    expect(ctas.getByRole('link', {name: 'Start Free — $75 in credits'}))
+    expect(ctas.getByRole('link', {name: 'Start free — $75 in credits'}))
       .toHaveAttribute('href', 'https://savant.chat/dashboard/login');
     expect(ctas.getByRole('link', {name: 'See pricing'})).toHaveAttribute('href', '/#pricing');
   });

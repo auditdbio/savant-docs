@@ -8,19 +8,19 @@ const pillars = [
     index: '01',
     title: 'Deeper than a scanner',
     body:
-      'Static analyzers pattern-match known bug shapes. Our multi-agent stack runs thousands of specialized LLM calls across 200+ vulnerability classes — each distilled from a real-world exploit in a 20,000-case smart-contract reference book. A critic subagent builds a proof-of-concept for every finding before it reaches your dashboard.',
+      'Static analyzers pattern-match known bug shapes. Our multi-agent stack runs thousands of specialized LLM calls across 200+ vulnerability classes — each distilled from a real-world exploit in a 20,000-case smart-contract reference book. On Advanced and Pro tiers, a critic subagent builds a proof-of-concept for every finding before it reaches your dashboard.',
   },
   {
     index: '02',
     title: 'Faster than a manual audit',
     body:
-      'A manual smart contract audit runs $40K–$100K and 3–38 days. Savant Chat audits a typical codebase in 10–30 minutes, pay-as-you-go from $0.07/line — on every commit via GitHub and GitLab CI.',
+      'A manual smart contract audit costs $40K–$100K and takes 3–38 days. Savant Chat audits a typical codebase in 10–30 minutes, pay-as-you-go from $0.07/line — on every commit via GitHub and GitLab CI.',
   },
   {
     index: '03',
     title: 'Trusted before the human audit',
     body:
-      "1inch, Lido, Pessimistic Security, OXORIO and other security teams run Savant Chat first, so their auditors' time goes to the bugs AI can't yet see. Second pair of eyes — not the last one.",
+      "1inch, Lido, Pessimistic Security, OXORIO, and other security teams run Savant Chat first, so their auditors' time goes to the bugs AI can't yet see. Second pair of eyes — not the last one.",
   },
 ];
 
