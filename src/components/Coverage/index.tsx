@@ -28,7 +28,7 @@ const contractChips = [
 const secondaryDomains = [
   {
     title: 'ZK circuits & cryptography',
-    languages: 'Circom · Halo2 · Noir · arkworks',
+    languages: 'Circom · Halo2 · Noir · arkworks · …',
     chips: [
       'Under-constrained circuits',
       'Soundness gaps',
@@ -39,12 +39,12 @@ const secondaryDomains = [
   },
   {
     title: 'Nodes & infrastructure',
-    languages: 'Rust · Go · C++',
+    languages: 'Rust · Go · C++ · …',
     chips: ['Consensus edge cases', 'P2P & DoS vectors', 'State-sync corruption'],
   },
   {
     title: 'Off-chain code',
-    languages: 'TypeScript · Python · Go',
+    languages: 'TypeScript · Python · Go · …',
     chips: [
       'Authorization bypass',
       'Injection & deserialization',

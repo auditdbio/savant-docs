@@ -83,7 +83,7 @@ export default function PricingPage(): ReactNode {
           <h1 className={styles.pageIntroTitle}>Smart Contract Audit Pricing</h1>
           <p className={styles.pageIntroLead}>
             The same transparent per-line pricing for every audit — smart
-            contracts first, then the code around them. You know the cost before
+            contracts or any other code. You know the cost before
             you start: lines of code × tier rate. No sales calls for standard
             audits.
           </p>
@@ -98,8 +98,8 @@ export default function PricingPage(): ReactNode {
               required, and credits never expire.
             </li>
             <li>
-              A typical smart contract audit completes in 10–30 minutes and
-              costs roughly 1–3% of a manual audit engagement.
+              A typical smart contract audit completes in 10–30 minutes, at
+              roughly 1–3% of the cost of a manual engagement.
             </li>
             <li>
               Run audits on every commit via GitHub and GitLab CI — Lite is
@@ -107,7 +107,7 @@ export default function PricingPage(): ReactNode {
               critical releases.
             </li>
             <li>
-              Upload guides and audit walkthroughs live in the{' '}
+              Upload guides and audit walkthroughs are in the{' '}
               <Link to="/docs/">documentation</Link>; for very large scopes — a
               full node client, a monorepo of services —{' '}
               <a href="mailto:hello@savant.chat">contact us for a flat scoped quote</a>.

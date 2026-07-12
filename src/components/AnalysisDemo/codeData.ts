@@ -136,7 +136,7 @@ export const blocksData: CodeBlock[] = [
       isVulnerable: false,
       analysisText: {
         processing: "Verify onlyOwner modifier restricts access to the EOA designated as protocol owner.\nFuzz allowance paths — simulate insufficient approval to ensure transferFrom reverts as expected.\nTrack storage writes and confirm no state is mutated after the external ERC-20 call (reentrancy safety).\nInspect for missing event emission; mark as informational finding if absent.\nTest with deflationary tokens to detect balance discrepancies — require still guards against short transfers.",
-        summary: "`depositLiquidity` is gated by `onlyOwner`, performs a single `transferFrom` guarded by `require` and makes no external ETH calls. State is not modified after the external call, so typical reentrancy and privilege-escalation vectors are absent. No security-critical findings in this slice.",
+        summary: "`depositLiquidity` is gated by `onlyOwner`, performs a single `transferFrom` guarded by `require`, and makes no external ETH calls. State is not modified after the external call, so typical reentrancy and privilege-escalation vectors are absent. No security-critical findings in this slice.",
       },
     },
     {
@@ -146,7 +146,7 @@ export const blocksData: CodeBlock[] = [
       isVulnerable: false,
       analysisText: {
         processing: "Assert collateral requirement — fuzz msg.value including 0 to confirm revert path.\nEnforce single active loan — read loans mapping, expect zero principal for new borrowers.\nFetch oracle price; simulate oracle returning extreme values to observe overflow or underflow.\nCompute (msg.value * price) / 1e18; verify precision and saturation at uint256 max.\nEvaluate MIN_COLLATERAL_RATIO branch coverage via symbolic execution — all execution paths reached.",
-        summary: "The code correctly rejects zero-collateral borrow attempts (`msg.value > 0`) and ensures a borrower has no existing loan. Price is fetched from the oracle and collateral value computed. At this stage logic is coherent and no direct vulnerability is observed.",
+        summary: "The code correctly rejects zero-collateral borrow attempts (`msg.value > 0`) and ensures a borrower has no existing loan. Price is fetched from the oracle and collateral value computed. At this stage the logic is coherent and no direct vulnerability is observed.",
       },
     },
     {
@@ -167,7 +167,7 @@ export const blocksData: CodeBlock[] = [
       endLine: 83,
       isVulnerable: true,
       analysisText: {
-        processing: "Inspect INTEREST_RATE_PER_SECOND scaling (1e18) and compare with target APR.\nCompute x, x², x³ terms for 30-day interval using 256-bit math — detect truncation to zero.\nCross-validate against double-precision python model; error > 99%.\nEvaluate impact on debt growth, liquidation timing, and protocol revenue.\nDocument precision bug and recommend single-division strategy.",
+        processing: "Inspect INTEREST_RATE_PER_SECOND scaling (1e18) and compare with target APR.\nCompute x, x², x³ terms for 30-day interval using 256-bit math — detect truncation to zero.\nCross-validate against double-precision Python model; error > 99%.\nEvaluate impact on debt growth, liquidation timing, and protocol revenue.\nDocument precision bug and recommend single-division strategy.",
         summary: "`getCurrentDebt` approximates `e^{rt}` via first-order Taylor terms but prematurely divides by `scale` (1e18). For realistic durations, `x`, `x²`, `x³` collapse to zero due to integer truncation, leading to near-zero interest.",
         vulnerability: "Incorrect interest due to integer truncation: the scaling strategy causes `x`, `x²`, `x³` to round down to zero unless the loan lasts decades, eliminating accrued interest, starving LP revenue, and weakening liquidation math.",
         remediation: "Defer division until after multiplications: compute `val_rTs = INTEREST_RATE_PER_SECOND * timeElapsed` (already scaled), then build higher-order terms before a single division step as illustrated in the audit report. This preserves precision while keeping gas low.",

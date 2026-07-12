@@ -15,11 +15,11 @@ keywords:
 
 # Prepare Any Codebase for an AI Audit
 
-The simplest upload is a ZIP of your repository. That works for most projects.
-This guide is for everything else: ZK circuits, node clients, backends, and
-monorepos where you want to audit a defined scope — without shipping
-`node_modules`, build artifacts, and vendored dependencies that only add noise
-and cost.
+The simplest upload is a ZIP of your repository. That works for most projects —
+whatever the language. This guide is for when you want a tighter package: a
+defined scope inside a monorepo, a ZK circuit crate, one node subsystem, a
+single backend service — without shipping `node_modules`, build artifacts, and
+vendored dependencies that only add noise and cost.
 
 :::tip
 For Foundry / Solidity projects with git submodules, use the dedicated
@@ -53,7 +53,7 @@ want audited (a Go package named `build/`, a `vendor/` tree in scope). Then run
 #!/bin/bash
 # Packages source files into <project>-savant.zip for a Savant Chat audit.
 
-INCLUDE_EXT="sol vy rs circom go cpp hpp c h ts tsx js py move cairo md txt toml"
+INCLUDE_EXT="sol vy rs circom nr go cpp hpp c h ts tsx js py move cairo fc func md txt toml"
 EXCLUDE_DIRS="node_modules target dist build vendor .git .github artifacts cache out .venv venv"
 
 DIR_NAME=$(basename "$(pwd)")
@@ -93,8 +93,9 @@ Then upload the resulting `your-project-savant.zip` — or `your-project-savant.
 
 ## Scoping a monorepo
 
-Audit one subsystem at a time. Run the script from the subdirectory you want
-audited, and add the shared types/interfaces it imports. A focused 5,000-line
+Audit one subsystem at a time. If it imports shared types or interfaces from
+elsewhere in the monorepo, copy those files into the subdirectory first (an
+`external/` folder works), then run the script from that subdirectory. A focused 5,000-line
 scope produces sharper findings than a 300,000-line dump — and costs
 proportionally less.
 

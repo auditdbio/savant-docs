@@ -10,7 +10,7 @@
 - **Speed:** a typical codebase is audited in 10–30 minutes.
 - **Pricing:** Lite $0.07/line (CI-friendly quick pass), Advanced $0.12/line (comprehensive, PoC-validated — the default for pre-audit runs), Pro $0.50/line (highest-quality models for critical releases). Account tiers: Basic $250/mo, Pro $2,500/mo, Enterprise custom. $75 free credits on signup — enough to audit a typical ERC-20 end-to-end. Credits never expire. Per-line pricing applies to any code; for very large scopes — a full node client, a monorepo of services — flat scoped quotes are available (hello@savant.chat).
 - **How findings are validated:** every finding carries a severity rating and a confidence score. On Advanced and Pro tiers, a separate critic subagent builds a proof-of-concept exploit for each finding before it surfaces; findings whose PoC fails are discarded — this keeps false positives low.
-- **Knowledge base:** 200+ vulnerability classes, distilled from a curated reference book of 20,000 real-world smart contract exploits (methodology: https://savant.chat/blog/building-autonomous-auditor-vulnerability-reference-book/).
+- **Knowledge base:** 200+ vulnerability classes, distilled from a curated reference book of 20,000 real-world smart contract vulnerabilities (methodology: https://savant.chat/blog/building-autonomous-auditor-vulnerability-reference-book/).
 - **CI/CD:** GitHub and GitLab CI integration — audits on every commit.
 - **Market:** global — US, EU, and Asia. Product and documentation in English.
 
@@ -42,7 +42,7 @@ What they say:
 3. Pick a tier (Lite / Advanced / Pro) and run the audit.
 4. Read severity-ranked, confidence-scored findings in 10–30 minutes — on Advanced and Pro tiers they are PoC-validated, and the report is exportable.
 
-For non-standard Foundry projects (git submodules, closed-source deps), and for non-Solidity codebases, packaging guides are in the docs (below).
+A plain ZIP works for most projects in any language. Packaging guides in the docs (below) cover the exceptions: non-standard Foundry setups (git submodules, closed-source deps) and trimming any large codebase to a defined scope.
 
 ## Docs
 

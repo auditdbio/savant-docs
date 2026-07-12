@@ -42,13 +42,14 @@ uses non-standard dependency managers, git submodules, or closed-source
 libraries, follow the
 [HOWTO load non-standard projects](/docs/howto-load-non-standard-projects-to-savant-chat)
 guide — it ships a script that packages your project with all dependencies
-included. For everything else — ZK circuits, Rust or Go codebases, backends —
+included. Any other codebase — ZK circuits, Rust or Go projects, backends —
+uploads the same way. When you want to trim a large repo to a defined scope,
 see [Prepare any codebase for audit](/docs/prepare-any-codebase).
 
-Savant Chat audits **Solidity**, **Vyper**, and **Rust** smart contracts
-(Ethereum and EVM L2s, Solana, NEAR) — and any other codebase, from ZK circuits
-and node clients to backends. The full matrix lives in
-[Supported languages](/docs/supported-languages).
+Savant Chat audits smart contracts — **Solidity**, **Vyper**, and **Rust**
+(Ethereum and EVM L2s, Solana, NEAR), or any other contract language — and any
+other codebase, from ZK circuits and node clients to backends. The full matrix
+lives in [Supported languages](/docs/supported-languages).
 
 ## 3. Choose an audit tier
 

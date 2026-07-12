@@ -46,7 +46,7 @@ const rows: ComparisonRow[] = [
     savant: '87–95% on CTFBench (our open benchmark); 100% recall on Crestal (judge-adjudicated)',
   },
   {
-    criterion: 'False-positive reputation',
+    criterion: 'False positives',
     slither: 'Very high (developers ignore warnings)',
     manual: 'Low (human-reviewed)',
     auditAgent: '75% FP reduction via validation phase',

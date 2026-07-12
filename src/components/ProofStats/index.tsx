@@ -22,9 +22,9 @@ const proofStats = [
     sourceUrl: 'https://github.com/LyuboslavLyubenov/ai-audit-tools-eval',
   },
   {
-    value: '17.9% precision',
+    value: '17.9%',
     label:
-      'the best among AI auditors across three judge-adjudicated contests in the same pilot.',
+      'precision — the best among AI auditors across three judge-adjudicated contests in the same pilot.',
     sourceUrl: 'https://github.com/LyuboslavLyubenov/ai-audit-tools-eval',
   },
   {
@@ -38,7 +38,7 @@ const proofStats = [
     label:
       'vulnerability classes, curated from a reference book of 20,000 real-world smart contract vulnerabilities.',
     sourceUrl:
-      'https://savant.chat/blog/building-autonomous-auditor-vulnerability-reference-book',
+      'https://savant.chat/blog/building-autonomous-auditor-vulnerability-reference-book/',
   },
 ];
 
