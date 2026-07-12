@@ -31,8 +31,8 @@ Savant Chat is not a static analyzer. Instead of pattern-matching known bug
 shapes, a multi-agent stack runs thousands of specialized LLM calls over your
 codebase:
 
-- **200+ vulnerability classes** — each distilled from a real-world exploit in
-  a 20,000-case smart-contract vulnerability reference book.
+- **200+ vulnerability classes** — distilled from a reference book of 20,000
+  real-world smart contract exploits.
 - **Semantic analysis** — the agents trace value flows and model attacker
   incentives instead of matching syntax.
 - **PoC validation** (Advanced and Pro tiers) — a separate critic subagent
@@ -52,7 +52,7 @@ results are published:
 | Vyper    | Curve-style DeFi |
 | Rust     | Solana, NEAR |
 
-The same engine audits the code around your contracts — for example:
+The same engine audits any other code — for example:
 
 - **ZK circuits & cryptography** — Circom, Halo2, Noir, arkworks
 - **Node clients & infrastructure** — Rust, Go, C++
@@ -68,8 +68,9 @@ code, Savant can audit it. See the full
    credits**, no credit card required.
 2. **Upload your project** — a ZIP archive of your repository or a GitHub
    import.
-3. **Run the audit** — severity-ranked, PoC-validated findings land in your
-   dashboard in 10–30 minutes.
+3. **Run the audit** — severity-ranked, confidence-scored findings land in
+   your dashboard in 10–30 minutes; on Advanced and Pro, every finding is
+   PoC-validated first.
 
 Follow the [Getting Started guide](/docs/getting-started) for a detailed
 walkthrough.
@@ -97,5 +98,5 @@ See [full audit pricing](/pricing/) for billing mechanics and scoped quotes.
 
 - [Blog](/blog) — engineering deep dives and benchmark reports.
 - [CTFBench](https://github.com/auditdbio/ctfbench) — the open benchmark we
-  use to measure smart-contract detection accuracy.
+  use to measure smart contract detection accuracy.
 - [X (Twitter)](https://x.com/savantchat) — product news and announcements.

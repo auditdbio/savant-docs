@@ -8,7 +8,7 @@ const pillars = [
     index: '01',
     title: 'Deeper than a scanner',
     body:
-      'Static analyzers pattern-match known bug shapes. Our multi-agent stack runs thousands of specialized LLM calls across 200+ vulnerability classes — each distilled from a real-world exploit in a 20,000-case smart-contract reference book. On Advanced and Pro tiers, a critic subagent builds a proof-of-concept for every finding before it reaches your dashboard.',
+      'Static analyzers pattern-match known bug shapes. Our multi-agent stack runs thousands of specialized LLM calls across 200+ vulnerability classes — each distilled from a real-world exploit in a 20,000-case smart contract reference book. On Advanced and Pro tiers, a critic subagent builds a proof-of-concept for every finding before it reaches your dashboard.',
   },
   {
     index: '02',

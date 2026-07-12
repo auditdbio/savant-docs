@@ -43,8 +43,11 @@ Dependency and build directories: `node_modules`, `target`, `dist`, `build`,
 
 ## Packaging script
 
-Save this as `savant-pack.sh` in your project root, adjust `INCLUDE_EXT` to
-your stack, then run `bash savant-pack.sh`:
+Save this as `savant-pack.sh` in your project root and adjust `INCLUDE_EXT` and
+`EXCLUDE_DIRS` to your stack — the exclude list prunes every directory with a
+matching name at any depth, so remove a name if that directory holds source you
+want audited (a Go package named `build/`, a `vendor/` tree in scope). Then run
+`bash savant-pack.sh`:
 
 ```bash
 #!/bin/bash
@@ -86,7 +89,7 @@ fi
 echo "Done: $ARCHIVE ($(find "$TARGET_DIR" -type f | wc -l) files)"
 ```
 
-Then upload `your-project-savant.zip` to [Savant Chat](https://savant.chat).
+Then upload the resulting `your-project-savant.zip` — or `your-project-savant.tar.gz` if `zip` isn't installed — to [Savant Chat](https://savant.chat).
 
 ## Scoping a monorepo
 

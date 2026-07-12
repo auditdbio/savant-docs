@@ -17,7 +17,7 @@ last_update:
 
 ## Quick Summary (TL;DR)
 
-AI-powered smart contract auditing uses multi-agent systems and large language models to detect vulnerabilities faster and more comprehensively than traditional methods. Savant Chat's sophisticated multi-agent architecture coordinates thousands of parallel AI calls across specialized models, analyzing code semantically rather than just syntactically. Our platform detects across 200+ vulnerability classes—each distilled from a real-world exploit—with proven detection rates on independent benchmarks and significantly lower false positive rates than traditional tools.
+AI-powered smart contract auditing uses multi-agent systems and large language models to detect vulnerabilities faster and more comprehensively than traditional methods. Savant Chat's sophisticated multi-agent architecture coordinates thousands of parallel AI calls across specialized models, analyzing code semantically rather than just syntactically. Our platform detects vulnerabilities across 200+ classes—each distilled from a real-world exploit—with proven detection rates on independent benchmarks and significantly lower false positive rates than traditional tools.
 
 {/* truncate */}
 
@@ -26,7 +26,7 @@ AI-powered smart contract auditing uses multi-agent systems and large language m
 - AI auditing detects vulnerabilities through semantic code analysis, not just pattern matching
 - Multi-agent AI systems can run thousands of specialized checks simultaneously
 - Savant Chat supports Solidity, Vyper, and Rust across Ethereum, Solana, and NEAR
-- 200+ vulnerability class coverage vs. 15-20 for free static analysis tools
+- 200+ vulnerability class coverage vs. 15–20 for free static analysis tools
 - Combined AI + human auditing provides the strongest security posture
 
 ## Introduction
@@ -80,12 +80,12 @@ Before understanding how AI improves security, it's important to recognize where
 - Extremely high false positive rates (developers learn to ignore warnings)
 - Misses novel and complex vulnerability types
 - No understanding of business logic or protocol economics
-- Covers only 15-20 common vulnerability patterns
+- Covers only 15–20 common vulnerability patterns
 - Requires extensive manual review and configuration
 
 **The reality:** Free tools are free for a reason. They provide a baseline check but are wholly insufficient for production security. Relying solely on free static analysis is like using a metal detector to secure Fort Knox—it might catch something obvious, but sophisticated threats sail right through.
 
-**Key insight:** The average smart contract has 3-5 vulnerabilities before deployment. Free tools catch some of them. Manual audits catch more. But neither approach is sufficient alone when millions of dollars are at stake.
+**Key insight:** The average smart contract has 3–5 vulnerabilities before deployment. Free tools catch some of them. Manual audits catch more. But neither approach is sufficient alone when millions of dollars are at stake.
 
 ## How AI-Powered Auditing Works Differently
 
@@ -123,7 +123,7 @@ Savant Chat doesn't use a single AI model. It employs a sophisticated multi-agen
 
 1. **Code Decomposition:** The system breaks down your smart contract into logical components—state variables, functions, modifiers, external calls, etc.
 
-2. **Parallel Agent Deployment:** Thousands of specialized AI agents analyze the code simultaneously:
+2. **Parallel Agent Deployment:** Hundreds of specialized AI agents — one per vulnerability class — analyze the code simultaneously, running thousands of LLM calls in parallel:
    - **Reentrancy Detection Agent:** Analyzes state changes before/after external calls
    - **Access Control Agent:** Verifies permission systems and privilege escalation risks
    - **Arithmetic Agent:** Checks for overflow/underflow, precision loss, division by zero
@@ -143,7 +143,7 @@ This approach allows Savant Chat to run what would be thousands of hours of manu
 
 ## Comprehensive Vulnerability Coverage: 200+ Classes
 
-One of Savant Chat's key differentiators is breadth of coverage. While traditional static analysis tools detect 15-20 common patterns, our multi-agent system classifies and detects across **200+ vulnerability classes**, each distilled from a real-world exploit.
+One of Savant Chat's key differentiators is breadth of coverage. While traditional static analysis tools detect 15–20 common patterns, our multi-agent system detects and classifies vulnerabilities across **200+ classes**, each distilled from a real-world exploit.
 
 This exhaustive classification system covers:
 
@@ -290,9 +290,9 @@ CTFBench is our open-methodology benchmark for smart contract security tools —
 
 **Savant Chat Performance:**
 
-- **Proven detection rates on independent benchmarks**
+- **87–95% accuracy on CTFBench** — the same number we publish on the homepage
 - **Outperforms** other AI auditors and advanced LLMs on comprehensive testing
-- **200+ vulnerability class coverage** vs. 15-20 for free tools
+- **200+ vulnerability class coverage** vs. 15–20 for free tools
 - **Significantly lower false positive rate** than traditional static analysis
 - **Validated** on real-world exploits and edge cases
 
@@ -307,7 +307,7 @@ CTFBench is our open-methodology benchmark for smart contract security tools —
 
 | Audit Type | Typical Duration | Vulnerability Coverage | Cost Range |
 |------------|------------------|------------------------|------------|
-| Free Static Analysis (Slither, etc.) | Minutes | 15-20 patterns | Free (insufficient alone) |
+| Free Static Analysis (Slither, etc.) | Minutes | 15–20 patterns | Free (insufficient alone) |
 | Manual Audit | 3–38 days | Depends on auditor | \$40K–\$100K |
 | AI-Powered Audit (Savant Chat) | Minutes | 200+ classes | ~1–3% of a manual audit |
 
@@ -315,7 +315,7 @@ CTFBench is our open-methodology benchmark for smart contract security tools —
 
 **Free Static Analysis Tools:**
 
-- ~15-20 common vulnerability patterns
+- ~15–20 common vulnerability patterns
 - High false positive rates
 - No semantic understanding
 - Misses complex and novel attacks
@@ -435,11 +435,11 @@ This hybrid approach provides the strongest security posture at a fraction of tr
 
 ### Q: How does AI-powered auditing compare to manual audits and free tools?
 
-**A:** Savant Chat outperforms free static analysis tools and other AI auditors on CTFBench, our open-methodology benchmark, and achieved 100% recall on the Crestal contest in an independent blind pilot. We detect across 200+ vulnerability classes vs. 15-20 for free tools like Slither. Manual audits vary by auditor expertise but typically catch 60-80% of vulnerabilities depending on time and budget constraints. No single approach is 100% effective, which is why we recommend the hybrid approach: AI for comprehensive automated detection + human auditors for complex business logic review.
+**A:** Savant Chat outperforms free static analysis tools and other AI auditors on CTFBench, our open-methodology benchmark, and achieved 100% recall on the Crestal contest in an independent blind pilot. We detect vulnerabilities across 200+ classes vs. 15–20 for free tools like Slither. Manual audits vary by auditor expertise but typically catch 60–80% of vulnerabilities depending on time and budget constraints. No single approach is 100% effective, which is why we recommend the hybrid approach: AI for comprehensive automated detection + human auditors for complex business logic review.
 
 ### Q: Why not just use free tools like Slither or Mythril?
 
-**A:** Free static analysis tools are useful as a first-pass screening but are designed as basic checks, not comprehensive security solutions. They cover only 15-20 common patterns, generate high false positive rates (leading developers to ignore warnings), and completely miss semantic bugs, complex attack vectors, and novel exploits. Relying solely on free tools for production security is extremely risky. Think of them as a smoke detector—useful, but not a complete fire prevention system.
+**A:** Free static analysis tools are useful as a first-pass screening but are designed as basic checks, not comprehensive security solutions. They cover only 15–20 common patterns, generate high false positive rates (leading developers to ignore warnings), and completely miss semantic bugs, complex attack vectors, and novel exploits. Relying solely on free tools for production security is extremely risky. Think of them as a smoke detector—useful, but not a complete fire prevention system.
 
 ### Q: Does AI auditing work for custom or unique smart contracts?
 
@@ -447,7 +447,7 @@ This hybrid approach provides the strongest security posture at a fraction of tr
 
 ### Q: What makes Savant Chat different from other AI auditors?
 
-**A:** Three key differentiators: (1) 200+ vulnerability class coverage vs. 15-20 patterns in free static analyzers, (2) multi-agent architecture where specialized AI models work in parallel rather than a single general model, and (3) extremely low false positive rates achieved through confidence scoring and cross-agent validation. This means we find more vulnerabilities with fewer false alarms.
+**A:** Three key differentiators: (1) 200+ vulnerability class coverage vs. 15–20 patterns in free static analyzers, (2) multi-agent architecture where specialized AI models work in parallel rather than a single general model, and (3) extremely low false positive rates achieved through confidence scoring and cross-agent validation. This means we find more vulnerabilities with fewer false alarms.
 
 ### Q: How does Savant Chat handle false positives?
 
@@ -506,12 +506,12 @@ For continuous security, integrate Savant Chat into your development pipeline. E
 
 ## Conclusion
 
-AI-powered smart contract auditing represents a fundamental shift in how we approach blockchain security. By using multi-agent systems to analyze code semantically rather than syntactically, and by covering 200+ vulnerability classes rather than just 15-20 common patterns, tools like Savant Chat can detect vulnerabilities that traditional methods miss—and do it in minutes rather than weeks.
+AI-powered smart contract auditing represents a fundamental shift in how we approach blockchain security. By using multi-agent systems to analyze code semantically rather than syntactically, and by covering 200+ vulnerability classes rather than just 15–20 common patterns, tools like Savant Chat can detect vulnerabilities that traditional methods miss—and do it in minutes rather than weeks.
 
 **Key takeaways:**
 
 - AI achieves proven detection rates on independent benchmarks with extremely low false positive rates
-- 200+ vulnerability class coverage vs. 15-20 for free static analysis tools
+- 200+ vulnerability class coverage vs. 15–20 for free static analysis tools
 - Multi-agent architecture enables comprehensive analysis across the entire threat landscape
 - AI excels at finding edge cases, logic errors, novel exploits, and subtle vulnerabilities
 - The hybrid approach (AI + human auditors) provides the strongest security
@@ -532,7 +532,7 @@ The question isn't whether to use AI auditing. It's whether you can afford not t
 
 ## About Savant Chat
 
-Savant Chat is an AI code auditor. Smart contracts are its flagship domain — automated vulnerability detection and comprehensive security analysis for blockchain projects, with CI-integrated audits on every commit. Using a sophisticated multi-agent AI system, Savant Chat detects across 200+ vulnerability classes, each distilled from a real-world exploit, while maintaining extremely low false positive rates.
+Savant Chat is an AI code auditor. Smart contracts are its flagship domain — automated vulnerability detection and comprehensive security analysis for blockchain projects, with CI-integrated audits on every commit. Using a sophisticated multi-agent AI system, Savant Chat detects vulnerabilities across 200+ classes, each distilled from a real-world exploit, while maintaining extremely low false positive rates.
 
 **Key features:**
 

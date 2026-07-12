@@ -38,7 +38,7 @@ describe('Docusaurus theme config', () => {
   it('uses the savant.chat site identity', () => {
     expect(config.title).toBe('Savant Chat — AI Code Auditor');
     expect(config.tagline).toBe(
-      'Smart contract audits first — and one language-agnostic engine for the ZK circuits, nodes, and code around them.',
+      'Smart contract audits first — and one language-agnostic engine for any code: ZK circuits, nodes, backends.',
     );
     expect(config.url).toBe('https://savant.chat');
   });

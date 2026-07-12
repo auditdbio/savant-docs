@@ -66,7 +66,7 @@ export default function Coverage(): ReactNode {
           Smart contracts are where we publish benchmarks and contest results.
           The engine underneath is language-agnostic — the same agents audit the
           node your chain runs on, the circuits your privacy depends on, and the
-          backend your keys touch.
+          backend that touches your keys.
         </p>
       </div>
       <div className={styles.flagship} data-testid="coverage-flagship">
@@ -118,7 +118,7 @@ export default function Coverage(): ReactNode {
         ))}
       </div>
       <p className={styles.caption}>
-        One language-agnostic engine behind every column.{' '}
+        The same engine behind every domain above.{' '}
         <Link to="/docs/supported-languages">See the full matrix and upload formats →</Link>
       </p>
     </section>

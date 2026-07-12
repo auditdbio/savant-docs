@@ -23,7 +23,7 @@ const languages = [
 export default function ScopeStrip(): ReactNode {
   return (
     <section className={styles.scopeStrip} data-testid="scope-strip">
-      <p className={styles.label}>EVERYTHING AROUND YOUR CONTRACTS</p>
+      <p className={styles.label}>YOUR CONTRACTS — AND EVERYTHING AROUND THEM</p>
       <div className={styles.domains} aria-label="Audit domains">
         {domains.map(domain => (
           <span className={styles.domain} data-testid="scope-domain" key={domain}>

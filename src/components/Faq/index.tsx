@@ -7,12 +7,12 @@ export const faqs = [
   {
     question: 'Can AI really audit a smart contract?',
     answer:
-      'Yes — for the 200+ vulnerability classes our multi-agent stack covers, with PoC validation on every finding on Advanced and Pro tiers. No — for novel economic designs where the auditor needs to reason about incentives and cross-protocol invariants. The right model is AI first, human second.',
+      'Yes — for the 200+ vulnerability classes our multi-agent stack covers, with PoC validation of every finding on Advanced and Pro tiers. No — for novel economic designs where the auditor needs to reason about incentives and cross-protocol invariants. The right model is AI first, human second.',
   },
   {
     question: 'Does Savant only audit smart contracts?',
     answer:
-      "No. Smart contracts are our first and best-proven domain — that's where our contest results and benchmarks live. But the engine underneath is language-agnostic: the same multi-agent pipeline audits ZK circuits, node and client software, and off-chain backends. If you're here for an EVM audit — that's still what we do most and prove best. See Supported Languages in our docs for the full matrix.",
+      "No. Smart contracts are our first and best-proven domain — that's where our contest results and benchmarks live. But the engine underneath is language-agnostic: the same multi-agent pipeline audits ZK circuits, node and client software, and off-chain backends. If you're here for an EVM audit, that's still what we do most — and prove best. See Supported Languages in our docs for the full matrix.",
   },
   {
     question: 'How is this different from Slither or Aderyn?',

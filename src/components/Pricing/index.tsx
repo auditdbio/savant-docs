@@ -93,7 +93,7 @@ export default function Pricing({signupUrl}: PricingProps): ReactNode {
         ))}
       </div>
       <p className={styles.tierNote}>
-        Account tiers: Basic $250/mo · Pro $2,500/mo · Enterprise — custom.
+        Account tiers: Basic $250/mo · Pro $2,500/mo · Enterprise custom.
       </p>
       <p className={styles.scopeNote} data-testid="pricing-scope-note">
         The per-line pricing above applies to any code — no quote needed.

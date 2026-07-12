@@ -32,7 +32,7 @@ function gitLastmod(file: string): string | null {
 const config = {
   title: 'Savant Chat — AI Code Auditor',
   tagline:
-    'Smart contract audits first — and one language-agnostic engine for the ZK circuits, nodes, and code around them.',
+    'Smart contract audits first — and one language-agnostic engine for any code: ZK circuits, nodes, backends.',
   favicon: 'img/savant-favicon.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

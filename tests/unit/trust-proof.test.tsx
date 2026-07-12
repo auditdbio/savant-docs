@@ -96,20 +96,20 @@ describe('trust logos and proof stats', () => {
     expect(screen.getAllByTestId('stat-card')).toHaveLength(6);
   });
 
-  test.each(['Top 6', '100%', '17.9%', '87–95%', '200+', '$75'])(
+  test.each(['Top-6', '100%', '17.9%', '87–95%', '200+', '$75'])(
     'renders the %s proof number',
     value => {
       expect(screen.getByTestId('proof-stats')).toHaveTextContent(value);
     },
   );
 
-  it('frames CTFBench as our open benchmark', () => {
+  it('frames CTFBench as our open smart-contract benchmark', () => {
     const ctfbenchCard = screen
       .getAllByTestId('stat-card')
       .find(card => card.textContent?.includes('CTFBench'));
 
     expect(ctfbenchCard).toBeDefined();
-    expect(ctfbenchCard).toHaveTextContent('our open benchmark');
+    expect(ctfbenchCard).toHaveTextContent('our open smart-contract benchmark');
     expect(ctfbenchCard).not.toHaveTextContent(/independent/i);
   });
 

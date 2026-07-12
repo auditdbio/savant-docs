@@ -36,7 +36,7 @@ describe('homepage hero', () => {
     const lead = screen.getByTestId('hero-lead');
 
     expect(lead).toHaveTextContent('Deeper than a scanner');
-    expect(lead).toHaveTextContent('Solidity, Vyper, and Rust');
+    expect(lead).toHaveTextContent('Solidity, Vyper, Rust');
   });
 
   it('renders the primary and secondary hero CTAs', () => {

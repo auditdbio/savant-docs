@@ -93,16 +93,16 @@ function HomepageHero({signupUrl}: {signupUrl: string}) {
       <div className={styles.heroInner}>
         <div className={styles.heroText}>
           <p className={styles.kicker} data-testid="hero-kicker">
-            AI SMART CONTRACT AUDITS · AND THE CODE AROUND THEM
+            AI SMART CONTRACT AUDITS — AND THE CODE AROUND THEM
           </p>
           <BalancedHeading as="h1" className={styles.title} data-testid="hero-title">
             {'Find Smart Contract Vulnerabilities Before Attackers Do'}
           </BalancedHeading>
           <p className={styles.lead} data-testid="hero-lead">
             Deeper than a scanner. Faster than a manual audit. AI security for
-            Solidity, Vyper, and Rust smart contracts — and for everything your
-            protocol depends on: the circuits, the node, the backend that
-            touches your keys.
+            smart contracts — Solidity, Vyper, Rust, or any other language — and
+            for everything your protocol depends on: the circuits, the node, the
+            backend that touches your keys.
           </p>
           <div className={styles.ctas} data-testid="hero-ctas">
             <Link
