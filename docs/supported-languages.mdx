@@ -26,7 +26,7 @@ results live — and the same pipeline audits everything else.
 
 | Domain | Languages & frameworks | Upload format |
 | ------ | ---------------------- | ------------- |
-| **Smart contracts** (flagship) | Solidity (Ethereum + EVM L2s), Vyper (Curve-style DeFi), Rust (Solana, NEAR / Anchor) | ZIP of the repo, or the [Foundry packaging script](/docs/howto-load-non-standard-projects-to-savant-chat) for non-standard setups |
+| **Smart contracts** (flagship) | Solidity (Ethereum + EVM L2s), Vyper (Curve-style DeFi), Rust (Solana / Anchor, NEAR) — and any other contract language: Move, Cairo, FunC, … | ZIP of the repo, or the [Foundry packaging script](/docs/howto-load-non-standard-projects-to-savant-chat) for non-standard setups |
 | **ZK circuits & cryptography** | Circom, Halo2, Noir, arkworks; cryptographic code in any language | ZIP — include circuits, constraint definitions, and the calling code ([packaging guide](/docs/prepare-any-codebase)) |
 | **Node clients & infrastructure** | Rust, Go, C++ | ZIP of the module or subsystem under audit ([packaging guide](/docs/prepare-any-codebase)) |
 | **Off-chain code** | TypeScript, Python, Go — backends, keepers, relayers, APIs | ZIP of the service ([packaging guide](/docs/prepare-any-codebase)) |

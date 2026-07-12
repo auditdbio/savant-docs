@@ -11,7 +11,7 @@ const proofStats = [
   {
     value: 'Top-6',
     label:
-      'in the Sherlock Symbiotic contest (Sep 2025) — placed against dozens of expert human auditors.',
+      'in the Sherlock Symbiotic contest (Sep 2025) — competing against dozens of expert human auditors.',
     sourceUrl:
       'https://www.globenewswire.com/news-release/2025/09/02/3143051/0/en/savant-chat-achieves-a-historic-top-6-ranking-in-the-sherlock-defi-audit-contest.html',
   },
@@ -30,7 +30,7 @@ const proofStats = [
   {
     value: '87–95%',
     label:
-      'accuracy on CTFBench, our open smart-contract benchmark (methodology published on ethresear.ch).',
+      'accuracy on CTFBench, our open smart contract benchmark (methodology published on ethresear.ch).',
     sourceUrl: 'https://github.com/auditdbio/ctfbench',
   },
   {

@@ -103,13 +103,13 @@ describe('trust logos and proof stats', () => {
     },
   );
 
-  it('frames CTFBench as our open smart-contract benchmark', () => {
+  it('frames CTFBench as our open smart contract benchmark', () => {
     const ctfbenchCard = screen
       .getAllByTestId('stat-card')
       .find(card => card.textContent?.includes('CTFBench'));
 
     expect(ctfbenchCard).toBeDefined();
-    expect(ctfbenchCard).toHaveTextContent('our open smart-contract benchmark');
+    expect(ctfbenchCard).toHaveTextContent('our open smart contract benchmark');
     expect(ctfbenchCard).not.toHaveTextContent(/independent/i);
   });
 

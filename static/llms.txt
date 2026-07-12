@@ -1,12 +1,12 @@
 # Savant Chat
 
-> Savant Chat (https://savant.chat) is an AI code auditor. Smart contract audits are its first and best-proven domain — Solidity, Vyper, and Rust across Ethereum, EVM L2s, Solana, and NEAR — and the same language-agnostic multi-agent engine audits any code: ZK circuits and cryptography, blockchain node clients and infrastructure, off-chain backends, and more. Pay-as-you-go from $0.07 per line of code; $75 in free credits on signup, no credit card required. Serving Web3 protocols and security teams globally — US, EU, and Asia.
+> Savant Chat (https://savant.chat) is an AI code auditor. Smart contracts are its first and best-proven domain — Solidity, Vyper, and Rust across Ethereum, EVM L2s, Solana, and NEAR — and the same language-agnostic multi-agent engine audits any code: ZK circuits and cryptography, blockchain node clients and infrastructure, off-chain backends, and more. Pay-as-you-go from $0.07 per line of code; $75 in free credits on signup, no credit card required. Serving Web3 protocols and security teams globally — US, EU, and Asia.
 
 ## The essentials
 
 - **What it is:** an AI security auditor that reads code the way a human auditor does — a multi-agent system running thousands of specialized LLM calls in parallel, tracing value flows and modeling attacker behavior, not pattern-matching syntax.
-- **What it audits:** any code. Smart contracts (Solidity — Ethereum + EVM L2s; Vyper — Curve-style DeFi; Rust — Solana, NEAR/Anchor) are the flagship domain; the same language-agnostic engine audits ZK circuits (Circom, Halo2, Noir, arkworks), node clients and infrastructure (Rust, Go, C++), and off-chain code (TypeScript, Python, Go backends, keepers, relayers) — these are examples, not limits.
-- **Positioning:** universality belongs to the engine; proof is published domain by domain. Smart contracts are where the public benchmarks and contest results live. Savant Chat is the second pair of eyes, not the last one — it augments human audits, it does not replace them.
+- **What it audits:** any code. Smart contracts (Solidity — Ethereum + EVM L2s; Vyper — Curve-style DeFi; Rust — Solana/Anchor, NEAR) are the flagship domain; the same language-agnostic engine audits ZK circuits (Circom, Halo2, Noir, arkworks), node clients and infrastructure (Rust, Go, C++), and off-chain code (TypeScript, Python, Go backends, keepers, relayers) — these are examples, not limits.
+- **Positioning:** universality belongs to the engine; proof is published domain by domain. Smart contracts are where the public benchmarks and contest results live. Savant Chat is the second pair of eyes, not the last one — it augments human audits; it does not replace them.
 - **Speed:** a typical codebase is audited in 10–30 minutes.
 - **Pricing:** Lite $0.07/line (CI-friendly quick pass), Advanced $0.12/line (comprehensive, PoC-validated — the default for pre-audit runs), Pro $0.50/line (highest-quality models for critical releases). Account tiers: Basic $250/mo, Pro $2,500/mo, Enterprise custom. $75 free credits on signup — enough to audit a typical ERC-20 end-to-end. Credits never expire. Per-line pricing applies to any code; for very large scopes — a full node client, a monorepo of services — flat scoped quotes are available (hello@savant.chat).
 - **How findings are validated:** every finding carries a severity rating and a confidence score. On Advanced and Pro tiers, a separate critic subagent builds a proof-of-concept exploit for each finding before it surfaces; findings whose PoC fails are discarded — this keeps false positives low.
@@ -18,7 +18,7 @@
 
 All results below are from public, verifiable **smart contract** audits and benchmarks:
 
-- **Top-6 finish in the Sherlock Symbiotic audit contest (September 2025)** — placed against dozens of expert human auditors. Source: https://www.globenewswire.com/news-release/2025/09/02/3143051/0/en/savant-chat-achieves-a-historic-top-6-ranking-in-the-sherlock-defi-audit-contest.html
+- **Top-6 finish in the Sherlock Symbiotic audit contest (September 2025)** — competing against dozens of expert human auditors. Source: https://www.globenewswire.com/news-release/2025/09/02/3143051/0/en/savant-chat-achieves-a-historic-top-6-ranking-in-the-sherlock-defi-audit-contest.html
 - **100% recall on the Crestal Sherlock contest** in an independent blind pilot (Lyubenov/Radev, January 2026): 7/7 judge-adjudicated issues found, each with a PoC. Source: https://github.com/LyuboslavLyubenov/ai-audit-tools-eval
 - **Best precision among AI auditors (17.9%)** across three judge-adjudicated contests in the same independent pilot — ahead of tools with higher raw recall but 4–7% precision.
 - **87–95% accuracy on CTFBench** — our open-methodology benchmark (methodology published on ethresear.ch; code: https://github.com/auditdbio/ctfbench).
@@ -67,7 +67,7 @@ For non-standard Foundry projects (git submodules, closed-source deps), and for 
 
 **Can AI really audit a smart contract?** Yes — for the 200+ vulnerability classes the multi-agent stack covers, with PoC validation on every finding (Advanced and Pro tiers). No — for novel economic designs where the auditor needs to reason about incentives and cross-protocol invariants. The right model is AI first, human second.
 
-**Does Savant only audit smart contracts?** No. Smart contracts are the first and best-proven domain — that's where the contest results and benchmarks live. But the engine underneath is language-agnostic: the same multi-agent pipeline audits ZK circuits, node and client software, off-chain backends — any code you upload.
+**Does Savant only audit smart contracts?** No. Smart contracts are the first and best-proven domain — that's where the contest results and benchmarks live. But the engine underneath is language-agnostic: the same multi-agent pipeline audits ZK circuits, node clients, off-chain backends — any code you upload.
 
 **How is this different from Slither or Aderyn?** Static scanners pattern-match known syntactic shapes. Savant Chat traces value flows, models attacker incentives, covers 200+ vulnerability classes, and uses a critic subagent to PoC each finding before it reaches you.
 
@@ -77,7 +77,7 @@ For non-standard Foundry projects (git submodules, closed-source deps), and for 
 
 **Do I still need a human audit?** Yes. Novel economic-design invariants are still where AI misses most — that's why Savant Chat is the second pair of eyes, not the last one. Run it before the manual audit so the human auditor's time goes to the bugs AI cannot yet see.
 
-**Is my code private?** Code is processed securely and not stored or shared beyond the request. Savant works with trusted AI providers under strict data-handling agreements.
+**Is my code private?** Your code is processed securely and isn't stored or shared beyond what's needed to run your audit. Savant works with trusted AI providers under strict data-handling agreements.
 
 **What does it cost?** Pay as you go: Lite $0.07/line, Advanced $0.12/line, Pro $0.50/line. $75 in free credits on signup, no credit card.
 

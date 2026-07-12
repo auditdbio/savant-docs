@@ -101,7 +101,7 @@ describe('pricing, FAQ, and final CTA sections', () => {
       .getAllByTestId('faq-item')
       .find(faqItem => faqItem.textContent?.includes('Is my code private?'));
 
-    expect(item).toHaveTextContent(/not stored/i);
+    expect(item).toHaveTextContent(/isn't stored or shared/i);
   });
 
   it('renders the final CTA section', () => {

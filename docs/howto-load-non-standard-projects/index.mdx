@@ -85,7 +85,7 @@ else
     exit 1
 fi
 
-echo "Done! The $TARGET_DIR directory has been created and archived in $ARCHIVE"
+echo "Done! The $TARGET_DIR directory has been created and archived as $ARCHIVE"
 ```
 
 To use the script:
@@ -94,7 +94,7 @@ To use the script:
 2. Make it executable with: `chmod +x savant-build.sh`
 3. Run it with: `./savant-build.sh`
 
-You'll get a `your-project-name-savant.zip` archive in your project folder with all dependencies included.
+You'll get a `your-project-name-savant.zip` archive (or `.tar.gz` if `zip` isn't installed) in your project folder with all dependencies included. Upload it to [Savant Chat](https://savant.chat) and run the audit.
 
 :::warning
 

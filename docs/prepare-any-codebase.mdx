@@ -39,7 +39,7 @@ instead — it preserves the layout Foundry needs.
 ## What to exclude
 
 Dependency and build directories: `node_modules`, `target`, `dist`, `build`,
-`vendor`, `.git`, test fixtures with large binary data.
+`vendor`, `.venv`, `.git`, test fixtures with large binary data.
 
 ## Packaging script
 
@@ -54,7 +54,7 @@ want audited (a Go package named `build/`, a `vendor/` tree in scope). Then run
 # Packages source files into <project>-savant.zip for a Savant Chat audit.
 
 INCLUDE_EXT="sol vy rs circom go cpp hpp c h ts tsx js py move cairo md txt toml"
-EXCLUDE_DIRS="node_modules target dist build vendor .git .github artifacts cache out"
+EXCLUDE_DIRS="node_modules target dist build vendor .git .github artifacts cache out .venv venv"
 
 DIR_NAME=$(basename "$(pwd)")
 TARGET_DIR="$DIR_NAME-savant"

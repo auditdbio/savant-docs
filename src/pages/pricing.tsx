@@ -83,7 +83,7 @@ export default function PricingPage(): ReactNode {
           <h1 className={styles.pageIntroTitle}>Smart Contract Audit Pricing</h1>
           <p className={styles.pageIntroLead}>
             The same transparent per-line pricing for every audit — smart
-            contracts first, and the code around them. You know the cost before
+            contracts first, then the code around them. You know the cost before
             you start: lines of code × tier rate. No sales calls for standard
             audits.
           </p>
@@ -95,7 +95,7 @@ export default function PricingPage(): ReactNode {
             <li>
               Every new account starts with <strong>$75 in free credits</strong> —
               enough to audit a typical ERC-20 end-to-end. No credit card
-              required, credits never expire.
+              required, and credits never expire.
             </li>
             <li>
               A typical smart contract audit completes in 10–30 minutes and

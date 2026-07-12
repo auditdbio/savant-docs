@@ -12,7 +12,7 @@ export const faqs = [
   {
     question: 'Does Savant only audit smart contracts?',
     answer:
-      "No. Smart contracts are our first and best-proven domain — that's where our contest results and benchmarks live. But the engine underneath is language-agnostic: the same multi-agent pipeline audits ZK circuits, node and client software, and off-chain backends. If you're here for an EVM audit, that's still what we do most — and prove best. See Supported Languages in our docs for the full matrix.",
+      "No. Smart contracts are our first and best-proven domain — that's where our contest results and benchmarks live. But the engine underneath is language-agnostic: the same multi-agent pipeline audits ZK circuits, node clients, off-chain backends — any code you upload. If you're here for an EVM audit, that's still what we do most — and prove best. See Supported Languages in our docs for the full matrix.",
   },
   {
     question: 'How is this different from Slither or Aderyn?',
@@ -37,7 +37,7 @@ export const faqs = [
   {
     question: 'Is my code private?',
     answer:
-      'Code is processed securely and not stored or shared beyond the request. We work with trusted AI providers under strict data-handling agreements.',
+      "Your code is processed securely and isn't stored or shared beyond what's needed to run your audit. We work with trusted AI providers under strict data-handling agreements.",
   },
   {
     question: 'What does it cost?',

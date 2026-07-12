@@ -25,7 +25,7 @@ AI-powered smart contract auditing uses multi-agent systems and large language m
 
 - AI auditing detects vulnerabilities through semantic code analysis, not just pattern matching
 - Multi-agent AI systems can run thousands of specialized checks simultaneously
-- Savant Chat supports Solidity, Vyper, and Rust across Ethereum, Solana, and NEAR
+- Savant Chat audits Solidity, Vyper, and Rust across Ethereum, EVM L2s, Solana, and NEAR — and any other language
 - 200+ vulnerability class coverage vs. 15–20 for free static analysis tools
 - Combined AI + human auditing provides the strongest security posture
 
@@ -85,7 +85,7 @@ Before understanding how AI improves security, it's important to recognize where
 
 **The reality:** Free tools are free for a reason. They provide a baseline check but are wholly insufficient for production security. Relying solely on free static analysis is like using a metal detector to secure Fort Knox—it might catch something obvious, but sophisticated threats sail right through.
 
-**Key insight:** The average smart contract has 3–5 vulnerabilities before deployment. Free tools catch some of them. Manual audits catch more. But neither approach is sufficient alone when millions of dollars are at stake.
+**Key insight:** Most contracts reach their first audit carrying real vulnerabilities. Free tools catch some of them. Manual audits catch more. But neither approach is sufficient alone when millions of dollars are at stake.
 
 ## How AI-Powered Auditing Works Differently
 
@@ -435,7 +435,7 @@ This hybrid approach provides the strongest security posture at a fraction of tr
 
 ### Q: How does AI-powered auditing compare to manual audits and free tools?
 
-**A:** Savant Chat outperforms free static analysis tools and other AI auditors on CTFBench, our open-methodology benchmark, and achieved 100% recall on the Crestal contest in an independent blind pilot. We detect vulnerabilities across 200+ classes vs. 15–20 for free tools like Slither. Manual audits vary by auditor expertise but typically catch 60–80% of vulnerabilities depending on time and budget constraints. No single approach is 100% effective, which is why we recommend the hybrid approach: AI for comprehensive automated detection + human auditors for complex business logic review.
+**A:** Savant Chat outperforms free static analysis tools and other AI auditors on CTFBench, our open-methodology benchmark, and achieved 100% recall on the Crestal contest in an independent blind pilot. We detect vulnerabilities across 200+ classes vs. 15–20 for free tools like Slither. Manual audit coverage varies widely with auditor expertise, time, and budget. No single approach is 100% effective, which is why we recommend the hybrid approach: AI for comprehensive automated detection + human auditors for complex business logic review.
 
 ### Q: Why not just use free tools like Slither or Mythril?
 
@@ -451,11 +451,11 @@ This hybrid approach provides the strongest security posture at a fraction of tr
 
 ### Q: How does Savant Chat handle false positives?
 
-**A:** Our multi-agent system includes confidence scoring. Each finding includes a severity rating and confidence level. Low-confidence findings can be filtered out, giving developers a clean signal-to-noise ratio. This is a massive improvement over free tools that generate warnings developers learn to ignore.
+**A:** Every finding carries a severity rating and a confidence score, so you can filter for signal. On the Advanced and Pro tiers, a separate critic subagent builds a proof-of-concept exploit for each finding before it surfaces — if the PoC fails, the finding is discarded. Pessimistic Security's verdict after testing: it "didn't produce a single clear false positive."
 
 ### Q: What languages and blockchains are supported?
 
-**A:** Savant Chat supports Solidity (Ethereum and EVM chains), Vyper (Curve and DeFi), and Rust (Solana and NEAR). Coverage includes all major smart contract platforms with the same 200+ vulnerability class taxonomy across all languages.
+**A:** Smart contracts first: Solidity (Ethereum and EVM L2s), Vyper (Curve-style DeFi), and Rust (Solana and NEAR), with the same 200+ vulnerability class taxonomy across all of them. The engine itself is language-agnostic — it audits any contract language (Move, Cairo, FunC, …) and the code around your contracts: ZK circuits, node clients, backends.
 
 ### Q: How long does an AI audit take?
 
@@ -537,7 +537,7 @@ Savant Chat is an AI code auditor. Smart contracts are its flagship domain — a
 **Key features:**
 
 - 200+ vulnerability class coverage, curated from a reference book of 20,000 real-world smart contract vulnerabilities
-- Support for Solidity, Vyper, and Rust across Ethereum, Solana, and NEAR
+- Solidity, Vyper, and Rust across Ethereum, EVM L2s, Solana, and NEAR — and any other language
 - CI/CD integration — audits on every commit via GitHub and GitLab
 - Multi-agent AI architecture with specialized detection agents
 - Proven detection rates on independent benchmarks

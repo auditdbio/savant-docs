@@ -43,7 +43,7 @@ const rows: ComparisonRow[] = [
     manual: 'n/a',
     auditAgent: '67% recall on EVMBench (post-validation)',
     octane: 'Monad contest #1 of 1,600',
-    savant: '87–95% CTFBench (our open benchmark); 100% recall on Crestal (judge-adjudicated)',
+    savant: '87–95% on CTFBench (our open benchmark); 100% recall on Crestal (judge-adjudicated)',
   },
   {
     criterion: 'False-positive reputation',
@@ -55,7 +55,7 @@ const rows: ComparisonRow[] = [
       'Critic subagent PoCs every finding; "didn’t produce a single clear false positive" — Pessimistic Security',
   },
   {
-    criterion: 'Multi-language',
+    criterion: 'Language support',
     slither: 'Solidity',
     manual: 'Varies',
     auditAgent: 'Solidity, some Solana, Starknet',
