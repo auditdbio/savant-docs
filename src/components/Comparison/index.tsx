@@ -60,7 +60,7 @@ const rows: ComparisonRow[] = [
     auditAgent: 'Solidity, some Solana, Starknet',
     octane: 'Language-agnostic',
     savant:
-      'Solidity + Vyper + Rust (smart contracts); ZK, node, and backend audits rolling out',
+      'Solidity + Vyper + Rust (smart contracts) — plus ZK, node, and backend audits on the same engine',
   },
   {
     criterion: 'CI/CD',

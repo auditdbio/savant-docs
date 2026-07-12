@@ -80,8 +80,11 @@ const config = {
           sidebarPath: './sidebars.ts',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          // Feeds route lastUpdatedAt from git so sitemap.xml gets <lastmod>
+          showLastUpdateTime: true,
         },
         blog: {
+          showLastUpdateTime: true,
           blogTitle: 'Blog',
           blogDescription:
             'Engineering notes from the Savant Chat team on AI code auditing, smart contract security, and vulnerability detection.',
@@ -98,6 +101,9 @@ const config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
+        },
+        pages: {
+          showLastUpdateTime: true,
         },
         sitemap: {
           lastmod: 'date',
