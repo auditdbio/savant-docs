@@ -51,7 +51,8 @@ const rows: ComparisonRow[] = [
     manual: 'Low (human-reviewed)',
     auditAgent: '75% FP reduction via validation phase',
     octane: 'Lower — validates every finding (vendor claim)',
-    savant: 'Critic subagent PoCs every finding; "didn’t produce a single clear false positive"',
+    savant:
+      'Critic subagent PoCs every finding; "didn’t produce a single clear false positive" — Pessimistic Security',
   },
   {
     criterion: 'Multi-language',

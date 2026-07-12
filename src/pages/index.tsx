@@ -134,11 +134,16 @@ export default function Home(): ReactNode {
   const {customFields} = siteConfig as SiteConfigWithSignup;
   const signupUrl = customFields?.signupUrl ?? 'https://savant.chat/dashboard/login';
 
+  const homeTitle = 'Savant Chat — AI Smart Contract Auditor';
+
   return (
     <Layout
-      title="AI Smart Contract Auditor"
       description="AI smart contract audits for Solidity, Vyper & Rust — and one language-agnostic engine for ZK circuits, nodes, and off-chain code. $75 free credits.">
+      {/* Standalone title: overrides the "| site title" suffix, which would
+          otherwise render the tautological "…Auditor | …Auditor". */}
       <Head>
+        <title>{homeTitle}</title>
+        <meta property="og:title" content={homeTitle} />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Head>
       <main>

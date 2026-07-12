@@ -1,3 +1,4 @@
+import {execSync} from 'node:child_process';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
@@ -9,6 +10,24 @@ import rehypeKatex from 'rehype-katex';
 // pathname:// keeps the app route out of the Docusaurus SPA router:
 // a plain '/dashboard/login' link would be client-side-routed to the docs 404.
 const signupUrl = 'pathname:///dashboard/login';
+
+// React pages (src/pages/*.tsx) don't get git-based lastmod from the pages
+// plugin, so their sitemap entries are dated from git history explicitly.
+const sitemapSourceFiles: Record<string, string> = {
+  'https://savant.chat/': 'src/pages/index.tsx',
+  'https://savant.chat/pricing/': 'src/pages/pricing.tsx',
+};
+
+function gitLastmod(file: string): string | null {
+  try {
+    const iso = execSync(`git log -1 --format=%cI -- ${file}`, {
+      encoding: 'utf8',
+    }).trim();
+    return iso ? iso.slice(0, 10) : null;
+  } catch {
+    return null;
+  }
+}
 
 const config = {
   title: 'Savant Chat — AI Code Auditor',
@@ -114,6 +133,14 @@ const config = {
             '/docs/tags/**',
             '/search/**',
           ],
+          createSitemapItems: async params => {
+            const items = await params.defaultCreateSitemapItems(params);
+            return items.map(item => {
+              const source = sitemapSourceFiles[item.url];
+              const lastmod = source ? gitLastmod(source) : null;
+              return lastmod ? {...item, lastmod} : item;
+            });
+          },
         },
         theme: {
           customCss: './src/css/custom.css',

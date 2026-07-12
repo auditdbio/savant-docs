@@ -80,13 +80,12 @@ export default function PricingPage(): ReactNode {
       </Head>
       <main>
         <section className={styles.pageIntro} data-testid="pricing-page-intro">
-          <h1 className={styles.pageIntroTitle}>
-            Pay as you go. Priced per line of code.
-          </h1>
+          <h1 className={styles.pageIntroTitle}>Smart Contract Audit Pricing</h1>
           <p className={styles.pageIntroLead}>
-            The same transparent pricing for every audit — smart contracts
-            first, and the code around them. Costs are known before you start:
-            lines of code × tier rate. No sales calls for standard audits.
+            The same transparent per-line pricing for every audit — smart
+            contracts first, and the code around them. Costs are known before
+            you start: lines of code × tier rate. No sales calls for standard
+            audits.
           </p>
         </section>
         <Pricing signupUrl={signupUrl} />
