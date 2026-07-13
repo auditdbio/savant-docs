@@ -107,7 +107,7 @@ function HomepageHero({signupUrl}: {signupUrl: string}) {
           <div className={styles.ctas} data-testid="hero-ctas">
             <Link
               className={`button button--primary ${styles.primaryCta}`}
-              to={signupUrl}>
+              to={signupUrl} target="_self">
               Start free — $75 in credits
             </Link>
             <Link
@@ -132,7 +132,7 @@ export default function Home(): ReactNode {
 
   const {siteConfig} = useDocusaurusContext();
   const {customFields} = siteConfig as SiteConfigWithSignup;
-  const signupUrl = customFields?.signupUrl ?? 'https://savant.chat/dashboard/login';
+  const signupUrl = customFields?.signupUrl ?? 'pathname:///dashboard/login';
 
   const homeTitle = 'Savant Chat — AI Smart Contract Auditor';
 

@@ -43,10 +43,10 @@ describe('Docusaurus theme config', () => {
     expect(config.url).toBe('https://savant.chat');
   });
 
-  it('uses the dashboard login signup URL', () => {
-    // Absolute URL: keeps the exact dashboard route out of the static site's
-    // trailing-slash rewriting (the dashboard app serves /dashboard/login).
-    expect(signupUrl).toBe('https://savant.chat/dashboard/login');
+  it('uses the dashboard login signup URL via pathname://', () => {
+    // pathname:// keeps the app route out of the Docusaurus SPA router and
+    // out of trailing-slash rewriting (the app serves /dashboard/login).
+    expect(signupUrl).toBe('pathname:///dashboard/login');
   });
 
   it('allows the temporary dashboard route to remain unresolved until the app exists', () => {
@@ -76,7 +76,7 @@ describe('Docusaurus theme config', () => {
     ).toBe(true);
   });
 
-  it('loads Archivo and IBM Plex Mono from Google Fonts css2', () => {
+  it('loads Geist and Geist Mono from Google Fonts css2', () => {
     expect(
       getHeadTags().some(tag => {
         const href = tag.attributes?.href ?? '';
@@ -85,8 +85,8 @@ describe('Docusaurus theme config', () => {
           tag.tagName === 'link' &&
           tag.attributes?.rel === 'stylesheet' &&
           href.includes('fonts.googleapis.com/css2') &&
-          href.includes('Archivo') &&
-          href.includes('IBM+Plex+Mono')
+          href.includes('Geist') &&
+          href.includes('Geist+Mono')
         );
       }),
     ).toBe(true);

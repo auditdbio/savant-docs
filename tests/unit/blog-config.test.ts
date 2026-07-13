@@ -18,8 +18,9 @@ describe('blog math configuration', () => {
     expect(hasDependency(name)).toBe(true);
   });
 
-  it('disables the docs plugin (landing + blog only)', () => {
-    expect(configSource).toMatch(/docs:\s*false/);
+  it('enables the docs plugin with the sidebar config', () => {
+    expect(configSource).toMatch(/docs:\s*\{/);
+    expect(configSource).toMatch(/sidebarPath:\s*'\.\/sidebars\.ts'/);
   });
 
   it('imports remark-math and rehype-katex for the blog', () => {

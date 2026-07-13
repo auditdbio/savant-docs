@@ -1,7 +1,8 @@
 import {render, screen, within} from '@testing-library/react';
 import Home from '../../src/pages';
 
-const signupUrl = 'https://savant.chat/dashboard/login';
+// The Link mock strips the pathname:// prefix, mirroring Docusaurus.
+const signupHref = '/dashboard/login';
 
 describe('pricing, FAQ, and final CTA sections', () => {
   beforeEach(() => {
@@ -45,7 +46,7 @@ describe('pricing, FAQ, and final CTA sections', () => {
       .find(item => item.textContent?.includes('Advanced'));
 
     expect(within(advanced as HTMLElement).getByRole('link', {name: /start free/i}))
-      .toHaveAttribute('href', signupUrl);
+      .toHaveAttribute('href', signupHref);
   });
 
   it('renders the account tier note', () => {
@@ -117,7 +118,7 @@ describe('pricing, FAQ, and final CTA sections', () => {
       within(screen.getByTestId('final-cta')).getByRole('link', {
         name: 'Start your first audit',
       }),
-    ).toHaveAttribute('href', signupUrl);
+    ).toHaveAttribute('href', signupHref);
   });
 
   it('orders testimonials before pricing before FAQ before final CTA', () => {

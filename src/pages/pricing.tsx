@@ -67,7 +67,7 @@ const pricingStructuredData = {
 export default function PricingPage(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   const {customFields} = siteConfig as SiteConfigWithSignup;
-  const signupUrl = customFields?.signupUrl ?? 'https://savant.chat/dashboard/login';
+  const signupUrl = customFields?.signupUrl ?? 'pathname:///dashboard/login';
 
   return (
     <Layout
