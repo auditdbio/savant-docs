@@ -13,6 +13,10 @@ export default defineUilintConfig({
         module: './uilint/scenarios/blog.ts',
         viewports: ['mobile', 'desktop', 'wide', 'widescreen'],
       },
+      pricing: {
+        module: './uilint/scenarios/pricing.ts',
+        viewports: ['mobile', 'desktop', 'wide', 'widescreen'],
+      },
     },
     viewports: {
       laptop: {width: 1280, height: 800},

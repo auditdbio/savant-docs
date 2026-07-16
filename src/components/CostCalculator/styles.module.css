@@ -1,0 +1,206 @@
+.calculator {
+  background: var(--site-bg-deep);
+  border-bottom: 1px solid var(--site-border);
+  border-top: 1px solid var(--site-border);
+  overflow-x: clip;
+  padding: 64px 56px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.inner {
+  /* Left-aligned to the shared x=56 content axis of adjacent sections;
+     960px keeps the two controls and three cards from stretching. */
+  margin: 0;
+  max-width: 960px;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.kicker {
+  color: var(--site-accent-text);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+[data-theme='dark'] .kicker {
+  color: var(--site-accent-text);
+}
+
+.title {
+  color: var(--site-text);
+  font-size: 44px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+}
+
+.subtitle {
+  color: var(--site-text-muted);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.controls {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.fieldLabel {
+  color: var(--site-text-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.input,
+.select {
+  appearance: none;
+  background: var(--site-surface);
+  border: 1px solid var(--site-border-strong, var(--site-border));
+  border-radius: 12px;
+  color: var(--site-text);
+  font-family: var(--ifm-font-family-base);
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 12px 16px;
+  width: 100%;
+}
+
+.input {
+  -moz-appearance: textfield;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--site-text-muted) 50%),
+    linear-gradient(135deg, var(--site-text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 21px) calc(50% - 2px),
+    calc(100% - 16px) calc(50% - 2px);
+  background-repeat: no-repeat;
+  background-size: 5px 5px, 5px 5px;
+  cursor: pointer;
+}
+
+.input:focus-visible,
+.select:focus-visible {
+  border-color: var(--site-accent);
+  outline: 2px solid rgba(255, 107, 0, .35);
+  outline-offset: 0;
+}
+
+.results {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.resultCard {
+  background: var(--site-surface);
+  border: 1px solid var(--site-border);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 24px;
+}
+
+.accentCard {
+  background: rgba(255, 107, 0, .06);
+  border-color: var(--site-accent);
+}
+
+.resultLabel {
+  color: var(--site-text-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.resultValue {
+  color: var(--site-text);
+  display: block;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.accentValue {
+  color: var(--site-accent-text, var(--site-accent));
+}
+
+[data-theme='dark'] .accentValue {
+  color: var(--site-accent);
+}
+
+.resultNote {
+  color: var(--site-text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* The orange tint lightens the card in light theme; muted gray drops below
+   4.5:1 there, so tinted cards use the stronger soft text token. */
+[data-theme='light'] .accentCard .resultLabel,
+[data-theme='light'] .accentCard .resultNote {
+  color: var(--site-text-soft);
+}
+
+.disclaimer {
+  color: var(--site-text-muted);
+  font-size: 12.5px;
+  font-family: var(--ifm-font-family-monospace);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .calculator {
+    padding: 48px 24px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .results {
+    grid-template-columns: 1fr;
+  }
+}

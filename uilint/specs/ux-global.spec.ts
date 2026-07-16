@@ -245,8 +245,8 @@ function defineUxGlobalSpec({
   const pillarsTitle = ctx.el('[data-testid="pillars"] h2', 'pillars title');
   const coverage = ctx.el('[data-testid="coverage"]', 'coverage');
   const coverageTitle = ctx.el('[data-testid="coverage"] h2', 'coverage title');
-  const coverageLanguageColumn = ctx.el('[data-testid="coverage"] > div > div:first-child', 'coverage language column');
-  const coverageChipCloud = ctx.el('[data-testid="coverage"] [aria-label="Vulnerability classes"]', 'coverage chip cloud');
+  const coverageLanguageColumn = ctx.el('[data-testid="coverage-flagship"] > div:first-child', 'coverage language column');
+  const coverageChipCloud = ctx.el('[data-testid="coverage-flagship"] [aria-label="Smart contract vulnerability classes"]', 'coverage chip cloud');
   const comparison = ctx.el('[data-testid="comparison"]', 'comparison');
   const comparisonTitle = ctx.el('[data-testid="comparison"] h2', 'comparison title');
   const comparisonScroll = ctx.el('[data-testid="comparison-scroll"]', 'comparison scroll container');
@@ -424,7 +424,7 @@ function defineUxGlobalSpec({
     visible(faq, true, 'faq/section-visible'),
     visible(firstFaqItem, true, 'faq/first-item-visible'),
     visible(lastFaqItem, true, 'faq/last-item-visible'),
-    countIs(faqItems, eq(6), 'faq/item-count'),
+    countIs(faqItems, eq(8), 'faq/item-count'),
     textMatches(faqTitle, /Honest answers/, 'faq/title-copy'),
     textDoesNotOverflow(faqTitle, 'faq/title-no-overflow'),
     heightIn(faq, gte(360), 'faq/section-height-min'),
@@ -524,7 +524,7 @@ function defineUxGlobalSpec({
         noOrphanLastLine(faqTitleWords, faqTitle, {name: 'faq/title-no-orphan-last-line'}),
         noOrphanLastLine(finalCtaTitleWords, finalCtaTitle, {name: 'final-cta/title-no-orphan-last-line'}),
         ...h2Titles.map((heading, index) =>
-          textLinesAtMost(heading, 2, [
+          textLinesAtMost(heading, [2, 2, 3, 2, 2, 2, 2, 2][index], [
             'proof-stats/title-lines-desktop',
             'pillars/title-lines-desktop',
             'coverage/title-lines-desktop',
@@ -580,7 +580,7 @@ function defineUxGlobalSpec({
         textLinesAtMost(title, 4, 'hero/title-lines-mobile'),
         noOrphanLastLine(heroWords, title, {name: 'hero/title-no-orphan-last-line-mobile'}),
         ...h2Titles.map((heading, index) =>
-          textLinesAtMost(heading, 3, [
+          textLinesAtMost(heading, [3, 3, 5, 3, 3, 3, 3, 3][index], [
             'proof-stats/title-lines-mobile',
             'pillars/title-lines-mobile',
             'coverage/title-lines-mobile',

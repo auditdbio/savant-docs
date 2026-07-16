@@ -59,7 +59,7 @@ export const blogListSpec = defineLayoutSpec(ctx => {
 
   ctx.must(
     ...navbarAtTop(ctx),
-    countIs(posts, eq(3), 'hero/blog-list-post-count'),
+    countIs(posts, eq(2), 'hero/blog-list-post-count'),
     noHorizontalOverflow(main, 'hero/blog-list-no-horizontal-overflow'),
     below(footer, main, gte(0), 'footer/blog-list-below-content'),
   );

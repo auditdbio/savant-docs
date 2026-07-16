@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
+import CostCalculator from '@site/src/components/CostCalculator';
 import Pricing from '@site/src/components/Pricing';
 import styles from './index.module.css';
 
@@ -89,6 +90,7 @@ export default function PricingPage(): ReactNode {
           </p>
         </section>
         <Pricing signupUrl={signupUrl} />
+        <CostCalculator />
         <section className={styles.pageIntro} data-testid="pricing-page-notes">
           <h2 className={styles.pageIntroSubtitle}>How billing works</h2>
           <ul className={styles.pageIntroList}>

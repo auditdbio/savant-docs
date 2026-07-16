@@ -12,6 +12,7 @@ const sections = [
   'comparison',
   'testimonials',
   'pricing',
+  'calculator',
   'faq',
   'final-cta',
   'footer',

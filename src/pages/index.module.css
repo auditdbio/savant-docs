@@ -39,7 +39,7 @@
   font-size: 56px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 1.12;
+  line-height: 1.28;
   margin: 0;
   max-width: 900px;
 }
@@ -225,7 +225,7 @@
 .pageIntroTitle {
   color: var(--site-text);
   font-size: 44px;
-  line-height: 1.08;
+  line-height: 1.28;
   margin: 0 0 16px;
   max-width: 720px;
 }

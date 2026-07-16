@@ -5,6 +5,7 @@ const cssFiles = [
   'src/css/custom.css',
   'src/pages/index.module.css',
   'src/components/Comparison/styles.module.css',
+  'src/components/CostCalculator/styles.module.css',
   'src/components/Coverage/styles.module.css',
   'src/components/Faq/styles.module.css',
   'src/components/FinalCta/styles.module.css',
