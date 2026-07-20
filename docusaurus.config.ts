@@ -29,6 +29,23 @@ function gitLastmod(file: string): string | null {
   }
 }
 
+// Docusaurus' showLastUpdateTime hard-errors ("outside any Git worktree") when
+// the build has no .git — e.g. building the container image from a vendored
+// submodule tree (gitlink) rather than a real clone. Detect a usable worktree
+// once and gate git-based lastmod on it: real dates in CI (git present),
+// gracefully disabled in the image build (no crash, no fake dates).
+const gitLastUpdate = (() => {
+  try {
+    execSync('git rev-parse --is-inside-work-tree', {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    return true;
+  } catch {
+    return false;
+  }
+})();
+
 const config = {
   title: 'Savant Chat — AI Code Auditor',
   tagline:
@@ -100,10 +117,10 @@ const config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           // Feeds route lastUpdatedAt from git so sitemap.xml gets <lastmod>
-          showLastUpdateTime: true,
+          showLastUpdateTime: gitLastUpdate,
         },
         blog: {
-          showLastUpdateTime: true,
+          showLastUpdateTime: gitLastUpdate,
           blogTitle: 'Blog',
           blogDescription:
             'Engineering notes from the Savant Chat team on AI code auditing, smart contract security, and vulnerability detection.',
@@ -122,10 +139,13 @@ const config = {
           onUntruncatedBlogPosts: 'warn',
         },
         pages: {
-          showLastUpdateTime: true,
+          showLastUpdateTime: gitLastUpdate,
         },
         sitemap: {
-          lastmod: 'date',
+          // 'date' makes the sitemap plugin read git per route; disable when
+          // there is no worktree (container build) so it does not hard-error.
+          // Explicit per-page lastmod is still added below via gitLastmod().
+          lastmod: gitLastUpdate ? 'date' : undefined,
           ignorePatterns: [
             '/blog/archive/**',
             '/blog/authors/**',
