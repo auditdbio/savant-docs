@@ -26,6 +26,22 @@ const tweets = [
     initials: 'VS',
     phrase: 'internal review',
   },
+  {
+    name: 'OXORIO',
+    handle: '@0xorio',
+    date: '14 Apr 2025',
+    href: 'https://x.com/0xorio/status/1911822312124330132',
+    initials: 'OX',
+    phrase: 'anything meaningful post-audit',
+  },
+  {
+    name: 'Petr Korolev',
+    handle: '@skywinder',
+    date: '27 Feb 2025',
+    href: 'https://x.com/skywinder/status/1895228438237061588',
+    initials: 'PK',
+    phrase: 'critical issue that many seasoned auditors overlooked',
+  },
 ];
 
 function renderHome() {
@@ -37,7 +53,7 @@ describe('testimonial tweet cards', () => {
   it('renders exactly three tweet cards', () => {
     render(<Home />);
 
-    expect(screen.queryAllByTestId('tweet-card')).toHaveLength(3);
+    expect(screen.queryAllByTestId('tweet-card')).toHaveLength(5);
   });
 
   test.each(tweets)('links the $name tweet card to the source X post', (tweet) => {
@@ -88,7 +104,7 @@ describe('testimonial tweet cards', () => {
   it('renders an X logo in every tweet header', () => {
     render(<Home />);
 
-    expect(screen.queryAllByTestId('tweet-x-logo')).toHaveLength(3);
+    expect(screen.queryAllByTestId('tweet-x-logo')).toHaveLength(5);
   });
 
   test.each(tweets)('preserves the $name quote phrase', (tweet) => {

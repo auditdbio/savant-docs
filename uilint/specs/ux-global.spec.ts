@@ -290,6 +290,9 @@ function defineUxGlobalSpec({
   const highlightedCoverageChip = ctx.el('[data-testid="coverage-chip"]:last-of-type', 'highlighted coverage chip');
   const comparisonRows = ctx.group('[data-testid="comparison-row"]', 'comparison rows');
   const tweetCards = ctx.group('[data-testid="tweet-card"]', 'testimonial tweet cards');
+  const firstRowTweetCards = ctx.group('[data-testid="tweet-card"]:nth-of-type(-n+3)', 'first-row tweet cards');
+  const fourthTweetCard = ctx.el('[data-testid="tweet-card"]:nth-of-type(4)', 'fourth tweet card');
+  const fifthTweetCard = ctx.el('[data-testid="tweet-card"]:nth-of-type(5)', 'fifth tweet card');
   const tweetTexts = ctx.group('[data-testid="tweet-text"]', 'testimonial tweet text');
   const tweetAvatars = ctx.group('[data-testid="tweet-avatar"]', 'testimonial tweet avatars');
   const firstTweetCard = ctx.el('[data-testid="tweet-card"]:nth-of-type(1)', 'first tweet card');
@@ -385,7 +388,7 @@ function defineUxGlobalSpec({
     colorDistance(primaryCta, primaryCta, gte(MIN_TEXT_BG_DISTANCE), undefined, 'hero/primary-cta-contrast'),
     countIs(statCards, eq(6), 'proof-stats/card-count'),
     countIs(pillarCards, eq(3), 'pillars/card-count'),
-    countIs(tweetCards, eq(3), 'testimonials/card-count'),
+    countIs(tweetCards, eq(5), 'testimonials/card-count'),
     countIs(pricingCards, eq(3), 'pricing/card-count'),
     textMatches(proofStats, /87–95%/, 'proof-stats/ctfbench-accuracy-copy'),
     textMatches(firstPillarTitle, /Deeper than a scanner/, 'pillars/first-card-title-copy'),
@@ -556,8 +559,12 @@ function defineUxGlobalSpec({
         widthMatches(thirdPillarCard, firstPillarCard, {tolerance: 0.05}, 'pillars/third-card-width-match-desktop'),
         alignedHorizontallyTop(pillarCards, 2, 'pillars/card-grid-top-aligned-desktop'),
         alignedHorizEqualGap(pillarCards, 4, 'pillars/card-grid-equal-gap-desktop'),
-        alignedHorizontallyTop(tweetCards, 2, 'testimonials/cards-top-aligned-desktop'),
-        alignedHorizEqualGap(tweetCards, 4, 'testimonials/tweet-grid-equal-gap-desktop'),
+        alignedHorizontallyTop(firstRowTweetCards, 2, 'testimonials/cards-top-aligned-desktop'),
+        alignedHorizEqualGap(firstRowTweetCards, 4, 'testimonials/tweet-grid-equal-gap-desktop'),
+        below(fourthTweetCard, firstTweetCard, gte(0), 'testimonials/second-row-below-first-desktop'),
+        alignedHorizontallyTop([fourthTweetCard, fifthTweetCard], 2, 'testimonials/second-row-top-aligned-desktop'),
+        widthMatches(fourthTweetCard, firstTweetCard, {tolerance: 0.05}, 'testimonials/fourth-card-width-match-desktop'),
+        widthMatches(fifthTweetCard, firstTweetCard, {tolerance: 0.05}, 'testimonials/fifth-card-width-match-desktop'),
         widthMatches(secondTweetCard, firstTweetCard, {tolerance: 0.05}, 'testimonials/second-card-width-match-desktop'),
         widthMatches(thirdTweetCard, firstTweetCard, {tolerance: 0.05}, 'testimonials/third-card-width-match-desktop'),
         widthMatches(secondPricingCard, firstPricingCard, {tolerance: 0.05}, 'pricing/second-card-width-match-desktop'),

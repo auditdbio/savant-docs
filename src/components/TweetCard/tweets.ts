@@ -56,4 +56,34 @@ export const tweets: TweetCardData[] = [
       },
     ],
   },
+  {
+    name: 'OXORIO',
+    handle: '@0xorio',
+    date: '14 Apr 2025',
+    href: 'https://x.com/0xorio/status/1911822312124330132',
+    initials: 'OX',
+    text: [
+      {text: 'We recently tested '},
+      {text: '@savantchat', accent: true},
+      {
+        text:
+          ' — an AI-powered auditing tool — on a real DeFi project (~3k SLOC), previously audited by multiple top firms. The question: can AI surface anything meaningful post-audit? Spoiler: it can. And it made us rethink how automation can augment human…',
+      },
+    ],
+  },
+  {
+    name: 'Petr Korolev',
+    handle: '@skywinder',
+    date: '27 Feb 2025',
+    href: 'https://x.com/skywinder/status/1895228438237061588',
+    initials: 'PK',
+    text: [
+      {text: 'I just put '},
+      {text: 'savant.chat', accent: true},
+      {
+        text:
+          ' to the test on a complex contract — and wow, what a game-changer! It uncovered a critical issue that many seasoned auditors overlooked, proving its ability to boost audit quality. This tool is set to redefine smart contract security!',
+      },
+    ],
+  },
 ];
