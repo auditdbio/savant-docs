@@ -3,14 +3,6 @@ import Home from '../../src/pages';
 
 const tweets = [
   {
-    name: 'Pessimistic Security',
-    handle: '@pessimistic_io',
-    date: '5 Mar 2025',
-    href: 'https://x.com/pessimistic_io/status/1897264142308008089',
-    initials: 'PS',
-    phrase: 'single clear false positive',
-  },
-  {
     name: '1inch',
     handle: '@1inch',
     date: '1 Jul 2025',
@@ -25,6 +17,14 @@ const tweets = [
     href: 'https://x.com/_vshapovalov/status/1976320011850612884',
     initials: 'VS',
     phrase: 'internal review',
+  },
+  {
+    name: 'Pessimistic Security',
+    handle: '@pessimistic_io',
+    date: '5 Mar 2025',
+    href: 'https://x.com/pessimistic_io/status/1897264142308008089',
+    initials: 'PS',
+    phrase: 'single clear false positive',
   },
   {
     name: 'OXORIO',

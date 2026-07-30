@@ -14,19 +14,6 @@ export type TweetCardData = {
 
 export const tweets: TweetCardData[] = [
   {
-    name: 'Pessimistic Security',
-    handle: '@pessimistic_io',
-    date: '5 Mar 2025',
-    href: 'https://x.com/pessimistic_io/status/1897264142308008089',
-    initials: 'PS',
-    text: [
-      {
-        text:
-          "We recently tested savant.chat and were pleasantly surprised! It correctly identified several findings on our test contract and didn't produce a single clear false positive. This is the first genuinely useful security tool we've come across in quite a while.",
-      },
-    ],
-  },
-  {
     name: '1inch',
     handle: '@1inch',
     date: '1 Jul 2025',
@@ -53,6 +40,19 @@ export const tweets: TweetCardData[] = [
       {
         text:
           " does a great job of filtering false positives while finding issues. It's not an audit replacement — as faster, cheaper tool its place in developer pipeline is closer to an internal review or a heavier linter run.",
+      },
+    ],
+  },
+  {
+    name: 'Pessimistic Security',
+    handle: '@pessimistic_io',
+    date: '5 Mar 2025',
+    href: 'https://x.com/pessimistic_io/status/1897264142308008089',
+    initials: 'PS',
+    text: [
+      {
+        text:
+          "We recently tested savant.chat and were pleasantly surprised! It correctly identified several findings on our test contract and didn't produce a single clear false positive. This is the first genuinely useful security tool we've come across in quite a while.",
       },
     ],
   },

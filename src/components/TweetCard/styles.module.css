@@ -90,3 +90,10 @@
 .accent {
   color: var(--site-accent-text);
 }
+
+@media screen and (max-width: 996px) {
+  /* Single-column stack: equal-height cards would only add empty space. */
+  .card {
+    min-height: 0;
+  }
+}

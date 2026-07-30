@@ -30,10 +30,10 @@ Security teams and protocols including 1inch, Lido, Pessimistic Security, OXORIO
 
 What they say:
 
-- Pessimistic Security: "We recently tested savant.chat and were pleasantly surprised! It correctly identified several findings on our test contract and didn't produce a single clear false positive."
-- OXORIO: "Can AI surface anything meaningful post-audit? Spoiler: it can. And it made us rethink how automation can augment human…"
 - 1inch: "1inch is evaluating @savantchat, aiming to catch and fix issues early — in development, not in production — in minutes, not days — at a fraction of the cost of a human audit — finding errors humans overlook."
 - Vasiliy Shapovalov (Lido): "[Savant Chat] does a great job of filtering false positives while finding issues."
+- Pessimistic Security: "We recently tested savant.chat and were pleasantly surprised! It correctly identified several findings on our test contract and didn't produce a single clear false positive."
+- OXORIO: "Can AI surface anything meaningful post-audit? Spoiler: it can. And it made us rethink how automation can augment human…"
 - Petr Korolev (@skywinder): "It uncovered a critical issue that many seasoned auditors overlooked, proving its ability to boost audit quality."
 
 ## Getting started
