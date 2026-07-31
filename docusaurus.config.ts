@@ -70,7 +70,7 @@ const config = {
     signupUrl,
   },
 
-  // Makes the navbar "Start free" CTA auth-aware (swaps to "Go to dashboard" when the
+  // Makes the navbar CTA auth-aware (swaps to "Go to dashboard" when the
   // visitor has a live session). Runs client-side only; SSG keeps the signed-out default.
   clientModules: [require.resolve('./src/clientModules/authCta.ts')],
 
@@ -206,7 +206,7 @@ const config = {
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           to: signupUrl,
-          label: 'Start free',
+          label: 'Sign in',
           position: 'right',
           className: 'navbar-cta',
           target: '_self',

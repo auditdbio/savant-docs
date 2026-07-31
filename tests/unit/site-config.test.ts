@@ -121,7 +121,7 @@ describe('savant.chat navbar config', () => {
     expect(
       navbarItems.some(
         item =>
-          item.label === 'Start free' &&
+          item.label === 'Sign in' &&
           item.to === signupUrl &&
           item.className?.split(/\s+/).includes('navbar-cta'),
       ),

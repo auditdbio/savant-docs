@@ -41,11 +41,11 @@ describe('navbar config', () => {
     expect(navbarItems.some(item => item.label === label && item.to === to)).toBe(true);
   });
 
-  it('includes the Start free CTA item', () => {
+  it('includes the Sign in CTA item', () => {
     expect(
       navbarItems.some(
         item =>
-          item.label === 'Start free' &&
+          item.label === 'Sign in' &&
           item.to === config.customFields?.signupUrl &&
           item.className?.split(/\s+/).includes('navbar-cta'),
       ),

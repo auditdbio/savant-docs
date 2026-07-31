@@ -1,6 +1,6 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
-// Make the navbar "Start free" CTA auth-aware. The docs, the app (/dashboard) and the API
+// Make the navbar CTA auth-aware. The docs, the app (/dashboard) and the API
 // (/api) share one origin, and the session cookie is HttpOnly (not JS-readable), so we detect
 // sign-in with a credentialed same-origin GET /api/v1/me (200 = authed, else anonymous).
 //
@@ -11,7 +11,7 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 const AUTHED_LABEL = 'Go to dashboard';
 const AUTHED_HREF = '/dashboard';
-const ANON_LABEL = 'Start free';
+const ANON_LABEL = 'Sign in';
 const ANON_HREF = '/dashboard/login';
 const HINT_KEY = 'savant_authed';
 
