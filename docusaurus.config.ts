@@ -97,6 +97,26 @@ const config = {
         href: 'https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap',
       },
     },
+    // Matomo (self-hosted) — ported from the legacy site (siteId 2).
+    // disableCookies keeps the cookie policy's "no analytics cookies" promise
+    // true and removes any consent-banner requirement.
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['disableCookies']);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+        var u="//analytics.savant.chat/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+      `,
+    },
   ],
 
   organizationName: 'auditdbio',

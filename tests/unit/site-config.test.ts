@@ -3,6 +3,7 @@ import config from '../../docusaurus.config';
 type HeadTag = {
   tagName?: string;
   attributes?: Record<string, string>;
+  innerHTML?: string;
 };
 
 type NavbarItem = {
@@ -74,6 +75,18 @@ describe('Docusaurus theme config', () => {
           tag.attributes?.href === 'https://fonts.googleapis.com',
       ),
     ).toBe(true);
+  });
+
+  it('embeds the self-hosted Matomo snippet without analytics cookies', () => {
+    const matomoTag = getHeadTags().find(
+      tag => tag.tagName === 'script' && (tag.innerHTML ?? '').includes('matomo.js'),
+    );
+
+    expect(matomoTag).toBeDefined();
+    expect(matomoTag?.innerHTML).toContain('//analytics.savant.chat/');
+    expect(matomoTag?.innerHTML).toContain("_paq.push(['setSiteId', '2'])");
+    // Keeps the cookie policy's "no analytics cookies" promise true.
+    expect(matomoTag?.innerHTML).toContain("_paq.push(['disableCookies'])");
   });
 
   it('loads Geist and Geist Mono from Google Fonts css2', () => {
