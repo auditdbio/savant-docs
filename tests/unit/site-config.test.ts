@@ -152,7 +152,7 @@ describe('savant.chat footer config', () => {
   });
 
   it.each([
-    ['GitHub', 'https://github.com/auditdbio'],
+    ['GitHub', 'https://github.com/savantchat'],
     ['X', 'https://x.com/savantchat'],
     ['Privacy', '/privacy-policy/'],
     ['Terms', '/terms-of-service/'],

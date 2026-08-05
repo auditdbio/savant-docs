@@ -119,7 +119,7 @@ const config = {
     },
   ],
 
-  organizationName: 'auditdbio',
+  organizationName: 'savantchat',
   projectName: 'savant-docs',
 
   onBrokenLinks: 'warn',
@@ -248,9 +248,9 @@ const config = {
         {
           title: 'RESOURCES',
           items: [
-            {label: 'GitHub', href: 'https://github.com/auditdbio'},
+            {label: 'GitHub', href: 'https://github.com/savantchat'},
             {label: 'X', href: 'https://x.com/savantchat'},
-            {label: 'CTFBench', href: 'https://github.com/auditdbio/ctfbench'},
+            {label: 'CTFBench', href: 'https://github.com/savantchat/ctfbench'},
           ],
         },
         {
