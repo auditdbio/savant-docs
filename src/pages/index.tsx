@@ -48,7 +48,7 @@ const structuredData = {
       legalName: 'Novel Codes DMCC',
       url: 'https://savant.chat/',
       logo: 'https://savant.chat/img/savant-logo-512.png',
-      sameAs: ['https://x.com/savantchat', 'https://github.com/auditdbio'],
+      sameAs: ['https://x.com/savantchat', 'https://github.com/savantchat'],
       description:
         'AI code auditor. Smart contract audits for Solidity, Vyper, Rust, and any other contract language — and one language-agnostic engine for any code: ZK circuits, blockchain nodes, off-chain services.',
     },

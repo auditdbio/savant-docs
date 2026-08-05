@@ -31,7 +31,7 @@ const proofStats = [
     value: '87–95%',
     label:
       'accuracy on CTFBench, our open smart contract benchmark (methodology published on ethresear.ch).',
-    sourceUrl: 'https://github.com/auditdbio/ctfbench',
+    sourceUrl: 'https://github.com/savantchat/ctfbench',
   },
   {
     value: '200+',
