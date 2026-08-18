@@ -8,8 +8,8 @@ import rehypeKatex from 'rehype-katex';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 // pathname:// keeps the app route out of the Docusaurus SPA router:
-// a plain '/dashboard/login' link would be client-side-routed to the docs 404.
-const signupUrl = 'pathname:///dashboard/login';
+// a plain '/dashboard/auth?mode=register' link would be client-side-routed to the docs 404.
+const signupUrl = 'pathname:///dashboard/auth?mode=register';
 
 // React pages (src/pages/*.tsx) don't get git-based lastmod from the pages
 // plugin, so their sitemap entries are dated from git history explicitly.

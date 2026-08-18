@@ -38,7 +38,7 @@ What they say:
 
 ## Getting started
 
-1. Sign up at https://savant.chat/dashboard/login — $75 free credits, no card required.
+1. Sign up at https://savant.chat/dashboard/auth?mode=register — $75 free credits, no card required.
 2. Upload your project as a ZIP archive (GitHub → Code → Download ZIP) or connect a repository.
 3. Pick a tier (Lite / Advanced / Pro) and run the audit.
 4. Read severity-ranked, confidence-scored findings in 10–30 minutes — on Advanced and Pro tiers they are PoC-validated, and the report is exportable.

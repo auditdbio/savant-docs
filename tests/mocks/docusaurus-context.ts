@@ -4,7 +4,7 @@ export default function useDocusaurusContext() {
       title: 'Savant Chat — AI Smart Contract Auditor',
       tagline: 'Find Smart Contract Vulnerabilities Before Attackers Do',
       customFields: {
-        signupUrl: 'pathname:///dashboard/login',
+        signupUrl: 'pathname:///dashboard/auth?mode=register',
       },
     },
   };

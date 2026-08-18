@@ -46,8 +46,8 @@ describe('Docusaurus theme config', () => {
 
   it('uses the dashboard login signup URL via pathname://', () => {
     // pathname:// keeps the app route out of the Docusaurus SPA router and
-    // out of trailing-slash rewriting (the app serves /dashboard/login).
-    expect(signupUrl).toBe('pathname:///dashboard/login');
+    // out of trailing-slash rewriting (the app serves /dashboard/auth?mode=register).
+    expect(signupUrl).toBe('pathname:///dashboard/auth?mode=register');
   });
 
   it('allows the temporary dashboard route to remain unresolved until the app exists', () => {

@@ -12,7 +12,7 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 const AUTHED_LABEL = 'Go to dashboard';
 const AUTHED_HREF = '/dashboard';
 const ANON_LABEL = 'Start free';
-const ANON_HREF = '/dashboard/login';
+const ANON_HREF = '/dashboard/auth?mode=register';
 const HINT_KEY = 'savant_authed';
 
 function applyCta(authed: boolean): void {

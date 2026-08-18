@@ -68,7 +68,7 @@ const pricingStructuredData = {
 export default function PricingPage(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   const {customFields} = siteConfig as SiteConfigWithSignup;
-  const signupUrl = customFields?.signupUrl ?? 'pathname:///dashboard/login';
+  const signupUrl = customFields?.signupUrl ?? 'pathname:///dashboard/auth?mode=register';
 
   return (
     <Layout

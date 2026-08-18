@@ -43,7 +43,7 @@ describe('homepage hero', () => {
     const ctas = within(screen.getByTestId('hero-ctas'));
 
     expect(ctas.getByRole('link', {name: 'Start free — $75 in credits'}))
-      .toHaveAttribute('href', '/dashboard/login');
+      .toHaveAttribute('href', '/dashboard/auth?mode=register');
     expect(ctas.getByRole('link', {name: 'See pricing'})).toHaveAttribute('href', '/#pricing');
   });
 

@@ -17,7 +17,7 @@
 | Оранжевый текст на тёмном | `#FF8A33` | `--flame-400` |
 | Focus ring | `rgba(255,107,0,.28)`, 3px | `--shadow-focus` |
 | Логотип | `logo_short.svg`: знак `#47115F` + `#FE9900` + контур `#020202` | static/img |
-| Signup URL | `/dashboard/login` (через `siteConfig.customFields.signupUrl`) | HeroCTAButtons |
+| Signup URL | `/dashboard/auth?mode=register` (через `siteConfig.customFields.signupUrl`) | HeroCTAButtons |
 
 Паттерны использования: hero = фиолетовый band с белым текстом;
 primary-CTA **внутри hero** = белая кнопка с фиолетовым текстом; вне hero = flame-кнопка с ink-текстом;

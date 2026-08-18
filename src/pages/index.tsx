@@ -132,7 +132,7 @@ export default function Home(): ReactNode {
 
   const {siteConfig} = useDocusaurusContext();
   const {customFields} = siteConfig as SiteConfigWithSignup;
-  const signupUrl = customFields?.signupUrl ?? 'pathname:///dashboard/login';
+  const signupUrl = customFields?.signupUrl ?? 'pathname:///dashboard/auth?mode=register';
 
   const homeTitle = 'Savant Chat — AI Smart Contract Auditor';
 

@@ -2,7 +2,7 @@ import {render, screen, within} from '@testing-library/react';
 import Home from '../../src/pages';
 
 // The Link mock strips the pathname:// prefix, mirroring Docusaurus.
-const signupHref = '/dashboard/login';
+const signupHref = '/dashboard/auth?mode=register';
 
 describe('pricing, FAQ, and final CTA sections', () => {
   beforeEach(() => {
